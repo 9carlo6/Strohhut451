@@ -101,13 +101,18 @@ public class PlayerController : MonoBehaviour
           transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
         }
 
-        //per gestire l'animazione
+        //velocityX e velocityZ servono per gestire l'animazione
+        //il loro valore cambia in base al movimento del personaggio.
+        //Vector3.Dot serve per fare il prodotto tra due vettori, moltiplicandolo poi per il coseno dell'angolo fra i due.
+        //In particolare per velocityZ abbiamo currentMovement (ovvero la direzione del personaggio) e transform.forward (che restituisce un valore positivo
+        //se il personaggio si muove in avanti, negativo altrimenti)
+        //Per velocityX è la stessa cosa ma per il movimento laterale.
         handleAnimation();
-        velocityX = Vector3.Dot(currentMovement.normalized, transform.right);
         velocityZ = Vector3.Dot(currentMovement.normalized, transform.forward);
+        velocityX = Vector3.Dot(currentMovement.normalized, transform.right);
 
-        animator.SetFloat("VelocityX", velocityX, 0.1f, Time.deltaTime);
         animator.SetFloat("VelocityZ", velocityZ, 0.1f, Time.deltaTime);
+        animator.SetFloat("VelocityX", velocityX, 0.1f, Time.deltaTime);
 
     }
 
