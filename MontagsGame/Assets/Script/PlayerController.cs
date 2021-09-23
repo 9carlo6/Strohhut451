@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
         //nuovo sistema di input
         //per poter far muovere il personaggio
         characterController.Move(currentMovement * Time.deltaTime * moveSpeed);
-        Debug.Log("A = (" + currentMovement.x + ", " + currentMovement.z + ")");
+        //Debug.Log("A = (" + currentMovement.x + ", " + currentMovement.z + ")");
 
         //Da qui parte il codice per controllare la rotazione con il movimento del mouse
         Ray cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
