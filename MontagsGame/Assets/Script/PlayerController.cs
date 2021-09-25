@@ -40,8 +40,12 @@ public class PlayerController : MonoBehaviour
       characterController = GetComponent<CharacterController>();
       animator = GetComponent<Animator>();
 
+      //ascolta quando il giocatore inizia a utilizzare l'azione Move
       playerInput.CharacterControls.Move.started += onMovementInput;
+      //ascolta quando il giocatore rilascia i tasti
       playerInput.CharacterControls.Move.canceled += onMovementInput;
+      //questa serve nel momento in cui si controlla il personaggio con il joystick 
+      //perchè il valore in questo caso non è solo 0 o 1 (ma modellato fra questi due)
       playerInput.CharacterControls.Move.performed += onMovementInput;
     }
 
@@ -65,6 +69,7 @@ public class PlayerController : MonoBehaviour
     {
       //Prende i parametri dall'animator
       bool isWalking = animator.GetBool("isWalking");
+      //isRunning ancora non utilizzato
       bool isRunning = animator.GetBool("isRunning");
 
       if(isMovementPressed && !isWalking) {
@@ -85,10 +90,11 @@ public class PlayerController : MonoBehaviour
         //nuovo sistema di input
         //per poter far muovere il personaggio
         characterController.Move(currentMovement * Time.deltaTime * moveSpeed);
-        Debug.Log("A = (" + currentMovement.x + ", " + currentMovement.z + ")");
+        //Debug.Log("A = (" + currentMovement.x + ", " + currentMovement.z + ")");
 
         //Da qui parte il codice per controllare la rotazione con il movimento del mouse
         Ray cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
+        //Resulting plane has normal inNormal and goes through a point inPoint.
         Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
         float rayLength;
         if(groundPlane.Raycast(cameraRay, out rayLength))
