@@ -13,12 +13,7 @@ public class EnemyController : MonoBehaviour
 
     //variabili utilizzare per salvare informazioni relative al movimento del nemico
     Vector3 currentPosition;
-    Vector3 currentMovementDirection;
     bool isMoving;
-
-    //queste due variabili servono per modificare l'animazione in base alla direzione in cui si muove il nemico
-    float velocityXEnemy = 0.0f;
-    float velocityZEnemy = 0.0f;
 
     void Awake()
     {
@@ -47,11 +42,6 @@ public class EnemyController : MonoBehaviour
             animator.SetBool("isWalkingEnemy", false);
         }
 
-        velocityZEnemy = Vector3.Dot(currentMovementDirection, transform.forward);
-        velocityXEnemy = Vector3.Dot(currentMovementDirection, transform.right);
-
-        animator.SetFloat("VelocityZEnemy", velocityZEnemy, 5f, Time.deltaTime);
-        animator.SetFloat("VelocityXEnemy", velocityXEnemy, 5f, Time.deltaTime);
 
     }
 
@@ -62,7 +52,6 @@ public class EnemyController : MonoBehaviour
         if(transform.position != currentPosition)
         {
             isMoving = true;
-            currentMovementDirection = (currentPosition - transform.position).normalized;
         }
         else
         {
