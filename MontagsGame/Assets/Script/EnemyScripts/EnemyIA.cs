@@ -117,7 +117,7 @@ public class EnemyIA : MonoBehaviour
         //Ruotiamo il nemico agendo sulla rotation 
         //Creiamo una rotazione che va ad interpolare  tra il primo quaternione (primo parametro)
         //ed il secondo quaternione(lookRotation) ina base al valore del paramentro t (Time.deltaTime * 5f)
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 1f);
 
     }
 
