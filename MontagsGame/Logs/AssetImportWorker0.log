@@ -15,11 +15,11 @@ C:/Users/pcarl/Desktop/Caturano/MontagsGame/MontagsGame
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-1046
+30886
 Successfully changed project path to: C:/Users/pcarl/Desktop/Caturano/MontagsGame/MontagsGame
 C:/Users/pcarl/Desktop/Caturano/MontagsGame/MontagsGame
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 38.36 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 26.95 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.2.7f1 (c53830e277f1)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/Resources/UnitySubsystems
@@ -35,441 +35,956 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56896
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56824
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.002251 seconds.
+Registered in 0.002084 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 35.75 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 26.38 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  4.761 seconds
+- Completed reload, in  3.938 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.001067 seconds.
+Registered in 0.000750 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 29.74 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 29.25 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.210 seconds
+- Completed reload, in  0.951 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
-Refreshing native plugins compatible for Editor in 0.32 ms, found 0 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1417 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 67.4 MB.
-System memory in use after: 67.5 MB.
+Unloading 1419 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 67.6 MB.
+System memory in use after: 67.7 MB.
 
-Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 1862.
-Total: 2.306800 ms (FindLiveObjects: 0.228300 ms CreateObjectMapping: 0.225100 ms MarkObjects: 1.786600 ms  DeleteObjects: 0.065600 ms)
-
-========================================================================
-Received Import Request.
-  path: Assets/Scenes/Main.unity
-  artifactKey: Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Main.unity using Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '71709d93d0a628f6e076908bff9d7531') in 0.020553 seconds
-  Import took 0.024121 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000904 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.59 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.328 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.65 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1413 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 67.5 MB.
-System memory in use after: 67.6 MB.
-
-Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1867.
-Total: 2.261900 ms (FindLiveObjects: 0.215800 ms CreateObjectMapping: 0.122500 ms MarkObjects: 1.895400 ms  DeleteObjects: 0.026500 ms)
+Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 1864.
+Total: 2.046400 ms (FindLiveObjects: 0.182700 ms CreateObjectMapping: 0.060500 ms MarkObjects: 1.703700 ms  DeleteObjects: 0.098600 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 193.849185 seconds.
-  path: Assets/Scenes/Main.unity
-  artifactKey: Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Main.unity using Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0dc2614e1f1ad66cc473f135f447b0d3') in 0.018276 seconds
-  Import took 0.021386 seconds .
+  path: Assets/Character/PlayerInput 1.inputactions
+  artifactKey: Guid(cccbe6304b7889a4e81550647fc6c44f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/PlayerInput 1.inputactions using Guid(cccbe6304b7889a4e81550647fc6c44f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bb13e9d98161ee1b9388569b72b36f49') in 0.044905 seconds
+  Import took 0.048851 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.011911 seconds.
-  path: Assets/Scenes/Main.unity
-  artifactKey: Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Main.unity using Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0dc2614e1f1ad66cc473f135f447b0d3') in 0.015311 seconds
-  Import took 0.022562 seconds .
+  Time since last request: 0.000295 seconds.
+  path: Assets/Character/Astronauta.fbx
+  artifactKey: Guid(be6ae669441096e44a4743e5506f78ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Astronauta.fbx using Guid(be6ae669441096e44a4743e5506f78ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b9cfc64c1848f3aff09923c631d79edb') in 0.284436 seconds
+  Import took 0.288693 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 4.777450 seconds.
-  path: Assets/Enemies/WayPoints.prefab
-  artifactKey: Guid(52ec11c9b68a9a34e8017d6acdb46869) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Enemies/WayPoints.prefab using Guid(52ec11c9b68a9a34e8017d6acdb46869) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '49ea15936ae40f19e750c88b795ceb6e') in 0.044856 seconds
-  Import took 0.048338 seconds .
+  Time since last request: 9.919085 seconds.
+  path: Assets/Enemies
+  artifactKey: Guid(0e8e06b65c5668b4aa75a903e9740cb4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies using Guid(0e8e06b65c5668b4aa75a903e9740cb4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f24c5cd1c91fc0c85ca0309ab33db63') in 0.009364 seconds
+  Import took 0.013564 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 10.764634 seconds.
-  path: Assets/Prefabs/Astronauta.prefab
-  artifactKey: Guid(cb4d85c6fcaf9f54bb16f5fa842c5ad7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Astronauta.prefab using Guid(cb4d85c6fcaf9f54bb16f5fa842c5ad7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e40e332c1b84d2f21fd18c323ad54fc') in 0.584264 seconds
-  Import took 0.593394 seconds .
+  Time since last request: 10.060669 seconds.
+  path: Assets/Enemies/EnemiesAnimations
+  artifactKey: Guid(fe9f6b1c1d7be9848b5d0b33580766e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations using Guid(fe9f6b1c1d7be9848b5d0b33580766e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '408e4e3732bfc01404907ecf0e2e386b') in 0.008974 seconds
+  Import took 0.012704 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 173.594219 seconds.
+  path: Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Idle.fbx
+  artifactKey: Guid(dcf43bcbc76f5ef4eafcff159c306561) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Idle.fbx using Guid(dcf43bcbc76f5ef4eafcff159c306561) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '628a09d7cc229512c98384e2f275871b') in 0.175621 seconds
+  Import took 0.179292 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 14.066045 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PirateIdle.fbx
+  artifactKey: Guid(dcf43bcbc76f5ef4eafcff159c306561) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PirateIdle.fbx using Guid(dcf43bcbc76f5ef4eafcff159c306561) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '354ec927581afbdac020377e8f36d8a0') in 0.054307 seconds
+  Import took 0.058095 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.121601 seconds.
+  path: Assets/Enemies/EnemiesAnimations/mixamo.com.anim
+  artifactKey: Guid(e8f456f5d7a8f4e4a8ee1509147c7a82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/mixamo.com.anim using Guid(e8f456f5d7a8f4e4a8ee1509147c7a82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af5fca54c61f2255e04dbd069b1765b9') in 0.012291 seconds
+  Import took 0.015753 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000773 seconds.
+  path: Assets/Enemies/EnemiesAnimations/mixamo.com.anim
+  artifactKey: Guid(e8f456f5d7a8f4e4a8ee1509147c7a82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/mixamo.com.anim using Guid(e8f456f5d7a8f4e4a8ee1509147c7a82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af5fca54c61f2255e04dbd069b1765b9') in 0.004529 seconds
+  Import took 0.008984 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.900735 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PirateIdle.anim
+  artifactKey: Guid(e8f456f5d7a8f4e4a8ee1509147c7a82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PirateIdle.anim using Guid(e8f456f5d7a8f4e4a8ee1509147c7a82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e1b221187f749a2e7b9ac9447a1ab13f') in 0.004703 seconds
+  Import took 0.008356 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 17.296411 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PirateIdle.fbx
+  artifactKey: Guid(dcf43bcbc76f5ef4eafcff159c306561) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PirateIdle.fbx using Guid(dcf43bcbc76f5ef4eafcff159c306561) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e4faa66fe23c673a09aaeb00dcea14a') in 0.136070 seconds
+  Import took 0.195565 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 17.163083 seconds.
+  path: Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Idle.fbx
+  artifactKey: Guid(ace8663c01974584687628112afc5dfc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Idle.fbx using Guid(ace8663c01974584687628112afc5dfc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4a9707721f13e5aba1ae4e728d4e581') in 0.046462 seconds
+  Import took 0.050564 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.768511 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PirateIdle.fbx
+  artifactKey: Guid(ace8663c01974584687628112afc5dfc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PirateIdle.fbx using Guid(ace8663c01974584687628112afc5dfc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f7b841768959646580cd43d4c444c930') in 0.050665 seconds
+  Import took 0.055710 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.919403 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PirateIdle.fbx
+  artifactKey: Guid(ace8663c01974584687628112afc5dfc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PirateIdle.fbx using Guid(ace8663c01974584687628112afc5dfc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3064f376b111ebf87081448b72db5b42') in 0.036971 seconds
+  Import took 0.040448 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 21.544860 seconds.
+  path: Assets/PlayerAnimations/MiraCorrendo.fbx
+  artifactKey: Guid(0e8ddc2f595267e4090d5df06f0c4460) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlayerAnimations/MiraCorrendo.fbx using Guid(0e8ddc2f595267e4090d5df06f0c4460) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '02ec19cbf3921fa2a15ba281cf45cce7') in 0.114597 seconds
+  Import took 0.119690 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000249 seconds.
+  path: Assets/PlayerAnimations/MiraDaFermo.fbx
+  artifactKey: Guid(258e7b6da1684214487d140c1250a5d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlayerAnimations/MiraDaFermo.fbx using Guid(258e7b6da1684214487d140c1250a5d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf4a554118b7e0be6ab839c1bbf94ffd') in 0.104462 seconds
+  Import took 0.108526 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000236 seconds.
+  path: Assets/PlayerAnimations/MiraCorrendoIndietro.fbx
+  artifactKey: Guid(0a096b1d3e59ef947aa83042d6efd294) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlayerAnimations/MiraCorrendoIndietro.fbx using Guid(0a096b1d3e59ef947aa83042d6efd294) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9b302130809b3adf0dc2dc46711708e') in 0.100348 seconds
+  Import took 0.104956 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000217 seconds.
+  path: Assets/PlayerAnimations/MiraCorrendoSinistra.fbx
+  artifactKey: Guid(254cea0a7bcde604fae30367eea30153) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlayerAnimations/MiraCorrendoSinistra.fbx using Guid(254cea0a7bcde604fae30367eea30153) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47233fae939799e06cc2e375c6b65347') in 0.094277 seconds
+  Import took 0.098386 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000192 seconds.
+  path: Assets/PlayerAnimations/MiraCorrendoDestra.fbx
+  artifactKey: Guid(fb540dea89180a743bde3541a4efc0d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlayerAnimations/MiraCorrendoDestra.fbx using Guid(fb540dea89180a743bde3541a4efc0d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1925c47acb66931717df7219be5b91ff') in 0.096527 seconds
+  Import took 0.100690 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 34.191014 seconds.
+  path: Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Idle.fbx
+  artifactKey: Guid(f97870dd5b985d545bcf65943368b969) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Idle.fbx using Guid(f97870dd5b985d545bcf65943368b969) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea0bc586a99c65b11f8239f176e1fd7a') in 0.035637 seconds
+  Import took 0.039672 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 19.520822 seconds.
+  path: Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Idle.fbx
+  artifactKey: Guid(f97870dd5b985d545bcf65943368b969) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Idle.fbx using Guid(f97870dd5b985d545bcf65943368b969) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a687a1fca6b9e246134ab8723a5765f5') in 0.046962 seconds
+  Import took 0.050973 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 27.460792 seconds.
+  path: Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Idle.fbx
+  artifactKey: Guid(f97870dd5b985d545bcf65943368b969) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Idle.fbx using Guid(f97870dd5b985d545bcf65943368b969) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b64aad1d03ee30f65ae7165b1755bda8') in 0.060885 seconds
+  Import took 0.065132 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 58.479524 seconds.
+  path: Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Idle.fbx
+  artifactKey: Guid(f97870dd5b985d545bcf65943368b969) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Idle.fbx using Guid(f97870dd5b985d545bcf65943368b969) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ae12af8f9312e19dc92b01dc68e142a5') in 0.048316 seconds
+  Import took 0.052570 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 51.684817 seconds.
+  path: Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Idle 1.fbx
+  artifactKey: Guid(23547e1a47897204397fd3134900695b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Idle 1.fbx using Guid(23547e1a47897204397fd3134900695b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a84324c55ed28fb097453416c6353d5') in 0.040671 seconds
+  Import took 0.046003 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 139.491367 seconds.
+  path: Assets/Enemies/EnemiesAnimations/Ch48_nonPBR@Pistol Walk.fbx
+  artifactKey: Guid(1ff11cb2abdd32645b23bea48406d41d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/Ch48_nonPBR@Pistol Walk.fbx using Guid(1ff11cb2abdd32645b23bea48406d41d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df726fb74c474f63f59283a6921adbbb') in 0.138857 seconds
+  Import took 0.146235 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 111.095130 seconds.
+  path: Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Idle 1.fbx
+  artifactKey: Guid(23547e1a47897204397fd3134900695b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Idle 1.fbx using Guid(23547e1a47897204397fd3134900695b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a30b37148ec4664d46fb3c4f0db84b5d') in 0.069711 seconds
+  Import took 0.074615 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 28.066109 seconds.
+  path: Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Idle 1.fbx
+  artifactKey: Guid(23547e1a47897204397fd3134900695b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Idle 1.fbx using Guid(23547e1a47897204397fd3134900695b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b487aa8bde996ea48e7a1523d2f6829') in 0.044605 seconds
+  Import took 0.049655 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 56.499051 seconds.
+  path: Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Walk (1).fbx
+  artifactKey: Guid(f6521fd645b3e81419dd33dbac5a011d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Walk (1).fbx using Guid(f6521fd645b3e81419dd33dbac5a011d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a54e5a09854a1c70830728c870c68072') in 0.054487 seconds
+  Import took 0.058074 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.174819 seconds.
+  path: Assets/Character/Materials/Ch48_1001_Diffuse.mat
+  artifactKey: Guid(df3d2de812eda1340a9f77f76fc4f22a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Materials/Ch48_1001_Diffuse.mat using Guid(df3d2de812eda1340a9f77f76fc4f22a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '523b593368058503e1209c0642350795') in 0.041483 seconds
+  Import took 0.044774 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000193 seconds.
+  path: Assets/Character/Materials/Ch48_1002_Diffuse.mat
+  artifactKey: Guid(9b84dcf45df79d74280e556cbafb824d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Materials/Ch48_1002_Diffuse.mat using Guid(9b84dcf45df79d74280e556cbafb824d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b6c8fc8b3ba157e3442a6fbe8f110f0') in 0.030494 seconds
+  Import took 0.033425 seconds .
 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000205 seconds.
-  path: Assets/Prefabs/Bullet.prefab
-  artifactKey: Guid(1d66b04521af0d844bce12d2657ddd20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Bullet.prefab using Guid(1d66b04521af0d844bce12d2657ddd20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a473a0bdb0d19f7b52e84e0ba5e85a75') in 0.031169 seconds
-  Import took 0.034164 seconds .
+  path: Assets/Character/Materials/Ch48_1003_Diffuse.mat
+  artifactKey: Guid(0a9e9160c8318b84785d36168387f42e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/Materials/Ch48_1003_Diffuse.mat using Guid(0a9e9160c8318b84785d36168387f42e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '51ab2013ea85fd90da22fa908a52b814') in 0.021006 seconds
+  Import took 0.026430 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000334 seconds.
-  path: Assets/Prefabs/Enemy.prefab
-  artifactKey: Guid(1db7fb49ca6a55947bacf29ae101feb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Enemy.prefab using Guid(1db7fb49ca6a55947bacf29ae101feb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5131f1d8fcaec1599f4430e9550dc96f') in 0.045564 seconds
-  Import took 0.048663 seconds .
+  Time since last request: 3.300785 seconds.
+  path: Assets/Sci Fi Gun Light/_materials/GunTwo/GunTwoBlack.mat
+  artifactKey: Guid(a501bb00c34251540a7cffaba4f07182) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sci Fi Gun Light/_materials/GunTwo/GunTwoBlack.mat using Guid(a501bb00c34251540a7cffaba4f07182) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a106efdfb7f123b63d7b0a3fdd4877fe') in 0.363382 seconds
+  Import took 0.367458 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000180 seconds.
-  path: Assets/Prefabs/EnemySample.prefab
-  artifactKey: Guid(0d389fe2b95fd734697dcf4cd8fa2952) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EnemySample.prefab using Guid(0d389fe2b95fd734697dcf4cd8fa2952) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44153ea14cf9706b52e75a1409787874') in 0.020780 seconds
-  Import took 0.023987 seconds .
+  Time since last request: 0.000221 seconds.
+  path: Assets/Sci Fi Gun Light/_materials/GunTwo/GunTwoYellow.mat
+  artifactKey: Guid(cbf658ed14edc5a4987f28f0eb9160ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sci Fi Gun Light/_materials/GunTwo/GunTwoYellow.mat using Guid(cbf658ed14edc5a4987f28f0eb9160ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e09239aae564e329dd25cd236baa8928') in 0.072151 seconds
+  Import took 0.075612 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 11.190736 seconds.
-  path: Assets/Levels/ProvaLivello.prefab
-  artifactKey: Guid(9e1b876787b50c14b809c36bb8f51257) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Levels/ProvaLivello.prefab using Guid(9e1b876787b50c14b809c36bb8f51257) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f1f0722cbb1bda7abd12b50aeb8715c') in 0.012547 seconds
-  Import took 0.016018 seconds .
+  Time since last request: 0.000226 seconds.
+  path: Assets/Sci Fi Gun Light/_materials/GunTwo/GunTwoWhite.mat
+  artifactKey: Guid(f59d38d7fdabd3048a6eec44cfa5365f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sci Fi Gun Light/_materials/GunTwo/GunTwoWhite.mat using Guid(f59d38d7fdabd3048a6eec44cfa5365f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b553c4f0817c7556d28fce2991963203') in 0.069305 seconds
+  Import took 0.073408 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.368109 seconds.
-  path: Assets/Materials/Bullet.mat
-  artifactKey: Guid(8961acbaee13210429a72c099ccd6b7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Bullet.mat using Guid(8961acbaee13210429a72c099ccd6b7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '250f608823d450bd2a08e8e14a479c0e') in 0.031528 seconds
-  Import took 0.035289 seconds .
+  Time since last request: 0.000209 seconds.
+  path: Assets/Sci Fi Gun Light/_materials/GunTwo/GunTwoBlue.mat
+  artifactKey: Guid(5c7176cef124e1a4793b448ed91b74e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sci Fi Gun Light/_materials/GunTwo/GunTwoBlue.mat using Guid(5c7176cef124e1a4793b448ed91b74e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b32a7f002095d522e449190a612b00da') in 0.084324 seconds
+  Import took 0.088251 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000251 seconds.
-  path: Assets/Materials/Green.mat
-  artifactKey: Guid(f625c0273645ce947bcbfb91921fa216) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Green.mat using Guid(f625c0273645ce947bcbfb91921fa216) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '160a40028b60fc7cd7683440c0b04ae3') in 0.020388 seconds
-  Import took 0.024160 seconds .
+  Time since last request: 0.000330 seconds.
+  path: Assets/Sci Fi Gun Light/_materials/GunTwo/GunTwoRad.mat
+  artifactKey: Guid(9cadc8c5021163743861056c6e0fb83a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sci Fi Gun Light/_materials/GunTwo/GunTwoRad.mat using Guid(9cadc8c5021163743861056c6e0fb83a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '308dd6834f323e0f9ae6ed978ac1fad4') in 0.075751 seconds
+  Import took 0.079564 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000123 seconds.
-  path: Assets/Materials/Enemy Skin.mat
-  artifactKey: Guid(3c94c1fb55102d842971ff70c7cdbdc9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Enemy Skin.mat using Guid(3c94c1fb55102d842971ff70c7cdbdc9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0347c6bb2388e7a241699f8d775c6d78') in 0.026637 seconds
-  Import took 0.030562 seconds .
+  Time since last request: 98.007163 seconds.
+  path: Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Idle 1.fbx
+  artifactKey: Guid(23547e1a47897204397fd3134900695b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Idle 1.fbx using Guid(23547e1a47897204397fd3134900695b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8dc5609c27563b88ca0e95fd6592ab18') in 0.056902 seconds
+  Import took 0.063086 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000266 seconds.
-  path: Assets/Materials/WallSampleColor.mat
-  artifactKey: Guid(57b71cf9daa46ba428e9b1c928d3f7f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/WallSampleColor.mat using Guid(57b71cf9daa46ba428e9b1c928d3f7f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b589626c40c504085c464095b8dea174') in 0.021427 seconds
-  Import took 0.025075 seconds .
+  Time since last request: 7.656920 seconds.
+  path: Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Idle 1.fbx
+  artifactKey: Guid(23547e1a47897204397fd3134900695b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Idle 1.fbx using Guid(23547e1a47897204397fd3134900695b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f6a7ea0627771f157ef41ee9699418b1') in 0.114561 seconds
+  Import took 0.121235 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000186 seconds.
-  path: Assets/Materials/Player Skin.mat
-  artifactKey: Guid(8cdd6a3ee19edb34688f4246d1333400) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Player Skin.mat using Guid(8cdd6a3ee19edb34688f4246d1333400) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '202413a96acd2ea5fc86efc80f561a32') in 0.019416 seconds
-  Import took 0.022354 seconds .
+  Time since last request: 35.687181 seconds.
+  path: Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Idle 1.fbx
+  artifactKey: Guid(23547e1a47897204397fd3134900695b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Idle 1.fbx using Guid(23547e1a47897204397fd3134900695b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '79766472838992c339424ff0488fa36b') in 0.035929 seconds
+  Import took 0.040091 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000190 seconds.
-  path: Assets/Materials/Red.mat
-  artifactKey: Guid(eeff031b8f6267948b5594a74b13293c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Red.mat using Guid(eeff031b8f6267948b5594a74b13293c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fdec7dfe6c7b4057b263d01c5b1bfa54') in 0.021259 seconds
-  Import took 0.031041 seconds .
+  Time since last request: 79.909486 seconds.
+  path: Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Idle 1.fbx
+  artifactKey: Guid(23547e1a47897204397fd3134900695b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Idle 1.fbx using Guid(23547e1a47897204397fd3134900695b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9477fd52056c40b30f76f5c30e786edb') in 0.036963 seconds
+  Import took 0.040727 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000102 seconds.
-  path: Assets/Materials/Grey.mat
-  artifactKey: Guid(bc74018ef4f465944931d5548e6bb366) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Grey.mat using Guid(bc74018ef4f465944931d5548e6bb366) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b87479658b6b3c11a3c86b58e71849f') in 0.027200 seconds
-  Import took 0.032745 seconds .
+  Time since last request: 12.924966 seconds.
+  path: Assets/Enemies/EnemiesAnimations/Pistol Idle 1.anim
+  artifactKey: Guid(4b3250d85cd9a1c4cbf5ab4eff315d5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/Pistol Idle 1.anim using Guid(4b3250d85cd9a1c4cbf5ab4eff315d5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8148c5ab011ba3caeb9192be7bb2008') in 0.020550 seconds
+  Import took 0.023798 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 46.946023 seconds.
-  path: Assets/Script/EnemyScripts
-  artifactKey: Guid(9d699a7230f9004429f71c671b6ebb2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Script/EnemyScripts using Guid(9d699a7230f9004429f71c671b6ebb2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd08c19f497a3a2b9386171ae154b6d6b') in 0.010941 seconds
-  Import took 0.014480 seconds .
+  Time since last request: 14.024289 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PirateIdle.fbx
+  artifactKey: Guid(23547e1a47897204397fd3134900695b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PirateIdle.fbx using Guid(23547e1a47897204397fd3134900695b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c41b0cbefec1a656f1f3832fee21ae82') in 0.053988 seconds
+  Import took 0.058412 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 3.798522 seconds.
-  path: Assets/Script/EnemyScripts/FieldOfViewEditor.cs
-  artifactKey: Guid(574b59890b0b96d4b9f6f74f71cd6a64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Script/EnemyScripts/FieldOfViewEditor.cs using Guid(574b59890b0b96d4b9f6f74f71cd6a64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '911f18c92954419dbb420bf9c79879a8') in 0.011040 seconds
-  Import took 0.014709 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.698716 seconds.
-  path: Assets/Script/EnemyScripts/FieldOfViewEditor.cs
-  artifactKey: Guid(574b59890b0b96d4b9f6f74f71cd6a64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Script/EnemyScripts/FieldOfViewEditor.cs using Guid(574b59890b0b96d4b9f6f74f71cd6a64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '911f18c92954419dbb420bf9c79879a8') in 0.013084 seconds
-  Import took 0.018969 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 34.729867 seconds.
-  path: Assets/Enemies/WayPoints.prefab
-  artifactKey: Guid(52ec11c9b68a9a34e8017d6acdb46869) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Enemies/WayPoints.prefab using Guid(52ec11c9b68a9a34e8017d6acdb46869) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6ad4c97a7a1493f9a97ef5643b4066f') in 0.006816 seconds
-  Import took 0.013104 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.188968 seconds.
-  path: Assets/Enemies/WayPoints.prefab
-  artifactKey: Guid(52ec11c9b68a9a34e8017d6acdb46869) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Enemies/WayPoints.prefab using Guid(52ec11c9b68a9a34e8017d6acdb46869) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ffbe172c88dd3882895b7e360c1fb54c') in 0.008085 seconds
-  Import took 0.017366 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.996613 seconds.
-  path: Assets/Enemies/WayPoints.prefab
-  artifactKey: Guid(52ec11c9b68a9a34e8017d6acdb46869) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Enemies/WayPoints.prefab using Guid(52ec11c9b68a9a34e8017d6acdb46869) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '09ce66011aec4bac776d8fa0c3cd1c29') in 0.059628 seconds
-  Import took 0.068283 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.154526 seconds.
-  path: Assets/Enemies/WayPoints.prefab
-  artifactKey: Guid(52ec11c9b68a9a34e8017d6acdb46869) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Enemies/WayPoints.prefab using Guid(52ec11c9b68a9a34e8017d6acdb46869) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '518ef7a3e9ae5bf3cb398c4cf49d8a48') in 0.011690 seconds
-  Import took 0.015611 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.406385 seconds.
-  path: Assets/Enemies/WayPoints.prefab
-  artifactKey: Guid(52ec11c9b68a9a34e8017d6acdb46869) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Enemies/WayPoints.prefab using Guid(52ec11c9b68a9a34e8017d6acdb46869) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ef0007ec98330b04077e37bf7468a53') in 0.011095 seconds
-  Import took 0.020367 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.617792 seconds.
-  path: Assets/Enemies/WayPoints.prefab
-  artifactKey: Guid(52ec11c9b68a9a34e8017d6acdb46869) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Enemies/WayPoints.prefab using Guid(52ec11c9b68a9a34e8017d6acdb46869) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22d6516fda340159972f0b0d02ca7bb8') in 0.005795 seconds
-  Import took 0.011342 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 9.147892 seconds.
-  path: Assets/Enemies/WayPoints.prefab
-  artifactKey: Guid(52ec11c9b68a9a34e8017d6acdb46869) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Enemies/WayPoints.prefab using Guid(52ec11c9b68a9a34e8017d6acdb46869) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '26b24133b108fc8d9488a86a58706bdf') in 0.009494 seconds
-  Import took 0.014127 seconds .
+  Time since last request: 4.492542 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PirateIdle.anim
+  artifactKey: Guid(4b3250d85cd9a1c4cbf5ab4eff315d5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PirateIdle.anim using Guid(4b3250d85cd9a1c4cbf5ab4eff315d5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00b1c54088461a332f167731d0f71f89') in 0.010951 seconds
+  Import took 0.014610 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.000871 seconds.
+Registered in 0.000791 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.32 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.459 seconds
+- Completed reload, in  1.433 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1413 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 85.9 MB.
+System memory in use after: 86.0 MB.
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1912.
+Total: 1.861200 ms (FindLiveObjects: 0.172700 ms CreateObjectMapping: 0.066200 ms MarkObjects: 1.607500 ms  DeleteObjects: 0.013800 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 100.751713 seconds.
+  path: Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Walk.fbx
+  artifactKey: Guid(7ca885e2490615245a6165a2182493cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Walk.fbx using Guid(7ca885e2490615245a6165a2182493cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3db9441f8cfab34449139c5b689309b1') in 0.356721 seconds
+  Import took 0.360762 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.477043 seconds.
+  path: Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Walk.fbx
+  artifactKey: Guid(7ca885e2490615245a6165a2182493cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Walk.fbx using Guid(7ca885e2490615245a6165a2182493cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c37065bed810d8813beda2add7fe41c0') in 0.061996 seconds
+  Import took 0.083868 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 27.811980 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PiirataCamminaAvanti.fbx
+  artifactKey: Guid(7ca885e2490615245a6165a2182493cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PiirataCamminaAvanti.fbx using Guid(7ca885e2490615245a6165a2182493cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe66df1c4c34446b08708b971203a022') in 0.074055 seconds
+  Import took 0.078132 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.190082 seconds.
+  path: Assets/Enemies/EnemiesAnimations/mixamo.com.anim
+  artifactKey: Guid(52cf07347be9c08489c7409571fb9fd4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/mixamo.com.anim using Guid(52cf07347be9c08489c7409571fb9fd4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b30b892e3f431f17257054009919f65f') in 0.008921 seconds
+  Import took 0.013116 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.218669 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PiirataCamminaAvanti.anim
+  artifactKey: Guid(52cf07347be9c08489c7409571fb9fd4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PiirataCamminaAvanti.anim using Guid(52cf07347be9c08489c7409571fb9fd4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd16b761cb49d714951727e3c2dfd818') in 0.007098 seconds
+  Import took 0.010423 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.541691 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PirataIdle.anim
+  artifactKey: Guid(4b3250d85cd9a1c4cbf5ab4eff315d5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PirataIdle.anim using Guid(4b3250d85cd9a1c4cbf5ab4eff315d5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8e49878071dde1d7e2c033217d8f985') in 0.015830 seconds
+  Import took 0.018903 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.035472 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PirataIdle.fbx
+  artifactKey: Guid(23547e1a47897204397fd3134900695b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PirataIdle.fbx using Guid(23547e1a47897204397fd3134900695b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f9c0da39bfe17609545d51df738639ed') in 0.033607 seconds
+  Import took 0.038498 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 61.219562 seconds.
+  path: Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Walk Backward.fbx
+  artifactKey: Guid(cb7a07b2a0a7dd34cacd4c99309bab94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Walk Backward.fbx using Guid(cb7a07b2a0a7dd34cacd4c99309bab94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29fbf4704f120a7bef51b6224e8f1b96') in 0.048002 seconds
+  Import took 0.053322 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.140194 seconds.
+  path: Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Walk Backward.fbx
+  artifactKey: Guid(cb7a07b2a0a7dd34cacd4c99309bab94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Walk Backward.fbx using Guid(cb7a07b2a0a7dd34cacd4c99309bab94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eb6e777c3d0b181d375643cd1862c857') in 0.041539 seconds
+  Import took 0.046515 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 24.231267 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PiirataCamminaAvanti.fbx
+  artifactKey: Guid(7ca885e2490615245a6165a2182493cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PiirataCamminaAvanti.fbx using Guid(7ca885e2490615245a6165a2182493cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e0ea80819ac43297a2c606b52026590') in 0.040540 seconds
+  Import took 0.044493 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 16.134751 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PiirataCamminaAvanti.fbx
+  artifactKey: Guid(7ca885e2490615245a6165a2182493cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PiirataCamminaAvanti.fbx using Guid(7ca885e2490615245a6165a2182493cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c3fb254b2f4a2ef2a5da697c34d34bb') in 0.035323 seconds
+  Import took 0.038828 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.257499 seconds.
+  path: Assets/Enemies/EnemiesAnimations/mixamo.com.anim
+  artifactKey: Guid(6bda8cc8754f48043acc45321b4c27c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/mixamo.com.anim using Guid(6bda8cc8754f48043acc45321b4c27c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1f52804ef2d396b0a7f287930edc8d5') in 0.011612 seconds
+  Import took 0.015755 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.196335 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PiirataCamminaAvanti.anim
+  artifactKey: Guid(6bda8cc8754f48043acc45321b4c27c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PiirataCamminaAvanti.anim using Guid(6bda8cc8754f48043acc45321b4c27c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b2c398f0b5bd3d4efbb5bfc0b8c539b') in 0.011117 seconds
+  Import took 0.015234 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.075072 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PiirataCamminaDietro.fbx
+  artifactKey: Guid(cb7a07b2a0a7dd34cacd4c99309bab94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PiirataCamminaDietro.fbx using Guid(cb7a07b2a0a7dd34cacd4c99309bab94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2cc5edb4a29a1a5df6142ec18fca6587') in 0.060447 seconds
+  Import took 0.064040 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.574964 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PiirataCamminaDietro.fbx
+  artifactKey: Guid(cb7a07b2a0a7dd34cacd4c99309bab94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PiirataCamminaDietro.fbx using Guid(cb7a07b2a0a7dd34cacd4c99309bab94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1edaf97e7e8a19776d3dd32a582a7542') in 0.043706 seconds
+  Import took 0.047084 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.061492 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PiirataCamminaDietro.fbx
+  artifactKey: Guid(cb7a07b2a0a7dd34cacd4c99309bab94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PiirataCamminaDietro.fbx using Guid(cb7a07b2a0a7dd34cacd4c99309bab94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5c45b997c35b065e09c6d984083be12') in 0.051510 seconds
+  Import took 0.055136 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 15.970495 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PiirataCamminaIndietro.fbx
+  artifactKey: Guid(cb7a07b2a0a7dd34cacd4c99309bab94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PiirataCamminaIndietro.fbx using Guid(cb7a07b2a0a7dd34cacd4c99309bab94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b7bee8ccd48b3c3cb146b244b7356472') in 0.068131 seconds
+  Import took 0.072032 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.817288 seconds.
+  path: Assets/Enemies/EnemiesAnimations/mixamo.com.anim
+  artifactKey: Guid(d5161c55a1cf9b74e856b6516b729b0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/mixamo.com.anim using Guid(d5161c55a1cf9b74e856b6516b729b0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dc22fdbff1b141c71bd49db60960f5e5') in 0.024545 seconds
+  Import took 0.028818 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 15.852623 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PiirataCamminaIndietro.anim
+  artifactKey: Guid(d5161c55a1cf9b74e856b6516b729b0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PiirataCamminaIndietro.anim using Guid(d5161c55a1cf9b74e856b6516b729b0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6299aef407886bef717791524b1990d3') in 0.011173 seconds
+  Import took 0.015431 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001416 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PiirataCamminaIndietro.anim
+  artifactKey: Guid(d5161c55a1cf9b74e856b6516b729b0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PiirataCamminaIndietro.anim using Guid(d5161c55a1cf9b74e856b6516b729b0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6299aef407886bef717791524b1990d3') in 0.011299 seconds
+  Import took 0.014577 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 50.062986 seconds.
+  path: Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Strafe.fbx
+  artifactKey: Guid(e614c74f199748949891a0a7fa55fe26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Strafe.fbx using Guid(e614c74f199748949891a0a7fa55fe26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'afd985a81449d501afa5974c4ab1cbe5') in 0.053885 seconds
+  Import took 0.058146 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.585038 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PiirataCamminaSinistra.fbx
+  artifactKey: Guid(e614c74f199748949891a0a7fa55fe26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PiirataCamminaSinistra.fbx using Guid(e614c74f199748949891a0a7fa55fe26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5189da8714fc41b4b2b8d91930c28da4') in 0.066031 seconds
+  Import took 0.069822 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.802867 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PiirataCamminaSinistra.fbx
+  artifactKey: Guid(e614c74f199748949891a0a7fa55fe26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PiirataCamminaSinistra.fbx using Guid(e614c74f199748949891a0a7fa55fe26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a82a46d3c7f94a6478de497d92390685') in 0.054123 seconds
+  Import took 0.057976 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.720974 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PiirataCamminaSinistra.fbx
+  artifactKey: Guid(e614c74f199748949891a0a7fa55fe26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PiirataCamminaSinistra.fbx using Guid(e614c74f199748949891a0a7fa55fe26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '896f91576287c5a08fca7720c1f9d259') in 0.071325 seconds
+  Import took 0.075417 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.978286 seconds.
+  path: Assets/Enemies/EnemiesAnimations/mixamo.com.anim
+  artifactKey: Guid(57bec9638dcfbad4488fd372331d2467) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/mixamo.com.anim using Guid(57bec9638dcfbad4488fd372331d2467) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6dad24656dee0ad461648b8b9c7d5782') in 0.010697 seconds
+  Import took 0.014589 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.470001 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PiirataCamminaSinistra.anim
+  artifactKey: Guid(57bec9638dcfbad4488fd372331d2467) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PiirataCamminaSinistra.anim using Guid(57bec9638dcfbad4488fd372331d2467) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '465769625ee4886b045fa7d6bac6d412') in 0.010664 seconds
+  Import took 0.014504 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 39.385503 seconds.
+  path: Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Strafe (1).fbx
+  artifactKey: Guid(98bc9a4411fd9d34bba9ca6166474963) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Strafe (1).fbx using Guid(98bc9a4411fd9d34bba9ca6166474963) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '760201a8227e5cb8335dd7f3279673f1') in 0.042138 seconds
+  Import took 0.048144 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.328822 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PiirataCamminaDestra.fbx
+  artifactKey: Guid(98bc9a4411fd9d34bba9ca6166474963) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PiirataCamminaDestra.fbx using Guid(98bc9a4411fd9d34bba9ca6166474963) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd372188a420fb350dc25fe436ef2b196') in 0.055547 seconds
+  Import took 0.061177 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.103012 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PiirataCamminaDestra.fbx
+  artifactKey: Guid(98bc9a4411fd9d34bba9ca6166474963) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PiirataCamminaDestra.fbx using Guid(98bc9a4411fd9d34bba9ca6166474963) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8bf5d4a3acf2823d9c1964abc528bd1b') in 0.067625 seconds
+  Import took 0.071070 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.460221 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PiirataCamminaDestra.fbx
+  artifactKey: Guid(98bc9a4411fd9d34bba9ca6166474963) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PiirataCamminaDestra.fbx using Guid(98bc9a4411fd9d34bba9ca6166474963) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7948390dde0ff061743794739c4b3d0c') in 0.043931 seconds
+  Import took 0.047731 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.052720 seconds.
+  path: Assets/Enemies/EnemiesAnimations/mixamo.com.anim
+  artifactKey: Guid(d02b0a1b18d203643bc1bc032c73f7f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/mixamo.com.anim using Guid(d02b0a1b18d203643bc1bc032c73f7f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'afa36734fce0bc12cfb67c0a702a1410') in 0.010680 seconds
+  Import took 0.013694 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.807904 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PiirataCamminaDestra.anim
+  artifactKey: Guid(d02b0a1b18d203643bc1bc032c73f7f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PiirataCamminaDestra.anim using Guid(d02b0a1b18d203643bc1bc032c73f7f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '63acd63f76bf27fd0cb19e2ede2c46ed') in 0.009773 seconds
+  Import took 0.033418 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 200.064926 seconds.
+  path: Assets/Enemies/EnemiesAnimations/Enemy.controller
+  artifactKey: Guid(2a9621a19ec0c134799a8c071a603923) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/Enemy.controller using Guid(2a9621a19ec0c134799a8c071a603923) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fbd4a51a2c3371513c8eaf9cf3cff00') in 0.011693 seconds
+  Import took 0.015229 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001197 seconds.
+  path: Assets/Enemies/EnemiesAnimations/Enemy.controller
+  artifactKey: Guid(2a9621a19ec0c134799a8c071a603923) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/Enemy.controller using Guid(2a9621a19ec0c134799a8c071a603923) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fbd4a51a2c3371513c8eaf9cf3cff00') in 0.003139 seconds
+  Import took 0.006600 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.916819 seconds.
+  path: Assets/PlayerAnimations/CharacterController.controller
+  artifactKey: Guid(65874b07fe7e2d84dada0abf2bbc62d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlayerAnimations/CharacterController.controller using Guid(65874b07fe7e2d84dada0abf2bbc62d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a883133170e8840da7f94317665c5371') in 0.056258 seconds
+  Import took 0.059637 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.735007 seconds.
+  path: Assets/Enemies/EnemiesAnimations/EnemyController.controller
+  artifactKey: Guid(2a9621a19ec0c134799a8c071a603923) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/EnemyController.controller using Guid(2a9621a19ec0c134799a8c071a603923) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a783a53ca24befd418181cde910c5c6') in 0.008830 seconds
+  Import took 0.011935 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001393 seconds.
+  path: Assets/Enemies/EnemiesAnimations/EnemyController.controller
+  artifactKey: Guid(2a9621a19ec0c134799a8c071a603923) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/EnemyController.controller using Guid(2a9621a19ec0c134799a8c071a603923) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a783a53ca24befd418181cde910c5c6') in 0.003767 seconds
+  Import took 0.007036 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.624849 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PiirataCamminaSinistra.anim
+  artifactKey: Guid(57bec9638dcfbad4488fd372331d2467) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PiirataCamminaSinistra.anim using Guid(57bec9638dcfbad4488fd372331d2467) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '75a60f8ecd65431d16d942a398a8d192') in 0.011393 seconds
+  Import took 0.014822 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001727 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PiirataCamminaSinistra.anim
+  artifactKey: Guid(57bec9638dcfbad4488fd372331d2467) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PiirataCamminaSinistra.anim using Guid(57bec9638dcfbad4488fd372331d2467) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '75a60f8ecd65431d16d942a398a8d192') in 0.009764 seconds
+  Import took 0.012906 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.410840 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PirataIdle.anim
+  artifactKey: Guid(4b3250d85cd9a1c4cbf5ab4eff315d5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PirataIdle.anim using Guid(4b3250d85cd9a1c4cbf5ab4eff315d5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e6a6b19c55fcb6659503beec5bf8216') in 0.017605 seconds
+  Import took 0.021194 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.741792 seconds.
+  path: Assets/Enemies/EnemiesAnimations/mixamo.com.anim
+  artifactKey: Guid(5f76df14d5264cf4b9f42d5c498f4e38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/mixamo.com.anim using Guid(5f76df14d5264cf4b9f42d5c498f4e38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c941d8ddcb822739765b0a0ef1e84933') in 0.012543 seconds
+  Import took 0.016301 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001755 seconds.
+  path: Assets/Enemies/EnemiesAnimations/mixamo.com.anim
+  artifactKey: Guid(5f76df14d5264cf4b9f42d5c498f4e38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/mixamo.com.anim using Guid(5f76df14d5264cf4b9f42d5c498f4e38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c941d8ddcb822739765b0a0ef1e84933') in 0.010038 seconds
+  Import took 0.013038 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.665410 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PirataIdle.anim
+  artifactKey: Guid(5f76df14d5264cf4b9f42d5c498f4e38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PirataIdle.anim using Guid(5f76df14d5264cf4b9f42d5c498f4e38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df5435fb8e0617fb36571856ee4423bf') in 0.010741 seconds
+  Import took 0.014979 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 15.756144 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PiirataCamminaIndietro.anim
+  artifactKey: Guid(d5161c55a1cf9b74e856b6516b729b0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PiirataCamminaIndietro.anim using Guid(d5161c55a1cf9b74e856b6516b729b0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f40fa61a09ebb00459c8467ed155cca6') in 0.011488 seconds
+  Import took 0.014850 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000349 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PiirataCamminaIndietro.anim
+  artifactKey: Guid(d5161c55a1cf9b74e856b6516b729b0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PiirataCamminaIndietro.anim using Guid(d5161c55a1cf9b74e856b6516b729b0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f40fa61a09ebb00459c8467ed155cca6') in 0.010526 seconds
+  Import took 0.013302 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 98.324789 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PiirataCamminaAvanti.anim
+  artifactKey: Guid(6bda8cc8754f48043acc45321b4c27c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PiirataCamminaAvanti.anim using Guid(6bda8cc8754f48043acc45321b4c27c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e1bcb19924cb955bb2256ca6e87faa5b') in 0.012408 seconds
+  Import took 0.015509 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.008202 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PiirataCamminaAvanti.anim
+  artifactKey: Guid(6bda8cc8754f48043acc45321b4c27c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PiirataCamminaAvanti.anim using Guid(6bda8cc8754f48043acc45321b4c27c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e1bcb19924cb955bb2256ca6e87faa5b') in 0.010546 seconds
+  Import took 0.013815 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.836509 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PiirataCamminaDestra.anim
+  artifactKey: Guid(d02b0a1b18d203643bc1bc032c73f7f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PiirataCamminaDestra.anim using Guid(d02b0a1b18d203643bc1bc032c73f7f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bcb9f4b5ca37164bd9941413310d36f9') in 0.010408 seconds
+  Import took 0.013590 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001797 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PiirataCamminaDestra.anim
+  artifactKey: Guid(d02b0a1b18d203643bc1bc032c73f7f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PiirataCamminaDestra.anim using Guid(d02b0a1b18d203643bc1bc032c73f7f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bcb9f4b5ca37164bd9941413310d36f9') in 0.012846 seconds
+  Import took 0.016002 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 33.160854 seconds.
+  path: Assets/PlayerAnimations/MiraCorrendo.anim
+  artifactKey: Guid(ede5eedcffef13e44af119b6db082a31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlayerAnimations/MiraCorrendo.anim using Guid(ede5eedcffef13e44af119b6db082a31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '432328d1f55567677b30c669ebf7837e') in 0.016511 seconds
+  Import took 0.020590 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001340 seconds.
+  path: Assets/PlayerAnimations/MiraCorrendo.anim
+  artifactKey: Guid(ede5eedcffef13e44af119b6db082a31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlayerAnimations/MiraCorrendo.anim using Guid(ede5eedcffef13e44af119b6db082a31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '432328d1f55567677b30c669ebf7837e') in 0.014304 seconds
+  Import took 0.017417 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.688437 seconds.
+  path: Assets/Enemies/EnemiesAnimations/EnemyController.controller
+  artifactKey: Guid(2a9621a19ec0c134799a8c071a603923) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/EnemyController.controller using Guid(2a9621a19ec0c134799a8c071a603923) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aab876699e9715c327af03b153f7b846') in 0.028568 seconds
+  Import took 0.031842 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 59.797470 seconds.
+  path: Assets/PlayerAnimations/CharacterController.controller
+  artifactKey: Guid(65874b07fe7e2d84dada0abf2bbc62d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlayerAnimations/CharacterController.controller using Guid(65874b07fe7e2d84dada0abf2bbc62d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '904ca28e4f13db73dc35e03e14ac7b1f') in 0.040752 seconds
+  Import took 0.043967 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000710 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.923 seconds
 Platform modules already initialized, skipping
 Refreshing native plugins compatible for Editor in 0.33 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1413 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 85.0 MB.
-System memory in use after: 85.1 MB.
+System memory in use before: 86.2 MB.
+System memory in use after: 86.3 MB.
 
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1914.
-Total: 4.092900 ms (FindLiveObjects: 1.325300 ms CreateObjectMapping: 0.148100 ms MarkObjects: 2.585600 ms  DeleteObjects: 0.031000 ms)
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1916.
+Total: 2.166100 ms (FindLiveObjects: 0.211000 ms CreateObjectMapping: 0.060900 ms MarkObjects: 1.875200 ms  DeleteObjects: 0.017800 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 212.663881 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PirataIdle.anim
+  artifactKey: Guid(5f76df14d5264cf4b9f42d5c498f4e38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PirataIdle.anim using Guid(5f76df14d5264cf4b9f42d5c498f4e38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8b0929ff39d99829b3f3b10bc39d4a0') in 0.023407 seconds
+  Import took 0.027621 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.001118 seconds.
+Registered in 0.000989 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.533 seconds
+- Completed reload, in  1.039 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.37 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1413 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 85.1 MB.
-System memory in use after: 85.2 MB.
-
-Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1917.
-Total: 2.971400 ms (FindLiveObjects: 0.281900 ms CreateObjectMapping: 0.374600 ms MarkObjects: 2.289500 ms  DeleteObjects: 0.023700 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000822 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.462 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.86 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1413 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 85.1 MB.
-System memory in use after: 85.2 MB.
-
-Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1920.
-Total: 3.300200 ms (FindLiveObjects: 0.501400 ms CreateObjectMapping: 0.158500 ms MarkObjects: 2.558000 ms  DeleteObjects: 0.079900 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 421.276203 seconds.
-  path: Assets/Levels/ProvaAmbienteDiGioco.prefab
-  artifactKey: Guid(30e246980957e0a4c9174519074f03a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Levels/ProvaAmbienteDiGioco.prefab using Guid(30e246980957e0a4c9174519074f03a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f995703dcc188365f862794b593bede9') in 0.100359 seconds
-  Import took 0.104528 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.530372 seconds.
-  path: Assets/Levels/Plane (1).prefab
-  artifactKey: Guid(d9c3b603d31884b49939ac13ac560175) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Levels/Plane (1).prefab using Guid(d9c3b603d31884b49939ac13ac560175) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f1e29d89404e98b2d49a201ccace37d') in 0.044901 seconds
-  Import took 0.050392 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.001772 seconds.
-  path: Assets/Levels/Plane (1).prefab
-  artifactKey: Guid(d9c3b603d31884b49939ac13ac560175) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Levels/Plane (1).prefab using Guid(d9c3b603d31884b49939ac13ac560175) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f1e29d89404e98b2d49a201ccace37d') in 0.029000 seconds
-  Import took 0.040244 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 63.937174 seconds.
-  path: Assets/Script/EnemyScripts/EnemyIA.cs
-  artifactKey: Guid(b88c3592e99ed2447b33a6f59b427e32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Script/EnemyScripts/EnemyIA.cs using Guid(b88c3592e99ed2447b33a6f59b427e32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'faa68463f0672a3eeaece5a6b2513ea2') in 0.007955 seconds
-  Import took 0.016338 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.002845 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.33 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  2.954 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 2.20 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1413 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 85.1 MB.
-System memory in use after: 85.2 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1925.
-Total: 1.841000 ms (FindLiveObjects: 0.181500 ms CreateObjectMapping: 0.056700 ms MarkObjects: 1.580300 ms  DeleteObjects: 0.021200 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001188 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 0.33 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.713 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.44 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1413 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 85.1 MB.
-System memory in use after: 85.2 MB.
+System memory in use before: 86.2 MB.
+System memory in use after: 86.3 MB.
 
-Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1928.
-Total: 2.973500 ms (FindLiveObjects: 0.188800 ms CreateObjectMapping: 0.062600 ms MarkObjects: 2.698800 ms  DeleteObjects: 0.020600 ms)
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1919.
+Total: 2.329100 ms (FindLiveObjects: 0.382700 ms CreateObjectMapping: 0.106600 ms MarkObjects: 1.821100 ms  DeleteObjects: 0.017600 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 33.209875 seconds.
+  path: Assets/Enemies/EnemiesAnimations/mixamo.com.anim
+  artifactKey: Guid(e4925d786e81c8f44becf40468175d50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/mixamo.com.anim using Guid(e4925d786e81c8f44becf40468175d50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f2b43e83cf8de81097f76508c39f75c') in 0.021357 seconds
+  Import took 0.025370 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 48.643856 seconds.
+  path: Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Idle (1).fbx
+  artifactKey: Guid(10261a326e6941e44a1f5a8a758d8ffc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/pirate_p_konstantinov@Pistol Idle (1).fbx using Guid(10261a326e6941e44a1f5a8a758d8ffc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c3cad6bf3441a7a8e1263b0c56e1077') in 0.138626 seconds
+  Import took 0.142014 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.772413 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PirataIdle.fbx
+  artifactKey: Guid(10261a326e6941e44a1f5a8a758d8ffc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PirataIdle.fbx using Guid(10261a326e6941e44a1f5a8a758d8ffc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33b1aa2abac9d088f2f4fdda2bf369d9') in 0.044363 seconds
+  Import took 0.047476 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.975305 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PirataIdle.fbx
+  artifactKey: Guid(10261a326e6941e44a1f5a8a758d8ffc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PirataIdle.fbx using Guid(10261a326e6941e44a1f5a8a758d8ffc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd72accf4e9b23d326afba30350720e0a') in 0.049101 seconds
+  Import took 0.053527 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.474743 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PirataIdle.fbx
+  artifactKey: Guid(10261a326e6941e44a1f5a8a758d8ffc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PirataIdle.fbx using Guid(10261a326e6941e44a1f5a8a758d8ffc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4171bc5d84d947f7987c53965424a09c') in 0.047112 seconds
+  Import took 0.050672 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.014809 seconds.
+  path: Assets/Enemies/EnemiesAnimations/mixamo.com.anim
+  artifactKey: Guid(e4925d786e81c8f44becf40468175d50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/mixamo.com.anim using Guid(e4925d786e81c8f44becf40468175d50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bfc6fc5f022215cf19b3b8e156019c82') in 0.009632 seconds
+  Import took 0.012734 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.873908 seconds.
+  path: Assets/Enemies/EnemiesAnimations/PirataIdle.anim
+  artifactKey: Guid(e4925d786e81c8f44becf40468175d50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/EnemiesAnimations/PirataIdle.anim using Guid(e4925d786e81c8f44becf40468175d50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ae4594a401bef56dbb508f5729ea9898') in 0.008854 seconds
+  Import took 0.012324 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.000810 seconds.
+Registered in 0.000780 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 2.03 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.36 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.573 seconds
+- Completed reload, in  1.014 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.93 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.31 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1413 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 85.1 MB.
-System memory in use after: 85.2 MB.
+System memory in use before: 86.3 MB.
+System memory in use after: 86.4 MB.
 
-Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1931.
-Total: 3.313600 ms (FindLiveObjects: 0.437800 ms CreateObjectMapping: 0.229100 ms MarkObjects: 2.621000 ms  DeleteObjects: 0.023100 ms)
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1923.
+Total: 2.639300 ms (FindLiveObjects: 0.242100 ms CreateObjectMapping: 0.067100 ms MarkObjects: 2.308900 ms  DeleteObjects: 0.019800 ms)
 
