@@ -52,6 +52,7 @@ public class EnemyController : MonoBehaviour
         if(transform.position != currentPosition)
         {
             isMoving = true;
+            currentPosition = transform.position;
         }
         else
         {
