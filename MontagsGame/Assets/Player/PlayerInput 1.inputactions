@@ -1,5 +1,5 @@
 {
-    "name": "PlayerInput",
+    "name": "PlayerInput 1",
     "maps": [
         {
             "name": "CharacterControls",
@@ -14,9 +14,9 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Run",
-                    "type": "Button",
-                    "id": "7d830035-4115-40e5-81aa-51ca23ea5d7e",
+                    "name": "Fire",
+                    "type": "PassThrough",
+                    "id": "7c4713a2-15d7-445f-85df-1d376d319265",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -80,12 +80,12 @@
                 },
                 {
                     "name": "",
-                    "id": "669769f2-434e-432e-a7db-6e4ffd258342",
-                    "path": "<Keyboard>/leftShift",
-                    "interactions": "",
+                    "id": "43f10c62-0ed7-4e69-a484-a52bbf8128e1",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press(behavior=2)",
                     "processors": "",
                     "groups": "",
-                    "action": "Run",
+                    "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
