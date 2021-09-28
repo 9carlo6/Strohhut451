@@ -12,6 +12,9 @@ public class RaycastWeapon : MonoBehaviour
     //Per poter gestire il rate dello sparo
     public int fireRate = 25;
 
+    //Per gestire il danno dell'arma
+    public float damage = 10;
+
     //Questo accumulatedTime sarebbe il tempo che deve passare per poter sparare il prossimo proiettile
     float accumulatedTime;
 
@@ -73,6 +76,13 @@ public class RaycastWeapon : MonoBehaviour
 
             tracer.transform.position = hitInfo.point;
             //Debug.DrawLine(ray.origin, hitInfo.point, Color.red, 1.0f);
+
+            //collision impulse
+            var hitBox = hitInfo.collider.GetComponent<HitBox>();
+            if (hitBox)
+            {
+                hitBox.OnRaycastHit(this, ray.direction);
+            }
         }
     }
 
