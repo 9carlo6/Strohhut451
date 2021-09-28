@@ -33,4 +33,12 @@ public class Ragdoll : MonoBehaviour
         }
         animator.enabled = false;
     }
+
+
+    //Questa funzione serve per appilcare della forza nel momento in cui il nemico muore (per farlo saltare)
+    public void ApplyForce(Vector3 force)
+    {
+        var rigidBody = animator.GetBoneTransform(HumanBodyBones.Hips).GetComponent<Rigidbody>();
+        rigidBody.AddForce(force, ForceMode.VelocityChange);
+    }
 }
