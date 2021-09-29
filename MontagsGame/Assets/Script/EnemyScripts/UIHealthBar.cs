@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Questa classe serve per gestire la barra della vita del nemico
 public class UIHealthBar : MonoBehaviour
 {
     public Transform target;
