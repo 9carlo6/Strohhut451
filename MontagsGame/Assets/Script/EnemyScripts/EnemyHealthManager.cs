@@ -7,28 +7,68 @@ using UnityEngine;
 public class EnemyHealthManager : MonoBehaviour
 {
 
-    public int health;
-    private int currentHealth;
+    public float maxhealth;
+    //[HideInInspector]
+    public float currentHealth;
+    Ragdoll ragdoll;
+
+    //Forza da applicare quando il nemico muore per fargli fare un salto
+    public float dieForce;
+
+    //Queste servono per gestire il cambio di colore del nemico quando viene colpito
+    SkinnedMeshRenderer skinnedMeshRenderer;
+    public float blinkIntensity;
+    public float blinkDuration;
+    float blinkTimer;
+
+    //Per gestire la barra della vita
+    UIHealthBar healthBar;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = health;
-    }
+        ragdoll = GetComponent<Ragdoll>();
+        skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
+        currentHealth = maxhealth;
+        healthBar = GetComponentInChildren<UIHealthBar>();
 
-    //Tramite l'Update si valuta costantemente la salute del nemico.
-    //Nel caso essa fosse uguale o minore di zero allo si distrugge il nemico.
-    void Update()
-    {
-        if(currentHealth <= 0)
+        var rigidBodies = GetComponentsInChildren<Rigidbody>();
+        foreach(var rigidbody in rigidBodies)
         {
-          Destroy(gameObject);
+            HitBox hitBox = rigidbody.gameObject.AddComponent<HitBox>();
+            hitBox.enemyHealth = this;
         }
     }
 
     //Questa funzione serve per diminuire la vita del nemico ogni volta che esso viene colpito.
-    public void HurtEnemy(int damage)
+    public void TakeDamage(float amount, Vector3 direction)
     {
-        currentHealth -= damage;
+        currentHealth -= amount;
+        healthBar.SetHealthBarPercentage(currentHealth / maxhealth);
+        if (currentHealth <= 0.0f)
+        {
+            Die(direction);
+        }
+
+        blinkTimer = blinkDuration;
+    }
+
+
+    private void Die(Vector3 direction)
+    {
+        ragdoll.ActivateRagdoll();
+        direction.y = 1;
+        ragdoll.ApplyForce(direction * dieForce);
+        healthBar.gameObject.SetActive(false);
+    }
+
+
+    private void Update() 
+    {
+        blinkTimer -= Time.deltaTime;
+        float lerp = Mathf.Clamp01(blinkTimer / blinkDuration);
+        //Si aggiunge l'uno perchè altrimenti il nemico appare totalmente nero
+        float intensity = (lerp * blinkIntensity) + 0.5f;
+        skinnedMeshRenderer.material.color = Color.white * intensity;
     }
 }
