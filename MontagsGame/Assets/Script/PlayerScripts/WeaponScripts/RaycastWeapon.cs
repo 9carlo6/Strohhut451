@@ -15,8 +15,18 @@ public class RaycastWeapon : MonoBehaviour
     //Per gestire il danno dell'arma
     public float damage = 10;
 
+    //Per gestire il numero di munizioni a disposizione
+    public int ammoCount = 5;
+
+    //Per gestire lo sparo (raffica o no)
+    public bool isBurst = false;
+
     //Questo accumulatedTime sarebbe il tempo che deve passare per poter sparare il prossimo proiettile
     float accumulatedTime;
+
+
+    //Per gestire il widget relativo alle munizioni
+    public AmmoWidget ammoWidget;
 
     //Per gestire gli effetti particellari
     public ParticleSystem[] muzzleFlash;
@@ -50,11 +60,20 @@ public class RaycastWeapon : MonoBehaviour
             FireBullet();
             accumulatedTime -= fireInterval;
         }
+
     }
 
     //Funzione per sparare
     public void FireBullet()
     {
+        //Controllo sul numero delle munizioni disponibili
+        if (ammoCount <= 0)
+        {
+            return;
+        }
+
+        ammoCount--;
+
         //Questo ciclo permette di azionare tutti gli eggetti particellari in muzzleFlash
         foreach (var particle in muzzleFlash)
         {
@@ -84,6 +103,22 @@ public class RaycastWeapon : MonoBehaviour
                 hitBox.OnRaycastHit(this, ray.direction);
             }
         }
+
+        //Se non c'è la raffica allora spara solo un colpo e dopo finisce
+        if (!isBurst)
+        {
+            StopFiring();
+        }
+
+        //Questo serve per aggiornare le munizioni visibili nel widget
+        ammoWidget.Refresh(ammoCount);
+
+    }
+
+    public void DropAmmo(int ammoDropCount)
+    {
+        ammoCount += ammoDropCount;
+        ammoWidget.Refresh(ammoCount);
     }
 
     //Funzione chiamata quando termina l'input per lo sparo

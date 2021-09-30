@@ -2491,6 +2491,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1436036808}
   m_CullTransparentMesh: 1
+--- !u!114 &1511689364 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8021170968664291733, guid: 610fc2f5c6848e540a375bfef5b4d623,
+    type: 3}
+  m_PrefabInstance: {fileID: 8021170967222138113}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7fb81c1940672b41922fc2cbec3f174, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1530350072 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4592691310277658346, guid: 52ec11c9b68a9a34e8017d6acdb46869,
@@ -2644,6 +2656,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1648711279}
+  - component: {fileID: 1648711280}
   m_Layer: 5
   m_Name: AmmoWidget
   m_TagString: Untagged
@@ -2672,6 +2685,19 @@ RectTransform:
   m_AnchoredPosition: {x: 300, y: 300}
   m_SizeDelta: {x: 259.8695, y: 259.8695}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1648711280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648711278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7f09157fcf7e6445a329389b5e9f1b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammoText: {fileID: 1436036810}
 --- !u!1 &1650058098 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3020643212438226088, guid: bb41846d7cbe78b4782870663f9edad1,
@@ -4050,6 +4076,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1965771499065664080, guid: a320f48899dcda041996116f38a9e097,
+        type: 3}
+      propertyPath: raycastWeapon
+      value: 
+      objectReference: {fileID: 1511689364}
     - target: {fileID: 1965771499065664086, guid: a320f48899dcda041996116f38a9e097,
         type: 3}
       propertyPath: m_RootOrder
@@ -4716,6 +4747,11 @@ PrefabInstance:
       propertyPath: fireRate
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 8021170968664291733, guid: 610fc2f5c6848e540a375bfef5b4d623,
+        type: 3}
+      propertyPath: ammoWidget
+      value: 
+      objectReference: {fileID: 1648711280}
     - target: {fileID: 8021170968664291733, guid: 610fc2f5c6848e540a375bfef5b4d623,
         type: 3}
       propertyPath: tracerEffect
