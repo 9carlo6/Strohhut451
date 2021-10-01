@@ -14,7 +14,7 @@ public class PlayerAliveState : PlayerBaseState
     {
 
     }
-
+    
     public override void OnCollisionEnter(PlayerStateManager player, Collision collision)
     {
 
