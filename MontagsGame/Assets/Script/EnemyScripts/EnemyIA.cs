@@ -6,131 +6,68 @@ using UnityEngine.AI;
 
 public class EnemyIA : MonoBehaviour
 {
-    //GameObject è la cla verso sse per gestire le entità nella scena
+    //GameObject è la classe per gestire le entità nella scena
     //playerRef è il nostro player
     public GameObject playerRef;
 
     //Transform del target (posizione, rotazione, scale)
     //Il target è il nostro player
     Transform target;
-    //Singleton class to access the baked NavMesh
-    //agent sono i nemici
+
+    //NavMeshAgent è la classe per accedere ai Navmesh per la navigazione nella scena
+    //agent è il nemico
     NavMeshAgent agent;
 
     //Patroling
-    public Transform[] wayPoints;   //array di pointscui il nemico dovrà effettuare il patroling
-    private int wayPointIndex;   //indice per tenere conto dei points verso cui muoversi 
+    public Transform[] wayPoints;   //array di points verso cui il nemico dovrà effettuare il patroling
+    private int wayPointIndex = 0;   //indice per tenere conto dei points verso cui muoversi,  primo waypoint
 
     //FOV, Chase player
     public float viewRadius;  //raggio di vista
-    [Range(0, 360)]           //limitiamo l'angolo di visuale a 360°, verrà impostato manualmente nell'inspector
+    [Range(0, 360)]           //limitiamo l'angolo di visuale a 360°
     public float viewAngle;   //angolo di vista
 
-
-    //dobbiamo fare in modo da inseguire il personaggio e tenere conto degli ostacoli
+    //Dobbiamo fare in modo da inseguire il personaggio e tenere conto degli ostacoli
     //LayerMask permette di specificare i layer da utilizzare in Physics.Raycast
-    public LayerMask targetMask;    //bersagli 
-    public LayerMask obstructionMask; //ostacoli
+    public LayerMask targetMask;    //bersagli, cioè il player 
+    public LayerMask obstructionMask; //ostacoli, ad esempio le pareti
 
     public bool playerInSightRange;  //quando vedo il bersaglio = true
-    //da aggiungere poi player in attackRange ed interlacciarlo con il faceTarget
+    //quando implementeremo l'attacco del nemico dovremmo aggiungere un playerInAttackRange
 
     private void Start()
     {
         playerRef = GameObject.FindGameObjectWithTag("Player");        
         target = playerRef.transform;
         agent = GetComponent<NavMeshAgent>();
-
-        wayPointIndex = 0;   //primo waypoint
-
     }
 
 
     private void Update()
     {
-        FieldOfViewCheck();   //ritorna playerInSightRange
+        FieldOfViewCheck();   //Il fov dovrà essere sempre attivo, ritorna il valore di playerInSightRange
 
-
-        if (playerInSightRange == false)
+        if (!playerInSightRange)
+            //se il player NON è nel campo visivo del nemico, esso continuerà il patroling
             Patroling();
         else
+            //se il player E' nel campo visivo del nemico, esso inseguirà il player
             ChasePlayer();
+        //quando implementeremo l'attacco del nemico dovremmo includerlo qui
     }
-
-    //CHASING
-
-    private void ChasePlayer()
-    {
-        viewRadius = 13;
-        viewAngle = 360;
-        //raggiunge la posizione del player, target è il transform del player
-        agent.SetDestination(target.position);
-
-        FieldOfViewCheck();
-
-        //Vector3.Distance ritorna la distanza tra la posizione del player e quella del nemico
-        if (Vector3.Distance(target.position, transform.position) <= agent.stoppingDistance)
-        {
-            FaceTarget(); //il nemico si gira di faccia verso il player
-        }
-
-    }
-
-    //SI POTREBBE PROVARE CON UNO SWITCH https://www.youtube.com/watch?v=db0KWYaWfeM&t=49s
-
-    /* private IEnumerator FOVRoutine()
-     {
-         WaitForSeconds wait = new WaitForSeconds(0.2f);
-
-         while (true)
-         {
-             yield return wait; //aspettiamo questa quantità di tempo (0.2secondi) prima di iniziare la ricerca col fov
-
-             FieldOfViewCheck();
-
-             if (canSeePlayer == true)
-             {
-                 agent.SetDestination(target.position);    //raggiunge la posizione del player
-
-                 if (Vector3.Distance(target.position, transform.position) <= agent.stoppingDistance)
-                 {
-                     FaceTarget(); //il nemico si gira di faccia verso il player
-                 }
-             }
-             else //Qualora il nemico non rientri nel campo visivo continua il patroling
-             {
-                 Patroling();
-             }
-         }
-     }*/
 
     //FOV
-    void FaceTarget()       //questa funzione permette di ruotare al nemico e guardare in faccia il player nell'inseguimento
-    {
-        Vector3 direction = (target.position - transform.position).normalized;
-        //I quaternioni sono usati per rappresentare le rotazioni.
-        //Sono compatti, non soffrono di blocco cardanico e possono essere facilmente interpolati
-        //LookRotation crea una rotazione con le direzioni in avanti e verso l'alto specificate.
-        //In questo caso solo in avanti (Forward), in particolare la x e la z della direzione verso cui voltarsi, cioè il player
-        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-
-        //Ruotiamo il nemico agendo sulla rotation 
-        //Creiamo una rotazione che va ad interpolare  tra il primo quaternione (primo parametro)
-        //ed il secondo quaternione(lookRotation) ina base al valore del paramentro t (Time.deltaTime * 5f)
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
-
-    }
-
     private void FieldOfViewCheck()
     {
-        //Inizializziamo un'array con tutti i collider che toccano o sono dentro la sfera
-        //centro della sfera, raggio, layer di collider da includere nella query
+        //Inizializziamo un'array con tutti i collider che toccano o sono dentro la sfera con i parametri passati
+        //Centro della sfera, raggio, layer di collider da includere nella query
         Collider[] rangeChecks = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
 
-        //se qualcosa collide andiamo in questo if, quindi la lunghezza dell'array sarà diversa da zero
+        //Se qualcosa collide andiamo in questo if, quindi la lunghezza dell'array sarà diversa da zero
+        //Qui basta un semplice if perchè sul layer targetMask c'è solo il player, altrimenti avremmo dovuto fare un for per scorrere l'array
         if (rangeChecks.Length != 0)
         {
-            //target sarà pari alla prima istanza di rangeChecks
+            //target sarà pari alla prima istanza di rangeChecks, cioè la trasform del player
             Transform target = rangeChecks[0].transform;
 
             //Definiamo la direzione verso cui il nostro nemico sta guardando
@@ -141,12 +78,14 @@ public class EnemyIA : MonoBehaviour
             //Quindi verifichiamo se l'angolo tra questi due vettori è minore dell'angolo di visuale fratto 2
             if (Vector3.Angle(transform.forward, directionToTarget) < viewAngle / 2)
             {
-                //distanza tra la posizione del nemico e quella del player
+                //Distanza tra la posizione del nemico e quella del player
                 float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
-                //RayCast: facciamo il lancio del raggio
-                //Parametri: origine del raggio, direzione, distanza massima che il raggio dovrebbe controllare per le collisioni
+                //Col RayCast è come se dotassimo il nemico di un occhio, avviene il lancio di un raggio
+                //Parametri: origine del raggio, direzione, distanza massima che il raggio deve controllare per le collisioni
                 //Maschera di livello utilizzata per ignorare selettivamente i Collider durante la proiezione di un raggio
+                //Il RayCast termina nel momento in cui colpisce qualcosa nell'obstrunctionMask (tipo i muri)   
+                //Facciamo prima il controllo positivo col !, quindi se non stiamo colpendo qualcosa nell'obstructionMask
                 if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
                     playerInSightRange = true;
                 else
@@ -155,38 +94,46 @@ public class EnemyIA : MonoBehaviour
             else
                 playerInSightRange = false;
         }
-        //fallisce il controllo se il giocatore non è alla portata
+        //fallisce il controllo se il giocatore non è alla portata, non si trova nemmeno nel raggio
         else
             playerInSightRange = false;
-
     }
 
-
-
-    //PATROL
-
+    //PATROLING
     private void Patroling()
     {
-
         viewRadius = 10;
         viewAngle = 110;
-        if (Vector3.Distance(agent.transform.position, wayPoints[wayPointIndex].position) < 1f)  //se la distanza tra il nemico e il waypoint corrente è minore di 1f waypoint successivo
+        agent.speed = 8;
+
+        //Se la distanza tra il nemico e il waypoint corrente è minore di 1f waypoint successivo
+        if (Vector3.Distance(agent.transform.position, wayPoints[wayPointIndex].position) < 1f)
         {
             Debug.Log("Sto incrementando l'index");
-            IncreaseIndex();
+
+            wayPointIndex++;
+
+            if (wayPointIndex >= wayPoints.Length)
+            {
+                Debug.Log("sto azzerando");
+                wayPointIndex = 0;
+            }
         }
         Debug.Log("Sto andando verso il walkpoint" + wayPointIndex);
-        agent.SetDestination(wayPoints[wayPointIndex].position);   //ci muoviamo al waypoint i-esimo
+        agent.SetDestination(wayPoints[wayPointIndex].position);   //Ci muoviamo al waypoint i-esimo
     }
 
-    private void IncreaseIndex()
+    //CHASING
+    private void ChasePlayer()
     {
-        wayPointIndex++;
+        viewRadius = 13;
+        viewAngle = 360;
+        agent.speed = 10;
 
-        if (wayPointIndex >= wayPoints.Length)
-        {
-            Debug.Log("sto azzerando");
-            wayPointIndex = 0;
-        }
+        //Raggiunge la posizione del player, target è il transform del player
+        agent.SetDestination(target.position);
+
+        //Il nemico si gira verso il player
+        transform.LookAt(target);  
     }
 }
