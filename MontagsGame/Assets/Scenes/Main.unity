@@ -159,6 +159,101 @@ Transform:
   m_Father: {fileID: 337935327}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &223306631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 223306635}
+  - component: {fileID: 223306634}
+  - component: {fileID: 223306633}
+  - component: {fileID: 223306632}
+  m_Layer: 0
+  m_Name: Sphere
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!135 &223306632
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223306631}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &223306633
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223306631}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &223306634
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223306631}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &223306635
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223306631}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.81, y: 1.68, z: -16.96}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &280434176
 GameObject:
   m_ObjectHideFlags: 0
@@ -756,6 +851,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2377106987579557869, guid: 50feaf9b473983c4b90d157e60875042,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1710361645}
     - target: {fileID: 3537766162396173674, guid: 50feaf9b473983c4b90d157e60875042,
         type: 3}
       propertyPath: m_RootOrder
@@ -960,6 +1060,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PirataNemico2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7491886689975570192, guid: 50feaf9b473983c4b90d157e60875042,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50feaf9b473983c4b90d157e60875042, type: 3}
@@ -1186,6 +1291,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7f09157fcf7e6445a329389b5e9f1b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1710361645 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3557925316702573155, guid: 50feaf9b473983c4b90d157e60875042,
+    type: 3}
+  m_PrefabInstance: {fileID: 1179553769}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1733225531 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6013297626187481650, guid: cb4d85c6fcaf9f54bb16f5fa842c5ad7,
@@ -1913,6 +2024,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b07947e302be3a94086468f33b4ed434, type: 3}
+--- !u!4 &3713804324606639156 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 367051834232646798, guid: 50feaf9b473983c4b90d157e60875042,
+    type: 3}
+  m_PrefabInstance: {fileID: 3932226219217211578}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3932226219217211578
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1920,6 +2037,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2377106987579557869, guid: 50feaf9b473983c4b90d157e60875042,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 3713804324606639156}
     - target: {fileID: 3537766162396173674, guid: 50feaf9b473983c4b90d157e60875042,
         type: 3}
       propertyPath: m_RootOrder
@@ -1994,6 +2116,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PirataNemico1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7491886689975570192, guid: 50feaf9b473983c4b90d157e60875042,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50feaf9b473983c4b90d157e60875042, type: 3}
