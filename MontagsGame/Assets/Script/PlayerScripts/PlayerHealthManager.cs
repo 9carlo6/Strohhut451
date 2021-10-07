@@ -17,10 +17,12 @@ public class PlayerHealthManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if(currentHealth <= 0)
         {
           gameObject.SetActive(false);
         }
+        */
     }
 
     public void HurtPlayer(int damageAmount)
