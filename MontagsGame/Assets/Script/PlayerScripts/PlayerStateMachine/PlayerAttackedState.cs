@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerIdleState : PlayerBaseState
+public class PlayerAttackedState : PlayerBaseState
 {
+
     public override void EnterState(PlayerStateManager player)
     {
-
+        Debug.Log("Stato = Giocatore Attaccato");
     }
 
     public override void UpdateState(PlayerStateManager player)

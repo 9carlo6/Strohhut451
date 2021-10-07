@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStateManager : MonoBehaviour
+public class EnemyStateManager : MonoBehaviour
 {
-    PlayerBaseState currentState;
-    public PlayerAliveState AliveState = new PlayerAliveState();
-    public PlayerDeathState DeathState = new PlayerDeathState();
-    public PlayerMeleeAttackState MeleeAttackState = new PlayerMeleeAttackState(); 
-    public PlayerAttackedState AttackedState = new PlayerAttackedState();
+    EnemyBaseState currentState;
+    public EnemyAliveState AliveState = new EnemyAliveState();
+    public EnemyDeathState DeathState = new EnemyDeathState();
+    public EnemyAttackState AttackState = new EnemyAttackState();
+    public EnemyAttackedState AttackedState = new EnemyAttackedState();
+    public EnemyStunnedState StunnedState = new EnemyStunnedState();
+
 
     public void Start()
     {
@@ -29,7 +31,7 @@ public class PlayerStateManager : MonoBehaviour
         currentState.UpdateState(this);
     }
 
-    public void SwitchState(PlayerBaseState state)
+    public void SwitchState(EnemyBaseState state)
     {
         currentState = state;
         state.EnterState(this);
