@@ -5,11 +5,13 @@ using UnityEngine;
 public class PlayerAliveState : PlayerBaseState
 {
     PlayerHealthManager playerHealthManager;
+    PlayerController playerController;
 
     public override void EnterState(PlayerStateManager player)
     {
         Debug.Log("Stato = Vivo");
         playerHealthManager = player.GetComponent<PlayerHealthManager>();
+        playerController = player.GetComponent<PlayerController>();
     }
 
     public override void UpdateState(PlayerStateManager player)
@@ -19,8 +21,13 @@ public class PlayerAliveState : PlayerBaseState
             Debug.Log("Passaggio dallo stato vivo allo stato morto del giocatore");
             player.SwitchState(player.DeathState);
         }
+
+        if(playerController.isAttackButtonPressed){
+          Debug.Log("Passaggio dallo stato vivo allo stato attacco melee del giocatore");
+          player.SwitchState(player.MeleeAttackState);
+        }
     }
-    
+
     public override void OnCollisionEnter(PlayerStateManager player, Collision collision)
     {
 

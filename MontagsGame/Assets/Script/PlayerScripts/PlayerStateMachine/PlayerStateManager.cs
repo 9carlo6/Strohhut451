@@ -7,14 +7,14 @@ public class PlayerStateManager : MonoBehaviour
     PlayerBaseState currentState;
     public PlayerAliveState AliveState = new PlayerAliveState();
     public PlayerDeathState DeathState = new PlayerDeathState();
-    public PlayerMeleeAttackState MeleeAttackState = new PlayerMeleeAttackState(); 
+    public PlayerMeleeAttackState MeleeAttackState = new PlayerMeleeAttackState();
     public PlayerAttackedState AttackedState = new PlayerAttackedState();
 
     public void Start()
     {
         //Stato di partenza
         currentState = AliveState;
-        //"this" è il contesto
+        //"this" ï¿½ il contesto
         currentState.EnterState(this);
     }
 
