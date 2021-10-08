@@ -9,6 +9,9 @@ public class EnemyIA : MonoBehaviour
     //GameObject è la classe per gestire le entità nella scena
     //playerRef è il nostro player
     public GameObject playerRef;
+    public GameObject enemy;
+    EnemyHealthManager hm;
+
 
     //Transform del target (posizione, rotazione, scale)
     //Il target è il nostro player
@@ -40,6 +43,11 @@ public class EnemyIA : MonoBehaviour
         playerRef = GameObject.FindGameObjectWithTag("Player");        
         target = playerRef.transform;
         agent = GetComponent<NavMeshAgent>();
+        hm = gameObject.GetComponent<EnemyHealthManager>();
+        enemy = GameObject.FindGameObjectWithTag("Enemy");
+
+
+
     }
 
 
@@ -102,9 +110,9 @@ public class EnemyIA : MonoBehaviour
     //PATROLING
     private void Patroling()
     {
-        viewRadius = 10;
+        viewRadius = 5;
         viewAngle = 110;
-        agent.speed = 8;
+        //agent.speed = 8;
 
         //Se la distanza tra il nemico e il waypoint corrente è minore di 1f waypoint successivo
         if (Vector3.Distance(agent.transform.position, wayPoints[wayPointIndex].position) < 1f)
@@ -124,16 +132,24 @@ public class EnemyIA : MonoBehaviour
     }
 
     //CHASING
+    
     private void ChasePlayer()
     {
         viewRadius = 13;
         viewAngle = 360;
-        agent.speed = 10;
+        // agent.speed = 10;
+        if (hm.currentHealth <= 0)
+        {
+            Debug.Log("Non mi segue più");
+            Destroy(enemy, 3);
+        }
+        else
+        {
+            //Raggiunge la posizione del player, target è il transform del player
+            agent.SetDestination(target.position);
 
-        //Raggiunge la posizione del player, target è il transform del player
-        agent.SetDestination(target.position);
-
-        //Il nemico si gira verso il player
-        transform.LookAt(target);  
+            //Il nemico si gira verso il player
+            transform.LookAt(target);
+        }
     }
 }

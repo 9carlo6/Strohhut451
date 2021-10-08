@@ -11,6 +11,7 @@ public class EnemyHealthManager : MonoBehaviour
     //[HideInInspector]
     public float currentHealth;
     Ragdoll ragdoll;
+    
 
     //Forza da applicare quando il nemico muore per fargli fare un salto
     public float dieForce;
@@ -20,6 +21,8 @@ public class EnemyHealthManager : MonoBehaviour
     public float blinkIntensity;
     public float blinkDuration;
     float blinkTimer;
+    public GameObject enemy;
+
 
     //Per gestire la barra della vita
     UIHealthBar healthBar;
@@ -27,6 +30,7 @@ public class EnemyHealthManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         ragdoll = GetComponent<Ragdoll>();
         skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         currentHealth = maxhealth;
@@ -38,6 +42,7 @@ public class EnemyHealthManager : MonoBehaviour
             HitBox hitBox = rigidbody.gameObject.AddComponent<HitBox>();
             hitBox.enemyHealth = this;
         }
+
     }
 
     //Questa funzione serve per diminuire la vita del nemico ogni volta che esso viene colpito.
@@ -47,6 +52,7 @@ public class EnemyHealthManager : MonoBehaviour
         healthBar.SetHealthBarPercentage(currentHealth / maxhealth);
         if (currentHealth <= 0.0f)
         {
+            
             Die(direction);
         }
 
@@ -59,7 +65,9 @@ public class EnemyHealthManager : MonoBehaviour
         ragdoll.ActivateRagdoll();
         direction.y = 1;
         ragdoll.ApplyForce(direction * dieForce);
+
         healthBar.gameObject.SetActive(false);
+        
     }
 
 
