@@ -24,11 +24,11 @@ public class PlayerController : MonoBehaviour
 	//variabili per salvare i valori di input del giocatore
 	Vector2 currentMovementInput;
 	Vector3 currentMovement;
-	bool isMovementPressed;
-	bool isMelleeAttackPressed;
+	public bool isMovementPressed;
+	public bool isAttackButtonPressed;
 
 	//per l'animazione
-	Animator animator;
+	public Animator animator;
 	//queste due variabili servono per modificare l'animazione in base alla direzione del personaggio
 	float velocityX = 0.0f;
 	float velocityZ = 0.0f;
@@ -39,8 +39,7 @@ public class PlayerController : MonoBehaviour
 	public GameObject weapon;
 
 	//Per accedere allo script RigBuilder
-	RigBuilder rigBuilder;
-
+	public RigBuilder rigBuilder;
 
 	void Awake()
 	{
@@ -54,14 +53,14 @@ public class PlayerController : MonoBehaviour
 		playerInput.CharacterControls.Move.started += onMovementInput;
 		//ascolta quando il giocatore rilascia i tasti
 		playerInput.CharacterControls.Move.canceled += onMovementInput;
-		//questa serve nel momento in cui si controlla il personaggio con il joystick 
+		//questa serve nel momento in cui si controlla il personaggio con il joystick
 		//perchè il valore in questo caso non è solo 0 o 1 (ma modellato fra questi due)
 		playerInput.CharacterControls.Move.performed += onMovementInput;
 
 
 		//Callbacks per l'attacco corpo a corpo
-		playerInput.CharacterControls.MeleeAttack.performed += _ => isMelleeAttackPressed = true;
-		playerInput.CharacterControls.MeleeAttack.canceled += _ => isMelleeAttackPressed = false;
+		playerInput.CharacterControls.MeleeAttack.performed += _ => isAttackButtonPressed = true;
+		playerInput.CharacterControls.MeleeAttack.canceled += _ => isAttackButtonPressed = false;
 	}
 
 	void onMovementInput(InputAction.CallbackContext context)
@@ -99,25 +98,39 @@ public class PlayerController : MonoBehaviour
 			animator.SetBool("isWalking", false);
 		}
 
-        //Gestione dell'attacco corpo a corpo -> BISOGNA GESTIRLA MEGLIO QUANDO SI INSERISCONO GLI STATI
-        if (isMelleeAttackPressed && !isMeleeAttack)
-        {
+    //Gestione dell'attacco corpo a corpo -> BISOGNA GESTIRLA MEGLIO QUANDO SI INSERISCONO GLI STATI
+
+		/*
+		if(playerStateManager.currentState == playerMeleeAttackState){
 			//Viene nascosta la pistola
 			weapon.SetActive(false);
 			animator.SetBool("isMeleeAttack", true);
 			//Per disabilitare il RigBuilder
 			rigBuilder.enabled = false;
-			myRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
-			myRigidbody.constraints = RigidbodyConstraints.FreezePosition;
-		}
-        else if(!isMelleeAttackPressed && isMeleeAttack)
-        {
+		}else{
 			//Viene mostrata la pistola
 			weapon.SetActive(true);
 			animator.SetBool("isMeleeAttack", false);
 			//Per riabilitare il RigBuilder
 			rigBuilder.enabled = true;
 		}
+		/*
+    if (isAttackButtonPressed && !isMeleeAttack)
+    {
+			//Viene nascosta la pistola
+			weapon.SetActive(false);
+			animator.SetBool("isMeleeAttack", true);
+			//Per disabilitare il RigBuilder
+			rigBuilder.enabled = false;
+
+		}else if(!isAttackButtonPressed && isMeleeAttack){
+			//Viene mostrata la pistola
+			weapon.SetActive(true);
+			animator.SetBool("isMeleeAttack", false);
+			//Per riabilitare il RigBuilder
+			rigBuilder.enabled = true;
+		}
+		*/
 	}
 
 	// Update is called once per frame
