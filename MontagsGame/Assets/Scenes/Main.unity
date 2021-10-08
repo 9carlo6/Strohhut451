@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -362,7 +362,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1514
+  m_Name: pb_Mesh-2764
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -603,6 +603,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1974777326281939163, guid: cb4d85c6fcaf9f54bb16f5fa842c5ad7,
     type: 3}
   m_PrefabInstance: {fileID: 1121743564788225506}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &668893817 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3557925316702573155, guid: 50feaf9b473983c4b90d157e60875042,
+    type: 3}
+  m_PrefabInstance: {fileID: 3932226219217211578}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
@@ -1028,6 +1034,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConnectedAnchor.z
       value: 0.010435205
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932226220740420709, guid: 50feaf9b473983c4b90d157e60875042,
+        type: 3}
+      propertyPath: dieForce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932226220740420709, guid: 50feaf9b473983c4b90d157e60875042,
+        type: 3}
+      propertyPath: maxhealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3932226220758549659, guid: 50feaf9b473983c4b90d157e60875042,
         type: 3}
@@ -2047,12 +2063,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b07947e302be3a94086468f33b4ed434, type: 3}
---- !u!4 &3713804324606639156 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 367051834232646798, guid: 50feaf9b473983c4b90d157e60875042,
-    type: 3}
-  m_PrefabInstance: {fileID: 3932226219217211578}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3932226219217211578
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2064,7 +2074,7 @@ PrefabInstance:
         type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 3713804324606639156}
+      objectReference: {fileID: 668893817}
     - target: {fileID: 3537766162396173674, guid: 50feaf9b473983c4b90d157e60875042,
         type: 3}
       propertyPath: m_RootOrder
@@ -2119,6 +2129,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932226220740420709, guid: 50feaf9b473983c4b90d157e60875042,
+        type: 3}
+      propertyPath: dieForce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932226220740420709, guid: 50feaf9b473983c4b90d157e60875042,
+        type: 3}
+      propertyPath: maxhealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3932226220879287884, guid: 50feaf9b473983c4b90d157e60875042,
         type: 3}
