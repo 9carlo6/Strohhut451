@@ -104,7 +104,7 @@ AnimatorStateMachine:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Base Layer
+  m_Name: Base
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 4354718703063473711}
@@ -135,6 +135,9 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: isWalking
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: isMeleeAttack
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1002208862112260754}
@@ -255,7 +258,7 @@ AnimatorController:
     m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
-    m_Name: Base Layer
+    m_Name: Base
     m_StateMachine: {fileID: -6378864248969818080}
     m_Mask: {fileID: 0}
     m_Motions: []
@@ -301,7 +304,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 2
+    m_ConditionEvent: isMeleeAttack
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4354718703063473711}
   m_Solo: 0
@@ -311,7 +317,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0.94140625
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -351,12 +357,11 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AttaccoCoproACorpo
-  m_Speed: 1.5
+  m_Name: AttaccoCorpoACorpo
+  m_Speed: 1.6
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 3535403013358827431}
-  - {fileID: -4750799989747274661}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -370,7 +375,7 @@ AnimatorState:
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
-  m_CycleOffsetParameter: 
+  m_CycleOffsetParameter: VelocityX
   m_TimeParameter: 
 --- !u!1101 &7075376961884306050
 AnimatorStateTransition:

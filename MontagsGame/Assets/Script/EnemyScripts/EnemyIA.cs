@@ -6,33 +6,32 @@ using UnityEngine.AI;
 
 public class EnemyIA : MonoBehaviour
 {
-    //GameObject è la classe per gestire le entità nella scena
-    //playerRef è il nostro player
+    //GameObject ï¿½ la classe per gestire le entitï¿½ nella scena
+    //playerRef ï¿½ il nostro player
     public GameObject playerRef;
-    public GameObject enemy;
     EnemyHealthManager hm;
 
 
     //Transform del target (posizione, rotazione, scale)
-    //Il target è il nostro player
+    //Il target ï¿½ il nostro player
     Transform target;
 
-    //NavMeshAgent è la classe per accedere ai Navmesh per la navigazione nella scena
-    //agent è il nemico
+    //NavMeshAgent ï¿½ la classe per accedere ai Navmesh per la navigazione nella scena
+    //agent ï¿½ il nemico
     NavMeshAgent agent;
 
     //Patroling
-    public Transform[] wayPoints;   //array di points verso cui il nemico dovrà effettuare il patroling
+    public Transform[] wayPoints;   //array di points verso cui il nemico dovrï¿½ effettuare il patroling
     private int wayPointIndex = 0;   //indice per tenere conto dei points verso cui muoversi,  primo waypoint
 
     //FOV, Chase player
     public float viewRadius;  //raggio di vista
-    [Range(0, 360)]           //limitiamo l'angolo di visuale a 360°
+    [Range(0, 360)]           //limitiamo l'angolo di visuale a 360ï¿½
     public float viewAngle;   //angolo di vista
 
     //Dobbiamo fare in modo da inseguire il personaggio e tenere conto degli ostacoli
     //LayerMask permette di specificare i layer da utilizzare in Physics.Raycast
-    public LayerMask targetMask;    //bersagli, cioè il player 
+    public LayerMask targetMask;    //bersagli, cioï¿½ il player
     public LayerMask obstructionMask; //ostacoli, ad esempio le pareti
 
     public bool playerInSightRange;  //quando vedo il bersaglio = true
@@ -40,28 +39,31 @@ public class EnemyIA : MonoBehaviour
 
     private void Start()
     {
-        playerRef = GameObject.FindGameObjectWithTag("Player");        
+        playerRef = GameObject.FindGameObjectWithTag("Player");
         target = playerRef.transform;
         agent = GetComponent<NavMeshAgent>();
         hm = gameObject.GetComponent<EnemyHealthManager>();
-        enemy = GameObject.FindGameObjectWithTag("Enemy");
-
-
 
     }
 
 
     private void Update()
     {
-        FieldOfViewCheck();   //Il fov dovrà essere sempre attivo, ritorna il valore di playerInSightRange
+        if (hm.currentHealth <= 0)
+        {
+            Debug.Log("Non mi segue piï¿½");
+            Destroy(this.gameObject, 3);
+        }else{
+          FieldOfViewCheck();   //Il fov dovrï¿½ essere sempre attivo, ritorna il valore di playerInSightRange
 
-        if (!playerInSightRange)
-            //se il player NON è nel campo visivo del nemico, esso continuerà il patroling
-            Patroling();
-        else
-            //se il player E' nel campo visivo del nemico, esso inseguirà il player
-            ChasePlayer();
-        //quando implementeremo l'attacco del nemico dovremmo includerlo qui
+          if (!playerInSightRange)
+              //se il player NON ï¿½ nel campo visivo del nemico, esso continuerï¿½ il patroling
+              Patroling();
+          else
+              //se il player E' nel campo visivo del nemico, esso inseguirï¿½ il player
+              ChasePlayer();
+          //quando implementeremo l'attacco del nemico dovremmo includerlo qui
+        }
     }
 
     //FOV
@@ -71,11 +73,11 @@ public class EnemyIA : MonoBehaviour
         //Centro della sfera, raggio, layer di collider da includere nella query
         Collider[] rangeChecks = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
 
-        //Se qualcosa collide andiamo in questo if, quindi la lunghezza dell'array sarà diversa da zero
-        //Qui basta un semplice if perchè sul layer targetMask c'è solo il player, altrimenti avremmo dovuto fare un for per scorrere l'array
+        //Se qualcosa collide andiamo in questo if, quindi la lunghezza dell'array sarï¿½ diversa da zero
+        //Qui basta un semplice if perchï¿½ sul layer targetMask c'ï¿½ solo il player, altrimenti avremmo dovuto fare un for per scorrere l'array
         if (rangeChecks.Length != 0)
         {
-            //target sarà pari alla prima istanza di rangeChecks, cioè la trasform del player
+            //target sarï¿½ pari alla prima istanza di rangeChecks, cioï¿½ la trasform del player
             Transform target = rangeChecks[0].transform;
 
             //Definiamo la direzione verso cui il nostro nemico sta guardando
@@ -83,16 +85,16 @@ public class EnemyIA : MonoBehaviour
             Vector3 directionToTarget = (target.position - transform.position).normalized; //normalizzato tra 0 e 1
 
             //Transform.forward ritorna un vettore normalizzato rappresentante l'asse z
-            //Quindi verifichiamo se l'angolo tra questi due vettori è minore dell'angolo di visuale fratto 2
+            //Quindi verifichiamo se l'angolo tra questi due vettori ï¿½ minore dell'angolo di visuale fratto 2
             if (Vector3.Angle(transform.forward, directionToTarget) < viewAngle / 2)
             {
                 //Distanza tra la posizione del nemico e quella del player
                 float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
-                //Col RayCast è come se dotassimo il nemico di un occhio, avviene il lancio di un raggio
+                //Col RayCast ï¿½ come se dotassimo il nemico di un occhio, avviene il lancio di un raggio
                 //Parametri: origine del raggio, direzione, distanza massima che il raggio deve controllare per le collisioni
                 //Maschera di livello utilizzata per ignorare selettivamente i Collider durante la proiezione di un raggio
-                //Il RayCast termina nel momento in cui colpisce qualcosa nell'obstrunctionMask (tipo i muri)   
+                //Il RayCast termina nel momento in cui colpisce qualcosa nell'obstrunctionMask (tipo i muri)
                 //Facciamo prima il controllo positivo col !, quindi se non stiamo colpendo qualcosa nell'obstructionMask
                 if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
                     playerInSightRange = true;
@@ -102,7 +104,7 @@ public class EnemyIA : MonoBehaviour
             else
                 playerInSightRange = false;
         }
-        //fallisce il controllo se il giocatore non è alla portata, non si trova nemmeno nel raggio
+        //fallisce il controllo se il giocatore non ï¿½ alla portata, non si trova nemmeno nel raggio
         else
             playerInSightRange = false;
     }
@@ -114,7 +116,7 @@ public class EnemyIA : MonoBehaviour
         viewAngle = 110;
         //agent.speed = 8;
 
-        //Se la distanza tra il nemico e il waypoint corrente è minore di 1f waypoint successivo
+        //Se la distanza tra il nemico e il waypoint corrente ï¿½ minore di 1f waypoint successivo
         if (Vector3.Distance(agent.transform.position, wayPoints[wayPointIndex].position) < 1f)
         {
             Debug.Log("Sto incrementando l'index");
@@ -132,24 +134,16 @@ public class EnemyIA : MonoBehaviour
     }
 
     //CHASING
-    
+
     private void ChasePlayer()
     {
         viewRadius = 13;
         viewAngle = 360;
-        // agent.speed = 10;
-        if (hm.currentHealth <= 0)
-        {
-            Debug.Log("Non mi segue più");
-            Destroy(enemy, 3);
-        }
-        else
-        {
-            //Raggiunge la posizione del player, target è il transform del player
-            agent.SetDestination(target.position);
 
-            //Il nemico si gira verso il player
-            transform.LookAt(target);
-        }
+        //Raggiunge la posizione del player, target ï¿½ il transform del player
+        agent.SetDestination(target.position);
+
+        //Il nemico si gira verso il player
+        transform.LookAt(target);
     }
 }
