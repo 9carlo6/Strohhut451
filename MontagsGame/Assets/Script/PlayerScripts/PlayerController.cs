@@ -97,40 +97,6 @@ public class PlayerController : MonoBehaviour
 		{
 			animator.SetBool("isWalking", false);
 		}
-
-    //Gestione dell'attacco corpo a corpo -> BISOGNA GESTIRLA MEGLIO QUANDO SI INSERISCONO GLI STATI
-
-		/*
-		if(playerStateManager.currentState == playerMeleeAttackState){
-			//Viene nascosta la pistola
-			weapon.SetActive(false);
-			animator.SetBool("isMeleeAttack", true);
-			//Per disabilitare il RigBuilder
-			rigBuilder.enabled = false;
-		}else{
-			//Viene mostrata la pistola
-			weapon.SetActive(true);
-			animator.SetBool("isMeleeAttack", false);
-			//Per riabilitare il RigBuilder
-			rigBuilder.enabled = true;
-		}
-		/*
-    if (isAttackButtonPressed && !isMeleeAttack)
-    {
-			//Viene nascosta la pistola
-			weapon.SetActive(false);
-			animator.SetBool("isMeleeAttack", true);
-			//Per disabilitare il RigBuilder
-			rigBuilder.enabled = false;
-
-		}else if(!isAttackButtonPressed && isMeleeAttack){
-			//Viene mostrata la pistola
-			weapon.SetActive(true);
-			animator.SetBool("isMeleeAttack", false);
-			//Per riabilitare il RigBuilder
-			rigBuilder.enabled = true;
-		}
-		*/
 	}
 
 	// Update is called once per frame

@@ -11,7 +11,7 @@ public class EnemyHealthManager : MonoBehaviour
     //[HideInInspector]
     public float currentHealth;
     Ragdoll ragdoll;
-    
+
 
     //Forza da applicare quando il nemico muore per fargli fare un salto
     public float dieForce;
@@ -52,7 +52,7 @@ public class EnemyHealthManager : MonoBehaviour
         healthBar.SetHealthBarPercentage(currentHealth / maxhealth);
         if (currentHealth <= 0.0f)
         {
-            
+
             Die(direction);
         }
 
@@ -67,15 +67,15 @@ public class EnemyHealthManager : MonoBehaviour
         ragdoll.ApplyForce(direction * dieForce);
 
         healthBar.gameObject.SetActive(false);
-        
+
     }
 
 
-    private void Update() 
+    private void Update()
     {
         blinkTimer -= Time.deltaTime;
         float lerp = Mathf.Clamp01(blinkTimer / blinkDuration);
-        //Si aggiunge l'uno perchè altrimenti il nemico appare totalmente nero
+        //Si aggiunge l'uno perchï¿½ altrimenti il nemico appare totalmente nero
         float intensity = (lerp * blinkIntensity) + 0.5f;
         skinnedMeshRenderer.material.color = Color.white * intensity;
     }
