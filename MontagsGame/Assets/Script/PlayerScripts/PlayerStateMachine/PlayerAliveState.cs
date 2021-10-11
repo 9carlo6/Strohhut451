@@ -24,7 +24,7 @@ public class PlayerAliveState : PlayerBaseState
 
         if(playerController.isAttackButtonPressed){
           Debug.Log("Passaggio dallo stato vivo allo stato attacco melee del giocatore");
-          player.SwitchState(player.MeleeAttackState);
+          player.SwitchState(player.AttackState);
         }
     }
 

@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
 	Vector3 currentMovement;
 	public bool isMovementPressed;
 	public bool isAttackButtonPressed;
+	public bool isAttacking;
 
 	//per l'animazione
 	public Animator animator;
@@ -47,7 +48,6 @@ public class PlayerController : MonoBehaviour
 		characterController = GetComponent<CharacterController>();
 		animator = GetComponent<Animator>();
 		rigBuilder = GetComponent<RigBuilder>();
-
 
 		//ascolta quando il giocatore inizia a utilizzare l'azione Move
 		playerInput.CharacterControls.Move.started += onMovementInput;
@@ -85,8 +85,6 @@ public class PlayerController : MonoBehaviour
 		bool isWalking = animator.GetBool("isWalking");
 		//isRunning ancora non utilizzato
 		bool isRunning = animator.GetBool("isRunning");
-		//per l'attacco corpo a corpo
-		bool isMeleeAttack = animator.GetBool("isMeleeAttack");
 
 		//Gestione Camminata
 		if (isMovementPressed && !isWalking)
@@ -108,8 +106,12 @@ public class PlayerController : MonoBehaviour
 
 		//nuovo sistema di input
 		//per poter far muovere il personaggio
-		characterController.Move(currentMovement * Time.deltaTime * moveSpeed);
-		//Debug.Log("A = (" + currentMovement.x + ", " + currentMovement.z + ")");
+		//per potersi muovere il personaggio non deve star attaccando
+		isAttacking = animator.GetBool("isAttacking");
+		if(!isAttacking){
+			characterController.Move(currentMovement * Time.deltaTime * moveSpeed);
+			//Debug.Log("A = (" + currentMovement.x + ", " + currentMovement.z + ")");
+		}
 
 		//Da qui parte il codice per controllare la rotazione con il movimento del mouse
 		Ray cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);

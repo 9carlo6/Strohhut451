@@ -7,7 +7,7 @@ public class PlayerStateManager : MonoBehaviour
     PlayerBaseState currentState;
     public PlayerAliveState AliveState = new PlayerAliveState();
     public PlayerDeathState DeathState = new PlayerDeathState();
-    public PlayerMeleeAttackState MeleeAttackState = new PlayerMeleeAttackState();
+    public PlayerAttackState AttackState = new PlayerAttackState();
     public PlayerAttackedState AttackedState = new PlayerAttackedState();
 
     public void Start()
