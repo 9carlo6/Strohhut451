@@ -573,8 +573,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
+  isMovementPressed: 0
+  isAttackButtonPressed: 0
+  isAttacking: 0
+  animator: {fileID: 0}
   acceleration: 2
   deceleration: 2
+  weapon: {fileID: 0}
+  rigBuilder: {fileID: 0}
 --- !u!114 &122850736960438506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2245,9 +2251,9 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7090792675289276828, guid: be6ae669441096e44a4743e5506f78ba, type: 3}
-  - {fileID: -6215537871296212180, guid: be6ae669441096e44a4743e5506f78ba, type: 3}
-  - {fileID: 1511726832645573486, guid: be6ae669441096e44a4743e5506f78ba, type: 3}
+  - {fileID: 2100000, guid: 6f6ea3bb0806c9c4e8afbedacc324274, type: 2}
+  - {fileID: 2100000, guid: 2011b06131c69cb469e41fa87ae2e71f, type: 2}
+  - {fileID: 2100000, guid: 3153efe1b2a10954a9939399422854d9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
