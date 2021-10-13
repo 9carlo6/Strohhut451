@@ -11,7 +11,7 @@ public class CameraMovement : MonoBehaviour
     //public float z = 0f;
 
     //smoothSpeed serve per rendere più fluido il movimento della telecamera (NON UTILIZZATO)
-    public float smoothSpeed = 1.5f;
+    public float smoothSpeed = 2.5f;
     public Vector3 offset;
 
     void FixedUpdate()
