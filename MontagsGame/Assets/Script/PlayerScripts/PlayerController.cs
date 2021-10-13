@@ -42,12 +42,27 @@ public class PlayerController : MonoBehaviour
 	//Per accedere allo script RigBuilder
 	public RigBuilder rigBuilder;
 
+	//Per modificare i materiali dei figli runtime
+	public Material[] material;
+	private GameObject astroBody;
+	private GameObject astroHead;
+	public Renderer renderAstroBody;
+	public Renderer renderAstroHead;
+
 	void Awake()
 	{
 		playerInput = new PlayerInput();
 		characterController = GetComponent<CharacterController>();
 		animator = GetComponent<Animator>();
 		rigBuilder = GetComponent<RigBuilder>();
+
+		//Inizio - Componenti dei Figli
+		astroBody = transform.Find("CorpoAstronauta").gameObject;
+		astroHead = transform.Find("TestaAstronauta").gameObject;
+		renderAstroBody = astroBody.GetComponent<Renderer>();
+		renderAstroHead = astroHead.GetComponent<Renderer>();
+		//Fine - Componenti dei Figli
+
 
 		//ascolta quando il giocatore inizia a utilizzare l'azione Move
 		playerInput.CharacterControls.Move.started += onMovementInput;
