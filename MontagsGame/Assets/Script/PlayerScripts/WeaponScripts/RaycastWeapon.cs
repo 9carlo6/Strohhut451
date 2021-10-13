@@ -12,6 +12,8 @@ public class RaycastWeapon : MonoBehaviour
     //Per poter gestire il rate dello sparo
     public int fireRate = 25;
 
+    public int maxAmmoCount = 10;
+
     //Per gestire il danno dell'arma
     public float damage = 10;
 
@@ -124,7 +126,15 @@ public class RaycastWeapon : MonoBehaviour
 
     public void DropAmmo(int ammoDropCount)
     {
-        ammoCount += ammoDropCount;
+        if ((ammoCount + ammoDropCount) > maxAmmoCount)
+        {
+            ammoCount = maxAmmoCount;
+        }
+        else
+        {
+            ammoCount += ammoDropCount;
+        }
+
         ammoWidget.Refresh(ammoCount);
     }
 
