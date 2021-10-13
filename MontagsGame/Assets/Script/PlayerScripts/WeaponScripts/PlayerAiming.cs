@@ -19,7 +19,7 @@ public class PlayerAiming : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         weapon = GetComponentInChildren<RaycastWeapon>();
     }
-    
+
     void Start()
     {
         //Callbacks

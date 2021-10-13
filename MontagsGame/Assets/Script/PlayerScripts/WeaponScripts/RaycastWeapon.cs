@@ -16,13 +16,15 @@ public class RaycastWeapon : MonoBehaviour
     public float damage = 10;
 
     //Per gestire il numero di munizioni a disposizione
-    public int ammoCount = 5;
+    public int ammoCount = 10;
 
     //Per gestire lo sparo (raffica o no)
     public bool isBurst = false;
 
     //Questo accumulatedTime sarebbe il tempo che deve passare per poter sparare il prossimo proiettile
     float accumulatedTime;
+
+
 
 
     //Per gestire il widget relativo alle munizioni
@@ -39,6 +41,11 @@ public class RaycastWeapon : MonoBehaviour
     public Transform raycastOrigin;
     Ray ray;
     RaycastHit hitInfo;
+
+    void Awake()
+    {
+        ammoWidget.Refresh(ammoCount);
+    }
 
     //Funzione chiamata quando si riceve l'input per lo sparo
     public void StartFiring()

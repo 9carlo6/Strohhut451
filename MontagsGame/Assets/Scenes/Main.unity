@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -968,6 +968,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1965771499065664080, guid: a320f48899dcda041996116f38a9e097,
         type: 3}
+      propertyPath: ammoDropped
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965771499065664080, guid: a320f48899dcda041996116f38a9e097,
+        type: 3}
       propertyPath: raycastWeapon
       value: 
       objectReference: {fileID: 1511689364}
@@ -1040,6 +1045,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2068854156455962845, guid: b07947e302be3a94086468f33b4ed434,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 137.2843
+      objectReference: {fileID: 0}
+    - target: {fileID: 2068854156455962845, guid: b07947e302be3a94086468f33b4ed434,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 44.3442
+      objectReference: {fileID: 0}
+    - target: {fileID: 2068854156455962845, guid: b07947e302be3a94086468f33b4ed434,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 56.920578
+      objectReference: {fileID: 0}
+    - target: {fileID: 2068854156455962845, guid: b07947e302be3a94086468f33b4ed434,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -85.17209
+      objectReference: {fileID: 0}
+    - target: {fileID: 2068854156455962846, guid: b07947e302be3a94086468f33b4ed434,
+        type: 3}
+      propertyPath: m_text
+      value: 10/10
+      objectReference: {fileID: 0}
     - target: {fileID: 2068854156839672835, guid: b07947e302be3a94086468f33b4ed434,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1223,6 +1253,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CastShadows
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2642636815802186229, guid: ff5e6ba79362b2a4c85c37b070aa6207,
+        type: 3}
+      propertyPath: ammoCount
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2642636815802186229, guid: ff5e6ba79362b2a4c85c37b070aa6207,
         type: 3}
