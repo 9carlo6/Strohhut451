@@ -608,7 +608,7 @@ PrefabInstance:
     - target: {fileID: 3932226220879287884, guid: 50feaf9b473983c4b90d157e60875042,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3932226220879287884, guid: 50feaf9b473983c4b90d157e60875042,
         type: 3}
@@ -640,6 +640,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PirataNemico2
       objectReference: {fileID: 0}
+    - target: {fileID: 4202838358431698896, guid: 50feaf9b473983c4b90d157e60875042,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7491886689975570192, guid: 50feaf9b473983c4b90d157e60875042,
         type: 3}
       propertyPath: m_WarningMessage
@@ -663,7 +668,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-27626
+  m_Name: pb_Mesh-2462
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -919,7 +924,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1594290485}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95c047d0b67a5494680d544dfff36a45, type: 3}
   m_Name: 
@@ -1855,6 +1860,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2377106986125054807, guid: 50feaf9b473983c4b90d157e60875042,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2377106987579557869, guid: 50feaf9b473983c4b90d157e60875042,
         type: 3}
       propertyPath: target
@@ -1932,13 +1942,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3932226220879287875, guid: 50feaf9b473983c4b90d157e60875042,
         type: 3}
+      propertyPath: m_Speed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932226220879287875, guid: 50feaf9b473983c4b90d157e60875042,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932226220879287875, guid: 50feaf9b473983c4b90d157e60875042,
+        type: 3}
+      propertyPath: m_AutoRepath
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932226220879287875, guid: 50feaf9b473983c4b90d157e60875042,
+        type: 3}
+      propertyPath: m_AutoBraking
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932226220879287875, guid: 50feaf9b473983c4b90d157e60875042,
+        type: 3}
+      propertyPath: m_Acceleration
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932226220879287875, guid: 50feaf9b473983c4b90d157e60875042,
+        type: 3}
       propertyPath: m_StoppingDistance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932226220879287875, guid: 50feaf9b473983c4b90d157e60875042,
+        type: 3}
+      propertyPath: m_AutoTraverseOffMeshLink
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3932226220879287884, guid: 50feaf9b473983c4b90d157e60875042,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3932226220879287884, guid: 50feaf9b473983c4b90d157e60875042,
         type: 3}
@@ -1973,12 +2013,7 @@ PrefabInstance:
     - target: {fileID: 7491886689975570192, guid: 50feaf9b473983c4b90d157e60875042,
         type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'Hips'\n\tTransform 'Spine1'\n\tTransform
-        'Neck'\n\tTransform 'LeftUpLeg'\n\tTransform 'RightLeg'\n\tTransform 'LeftFoot'\n\tTransform
-        'RightArm'\n\tTransform 'LeftHand'\n\tTransform 'LeftToeBase'\n\tTransform
-        'Spine2'\n\tand more ...\n\tFrom animation clip 'Attacco2'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7491886689975570192, guid: 50feaf9b473983c4b90d157e60875042,
         type: 3}
@@ -2163,10 +2198,20 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1280052838}
+    - target: {fileID: 4199115201159898944, guid: 3590d7268a642b64480d262ba8e336ca,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5228636522222515836, guid: 3590d7268a642b64480d262ba8e336ca,
         type: 3}
       propertyPath: m_Name
       value: AmbienteDiGioco
+      objectReference: {fileID: 0}
+    - target: {fileID: 5228636522222515836, guid: 3590d7268a642b64480d262ba8e336ca,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5228636522222515840, guid: 3590d7268a642b64480d262ba8e336ca,
         type: 3}
@@ -2221,6 +2266,11 @@ PrefabInstance:
     - target: {fileID: 5228636522222515840, guid: 3590d7268a642b64480d262ba8e336ca,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5228636522390464266, guid: 3590d7268a642b64480d262ba8e336ca,
+        type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5852150824020892171, guid: 3590d7268a642b64480d262ba8e336ca,

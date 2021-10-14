@@ -57,6 +57,7 @@ public class EnemyController : MonoBehaviour
 
             if (!attack)
             {
+                agent.isStopped = true;
                 animator.SetBool("Attack", true);
 
             }
@@ -64,13 +65,13 @@ public class EnemyController : MonoBehaviour
         }
         else 
         {
-            if(animator.GetBool("Attack") == true)
+            /*if(animator.GetBool("Attack") == true)
             {
                 Debug.Log("Gregorio è gay");
 
                 agent.isStopped = true;
 
-            }
+            */
 
             animator.SetBool("isWalkingEnemy", true);
             animator.SetBool("Attack", false);
@@ -104,7 +105,7 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
 
-        if ( animator.GetBool("Attack") == true && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
+        /*if ( animator.GetBool("Attack") == true && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
         {
 
             //ferma il nemico quando incontra il player
@@ -115,7 +116,7 @@ public class EnemyController : MonoBehaviour
         {
             agent.isStopped = false;
 
-        }
+        }*/
         
         /*if(transform.position != currentPosition)
         {
