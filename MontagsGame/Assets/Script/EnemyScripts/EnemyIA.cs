@@ -24,10 +24,12 @@ public class EnemyIA : MonoBehaviour
     public Transform[] wayPoints;   //array di points verso cui il nemico dovr� effettuare il patroling
     private int wayPointIndex = 0;   //indice per tenere conto dei points verso cui muoversi,  primo waypoint
 
+    Vector3 destinationVector = new Vector3();
     //FOV, Chase player
     public float viewRadius;  //raggio di vista
     [Range(0, 360)]           //limitiamo l'angolo di visuale a 360�
     public float viewAngle;   //angolo di vista
+    private float offsetPosition=2.0f;
 
     //Dobbiamo fare in modo da inseguire il personaggio e tenere conto degli ostacoli
     //LayerMask permette di specificare i layer da utilizzare in Physics.Raycast
@@ -49,6 +51,7 @@ public class EnemyIA : MonoBehaviour
 
     private void Update()
     {
+        
         if (hm.currentHealth <= 0)
         {
             Debug.Log("Non mi segue pi�");
@@ -109,39 +112,51 @@ public class EnemyIA : MonoBehaviour
             playerInSightRange = false;
     }
 
+
     //PATROLING
     private void Patroling()
     {
-        viewRadius = 5;
+        viewRadius = 10;
         viewAngle = 110;
-        //agent.speed = 8;
 
-        //Se la distanza tra il nemico e il waypoint corrente � minore di 1f waypoint successivo
-        if (Vector3.Distance(agent.transform.position, wayPoints[wayPointIndex].position) < 1f)
+        //a ogni frame vado a vedere se non gli ho ancora assegnato un path(!agent.pathPending) e
+        //la distanza dal waypoint da raggiungere è0.5(cioè ha raggiunto il prossimo waypoint), si va al waypoint successivo 
+        if (!agent.pathPending && agent.remainingDistance < 0.5f)  //se la distanza tra il nemico e il waypoint corrente è minore di 0.5f waypoint successivo
         {
-            Debug.Log("Sto incrementando l'index");
-
-            wayPointIndex++;
-
-            if (wayPointIndex >= wayPoints.Length)
-            {
-                Debug.Log("sto azzerando");
-                wayPointIndex = 0;
-            }
+            GotoNextPoint();
         }
-        Debug.Log("Sto andando verso il walkpoint" + wayPointIndex);
-        agent.SetDestination(wayPoints[wayPointIndex].position);   //Ci muoviamo al waypoint i-esimo
+    }
+
+    private void GotoNextPoint()
+    {
+        //se l'array è vuoto non fa niente
+        if (wayPoints.Length == 0)
+        {
+            return;
+        }
+
+        //altrimeti setto la destinazione dell'agente al waypoints
+        agent.destination = wayPoints[wayPointIndex].position;
+
+        //poi usando un modulo ciclo sui numeri e aumento l'index
+        wayPointIndex = (wayPointIndex + 1) % wayPoints.Length;
     }
 
     //CHASING
 
     private void ChasePlayer()
     {
+
+        //si ferma poco prima del player
+        destinationVector.x = target.position.x;
+        destinationVector.y = target.position.y;
+        destinationVector.z = target.position.z+offsetPosition;
+
         viewRadius = 13;
         viewAngle = 360;
 
         //Raggiunge la posizione del player, target � il transform del player
-        agent.SetDestination(target.position);
+        agent.SetDestination(destinationVector);
 
         //Il nemico si gira verso il player
         transform.LookAt(target);
