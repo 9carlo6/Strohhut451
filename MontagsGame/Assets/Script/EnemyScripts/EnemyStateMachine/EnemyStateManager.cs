@@ -10,6 +10,8 @@ public class EnemyStateManager : MonoBehaviour
     public EnemyAttackState AttackState = new EnemyAttackState();
     public EnemyAttackedState AttackedState = new EnemyAttackedState();
     public EnemyStunnedState StunnedState = new EnemyStunnedState();
+    public EnemyPatrollingState PatrollingState = new EnemyPatrollingState();
+    public EnemyChasePlayerState ChasePlayerState = new EnemyChasePlayerState();
 
 
     public void Start()

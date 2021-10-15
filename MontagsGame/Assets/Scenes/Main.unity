@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -608,7 +608,7 @@ PrefabInstance:
     - target: {fileID: 3932226220879287884, guid: 50feaf9b473983c4b90d157e60875042,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3932226220879287884, guid: 50feaf9b473983c4b90d157e60875042,
         type: 3}
@@ -911,6 +911,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3932226219217211578}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1594290486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594290485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2253d5a86416cfa4484b0b69326496ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!195 &1594290488 stripped
 NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 3932226220879287875, guid: 50feaf9b473983c4b90d157e60875042,
@@ -956,6 +968,21 @@ MonoBehaviour:
     m_Bits: 0
   playerInSightRange: 0
   playerInAttackRange: 0
+--- !u!114 &1594290496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594290485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb9f2862e94416741a731c1f29eab615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wayPoints:
+  - {fileID: 4592691309433703178}
+  - {fileID: 37342806}
 --- !u!4 &1616525273 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 674637093776969105, guid: 7f55de08a576bd945bd228676dac1403,
@@ -1978,7 +2005,7 @@ PrefabInstance:
     - target: {fileID: 3932226220879287884, guid: 50feaf9b473983c4b90d157e60875042,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3932226220879287884, guid: 50feaf9b473983c4b90d157e60875042,
         type: 3}

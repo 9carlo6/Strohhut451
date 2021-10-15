@@ -19,8 +19,12 @@ public class EnemyIA : MonoBehaviour
     //NavMeshAgent � la classe per accedere ai Navmesh per la navigazione nella scena
     //agent � il nemico
     NavMeshAgent agent;
+    float distanceToTarget;
 
-    //Patroling
+    public bool run = true, stopped = false, melee = false;
+    private EnemyController controller;
+
+    //Patroling 
     public Transform[] wayPoints;   //array di points verso cui il nemico dovr� effettuare il patroling
     private int wayPointIndex = 0;   //indice per tenere conto dei points verso cui muoversi,  primo waypoint
 
@@ -29,7 +33,7 @@ public class EnemyIA : MonoBehaviour
     public float viewRadius;  //raggio di vista
     [Range(0, 360)]           //limitiamo l'angolo di visuale a 360�
     public float viewAngle;   //angolo di vista
-    private float offsetPosition=2.0f;
+    //private float offsetPosition = 2.0f;
 
     //Dobbiamo fare in modo da inseguire il personaggio e tenere conto degli ostacoli
     //LayerMask permette di specificare i layer da utilizzare in Physics.Raycast
@@ -46,26 +50,38 @@ public class EnemyIA : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         hm = gameObject.GetComponent<EnemyHealthManager>();
 
+        controller = GetComponent<EnemyController>();
+
     }
 
 
     private void Update()
     {
-        
+
         if (hm.currentHealth <= 0)
         {
             Debug.Log("Non mi segue pi�");
             Destroy(this.gameObject, 3);
-        }else{
-          FieldOfViewCheck();   //Il fov dovr� essere sempre attivo, ritorna il valore di playerInSightRange
+        }
+        else
+        {
+            FieldOfViewCheck();   //Il fov dovr� essere sempre attivo, ritorna il valore di playerInSightRange 
 
-          if (!playerInSightRange)
-              //se il player NON � nel campo visivo del nemico, esso continuer� il patroling
-              Patroling();
-          else
-              //se il player E' nel campo visivo del nemico, esso inseguir� il player
-              ChasePlayer();
-          //quando implementeremo l'attacco del nemico dovremmo includerlo qui
+            if (!playerInSightRange)
+                //se il player NON � nel campo visivo del nemico, esso continuer� il patroling 
+                Patroling();
+            else
+            {
+                //se il player E' nel campo visivo del nemico, esso inseguir� il player 
+                distanceToTarget = Vector3.Distance(transform.position, target.position);
+
+                ChasePlayer();
+                Fight();
+
+            }
+
+
+            //quando implementeremo l'attacco del nemico dovremmo includerlo qui 
         }
     }
 
@@ -88,7 +104,7 @@ public class EnemyIA : MonoBehaviour
             Vector3 directionToTarget = (target.position - transform.position).normalized; //normalizzato tra 0 e 1
 
             //Transform.forward ritorna un vettore normalizzato rappresentante l'asse z
-            //Quindi verifichiamo se l'angolo tra questi due vettori � minore dell'angolo di visuale fratto 2
+            //Quindi verifichiamo se l'angolo tra questi duevettori � minore dell'angolo di visuale fratto 2
             if (Vector3.Angle(transform.forward, directionToTarget) < viewAngle / 2)
             {
                 //Distanza tra la posizione del nemico e quella del player
@@ -144,13 +160,14 @@ public class EnemyIA : MonoBehaviour
 
     //CHASING
 
+
     private void ChasePlayer()
     {
 
         //si ferma poco prima del player
         destinationVector.x = target.position.x;
         destinationVector.y = target.position.y;
-        destinationVector.z = target.position.z+offsetPosition;
+        destinationVector.z = target.position.z + 0.5f;
 
         viewRadius = 13;
         viewAngle = 360;
@@ -158,7 +175,58 @@ public class EnemyIA : MonoBehaviour
         //Raggiunge la posizione del player, target � il transform del player
         agent.SetDestination(destinationVector);
 
-        //Il nemico si gira verso il player
+        // Debug.Log("vado qui : "+ destinationVector.x.ToString() + "-"+destinationVector.y.ToString() + "-"+destinationVector.z.ToString() + "-"); 
+
+        //Il nemico si gira verso il player 
         transform.LookAt(target);
+    }
+
+
+
+    private void Fight()
+    {
+
+        // if(controller.ready == true) 
+        //{ 
+
+
+        if (distanceToTarget <= 1.5)
+        {
+            run = false;
+            stopped = false;
+            melee = true;
+            //agent.isStopped = true; 
+
+
+
+
+        }
+        else
+        {
+
+            if (distanceToTarget >= 4)
+            {
+                run = true;
+                stopped = false;
+                melee = false;
+
+                //agent.isStopped = false; 
+
+            }
+            else
+            {
+                // fra 1.5 e 4 combatti 
+                run = false;
+                stopped = true;
+                melee = false;
+                //agent.isStopped = true; 
+
+
+            }
+
+        }
+        //} 
+
+
     }
 }

@@ -8,12 +8,13 @@ public class EnemyController : MonoBehaviour
 {
 
     Transform target;
-    
+
     private Rigidbody enemyRigidbody;
     public GameObject playerRef;
 
     //per l'animazione
     Animator animator;
+    EnemyIA ia;
 
     NavMeshAgent agent;
 
@@ -21,12 +22,15 @@ public class EnemyController : MonoBehaviour
     Vector3 currentPosition;
     bool isMoving;
     float initialSpeed;
-    
+
+    public bool ready = false;
+
 
 
     void Awake()
     {
         animator = GetComponent<Animator>();
+        ia = GetComponent<EnemyIA>();
 
     }
 
@@ -45,58 +49,155 @@ public class EnemyController : MonoBehaviour
     void handleAnimation()
     {
 
+
+
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
-        //Prende i parametri dall'animator
-       // bool isWalkingEnemy = animator.GetBool("isWalkingEnemy");
+        //Prende i parametri dall'animator 
+        //bool isWalkingEnemy = animator.GetBool("isWalkingEnemy"); 
         bool attack = animator.GetBool("Attack");
-
-
-        if(distanceToTarget <= 2f)
-        {
-            animator.SetBool("isWalkingEnemy", false);
-
-            if (!attack)
-            {
-                agent.isStopped = true;
-                animator.SetBool("Attack", true);
-
-            }
-           
-        }
+        /* 
+        if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f) 
+        { 
+            ready = true; 
+            if (ia.run == true) 
+            { 
+                animator.SetBool("isWalkingEnemy", true); 
+                animator.SetBool("Attack", false); 
+ 
+            } 
+            if (ia.melee == true) 
+            { 
+                animator.SetBool("isWalkingEnemy", false); 
+                animator.SetBool("Attack", true); 
+                agent.isStopped = true; 
+ 
+            } 
+            if (ia.stopped == true) 
+            { 
+                animator.SetBool("isWalkingEnemy", false); 
+                animator.SetBool("Attack", false); 
+ 
+            } 
+        } 
         else 
+        { 
+            ready = false; 
+ 
+            if(ia.melee == true || ia.stopped == true) 
+            { 
+                agent.isStopped = true; 
+ 
+            } 
+ 
+        } */
+
+        //se muore muore anche prima dell animazione pronta  
+
+        if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
         {
-            /*if(animator.GetBool("Attack") == true)
-            {
-                Debug.Log("Gregorio è gay");
-
-                agent.isStopped = true;
-
-            */
-
-            animator.SetBool("isWalkingEnemy", true);
-            animator.SetBool("Attack", false);
-
+            ready = true;
         }
-
-        /*if (!attack && distanceToTarget <= 2f)
+        else
         {
-            animator.SetBool("isWalkingEnemy", false);
-            animator.SetBool("Attack", true);
-
-        }else if()
-      
-
-            if (isMoving && !isWalkingEnemy)
+            ready = false;
+        }
+        if (ready)
+        {
+            if (ia.run == true)
             {
                 animator.SetBool("isWalkingEnemy", true);
-            }
-            else if (!isMoving && isWalkingEnemy)
-            {
                 animator.SetBool("Attack", false);
 
-                animator.SetBool("isWalkingEnemy", false);
             }
-        
+            if (ia.melee == true)
+            {
+                animator.SetBool("isWalkingEnemy", false);
+                animator.SetBool("Attack", true);
+                agent.isStopped = true;
+
+            }
+            if (ia.stopped == true)
+            {
+                animator.SetBool("isWalkingEnemy", false);
+                animator.SetBool("Attack", false);
+                agent.isStopped = true;
+
+
+            }
+
+        }
+
+
+
+
+        /* 
+                if(distanceToTarget>3.0f && distanceToTarget <= 8.0f) 
+                { 
+                    agent.isStopped = true; 
+
+                } 
+
+                else 
+                { 
+                    if (distanceToTarget <= 3f) 
+                    { 
+
+                        agent.isStopped = true; 
+
+
+                        animator.SetBool("isWalkingEnemy", false); 
+
+                        if (!attack) 
+                        { 
+                            animator.SetBool("Attack", true); 
+
+                        } 
+
+                    } 
+                    else 
+                    { 
+                        if (animator.GetBool("Attack") == true) 
+                        {agent.isStopped = true; 
+
+                        } 
+
+
+                        if(animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f) 
+                        { 
+                            animator.SetBool("isWalkingEnemy", true); 
+                            animator.SetBool("Attack", false); 
+
+                            agent.isStopped = false; 
+
+                        } 
+
+
+
+
+                    } 
+
+                } 
+                */
+
+        /*if (!attack && distanceToTarget <= 2f) 
+        { 
+            animator.SetBool("isWalkingEnemy", false); 
+            animator.SetBool("Attack", true); 
+
+        }else if() 
+
+
+            if (isMoving && !isWalkingEnemy) 
+            { 
+                animator.SetBool("isWalkingEnemy", true); 
+            } 
+            else if (!isMoving && isWalkingEnemy) 
+            { 
+                animator.SetBool("Attack", false); 
+
+                animator.SetBool("isWalkingEnemy", false); 
+            } 
+
         */
     }
 
@@ -105,19 +206,7 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
 
-        /*if ( animator.GetBool("Attack") == true && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
-        {
 
-            //ferma il nemico quando incontra il player
-            agent.isStopped = true;
-
-        }
-        else
-        {
-            agent.isStopped = false;
-
-        }*/
-        
         /*if(transform.position != currentPosition)
         {
             isMoving = true;
@@ -129,9 +218,9 @@ public class EnemyController : MonoBehaviour
         }
         */
         handleAnimation();
-        
 
-       
+
+
 
     }
 }
