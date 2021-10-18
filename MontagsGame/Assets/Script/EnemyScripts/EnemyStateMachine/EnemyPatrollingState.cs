@@ -37,13 +37,18 @@ public class EnemyPatrollingState : EnemyBaseState
 
     public override void EnterState(EnemyStateManager enemy)
         {
+        viewRadius = 10;
+        viewAngle = 110;
         Debug.Log("Stato Nemico = Patrolling");
         agent = enemy.GetComponent<NavMeshAgent>();
         enemyTransform = enemy.gameObject.transform;
         playerRef = GameObject.FindGameObjectWithTag("Player");
         target = playerRef.transform;
         wayPoints = enemy.GetComponent<WayPoints>().wayPoints;
-      
+        targetMask = enemy.GetComponent<WayPoints>().targetMask;
+        obstructionMask = enemy.GetComponent<WayPoints>().obstructionMask;
+
+
     }
 
     public override void UpdateState(EnemyStateManager enemy)
@@ -56,16 +61,18 @@ public class EnemyPatrollingState : EnemyBaseState
         //if(enemy.isAttacked)
         //enemy.SwitchState(EnemyAttackedState);
 
-        if (!playerInSightRange) {
+        if (!playerInSightRange)
+        {
             Debug.Log("Sto facendo il patrolling");
             //se il player NON � nel campo visivo del nemico, esso continuer� il patroling
             Patrolling();
-                }
+        }
         else
+        {
             //se il player E' nel campo visivo del nemico, esso inseguir� il player
             enemy.SwitchState(enemy.ChasePlayerState);
-        //quando implementeremo l'attacco del nemico dovremmo includerlo qui
-    
+            //quando implementeremo l'attacco del nemico dovremmo includerlo qui
+        }
 
 }
 
@@ -121,8 +128,7 @@ public class EnemyPatrollingState : EnemyBaseState
 
     private void Patrolling()
     {
-        viewRadius = 10;
-        viewAngle = 110;
+        
 
         //a ogni frame vado a vedere se non gli ho ancora assegnato un path(!agent.pathPending) e
         //la distanza dal waypoint da raggiungere è0.5(cioè ha raggiunto il prossimo waypoint), si va al waypoint successivo 

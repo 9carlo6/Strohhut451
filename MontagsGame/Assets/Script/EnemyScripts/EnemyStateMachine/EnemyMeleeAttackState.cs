@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAttackState : EnemyBaseState
+public class EnemyMeleeAttackState : EnemyBaseState
 {
 
 
@@ -12,13 +12,16 @@ public class EnemyAttackState : EnemyBaseState
     Transform enemyTransform;
     Transform targetTransform;
     PlayerController playerController;
+    GameObject playerRef;
+
 
 
     public override void EnterState(EnemyStateManager enemy)
     {
         Debug.Log("Stato Nemico = Attacca");
         enemyTransform = enemy.gameObject.transform;
-        targetTransform = playerController.transform;
+        playerRef = GameObject.FindGameObjectWithTag("Player");
+        targetTransform = playerRef.transform;
 
         //NON SO SE SI DEVE FARE QUI
         distanceToTarget = Vector3.Distance(enemyTransform.position, targetTransform.position);

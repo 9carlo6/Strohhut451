@@ -17,6 +17,7 @@ public class EnemyChasePlayerState : EnemyBaseState
     //LayerMask permette di specificare i layer da utilizzare in Physics.Raycast
     public LayerMask targetMask;    //bersagli, cio� il player
     public LayerMask obstructionMask; //ostacoli, ad esempio le pareti
+    GameObject playerRef;
 
     PlayerController playerController;
     Transform target;
@@ -25,14 +26,21 @@ public class EnemyChasePlayerState : EnemyBaseState
     float distanceToTarget;
 
     public bool playerInSightRange;  //quando vedo il bersaglio = true
-    public bool playerInAttackRange; 
+    public bool playerInAttackRange = false;
+    bool isArmed = true;
 
     public override void EnterState(EnemyStateManager enemy)
     {
+        viewRadius = 10;
+        viewAngle = 110;
+        playerInSightRange = true;
         Debug.Log("Stato Nemico = Chasing");
-        target = playerController.transform;
+        playerRef = GameObject.FindGameObjectWithTag("Player");
+        target = playerRef.transform;
         agent = enemy.GetComponent<NavMeshAgent>();
         enemyTransform = enemy.gameObject.transform;
+        targetMask = enemy.GetComponent<WayPoints>().targetMask;
+        obstructionMask = enemy.GetComponent<WayPoints>().obstructionMask;
 
 
         //enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
@@ -42,20 +50,42 @@ public class EnemyChasePlayerState : EnemyBaseState
     public override void UpdateState(EnemyStateManager enemy)
     {
         distanceToTarget = Vector3.Distance(enemyTransform.position, target.position);
+        //enemyTransform = enemy.gameObject.transform;
+        //target = playerRef.transform;
+       
+        FieldOfViewCheck();
 
-        if (!playerInSightRange && !playerInAttackRange)
+        if (!playerInSightRange)
         {
+            Debug.Log("Patrollllllllll");
+
             enemy.SwitchState(enemy.PatrollingState);
         }
+        else
+        {
+            if (distanceToTarget <= 1.5f)
+            {
+                enemy.SwitchState(enemy.AttackMeleeState);
 
-        if(playerInSightRange && playerInAttackRange)
-        {
-            enemy.SwitchState(enemy.AttackState);
+            }
+            else if ((distanceToTarget >= 1.5 && distanceToTarget <= 4f) && isArmed == true)
+            {
+                enemy.SwitchState(enemy.StopAndFireState);
+
+            }
+            else
+            {
+                ChasePlayer();
+            }
+
+
         }
-        if(playerInSightRange && !playerInAttackRange)
-        {
-            ChasePlayer();
-        }
+
+
+
+
+
+     
     }
 
     public override void OnCollisionEnter(EnemyStateManager enemy, Collision collision)
@@ -67,60 +97,47 @@ public class EnemyChasePlayerState : EnemyBaseState
     //FOV
     private void FieldOfViewCheck()
     {
+     
         //Inizializziamo un'array con tutti i collider che toccano o sono dentro la sfera con i parametri passati
         //Centro della sfera, raggio, layer di collider da includere nella query
         Collider[] rangeChecks = Physics.OverlapSphere(enemyTransform.position, viewRadius, targetMask);
-
-        //Se qualcosa collide andiamo in questo if, quindi la lunghezza dell'array sar� diversa da zero
-        //Qui basta un semplice if perch� sul layer targetMask c'� solo il player, altrimenti avremmo dovuto fare un for per scorrere l'array
+        Debug.Log(rangeChecks.Length);
+        //Se qualcosa collide andiamo in questo if, quindi la lunghezza dell'array sarà diversa da zero
+        //Qui basta un semplice if perchè sul layer targetMask c'è solo il player, altrimenti avremmo dovuto fare un for per scorrere l'array
         if (rangeChecks.Length != 0)
         {
-            //target sar� pari alla prima istanza di rangeChecks, cio� la trasform del player
+            //target sarà pari alla prima istanza di rangeChecks, cioè la trasform del player
             Transform target = rangeChecks[0].transform;
+
+            Debug.Log(target);
 
             //Definiamo la direzione verso cui il nostro nemico sta guardando
             //Differenza tra la posizione del player (prima istanza del Collider[]) e il nemico
             Vector3 directionToTarget = (target.position - enemyTransform.position).normalized; //normalizzato tra 0 e 1
 
             //Transform.forward ritorna un vettore normalizzato rappresentante l'asse z
-            //Quindi verifichiamo se l'angolo tra questi due vettori � minore dell'angolo di visuale fratto 2
+            //Quindi verifichiamo se l'angolo tra questi due vettori è minore dell'angolo di visuale fratto 2
             if (Vector3.Angle(enemyTransform.forward, directionToTarget) < viewAngle / 2)
             {
                 //Distanza tra la posizione del nemico e quella del player
                 float distanceToTarget = Vector3.Distance(enemyTransform.position, target.position);
 
-                //Col RayCast � come se dotassimo il nemico di un occhio, avviene il lancio di un raggio
+                //Col RayCast è come se dotassimo il nemico di un occhio, avviene il lancio di un raggio
                 //Parametri: origine del raggio, direzione, distanza massima che il raggio deve controllare per le collisioni
                 //Maschera di livello utilizzata per ignorare selettivamente i Collider durante la proiezione di un raggio
-                //Il RayCast termina nel momento in cui colpisce qualcosa nell'obstrunctionMask (tipo i muri)
+                //Il RayCast termina nel momento in cui colpisce qualcosa nell'obstrunctionMask (tipo i muri)   
                 //Facciamo prima il controllo positivo col !, quindi se non stiamo colpendo qualcosa nell'obstructionMask
                 if (!Physics.Raycast(enemyTransform.position, directionToTarget, distanceToTarget, obstructionMask))
-                {
                     playerInSightRange = true;
-
-                    if (distanceToTarget <= 5f)
-                        playerInAttackRange = true;
-
-                }
                 else
-                {
                     playerInSightRange = false;
-                    playerInAttackRange = false;
-                }
-
             }
             else
-            {
                 playerInSightRange = false;
-                playerInAttackRange = false;
-            }
         }
-        //fallisce il controllo se il giocatore non � alla portata, non si trova nemmeno nel raggio
+        //fallisce il controllo se il giocatore non è alla portata, non si trova nemmeno nel raggio
         else
-        {
             playerInSightRange = false;
-            playerInAttackRange = false;
-        }
     }
 
 
@@ -132,8 +149,7 @@ public class EnemyChasePlayerState : EnemyBaseState
         destinationVector.y = target.position.y;
         destinationVector.z = target.position.z + 0.5f;
 
-        viewRadius = 13;
-        viewAngle = 360;
+        
 
         //Raggiunge la posizione del player, target � il transform del player
         agent.SetDestination(destinationVector);
