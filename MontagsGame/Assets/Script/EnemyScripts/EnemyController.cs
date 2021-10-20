@@ -14,7 +14,7 @@ public class EnemyController : MonoBehaviour
 
     //per l'animazione
     Animator animator;
-    EnemyIA ia;
+    EnemyStateManager stateManager;
 
     NavMeshAgent agent;
 
@@ -30,7 +30,7 @@ public class EnemyController : MonoBehaviour
     void Awake()
     {
         animator = GetComponent<Animator>();
-        ia = GetComponent<EnemyIA>();
+        stateManager = GetComponent<EnemyStateManager>();
 
     }
 
@@ -103,25 +103,30 @@ public class EnemyController : MonoBehaviour
         }
         if (ready)
         {
-            if (ia.run == true)
+            if (stateManager.getCurrentState() == "EnemyPatrollingState" || stateManager.getCurrentState() == "EnemyChasePlayerState")
             {
                 animator.SetBool("isWalkingEnemy", true);
                 animator.SetBool("Attack", false);
 
             }
-            if (ia.melee == true)
+            else if  (stateManager.getCurrentState() == "EnemyMeleeAttackState")
             {
                 animator.SetBool("isWalkingEnemy", false);
                 animator.SetBool("Attack", true);
                 agent.isStopped = true;
 
             }
-            if (ia.stopped == true)
+            else if (stateManager.getCurrentState() == "EnemyStopAndFireState")
             {
                 animator.SetBool("isWalkingEnemy", false);
                 animator.SetBool("Attack", false);
                 agent.isStopped = true;
 
+
+            }
+            else
+            {
+                Debug.Log("animation error ");
 
             }
 

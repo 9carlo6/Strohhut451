@@ -29,6 +29,8 @@ public class EnemyChasePlayerState : EnemyBaseState
     public bool playerInAttackRange = false;
     bool isArmed = true;
 
+    public bool ingaged = false;
+
     public override void EnterState(EnemyStateManager enemy)
     {
         viewRadius = 10;
@@ -55,7 +57,7 @@ public class EnemyChasePlayerState : EnemyBaseState
        
         FieldOfViewCheck();
 
-        if (!playerInSightRange)
+        if (!playerInSightRange && !ingaged)
         {
             Debug.Log("Patrollllllllll");
 
@@ -78,6 +80,8 @@ public class EnemyChasePlayerState : EnemyBaseState
                 ChasePlayer();
             }
 
+            
+            //ChasePlayer();
 
         }
 
@@ -85,7 +89,7 @@ public class EnemyChasePlayerState : EnemyBaseState
 
 
 
-     
+
     }
 
     public override void OnCollisionEnter(EnemyStateManager enemy, Collision collision)
@@ -101,15 +105,12 @@ public class EnemyChasePlayerState : EnemyBaseState
         //Inizializziamo un'array con tutti i collider che toccano o sono dentro la sfera con i parametri passati
         //Centro della sfera, raggio, layer di collider da includere nella query
         Collider[] rangeChecks = Physics.OverlapSphere(enemyTransform.position, viewRadius, targetMask);
-        Debug.Log(rangeChecks.Length);
         //Se qualcosa collide andiamo in questo if, quindi la lunghezza dell'array sarà diversa da zero
         //Qui basta un semplice if perchè sul layer targetMask c'è solo il player, altrimenti avremmo dovuto fare un for per scorrere l'array
         if (rangeChecks.Length != 0)
         {
             //target sarà pari alla prima istanza di rangeChecks, cioè la trasform del player
             Transform target = rangeChecks[0].transform;
-
-            Debug.Log(target);
 
             //Definiamo la direzione verso cui il nostro nemico sta guardando
             //Differenza tra la posizione del player (prima istanza del Collider[]) e il nemico

@@ -5,14 +5,12 @@ using UnityEngine;
 public class EnemyMeleeAttackState : EnemyBaseState
 {
 
-
-    public bool run = true, stopped = false, melee = false;
-
     float distanceToTarget;
     Transform enemyTransform;
     Transform targetTransform;
     PlayerController playerController;
     GameObject playerRef;
+
 
 
 
@@ -23,42 +21,35 @@ public class EnemyMeleeAttackState : EnemyBaseState
         playerRef = GameObject.FindGameObjectWithTag("Player");
         targetTransform = playerRef.transform;
 
-        //NON SO SE SI DEVE FARE QUI
-        distanceToTarget = Vector3.Distance(enemyTransform.position, targetTransform.position);
 
     }
 
     public override void UpdateState(EnemyStateManager enemy)
     {
+
+        distanceToTarget = Vector3.Distance(enemyTransform.position, targetTransform.position);
+
+
         if (distanceToTarget <= 1.5)
         {
-            run = false;
-            stopped = false;
-            melee = true;
-            //agent.isStopped = true; 
+            Attach();
         }
         else
         {
-            if (distanceToTarget >= 4)
-            {
-                run = true;
-                stopped = false;
-                melee = false;
-
-                //agent.isStopped = false; 
-            }
-            else
-            {
-                // fra 1.5 e 4 combatti 
-                run = false;
-                stopped = true;
-                melee = false;
-                //agent.isStopped = true; 
-            }
+            enemy.SwitchState(enemy.ChasePlayerState);
         }
-    //} 
-   
-}
+        //} 
+
+    }
+
+    public void Attach()
+    {
+
+        Debug.Log("ZAC ZAC");
+        enemyTransform.LookAt(targetTransform);
+
+
+    }
 
     public override void OnCollisionEnter(EnemyStateManager enemy, Collision collision)
     {

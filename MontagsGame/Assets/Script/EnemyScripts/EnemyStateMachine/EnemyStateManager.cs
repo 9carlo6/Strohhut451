@@ -15,6 +15,11 @@ public class EnemyStateManager : MonoBehaviour
     public EnemyStopAndFireState StopAndFireState = new EnemyStopAndFireState();
 
 
+    public string getCurrentState()
+    {
+        return currentState.GetType().Name;
+    }
+
     public void Start()
     {
         //Stato di partenza
