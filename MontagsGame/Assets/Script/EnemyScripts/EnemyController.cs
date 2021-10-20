@@ -27,11 +27,25 @@ public class EnemyController : MonoBehaviour
 
     private AnimatorClipInfo[] clipInfo;
 
+    //Per modificare i materiali dei figli runtime
+  	public Material[] material;
+  	private GameObject enemyBody;
+  	public Renderer renderEnemyBody;
+
 
     void Awake()
     {
         animator = GetComponent<Animator>();
         stateManager = GetComponent<EnemyStateManager>();
+
+        //Inizio - Componenti dei Figli
+    		enemyBody = transform.Find("EnemyPirateSkin").gameObject;
+    		renderEnemyBody = enemyBody.GetComponent<Renderer>();
+    		//Fine - Componenti dei Figli
+
+        //Per gestire il passaggio allo shader per la dissolvenza
+        //L'intensita dello shader per la dissolvenza viene settato inizialmente a 0.3
+        this.material[0].SetFloat("Vector_Intensity_Dissolve2", 0.3f);
 
     }
 
@@ -57,12 +71,25 @@ public class EnemyController : MonoBehaviour
         //bool isWalkingEnemy = animator.GetBool("isWalkingEnemy");
         bool attack = animator.GetBool("Attack");
 
+
+        //MORTE
        if (stateManager.getCurrentState() == "EnemyDeathState")
         {
           animator.SetBool("isDeathEnemy", true);
           agent.isStopped = true;
+
+          //I materiali del personaggio vengono settati al materiale con lo shader per la dissolvenza
+          renderEnemyBody.sharedMaterials = material;
+
+
            if (string.Equals(GetCurrentClipName(), "MorteNemico") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f){
-             GameObject.Destroy(this.gameObject, 0.2f);
+             GameObject.Destroy(this.gameObject);
+           }
+
+           //Per gestire la dissolvenza durante la morte del MorteNemico
+           if(string.Equals(GetCurrentClipName(), "MorteNemico")){
+             //Man mano che l'animazione va avanti l'intensita dello shader della dissolvenza aumenta di valore
+             this.material[0].SetFloat("Vector_Intensity_Dissolve2", this.material[0].GetFloat("Vector_Intensity_Dissolve2") + 0.005f);
            }
 
         }

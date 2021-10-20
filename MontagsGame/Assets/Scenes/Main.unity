@@ -1116,6 +1116,49 @@ MonoBehaviour:
     m_Bits: 0
   playerInSightRange: 0
   playerInAttackRange: 0
+--- !u!23 &1594290495
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594290485}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 0053cfe5f112d06419c412b243969718, type: 2}
+  - {fileID: 2100000, guid: 0053cfe5f112d06419c412b243969718, type: 2}
+  - {fileID: 2100000, guid: 0053cfe5f112d06419c412b243969718, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &1594290496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2066,6 +2109,16 @@ PrefabInstance:
       propertyPath: offset.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3486063219364397517, guid: 50feaf9b473983c4b90d157e60875042,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486063219364397517, guid: 50feaf9b473983c4b90d157e60875042,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3537766162396173674, guid: 50feaf9b473983c4b90d157e60875042,
         type: 3}
       propertyPath: m_RootOrder
@@ -2206,6 +2259,16 @@ PrefabInstance:
       propertyPath: wayPoints.Array.data[1]
       value: 
       objectReference: {fileID: 37342806}
+    - target: {fileID: 3932226220879287885, guid: 50feaf9b473983c4b90d157e60875042,
+        type: 3}
+      propertyPath: material.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932226220879287885, guid: 50feaf9b473983c4b90d157e60875042,
+        type: 3}
+      propertyPath: material.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0053cfe5f112d06419c412b243969718, type: 2}
     - target: {fileID: 4202838358431698896, guid: 50feaf9b473983c4b90d157e60875042,
         type: 3}
       propertyPath: m_Name
