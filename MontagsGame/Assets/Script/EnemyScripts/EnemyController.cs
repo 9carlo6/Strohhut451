@@ -25,6 +25,7 @@ public class EnemyController : MonoBehaviour
 
     public bool ready = false;
 
+    private AnimatorClipInfo[] clipInfo;
 
 
     void Awake()
@@ -52,17 +53,20 @@ public class EnemyController : MonoBehaviour
 
 
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
-        //Prende i parametri dall'animator 
-        //bool isWalkingEnemy = animator.GetBool("isWalkingEnemy"); 
+        //Prende i parametri dall'animator
+        //bool isWalkingEnemy = animator.GetBool("isWalkingEnemy");
         bool attack = animator.GetBool("Attack");
 
-       /* if (stateManager.getCurrentState() == "DeathState")
+       if (stateManager.getCurrentState() == "EnemyDeathState")
         {
-            animator.SetBool("isDeathEnemy", true);
-           // GameObject.Destroy(enemy.gameObject, 0.2f);
+          animator.SetBool("isDeathEnemy", true);
+          agent.isStopped = true;
+           if (string.Equals(GetCurrentClipName(), "MorteNemico") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f){
+             GameObject.Destroy(this.gameObject, 0.2f);
+           }
 
         }
-        */
+
 
 
         if (!animator.GetBool("Attack") || animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
@@ -104,6 +108,12 @@ public class EnemyController : MonoBehaviour
         }
 
 
+    }
+
+    //Funzione necessaria per risalire al nome dell'animazione corrente
+    public string GetCurrentClipName(){
+      clipInfo = animator.GetCurrentAnimatorClipInfo(0);
+      return clipInfo[0].clip.name;
     }
 
 

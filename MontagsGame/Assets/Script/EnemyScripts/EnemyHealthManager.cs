@@ -64,9 +64,9 @@ public class EnemyHealthManager : MonoBehaviour
 
     private void Die(Vector3 direction)
     {
-        ragdoll.ActivateRagdoll();
-        direction.y = 1;
-        ragdoll.ApplyForce(direction * dieForce);
+        //ragdoll.ActivateRagdoll();
+        //direction.y = 1;
+        //ragdoll.ApplyForce(direction * dieForce);
 
         healthBar.gameObject.SetActive(false);
 

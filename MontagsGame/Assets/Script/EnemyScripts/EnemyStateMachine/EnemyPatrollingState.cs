@@ -27,6 +27,8 @@ public class EnemyPatrollingState : EnemyBaseState
     GameObject playerRef;
     Transform enemyTransform;
 
+    EnemyHealthManager enemyHealthManager;
+
 
 
     public bool playerInSightRange;  //quando vedo il bersaglio = true
@@ -47,6 +49,7 @@ public class EnemyPatrollingState : EnemyBaseState
         wayPoints = enemy.GetComponent<WayPoints>().wayPoints;
         targetMask = enemy.GetComponent<WayPoints>().targetMask;
         obstructionMask = enemy.GetComponent<WayPoints>().obstructionMask;
+        enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
 
 
     }
@@ -72,6 +75,11 @@ public class EnemyPatrollingState : EnemyBaseState
             //se il player E' nel campo visivo del nemico, esso inseguir� il player
             enemy.SwitchState(enemy.ChasePlayerState);
             //quando implementeremo l'attacco del nemico dovremmo includerlo qui
+        }
+
+        if(enemyHealthManager.currentHealth <= 0)
+        {
+            enemy.SwitchState(enemy.DeathState);
         }
 
 }
@@ -128,10 +136,10 @@ public class EnemyPatrollingState : EnemyBaseState
 
     private void Patrolling()
     {
-        
+
 
         //a ogni frame vado a vedere se non gli ho ancora assegnato un path(!agent.pathPending) e
-        //la distanza dal waypoint da raggiungere è0.5(cioè ha raggiunto il prossimo waypoint), si va al waypoint successivo 
+        //la distanza dal waypoint da raggiungere è0.5(cioè ha raggiunto il prossimo waypoint), si va al waypoint successivo
         if (!agent.pathPending && agent.remainingDistance < 0.5f)  //se la distanza tra il nemico e il waypoint corrente è minore di 0.5f waypoint successivo
         {
             GotoNextPoint();

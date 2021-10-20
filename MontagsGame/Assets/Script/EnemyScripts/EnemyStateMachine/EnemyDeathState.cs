@@ -15,6 +15,7 @@ public class EnemyDeathState : EnemyBaseState
     public override void UpdateState(EnemyStateManager enemy)
     {
         //GameObject.Destroy(enemy.gameObject, 0.2f);
+        
     }
 
     public override void OnCollisionEnter(EnemyStateManager enemy, Collision collision)

@@ -6,6 +6,7 @@ using UnityEngine.AI;
 
 public class EnemyChasePlayerState : EnemyBaseState
 {
+    EnemyHealthManager enemyHealthManager;
 
     public float viewRadius;  //raggio di vista
     [Range(0, 360)]           //limitiamo l'angolo di visuale a 360�
@@ -43,6 +44,7 @@ public class EnemyChasePlayerState : EnemyBaseState
         enemyTransform = enemy.gameObject.transform;
         targetMask = enemy.GetComponent<WayPoints>().targetMask;
         obstructionMask = enemy.GetComponent<WayPoints>().obstructionMask;
+        enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
 
 
         //enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
@@ -54,7 +56,7 @@ public class EnemyChasePlayerState : EnemyBaseState
         distanceToTarget = Vector3.Distance(enemyTransform.position, target.position);
         //enemyTransform = enemy.gameObject.transform;
         //target = playerRef.transform;
-       
+
         FieldOfViewCheck();
 
         if (!playerInSightRange && !ingaged)
@@ -70,19 +72,26 @@ public class EnemyChasePlayerState : EnemyBaseState
                 enemy.SwitchState(enemy.AttackMeleeState);
 
             }
+            /*
             else if ((distanceToTarget >= 1.5 && distanceToTarget <= 4f) && isArmed == true)
             {
                 enemy.SwitchState(enemy.StopAndFireState);
 
             }
+            */
             else
             {
                 ChasePlayer();
             }
 
-            
+
             //ChasePlayer();
 
+        }
+
+        if(enemyHealthManager.currentHealth <= 0)
+        {
+            enemy.SwitchState(enemy.DeathState);
         }
 
 
@@ -101,7 +110,7 @@ public class EnemyChasePlayerState : EnemyBaseState
     //FOV
     private void FieldOfViewCheck()
     {
-     
+
         //Inizializziamo un'array con tutti i collider che toccano o sono dentro la sfera con i parametri passati
         //Centro della sfera, raggio, layer di collider da includere nella query
         Collider[] rangeChecks = Physics.OverlapSphere(enemyTransform.position, viewRadius, targetMask);
@@ -126,7 +135,7 @@ public class EnemyChasePlayerState : EnemyBaseState
                 //Col RayCast è come se dotassimo il nemico di un occhio, avviene il lancio di un raggio
                 //Parametri: origine del raggio, direzione, distanza massima che il raggio deve controllare per le collisioni
                 //Maschera di livello utilizzata per ignorare selettivamente i Collider durante la proiezione di un raggio
-                //Il RayCast termina nel momento in cui colpisce qualcosa nell'obstrunctionMask (tipo i muri)   
+                //Il RayCast termina nel momento in cui colpisce qualcosa nell'obstrunctionMask (tipo i muri)
                 //Facciamo prima il controllo positivo col !, quindi se non stiamo colpendo qualcosa nell'obstructionMask
                 if (!Physics.Raycast(enemyTransform.position, directionToTarget, distanceToTarget, obstructionMask))
                     playerInSightRange = true;
@@ -150,17 +159,17 @@ public class EnemyChasePlayerState : EnemyBaseState
         destinationVector.y = target.position.y;
         destinationVector.z = target.position.z + 0.5f;
 
-        
+
 
         //Raggiunge la posizione del player, target � il transform del player
         agent.SetDestination(destinationVector);
 
-        // Debug.Log("vado qui : "+ destinationVector.x.ToString() + "-"+destinationVector.y.ToString() + "-"+destinationVector.z.ToString() + "-"); 
+        // Debug.Log("vado qui : "+ destinationVector.x.ToString() + "-"+destinationVector.y.ToString() + "-"+destinationVector.z.ToString() + "-");
 
-        //Il nemico si gira verso il player 
+        //Il nemico si gira verso il player
         enemyTransform.LookAt(target);
 
-        // funzione di sparo con precisione in funzione della distanza 
-        
+        // funzione di sparo con precisione in funzione della distanza
+
     }
 }

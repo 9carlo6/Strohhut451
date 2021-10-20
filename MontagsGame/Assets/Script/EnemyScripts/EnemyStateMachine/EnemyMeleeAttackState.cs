@@ -10,6 +10,7 @@ public class EnemyMeleeAttackState : EnemyBaseState
     Transform targetTransform;
     PlayerController playerController;
     GameObject playerRef;
+    EnemyHealthManager enemyHealthManager;
 
 
 
@@ -20,6 +21,7 @@ public class EnemyMeleeAttackState : EnemyBaseState
         enemyTransform = enemy.gameObject.transform;
         playerRef = GameObject.FindGameObjectWithTag("Player");
         targetTransform = playerRef.transform;
+        enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
 
 
     }
@@ -38,7 +40,12 @@ public class EnemyMeleeAttackState : EnemyBaseState
         {
             enemy.SwitchState(enemy.ChasePlayerState);
         }
-        //} 
+        //}
+
+        if(enemyHealthManager.currentHealth <= 0)
+        {
+            enemy.SwitchState(enemy.DeathState);
+        }
 
     }
 

@@ -28,7 +28,7 @@ public class EnemyStopAndFireState : EnemyBaseState
 
     public override void EnterState(EnemyStateManager enemy)
     {
-        Debug.Log("Stato = Fermati e spara"); 
+        Debug.Log("Stato = Fermati e spara");
         playerRef = GameObject.FindGameObjectWithTag("Player");
         target = playerRef.transform;
         agent = enemy.GetComponent<NavMeshAgent>();
@@ -38,7 +38,7 @@ public class EnemyStopAndFireState : EnemyBaseState
     public override void UpdateState(EnemyStateManager enemy)
     {
 
-        
+
 
 
         distanceToTarget = Vector3.Distance(enemyTransform.position, target.position);
@@ -49,11 +49,13 @@ public class EnemyStopAndFireState : EnemyBaseState
             enemy.SwitchState(enemy.AttackMeleeState);
 
         }
+
         else if (distanceToTarget >= 4f)
         {
             enemy.SwitchState(enemy.ChasePlayerState);
 
         }
+
         else
         {
             Fire();
