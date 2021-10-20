@@ -159,5 +159,8 @@ public class EnemyChasePlayerState : EnemyBaseState
 
         //Il nemico si gira verso il player 
         enemyTransform.LookAt(target);
+
+        // funzione di sparo con precisione in funzione della distanza 
+        
     }
 }

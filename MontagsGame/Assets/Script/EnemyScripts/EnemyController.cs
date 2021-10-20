@@ -55,45 +55,17 @@ public class EnemyController : MonoBehaviour
         //Prende i parametri dall'animator 
         //bool isWalkingEnemy = animator.GetBool("isWalkingEnemy"); 
         bool attack = animator.GetBool("Attack");
-        /* 
-        if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f) 
-        { 
-            ready = true; 
-            if (ia.run == true) 
-            { 
-                animator.SetBool("isWalkingEnemy", true); 
-                animator.SetBool("Attack", false); 
- 
-            } 
-            if (ia.melee == true) 
-            { 
-                animator.SetBool("isWalkingEnemy", false); 
-                animator.SetBool("Attack", true); 
-                agent.isStopped = true; 
- 
-            } 
-            if (ia.stopped == true) 
-            { 
-                animator.SetBool("isWalkingEnemy", false); 
-                animator.SetBool("Attack", false); 
- 
-            } 
-        } 
-        else 
-        { 
-            ready = false; 
- 
-            if(ia.melee == true || ia.stopped == true) 
-            { 
-                agent.isStopped = true; 
- 
-            } 
- 
-        } */
 
-        //se muore muore anche prima dell animazione pronta  
+       /* if (stateManager.getCurrentState() == "DeathState")
+        {
+            animator.SetBool("isDeathEnemy", true);
+           // GameObject.Destroy(enemy.gameObject, 0.2f);
 
-        if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
+        }
+        */
+
+
+        if (!animator.GetBool("Attack") || animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
         {
             ready = true;
         }
@@ -107,6 +79,7 @@ public class EnemyController : MonoBehaviour
             {
                 animator.SetBool("isWalkingEnemy", true);
                 animator.SetBool("Attack", false);
+                agent.isStopped = false; ;
 
             }
             else if  (stateManager.getCurrentState() == "EnemyMeleeAttackState")
@@ -122,88 +95,15 @@ public class EnemyController : MonoBehaviour
                 animator.SetBool("Attack", false);
                 agent.isStopped = true;
 
-
             }
             else
             {
                 Debug.Log("animation error ");
-
             }
 
         }
 
 
-
-
-        /* 
-                if(distanceToTarget>3.0f && distanceToTarget <= 8.0f) 
-                { 
-                    agent.isStopped = true; 
-
-                } 
-
-                else 
-                { 
-                    if (distanceToTarget <= 3f) 
-                    { 
-
-                        agent.isStopped = true; 
-
-
-                        animator.SetBool("isWalkingEnemy", false); 
-
-                        if (!attack) 
-                        { 
-                            animator.SetBool("Attack", true); 
-
-                        } 
-
-                    } 
-                    else 
-                    { 
-                        if (animator.GetBool("Attack") == true) 
-                        {agent.isStopped = true; 
-
-                        } 
-
-
-                        if(animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f) 
-                        { 
-                            animator.SetBool("isWalkingEnemy", true); 
-                            animator.SetBool("Attack", false); 
-
-                            agent.isStopped = false; 
-
-                        } 
-
-
-
-
-                    } 
-
-                } 
-                */
-
-        /*if (!attack && distanceToTarget <= 2f) 
-        { 
-            animator.SetBool("isWalkingEnemy", false); 
-            animator.SetBool("Attack", true); 
-
-        }else if() 
-
-
-            if (isMoving && !isWalkingEnemy) 
-            { 
-                animator.SetBool("isWalkingEnemy", true); 
-            } 
-            else if (!isMoving && isWalkingEnemy) 
-            { 
-                animator.SetBool("Attack", false); 
-
-                animator.SetBool("isWalkingEnemy", false); 
-            } 
-
-        */
     }
 
 

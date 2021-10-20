@@ -12,6 +12,8 @@ public class EnemyHealthManager : MonoBehaviour
     public float currentHealth;
     Ragdoll ragdoll;
 
+   // EnemyStateManager enemy;
+
 
     //Forza da applicare quando il nemico muore per fargli fare un salto
     public float dieForce;
@@ -73,6 +75,13 @@ public class EnemyHealthManager : MonoBehaviour
 
     private void Update()
     {
+        /*
+        if(currentHealth <= 0)
+        {
+            enemy.SwitchState
+        }
+        */
+
         blinkTimer -= Time.deltaTime;
         float lerp = Mathf.Clamp01(blinkTimer / blinkDuration);
         //Si aggiunge l'uno perch� altrimenti il nemico appare totalmente nero
