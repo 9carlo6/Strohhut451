@@ -8,18 +8,24 @@ public class PlayerDeathState : PlayerBaseState
     PlayerController playerController;
     private Animator animator;
     private AnimatorClipInfo[] clipInfo;
+    PlayerHealthManager healthManager;
 
     public override void EnterState(PlayerStateManager player)
     {
         Debug.Log("Stato = Morto");
         playerController = player.GetComponent<PlayerController>();
         animator = playerController.animator;
+        healthManager = player.GetComponent<PlayerHealthManager>();
+        healthManager.pnlDeath.SetActive(true);
 
         //Viene nascosta la pistola
         playerController.weapon.SetActive(false);
   			animator.SetBool("isDeath", true);
   			//Per disabilitare il RigBuilder
   			playerController.rigBuilder.enabled = false;
+
+        //disabilito il playercontroller
+        playerController.enabled = false;
 
         //Per gestire il passaggio allo shader per la dissolvenza
         //L'intensita dello shader per la dissolvenza viene settato inizialmente a 0.3
@@ -28,20 +34,28 @@ public class PlayerDeathState : PlayerBaseState
         playerController.renderAstroBody.sharedMaterials = playerController.material;
     		playerController.renderAstroHead.sharedMaterials = playerController.material;
 
+        //Cursor.visible = true;
+
+
     }
 
     public override void UpdateState(PlayerStateManager player)
     {
-      if(string.Equals(GetCurrentClipName(), "MortePersonaggio") && playerController.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f){
-        //quando finisce l'animazione scompare il personaggio (da cambiare)
-        Object.Destroy(player.gameObject);
+
+
+        if (string.Equals(GetCurrentClipName(), "MortePersonaggio") && playerController.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f){
+            //quando finisce l'animazione scompare il personaggio (da cambiare)
+            //Object.Destroy(player.gameObject);
+           
       }
 
       //Per gestire la dissolvenza durante la morte del MortePersonaggio
       if(string.Equals(GetCurrentClipName(), "MortePersonaggio")){
         //Man mano che l'animazione va avanti l'intensita dello shader della dissolvenza aumenta di valore
-        playerController.material[0].SetFloat("Vector_Intensity_Dissolve2", playerController.material[0].GetFloat("Vector_Intensity_Dissolve2") + 0.005f);
+        playerController.material[0].SetFloat("Vector_Intensity_Dissolve2", playerController.material[0].GetFloat("Vector_Intensity_Dissolve2") + 0.002f);
       }
+
+      
 
     }
 
