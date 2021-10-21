@@ -10,6 +10,12 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerAttackState AttackState = new PlayerAttackState();
     public PlayerAttackedState AttackedState = new PlayerAttackedState();
 
+
+    public string getCurrentState()
+    {
+        return currentState.GetType().Name;
+    }
+    
     public void Start()
     {
         //Stato di partenza

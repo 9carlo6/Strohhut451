@@ -96,7 +96,7 @@ public class EnemyController : MonoBehaviour
            //Per gestire la dissolvenza durante la morte del MorteNemico
            if(string.Equals(GetCurrentClipName(), "MorteNemico")){
              //Man mano che l'animazione va avanti l'intensita dello shader della dissolvenza aumenta di valore
-             this.material[0].SetFloat("Vector_Intensity_Dissolve2", this.material[0].GetFloat("Vector_Intensity_Dissolve2") + 0.02f);
+             this.material[0].SetFloat("Vector_Intensity_Dissolve2", this.material[0].GetFloat("Vector_Intensity_Dissolve2") + 0.01f);
            }
 
         }
