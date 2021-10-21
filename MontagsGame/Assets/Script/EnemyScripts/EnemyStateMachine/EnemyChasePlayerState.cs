@@ -14,6 +14,8 @@ public class EnemyChasePlayerState : EnemyBaseState
 //private float offsetPosition = 2.0f;
     Vector3 destinationVector = new Vector3();
 
+    int FIREDISTANCE = 6; // dovra essere cablata in un file  distanza da quale sparare 
+
     //Dobbiamo fare in modo da inseguire il personaggio e tenere conto degli ostacoli
     //LayerMask permette di specificare i layer da utilizzare in Physics.Raycast
     public LayerMask targetMask;    //bersagli, cio� il player
@@ -81,7 +83,7 @@ public class EnemyChasePlayerState : EnemyBaseState
             */
             else
             {
-                ChasePlayer();
+                ChasePlayer(distanceToTarget);
             }
 
 
@@ -151,7 +153,7 @@ public class EnemyChasePlayerState : EnemyBaseState
     }
 
 
-    private void ChasePlayer()
+    private void ChasePlayer(float dist)
     {
 
         //si ferma poco prima del player
@@ -171,5 +173,24 @@ public class EnemyChasePlayerState : EnemyBaseState
 
         // funzione di sparo con precisione in funzione della distanza
 
+        if(dist <= FIREDISTANCE)
+        {
+
+            Fire();
+
+        }
+
     }
+
+
+    public void Fire()
+    {
+        Debug.Log("BANG BANG  ");
+
+        // qui funzione di sparo con calcolo precisione e spawn del proiettile, 
+        // ovviamente questa viene invocata ogni frame , quindi va gestito il fatto che si spara ogni secondo o mezzo secondo non 30 volte al secondo 
+
+    }
+
+
 }

@@ -98,6 +98,7 @@ public class EnemyController : MonoBehaviour
 
         if (!animator.GetBool("Attack") || animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
         {
+            // se sta attaccando deve necessariamente finire l' animazione
             ready = true;
         }
         else
@@ -106,6 +107,45 @@ public class EnemyController : MonoBehaviour
         }
         if (ready)
         {
+            
+
+            // piu elegante? 
+
+            switch (stateManager.getCurrentState())
+            {
+
+                case "EnemyPatrollingState":
+                    animator.SetBool("isWalkingEnemy", true);
+                    animator.SetBool("Attack", false);
+                    agent.isStopped = false; ;
+                    break;
+
+                case "EnemyChasePlayerState":
+                    animator.SetBool("isWalkingEnemy", true);
+                    animator.SetBool("Attack", false);
+                    agent.isStopped = false; ;
+                    break;
+
+                case "EnemyMeleeAttackState":
+                    animator.SetBool("isWalkingEnemy", false);
+                    animator.SetBool("Attack", true);
+                    agent.isStopped = true;
+                    break;
+
+                default:
+
+                    Debug.Log("animation error ");
+                    break;
+
+
+
+            }
+
+
+
+
+
+            /*
             if (stateManager.getCurrentState() == "EnemyPatrollingState" || stateManager.getCurrentState() == "EnemyChasePlayerState")
             {
                 animator.SetBool("isWalkingEnemy", true);
@@ -131,7 +171,7 @@ public class EnemyController : MonoBehaviour
             {
                 Debug.Log("animation error ");
             }
-
+            */
         }
 
 
