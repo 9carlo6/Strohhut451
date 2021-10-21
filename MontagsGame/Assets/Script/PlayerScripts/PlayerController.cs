@@ -180,7 +180,7 @@ public class PlayerController : MonoBehaviour
 	  myRigidbody.velocity = moveVelocity;
 	}
 
-	//Funzione per il devug dell'attacco corpo a corpo
+	//Funzione per il debug dell'attacco corpo a corpo
 	void OnDrawGizmosSelected()
     {
 		if (!animator.GetBool("isAttacking"))

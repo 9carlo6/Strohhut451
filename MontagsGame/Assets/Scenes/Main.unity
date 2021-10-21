@@ -750,6 +750,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50feaf9b473983c4b90d157e60875042, type: 3}
+--- !u!1 &1391655421
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1391655422}
+  m_Layer: 12
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1391655422
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391655421}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.505, z: 0.172}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1912379729}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1452412193
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1091,6 +1121,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!4 &1912379729 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 388211276977075849, guid: 040c2552090e0514c912d4489618d701,
+    type: 3}
+  m_PrefabInstance: {fileID: 209854319676814169}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2131644111
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1309,6 +1345,11 @@ PrefabInstance:
       propertyPath: ammoWidget
       value: 
       objectReference: {fileID: 1648711280}
+    - target: {fileID: 839757687844688540, guid: 658cff369a96e824b8daa1347b5e2bda,
+        type: 3}
+      propertyPath: startingHealth
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 877588776965601818, guid: 658cff369a96e824b8daa1347b5e2bda,
         type: 3}
       propertyPath: m_RootOrder

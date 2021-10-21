@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -16,6 +16,10 @@ public class EnemyController : MonoBehaviour
     Animator animator;
     EnemyStateManager stateManager;
 
+    public Transform attackPoint;
+    public float attackRange = 0.5f;
+    public LayerMask targetMask;    //bersagli, cio� il player
+
     NavMeshAgent agent;
 
     //variabili utilizzare per salvare informazioni relative al movimento del nemico
@@ -32,9 +36,12 @@ public class EnemyController : MonoBehaviour
   	private GameObject enemyBody;
   	public Renderer renderEnemyBody;
 
+    public float meleeDamage = 1f;
+
 
     void Awake()
     {
+        targetMask = GetComponent<WayPoints>().targetMask;
         animator = GetComponent<Animator>();
         stateManager = GetComponent<EnemyStateManager>();
 
@@ -92,6 +99,22 @@ public class EnemyController : MonoBehaviour
              this.material[0].SetFloat("Vector_Intensity_Dissolve2", this.material[0].GetFloat("Vector_Intensity_Dissolve2") + 0.02f);
            }
 
+        }
+
+       //ATTACCO
+       if(stateManager.getCurrentState() == "EnemyMeleeAttackState")
+        {
+            animator.SetBool("Attack", true);
+
+            Collider[] hitPlayer = Physics.OverlapSphere(attackPoint.position, attackRange, targetMask);
+
+            if(hitPlayer.Length != 0)
+            {
+                Debug.Log("Sto colpendo il player con melee");
+
+            }
+
+                playerRef.GetComponent<PlayerHealthManager>().HurtPlayer(meleeDamage);
         }
 
 
@@ -204,5 +227,16 @@ public class EnemyController : MonoBehaviour
 
 
 
+    }
+
+
+
+    //Funzione per il debug dell'attacco corpo a corpo
+    void OnDrawGizmosSelected()
+    {
+        if (!animator.GetBool("Attack"))
+            return;
+
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }
