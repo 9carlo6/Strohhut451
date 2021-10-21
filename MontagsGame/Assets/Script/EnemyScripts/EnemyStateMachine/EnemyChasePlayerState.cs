@@ -14,7 +14,7 @@ public class EnemyChasePlayerState : EnemyBaseState
 //private float offsetPosition = 2.0f;
     Vector3 destinationVector = new Vector3();
 
-    int FIREDISTANCE = 6; // dovra essere cablata in un file  distanza da quale sparare 
+    int FIREDISTANCE = 6; // dovra essere cablata in un file  distanza da quale sparare
 
     //Dobbiamo fare in modo da inseguire il personaggio e tenere conto degli ostacoli
     //LayerMask permette di specificare i layer da utilizzare in Physics.Raycast
@@ -69,7 +69,7 @@ public class EnemyChasePlayerState : EnemyBaseState
         }
         else
         {
-            if (distanceToTarget <= 1.5f)
+            if (distanceToTarget <= 1.0f)
             {
                 enemy.SwitchState(enemy.AttackMeleeState);
 
@@ -187,8 +187,8 @@ public class EnemyChasePlayerState : EnemyBaseState
     {
         Debug.Log("BANG BANG  ");
 
-        // qui funzione di sparo con calcolo precisione e spawn del proiettile, 
-        // ovviamente questa viene invocata ogni frame , quindi va gestito il fatto che si spara ogni secondo o mezzo secondo non 30 volte al secondo 
+        // qui funzione di sparo con calcolo precisione e spawn del proiettile,
+        // ovviamente questa viene invocata ogni frame , quindi va gestito il fatto che si spara ogni secondo o mezzo secondo non 30 volte al secondo
 
     }
 

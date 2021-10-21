@@ -45,7 +45,7 @@ public class EnemyController : MonoBehaviour
 
         //Per gestire il passaggio allo shader per la dissolvenza
         //L'intensita dello shader per la dissolvenza viene settato inizialmente a 0.3
-        this.material[0].SetFloat("Vector_Intensity_Dissolve2", 0.3f);
+        this.material[0].SetFloat("Vector_Intensity_Dissolve2", 0.4f);
 
     }
 
@@ -89,7 +89,7 @@ public class EnemyController : MonoBehaviour
            //Per gestire la dissolvenza durante la morte del MorteNemico
            if(string.Equals(GetCurrentClipName(), "MorteNemico")){
              //Man mano che l'animazione va avanti l'intensita dello shader della dissolvenza aumenta di valore
-             this.material[0].SetFloat("Vector_Intensity_Dissolve2", this.material[0].GetFloat("Vector_Intensity_Dissolve2") + 0.005f);
+             this.material[0].SetFloat("Vector_Intensity_Dissolve2", this.material[0].GetFloat("Vector_Intensity_Dissolve2") + 0.02f);
            }
 
         }
@@ -107,9 +107,9 @@ public class EnemyController : MonoBehaviour
         }
         if (ready)
         {
-            
 
-            // piu elegante? 
+
+            // piu elegante?
 
             switch (stateManager.getCurrentState())
             {

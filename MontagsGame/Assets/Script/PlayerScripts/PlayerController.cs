@@ -130,22 +130,8 @@ public class PlayerController : MonoBehaviour
 		isAttacking = animator.GetBool("isAttacking");
 		if(!isAttacking){
 			characterController.Move(currentMovement * Time.deltaTime * moveSpeed);
-            //Debug.Log("A = (" + currentMovement.x + ", " + currentMovement.z + ")");
-        }
-		//Gestione dell'attacco
-		else
-		{
-			//Questo serve per rivelare i nemici nel range di attacco
-			Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
-
-			//Per infliggere danno ai nemici
-			foreach(Collider enemy in hitEnemies)
-            {
-				Debug.Log("sta colpendo: " + enemy.name);
-				enemy.GetComponent<EnemyHealthManager>().TakeDamage(meleeDamage);
-
-			}
-        }
+      //Debug.Log("A = (" + currentMovement.x + ", " + currentMovement.z + ")");
+		}
 
 		//Da qui parte il codice per controllare la rotazione con il movimento del mouse
 		Ray cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);

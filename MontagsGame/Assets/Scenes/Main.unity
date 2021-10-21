@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -456,6 +456,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f55de08a576bd945bd228676dac1403, type: 3}
+--- !u!1 &1172155675 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1020316785476676659, guid: 040c2552090e0514c912d4489618d701,
+    type: 3}
+  m_PrefabInstance: {fileID: 209854319676814169}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &1172155680
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172155675}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.21382172
+  m_Height: 0.55769277
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!1001 &1179553769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1177,6 +1197,11 @@ PrefabInstance:
       propertyPath: wayPoints.Array.data[1]
       value: 
       objectReference: {fileID: 37342806}
+    - target: {fileID: 209854319124362656, guid: 040c2552090e0514c912d4489618d701,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 388211276977075849, guid: 040c2552090e0514c912d4489618d701,
         type: 3}
       propertyPath: m_RootOrder
@@ -1237,7 +1262,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: PirataNemico1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 209854318519255576, guid: 040c2552090e0514c912d4489618d701, type: 3}
+    - {fileID: 209854318621677436, guid: 040c2552090e0514c912d4489618d701, type: 3}
+    - {fileID: 209854319205017466, guid: 040c2552090e0514c912d4489618d701, type: 3}
+    - {fileID: 209854319205017464, guid: 040c2552090e0514c912d4489618d701, type: 3}
+    - {fileID: 209854320373671520, guid: 040c2552090e0514c912d4489618d701, type: 3}
+    - {fileID: 209854320373671534, guid: 040c2552090e0514c912d4489618d701, type: 3}
+    - {fileID: 209854319453457415, guid: 040c2552090e0514c912d4489618d701, type: 3}
+    - {fileID: 209854319453457413, guid: 040c2552090e0514c912d4489618d701, type: 3}
+    - {fileID: 209854319398150224, guid: 040c2552090e0514c912d4489618d701, type: 3}
+    - {fileID: 209854319398150238, guid: 040c2552090e0514c912d4489618d701, type: 3}
+    - {fileID: 209854319823767497, guid: 040c2552090e0514c912d4489618d701, type: 3}
+    - {fileID: 209854319823767511, guid: 040c2552090e0514c912d4489618d701, type: 3}
+    - {fileID: 209854318801277941, guid: 040c2552090e0514c912d4489618d701, type: 3}
+    - {fileID: 209854318801277939, guid: 040c2552090e0514c912d4489618d701, type: 3}
+    - {fileID: 209854318558738039, guid: 040c2552090e0514c912d4489618d701, type: 3}
+    - {fileID: 209854318558738037, guid: 040c2552090e0514c912d4489618d701, type: 3}
+    - {fileID: 209854318581618206, guid: 040c2552090e0514c912d4489618d701, type: 3}
+    - {fileID: 209854318581618204, guid: 040c2552090e0514c912d4489618d701, type: 3}
+    - {fileID: 209854319973933360, guid: 040c2552090e0514c912d4489618d701, type: 3}
+    - {fileID: 209854319973933374, guid: 040c2552090e0514c912d4489618d701, type: 3}
+    - {fileID: 209854319102726191, guid: 040c2552090e0514c912d4489618d701, type: 3}
+    - {fileID: 209854319102726189, guid: 040c2552090e0514c912d4489618d701, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 040c2552090e0514c912d4489618d701, type: 3}
 --- !u!4 &543450653010134183 stripped
 Transform:
