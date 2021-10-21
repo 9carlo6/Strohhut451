@@ -7,6 +7,9 @@ public class PlayerAliveState : PlayerBaseState
     PlayerHealthManager playerHealthManager;
     PlayerController playerController;
 
+    //Cronometro per entrare nello stato Attacco di nuovo
+    public float timeRemainingToAttack;
+
     public override void EnterState(PlayerStateManager player)
     {
         Debug.Log("Stato = Vivo");

@@ -88,7 +88,6 @@ public class EnemyController : MonoBehaviour
           //I materiali del personaggio vengono settati al materiale con lo shader per la dissolvenza
           renderEnemyBody.sharedMaterials = material;
 
-
            if (string.Equals(GetCurrentClipName(), "MorteNemico") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f){
              GameObject.Destroy(this.gameObject);
            }
@@ -96,25 +95,8 @@ public class EnemyController : MonoBehaviour
            //Per gestire la dissolvenza durante la morte del MorteNemico
            if(string.Equals(GetCurrentClipName(), "MorteNemico")){
              //Man mano che l'animazione va avanti l'intensita dello shader della dissolvenza aumenta di valore
-             this.material[0].SetFloat("Vector_Intensity_Dissolve2", this.material[0].GetFloat("Vector_Intensity_Dissolve2") + 0.02f);
+             this.material[0].SetFloat("Vector_Intensity_Dissolve2", this.material[0].GetFloat("Vector_Intensity_Dissolve2") + 0.01f);
            }
-
-        }
-
-       //ATTACCO
-       if(stateManager.getCurrentState() == "EnemyMeleeAttackState")
-        {
-            animator.SetBool("Attack", true);
-
-            Collider[] hitPlayer = Physics.OverlapSphere(attackPoint.position, attackRange, targetMask);
-
-            if(hitPlayer.Length != 0)
-            {
-                Debug.Log("Sto colpendo il player con melee");
-
-            }
-
-                playerRef.GetComponent<PlayerHealthManager>().HurtPlayer(meleeDamage);
         }
 
 
@@ -130,8 +112,6 @@ public class EnemyController : MonoBehaviour
         }
         if (ready)
         {
-
-
             // piu elegante?
 
             switch (stateManager.getCurrentState())
