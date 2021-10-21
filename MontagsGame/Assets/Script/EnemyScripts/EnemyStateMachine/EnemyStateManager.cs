@@ -7,10 +7,18 @@ public class EnemyStateManager : MonoBehaviour
     EnemyBaseState currentState;
     public EnemyAliveState AliveState = new EnemyAliveState();
     public EnemyDeathState DeathState = new EnemyDeathState();
-    public EnemyAttackState AttackState = new EnemyAttackState();
+    public EnemyMeleeAttackState AttackMeleeState = new EnemyMeleeAttackState();
     public EnemyAttackedState AttackedState = new EnemyAttackedState();
     public EnemyStunnedState StunnedState = new EnemyStunnedState();
+    public EnemyPatrollingState PatrollingState = new EnemyPatrollingState();
+    public EnemyChasePlayerState ChasePlayerState = new EnemyChasePlayerState();
+    //public EnemyStopAndFireState StopAndFireState = new EnemyStopAndFireState();
 
+
+    public string getCurrentState()
+    {
+        return currentState.GetType().Name;
+    }
 
     public void Start()
     {

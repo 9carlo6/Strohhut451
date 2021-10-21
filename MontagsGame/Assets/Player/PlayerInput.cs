@@ -114,7 +114,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""5226547b-f716-4ab4-b7b2-8eecb4e699dc"",
                     ""path"": ""<Keyboard>/space"",
-                    ""interactions"": ""Press"",
+                    ""interactions"": ""Press(pressPoint=0.1)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""MeleeAttack"",

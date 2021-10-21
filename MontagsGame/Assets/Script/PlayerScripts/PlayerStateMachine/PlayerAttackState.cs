@@ -23,15 +23,35 @@ public class PlayerAttackState : PlayerBaseState
   			animator.SetBool("isAttacking", true);
   			//Per disabilitare il RigBuilder
   			playerController.rigBuilder.enabled = false;
+
+        //Gestione dell'attacco
+        //Questo serve per rivelare i nemici nel range di attacco
+  			Collider[] hitEnemies = Physics.OverlapSphere(playerController.attackPoint.position, playerController.attackRange, playerController.enemyLayers);
+
+        //Questo HashSet serve per non permettere di colpire nuovamente lo stesso nemico nel singolo attacco
+        HashSet<string> enemiesAlreadyHitted = new HashSet<string>();
+
+  			//Per infliggere danno ai nemici
+  			foreach(Collider enemy in hitEnemies){
+
+          if(enemiesAlreadyHitted.Contains(enemy.name)) break;
+
+  				Debug.Log("sta colpendo: " + enemy.name);
+  				enemy.GetComponent<EnemyHealthManager>().TakeDamage(playerController.meleeDamage);
+
+          //Aggiunge il nemico al set
+          enemiesAlreadyHitted.Add(enemy.name);
+  			}
     }
 
     public override void UpdateState(PlayerStateManager player)
     {
       //Gestione passaggio allo stato vivo del giocatore
-      if(string.Equals(GetCurrentClipName(), "AttaccoCorpoACorpoDiretto") && playerController.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f){
+      if(string.Equals(GetCurrentClipName(), "AttaccoCorpoACorpoDiretto") && playerController.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f && playerController.isAttackButtonPressed == false){
   			//Viene mostrata la pistola
   			playerController.weapon.SetActive(true);
   			animator.SetBool("isAttacking", false);
+        playerController.isAttackButtonPressed = false;
   			//Per riabilitare il RigBuilder
   			playerController.rigBuilder.enabled = true;
 
