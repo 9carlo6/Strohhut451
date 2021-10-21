@@ -27,8 +27,6 @@ public class RaycastWeapon : MonoBehaviour
     float accumulatedTime;
 
 
-
-
     //Per gestire il widget relativo alle munizioni
     public AmmoWidget ammoWidget;
 
@@ -106,10 +104,11 @@ public class RaycastWeapon : MonoBehaviour
             //Debug.DrawLine(ray.origin, hitInfo.point, Color.red, 1.0f);
 
             //collision impulse
-            var hitBox = hitInfo.collider.GetComponent<HitBox>();
-            if (hitBox)
+            var hitEnemyCollider = hitInfo.collider.GetComponent<EnemyHealthManager>();
+            if (hitEnemyCollider)
             {
-                hitBox.OnRaycastHit(this, ray.direction);
+                //hitBox.OnRaycastHit(this);
+                hitEnemyCollider.TakeDamage(damage);
             }
         }
 
