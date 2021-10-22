@@ -11,14 +11,15 @@ public class EnemyChasePlayerState : EnemyBaseState
     public float viewRadius;  //raggio di vista
     [Range(0, 360)]           //limitiamo l'angolo di visuale a 360�
     public float viewAngle;   //angolo di vista
-//private float offsetPosition = 2.0f;
-    Vector3 destinationVector = new Vector3();
+    private float offsetPosition = 0.1f;    //per determinare la distanza minima dal player
+    Vector3 destinationVector = new Vector3();  //per determinare la posizione target da raggiungere
 
-    int FIREDISTANCE = 6; // dovra essere cablata in un file  distanza da quale sparare
+    float MeleeDistance = 1.2f; // dovra essere cablata in un file distanza da quale fare l'attacco melee
+    float FireDistance = 6; // dovra essere cablata in un file distanza massima dalla quale il nemico continua a sparare
 
     //Dobbiamo fare in modo da inseguire il personaggio e tenere conto degli ostacoli
     //LayerMask permette di specificare i layer da utilizzare in Physics.Raycast
-    public LayerMask targetMask;    //bersagli, cio� il player
+    public LayerMask targetMask;    //bersagli, cioe' il player
     public LayerMask obstructionMask; //ostacoli, ad esempio le pareti
     GameObject playerRef;
 
@@ -47,69 +48,40 @@ public class EnemyChasePlayerState : EnemyBaseState
         targetMask = enemy.GetComponent<WayPoints>().targetMask;
         obstructionMask = enemy.GetComponent<WayPoints>().obstructionMask;
         enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
-
-
-        //enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
-
     }
 
     public override void UpdateState(EnemyStateManager enemy)
     {
         distanceToTarget = Vector3.Distance(enemyTransform.position, target.position);
-        //enemyTransform = enemy.gameObject.transform;
-        //target = playerRef.transform;
 
         FieldOfViewCheck();
 
         if (!playerInSightRange && !ingaged)
         {
-            Debug.Log("Patrollllllllll");
+            Debug.Log("Nemico in Patrol");
 
             enemy.SwitchState(enemy.PatrollingState);
         }
         else
         {
-            if (distanceToTarget <= 1.0f)
+            if (distanceToTarget <= MeleeDistance)
             {
                 enemy.SwitchState(enemy.AttackMeleeState);
 
             }
-            /*
-            else if ((distanceToTarget >= 1.5 && distanceToTarget <= 4f) && isArmed == true)
-            {
-                enemy.SwitchState(enemy.StopAndFireState);
-
-            }
-            */
             else
             {
                 ChasePlayer(distanceToTarget);
             }
-
-
-            //ChasePlayer();
-
         }
 
         if(enemyHealthManager.currentHealth <= 0)
         {
             enemy.SwitchState(enemy.DeathState);
         }
-
-
-
-
-
-
-    }
-
-    public override void OnCollisionEnter(EnemyStateManager enemy, Collision collision)
-    {
-
     }
 
 
-    //FOV
     private void FieldOfViewCheck()
     {
 
@@ -155,13 +127,10 @@ public class EnemyChasePlayerState : EnemyBaseState
 
     private void ChasePlayer(float dist)
     {
-
         //si ferma poco prima del player
         destinationVector.x = target.position.x;
         destinationVector.y = target.position.y;
-        destinationVector.z = target.position.z + 0.5f;
-
-
+        destinationVector.z = target.position.z + offsetPosition;
 
         //Raggiunge la posizione del player, target � il transform del player
         agent.SetDestination(destinationVector);
@@ -172,12 +141,10 @@ public class EnemyChasePlayerState : EnemyBaseState
         enemyTransform.LookAt(target);
 
         // funzione di sparo con precisione in funzione della distanza
-
-        if(dist <= FIREDISTANCE)
+        
+        if(dist <= FireDistance)
         {
-
             Fire();
-
         }
 
     }
@@ -186,9 +153,12 @@ public class EnemyChasePlayerState : EnemyBaseState
     public void Fire()
     {
         Debug.Log("BANG BANG  ");
-
         // qui funzione di sparo con calcolo precisione e spawn del proiettile,
         // ovviamente questa viene invocata ogni frame , quindi va gestito il fatto che si spara ogni secondo o mezzo secondo non 30 volte al secondo
+    }
+
+    public override void OnCollisionEnter(EnemyStateManager enemy, Collision collision)
+    {
 
     }
 

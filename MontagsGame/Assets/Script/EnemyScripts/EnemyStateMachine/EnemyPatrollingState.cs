@@ -7,7 +7,6 @@ using UnityEngine.AI;
 
 public class EnemyPatrollingState : EnemyBaseState
 {
-
     //Patroling
     public Transform[] wayPoints;   //array di points verso cui il nemico dovr� effettuare il patroling
     private int wayPointIndex = 0;   //indice per tenere conto dei points verso cui muoversi,  primo waypoint
@@ -29,13 +28,7 @@ public class EnemyPatrollingState : EnemyBaseState
 
     EnemyHealthManager enemyHealthManager;
 
-
-
     public bool playerInSightRange;  //quando vedo il bersaglio = true
-
-
-
-
 
     public override void EnterState(EnemyStateManager enemy)
         {
@@ -50,8 +43,6 @@ public class EnemyPatrollingState : EnemyBaseState
         targetMask = enemy.GetComponent<WayPoints>().targetMask;
         obstructionMask = enemy.GetComponent<WayPoints>().obstructionMask;
         enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
-
-
     }
 
     public override void UpdateState(EnemyStateManager enemy)
@@ -83,12 +74,6 @@ public class EnemyPatrollingState : EnemyBaseState
         }
 
 }
-
-    public override void OnCollisionEnter(EnemyStateManager enemy, Collision collision)
-        {
-
-        }
-
 
     //FOV
     private void FieldOfViewCheck()
@@ -161,4 +146,9 @@ public class EnemyPatrollingState : EnemyBaseState
         wayPointIndex = (wayPointIndex + 1) % wayPoints.Length;
     }
 
+
+    public override void OnCollisionEnter(EnemyStateManager enemy, Collision collision)
+    {
+
+    }
 }
