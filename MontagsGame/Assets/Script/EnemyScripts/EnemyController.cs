@@ -232,11 +232,11 @@ public class EnemyController : MonoBehaviour
 
 
     //Funzione per il debug dell'attacco corpo a corpo
-    void OnDrawGizmosSelected()
+   /* void OnDrawGizmosSelected()
     {
         if (!animator.GetBool("Attack"))
             return;
 
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-    }
+    }*/
 }
