@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerHealthManager : MonoBehaviour
 {
-
     public float startingHealth;
     public float currentHealth;
 
@@ -17,12 +16,7 @@ public class PlayerHealthManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        if(currentHealth <= 0)
-        {
-          gameObject.SetActive(false);
-        }
-        */
+
     }
 
     public void HurtPlayer(float damageAmount)

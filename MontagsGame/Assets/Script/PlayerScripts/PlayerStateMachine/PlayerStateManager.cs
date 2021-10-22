@@ -8,9 +8,8 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerAliveState AliveState = new PlayerAliveState();
     public PlayerDeathState DeathState = new PlayerDeathState();
     public PlayerAttackState AttackState = new PlayerAttackState();
-    public PlayerAttackedState AttackedState = new PlayerAttackedState();
 
-
+    //Per individuare lo stato corrente del Player
     public string getCurrentState()
     {
         return currentState.GetType().Name;
@@ -20,7 +19,7 @@ public class PlayerStateManager : MonoBehaviour
     {
         //Stato di partenza
         currentState = AliveState;
-        //"this" � il contesto
+        //"this" e' il contesto
         currentState.EnterState(this);
     }
 
@@ -31,7 +30,7 @@ public class PlayerStateManager : MonoBehaviour
 
     public void Update()
     {
-        //richiama qualsiasi logica presente nell'UpdateState dello stato corrente
+        //Richiama qualsiasi logica presente nell'UpdateState dello stato corrente
         currentState.UpdateState(this);
     }
 
