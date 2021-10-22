@@ -2,9 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-//Classe necessaria per gestire l'animazione dello sparo
-public class RaycastWeapon : MonoBehaviour
+public class WeaponController : MonoBehaviour
 {
     //Per capire se si sta sparando o no
     public bool isFiring = false;
@@ -12,20 +10,19 @@ public class RaycastWeapon : MonoBehaviour
     //Per poter gestire il rate dello sparo
     public int fireRate = 25;
 
-    public int maxAmmoCount = 10;
+    //Per indicare il massimo numero di munizioni
+    [HideInInspector] public int maxAmmoCount = 10;
+    //Per gestire il numero di munizioni a disposizione
+    public int ammoCount = 10;
 
     //Per gestire il danno dell'arma
     public float damage = 10;
-
-    //Per gestire il numero di munizioni a disposizione
-    public int ammoCount = 10;
 
     //Per gestire lo sparo (raffica o no)
     public bool isBurst = false;
 
     //Questo accumulatedTime sarebbe il tempo che deve passare per poter sparare il prossimo proiettile
     float accumulatedTime;
-
 
     //Per gestire il widget relativo alle munizioni
     public AmmoWidget ammoWidget;
@@ -67,7 +64,6 @@ public class RaycastWeapon : MonoBehaviour
             FireBullet();
             accumulatedTime -= fireInterval;
         }
-
     }
 
     //Funzione per sparare
@@ -79,9 +75,10 @@ public class RaycastWeapon : MonoBehaviour
             return;
         }
 
+        //Per diminuire il numero di munizioni quando si spara
         ammoCount--;
 
-        //Questo ciclo permette di azionare tutti gli eggetti particellari in muzzleFlash
+        //Questo ciclo permette di azionare tutti gli oggetti particellari in muzzleFlash
         foreach (var particle in muzzleFlash)
         {
             particle.Emit(1);
@@ -95,7 +92,6 @@ public class RaycastWeapon : MonoBehaviour
 
         if (Physics.Raycast(ray, out hitInfo))
         {
-            //ray.direction = hitInfo.point;
             hitEffect.transform.position = hitInfo.point;
             hitEffect.transform.forward = hitInfo.normal;
             hitEffect.Emit(1);
@@ -103,11 +99,10 @@ public class RaycastWeapon : MonoBehaviour
             tracer.transform.position = hitInfo.point;
             //Debug.DrawLine(ray.origin, hitInfo.point, Color.red, 1.0f);
 
-            //collision impulse
+            //Per la gestione del dallo al nemico in seguito alla collisione
             var hitEnemyCollider = hitInfo.collider.GetComponent<EnemyHealthManager>();
             if (hitEnemyCollider)
             {
-                //hitBox.OnRaycastHit(this);
                 hitEnemyCollider.TakeDamage(damage);
             }
         }
@@ -120,9 +115,9 @@ public class RaycastWeapon : MonoBehaviour
 
         //Questo serve per aggiornare le munizioni visibili nel widget
         ammoWidget.Refresh(ammoCount);
-
     }
 
+    //Funzione per gestire il drop delle munizioni
     public void DropAmmo(int ammoDropCount)
     {
         if ((ammoCount + ammoDropCount) > maxAmmoCount)
@@ -134,6 +129,7 @@ public class RaycastWeapon : MonoBehaviour
             ammoCount += ammoDropCount;
         }
 
+        //Questo serve per aggiornare le munizioni visibili nel widget
         ammoWidget.Refresh(ammoCount);
     }
 

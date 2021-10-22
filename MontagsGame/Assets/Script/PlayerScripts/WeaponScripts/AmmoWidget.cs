@@ -5,11 +5,11 @@ using UnityEngine;
 public class AmmoWidget : MonoBehaviour
 {
     public TMPro.TMP_Text ammoText;
-    public RaycastWeapon raycastWeapon;
+    public WeaponController weapon;
 
 
     public void Refresh(int ammoCount)
     {
-        ammoText.text = ammoCount.ToString() + "/" + raycastWeapon.maxAmmoCount.ToString();
+        ammoText.text = ammoCount.ToString() + "/" + weapon.maxAmmoCount.ToString();
     }
 }
