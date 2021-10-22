@@ -535,12 +535,18 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1172155675}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.21382172
-  m_Height: 0.55769277
+  m_Radius: 0.15
+  m_Height: 0.605291
   m_Direction: 1
-  m_Center: {x: 0, y: 0.3, z: 0}
+  m_Center: {x: 0, y: 0.3237992, z: 0}
+--- !u!95 &1172155685 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6017680800063499507, guid: 040c2552090e0514c912d4489618d701,
+    type: 3}
+  m_PrefabInstance: {fileID: 209854319676814169}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1179553769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -845,7 +851,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1391655421}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.505, z: 0.172}
+  m_LocalPosition: {x: 0, y: 0.505, z: 0.1951}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1912379729}
@@ -1028,7 +1034,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-3312
+  m_Name: pb_Mesh-21228
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1300,9 +1306,19 @@ PrefabInstance:
       objectReference: {fileID: 37342806}
     - target: {fileID: 209854319124362656, guid: 040c2552090e0514c912d4489618d701,
         type: 3}
-      propertyPath: m_StoppingDistance
-      value: 3
+      propertyPath: m_Radius
+      value: 0.15
       objectReference: {fileID: 0}
+    - target: {fileID: 209854319124362656, guid: 040c2552090e0514c912d4489618d701,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 209854319124362670, guid: 040c2552090e0514c912d4489618d701,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1172155685}
     - target: {fileID: 209854319124362670, guid: 040c2552090e0514c912d4489618d701,
         type: 3}
       propertyPath: attackPoint
@@ -1311,7 +1327,7 @@ PrefabInstance:
     - target: {fileID: 209854319124362670, guid: 040c2552090e0514c912d4489618d701,
         type: 3}
       propertyPath: attackRange
-      value: 0.2
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 388211276977075849, guid: 040c2552090e0514c912d4489618d701,
         type: 3}
@@ -1423,7 +1439,37 @@ PrefabInstance:
     - target: {fileID: 839757687844688540, guid: 658cff369a96e824b8daa1347b5e2bda,
         type: 3}
       propertyPath: startingHealth
-      value: 10
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 839757687844688541, guid: 658cff369a96e824b8daa1347b5e2bda,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 839757687844688542, guid: 658cff369a96e824b8daa1347b5e2bda,
+        type: 3}
+      propertyPath: m_Height
+      value: 1.6904997
+      objectReference: {fileID: 0}
+    - target: {fileID: 839757687844688542, guid: 658cff369a96e824b8daa1347b5e2bda,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 839757687844688542, guid: 658cff369a96e824b8daa1347b5e2bda,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.8502498
+      objectReference: {fileID: 0}
+    - target: {fileID: 839757687844688542, guid: 658cff369a96e824b8daa1347b5e2bda,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 839757687844688542, guid: 658cff369a96e824b8daa1347b5e2bda,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 839757687844688543, guid: 658cff369a96e824b8daa1347b5e2bda,
         type: 3}
