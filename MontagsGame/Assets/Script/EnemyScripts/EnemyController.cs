@@ -13,12 +13,12 @@ public class EnemyController : MonoBehaviour
     public GameObject playerRef;
 
     //per l'animazione
-    Animator animator;
+    public Animator animator;
     EnemyStateManager stateManager;
 
     public Transform attackPoint;
     public float attackRange = 0.5f;
-    public LayerMask targetMask;    //bersagli, cio� il player
+    public LayerMask targetMask;    //bersagli, cioe' il player
 
     NavMeshAgent agent;
 
@@ -27,7 +27,7 @@ public class EnemyController : MonoBehaviour
     bool isMoving;
     float initialSpeed;
 
-    public bool ready = false;
+    [HideInInspector] public bool ready = false;
 
     private AnimatorClipInfo[] clipInfo;
 
@@ -46,9 +46,9 @@ public class EnemyController : MonoBehaviour
         stateManager = GetComponent<EnemyStateManager>();
 
         //Inizio - Componenti dei Figli
-    		enemyBody = transform.Find("EnemyPirateSkin").gameObject;
-    		renderEnemyBody = enemyBody.GetComponent<Renderer>();
-    		//Fine - Componenti dei Figli
+    	enemyBody = transform.Find("EnemyPirateSkin").gameObject;
+    	renderEnemyBody = enemyBody.GetComponent<Renderer>();
+    	//Fine - Componenti dei Figli
 
         //Per gestire il passaggio allo shader per la dissolvenza
         //L'intensita dello shader per la dissolvenza viene settato inizialmente a 0.3
@@ -67,53 +67,33 @@ public class EnemyController : MonoBehaviour
         initialSpeed = agent.speed;
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        handleAnimation();
+    }
+
     //Per gestire le animazioni
     void handleAnimation()
     {
-
-
-
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
         //Prende i parametri dall'animator
         //bool isWalkingEnemy = animator.GetBool("isWalkingEnemy");
         bool attack = animator.GetBool("Attack");
 
-
-        //MORTE
-       if (stateManager.getCurrentState() == "EnemyDeathState")
-        {
-          animator.SetBool("isDeathEnemy", true);
-          agent.isStopped = true;
-
-          //I materiali del personaggio vengono settati al materiale con lo shader per la dissolvenza
-          renderEnemyBody.sharedMaterials = material;
-
-           if (string.Equals(GetCurrentClipName(), "MorteNemico") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f){
-             GameObject.Destroy(this.gameObject);
-           }
-
-           //Per gestire la dissolvenza durante la morte del MorteNemico
-           if(string.Equals(GetCurrentClipName(), "MorteNemico")){
-             //Man mano che l'animazione va avanti l'intensita dello shader della dissolvenza aumenta di valore
-             this.material[0].SetFloat("Vector_Intensity_Dissolve2", this.material[0].GetFloat("Vector_Intensity_Dissolve2") + 0.01f);
-           }
-        }
-
-
-
-        if (!animator.GetBool("Attack") || animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
+        if (string.Equals(GetCurrentClipName(), "AttaccoDirettoNemico") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
         {
             // se sta attaccando deve necessariamente finire l' animazione
-            ready = true;
+            ready = false;
         }
         else
         {
-            ready = false;
+            ready = true;
         }
+
+
         if (ready)
         {
-            // piu elegante?
-
             switch (stateManager.getCurrentState())
             {
 
@@ -132,91 +112,46 @@ public class EnemyController : MonoBehaviour
                 case "EnemyMeleeAttackState":
                     animator.SetBool("isWalkingEnemy", false);
                     animator.SetBool("Attack", true);
-                    agent.isStopped = true;
+                    //agent.isStopped = true;
+                    break;
+
+                case "EnemyDeathState":
+                    EnemyDeath();
                     break;
 
                 default:
 
                     Debug.Log("animation error ");
                     break;
-
-
-
             }
+        }
+    }
 
+    void EnemyDeath()
+    {
+        animator.SetBool("isDeathEnemy", true);
+        agent.isStopped = true;
 
+        //I materiali del personaggio vengono settati al materiale con lo shader per la dissolvenza
+        renderEnemyBody.sharedMaterials = material;
 
-
-
-            /*
-            if (stateManager.getCurrentState() == "EnemyPatrollingState" || stateManager.getCurrentState() == "EnemyChasePlayerState")
-            {
-                animator.SetBool("isWalkingEnemy", true);
-                animator.SetBool("Attack", false);
-                agent.isStopped = false; ;
-
-            }
-            else if  (stateManager.getCurrentState() == "EnemyMeleeAttackState")
-            {
-                animator.SetBool("isWalkingEnemy", false);
-                animator.SetBool("Attack", true);
-                agent.isStopped = true;
-
-            }
-            else if (stateManager.getCurrentState() == "EnemyStopAndFireState")
-            {
-                animator.SetBool("isWalkingEnemy", false);
-                animator.SetBool("Attack", false);
-                agent.isStopped = true;
-
-            }
-            else
-            {
-                Debug.Log("animation error ");
-            }
-            */
+        if (string.Equals(GetCurrentClipName(), "MorteNemico") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
+        {
+            GameObject.Destroy(this.gameObject);
         }
 
-
+        //Per gestire la dissolvenza durante la morte del MorteNemico
+        if (string.Equals(GetCurrentClipName(), "MorteNemico"))
+        {
+            //Man mano che l'animazione va avanti l'intensita dello shader della dissolvenza aumenta di valore
+            this.material[0].SetFloat("Vector_Intensity_Dissolve2", this.material[0].GetFloat("Vector_Intensity_Dissolve2") + 0.01f);
+        }
     }
 
     //Funzione necessaria per risalire al nome dell'animazione corrente
-    public string GetCurrentClipName(){
-      clipInfo = animator.GetCurrentAnimatorClipInfo(0);
-      return clipInfo[0].clip.name;
-    }
-
-
-    // Update is called once per frame
-    void Update()
+    public string GetCurrentClipName()
     {
-
-
-        /*if(transform.position != currentPosition)
-        {
-            isMoving = true;
-            currentPosition = transform.position;
-        }
-        else
-        {
-            isMoving = false;
-        }
-        */
-        handleAnimation();
-
-
-
-
-    }
-
-
-
-    //Funzione per il debug dell'attacco corpo a corpo
-    void OnDrawGizmosSelected()
-    {
-        if (!animator.GetBool("Attack"))
-            return;
-
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        clipInfo = animator.GetCurrentAnimatorClipInfo(0);
+        return clipInfo[0].clip.name;
     }
 }

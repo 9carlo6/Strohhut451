@@ -12,8 +12,6 @@ public class EnemyStateManager : MonoBehaviour
     public EnemyStunnedState StunnedState = new EnemyStunnedState();
     public EnemyPatrollingState PatrollingState = new EnemyPatrollingState();
     public EnemyChasePlayerState ChasePlayerState = new EnemyChasePlayerState();
-    //public EnemyStopAndFireState StopAndFireState = new EnemyStopAndFireState();
-
 
     public string getCurrentState()
     {

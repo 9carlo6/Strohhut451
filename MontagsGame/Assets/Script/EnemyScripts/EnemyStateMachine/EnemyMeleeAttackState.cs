@@ -31,15 +31,16 @@ public class EnemyMeleeAttackState : EnemyBaseState
 
         //Il timer viene settato a un valore iniziale (che dovrebbe coincidire con la lunghezza dell'animazione "AttaccoDirettoNemico")
         //Bisogna trovare un modo per ricavare la lunghezza di una specifica animazione (ora sappiamo ricavare solo quella dell'animazione corrente)
-        timeRemainingToAttack = 0.5f;
+        timeRemainingToAttack = 0;
+
+        EnemyAttack();
     }
 
     public override void UpdateState(EnemyStateManager enemy)
     {
-
         distanceToTarget = Vector3.Distance(enemyTransform.position, targetTransform.position);
 
-        if (distanceToTarget <= 1.5){
+        if (distanceToTarget <= 1.5f){
             enemyTransform.LookAt(targetTransform);
             EnemyAttack();
         }
@@ -67,19 +68,26 @@ public class EnemyMeleeAttackState : EnemyBaseState
             {
                 Collider[] hitPlayer = Physics.OverlapSphere(enemyController.attackPoint.position, enemyController.attackRange, enemyController.targetMask);
 
-                if (hitPlayer.Length != 0)
+                if (hitPlayer != null)
                 {
                     Debug.Log("Sto colpendo il player con melee");
                     playerRef.GetComponent<PlayerHealthManager>().HurtPlayer(enemyController.meleeDamage);
 
-                    //Una volta inflitto il danno il timer aggiornato alla lunghezza dell'animazione corrente, ovvero "AttaccoDirettoNemico"
-                    timeRemainingToAttack = animator.GetCurrentAnimatorStateInfo(0).length;
+                    //Una volta inflitto il danno il timer aggiornato alla metà lunghezza dell'animazione corrente, ovvero "AttaccoDirettoNemico"
+                    timeRemainingToAttack = animator.GetCurrentAnimatorStateInfo(0).length/2;
                 }
             }
         }
+        
     }
 
+    //Funzione per il debug dell'attacco corpo a corpo
+    void OnDrawGizmosSelected()
+    {
+        if (!animator.GetBool("Attack")) return;
 
+        Gizmos.DrawWireSphere(enemyController.attackPoint.position, enemyController.attackRange);
+    }
 
     //Funzione necessaria per risalire al nome dell'animazione corrente
     public string GetCurrentClipName(){
