@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class EnemyChasePlayerState : EnemyBaseState
 {
     EnemyHealthManager enemyHealthManager;
+    
 
     public float viewRadius;  //raggio di vista
     public float viewAngle;   //angolo di vista
@@ -50,6 +51,7 @@ public class EnemyChasePlayerState : EnemyBaseState
         targetMask = enemy.GetComponent<EnemyController>().targetMask;
         obstructionMask = enemy.GetComponent<EnemyController>().obstructionMask;
         enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
+        
         weaponController = enemy.GetComponentInChildren<WeaponController>();
     }
 
@@ -143,7 +145,7 @@ public class EnemyChasePlayerState : EnemyBaseState
 
         // funzione di sparo con precisione in funzione della distanza
         
-        if(distance <= fireDistance)
+        if(distance <= fireDistance && enemyGameObject.name.Contains("Armato"))
         {
             Fire();
         }
@@ -157,6 +159,7 @@ public class EnemyChasePlayerState : EnemyBaseState
         Debug.Log("BANG BANG");
         // qui funzione di sparo con calcolo precisione e spawn del proiettile,
         // ovviamente questa viene invocata ogni frame , quindi va gestito il fatto che si spara ogni secondo o mezzo secondo non 30 volte al secondo
+        
     }
 
     public override void OnCollisionEnter(EnemyStateManager enemy, Collision collision)

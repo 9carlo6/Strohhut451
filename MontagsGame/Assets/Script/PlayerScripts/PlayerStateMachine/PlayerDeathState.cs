@@ -32,6 +32,7 @@ public class PlayerDeathState : PlayerBaseState
         playerController.renderAstroBody.sharedMaterials = playerController.material;
     	playerController.renderAstroHead.sharedMaterials = playerController.material;
         phm.pnlDeath.SetActive(true);
+
         
         
         
