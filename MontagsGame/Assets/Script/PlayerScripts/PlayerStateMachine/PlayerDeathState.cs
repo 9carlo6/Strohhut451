@@ -8,12 +8,16 @@ public class PlayerDeathState : PlayerBaseState
     PlayerController playerController;
     private Animator animator;
     private AnimatorClipInfo[] clipInfo;
+    PlayerHealthManager phm;
+
+    
 
     public override void EnterState(PlayerStateManager player)
     {
         Debug.Log("Stato Player = Morto");
         playerController = player.GetComponent<PlayerController>();
         animator = playerController.animator;
+        phm = player.GetComponent<PlayerHealthManager>();
 
         //Viene nascosta la pistola
         playerController.weapon.SetActive(false);
@@ -27,6 +31,10 @@ public class PlayerDeathState : PlayerBaseState
         //I materiali del personaggio vengono settati al materiale con lo shader per la dissolvenza
         playerController.renderAstroBody.sharedMaterials = playerController.material;
     	playerController.renderAstroHead.sharedMaterials = playerController.material;
+        phm.pnlDeath.SetActive(true);
+        
+        
+        
     }
 
     public override void UpdateState(PlayerStateManager player)

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponController : MonoBehaviour
+public class WeaponControllerEnemy : MonoBehaviour
 {
     //Per capire se si sta sparando o no
     public bool isFiring = false;
@@ -41,9 +41,7 @@ public class WeaponController : MonoBehaviour
 
     void Awake()
     {
-
-            ammoWidget.Refresh(ammoCount);
-        
+        ammoWidget.Refresh(ammoCount);
     }
 
     //Funzione chiamata quando si riceve l'input per lo sparo
@@ -102,7 +100,7 @@ public class WeaponController : MonoBehaviour
             //Debug.DrawLine(ray.origin, hitInfo.point, Color.red, 1.0f);
 
             //Per la gestione del dallo al nemico in seguito alla collisione
-            if (hitInfo.collider.gameObject.layer == 7)
+            if(hitInfo.collider.gameObject.layer == 7)
             {
                 var hitPlayerCollider = hitInfo.collider.GetComponent<PlayerHealthManager>();
                 if (hitPlayerCollider)
@@ -110,7 +108,7 @@ public class WeaponController : MonoBehaviour
                     hitPlayerCollider.HurtPlayer(damage);
                 }
             }
-            else if (hitInfo.collider.gameObject.layer == 12)
+            else if(hitInfo.collider.gameObject.layer == 12)
             {
                 var hitEnemyCollider = hitInfo.collider.GetComponent<EnemyHealthManager>();
                 if (hitEnemyCollider)
@@ -118,6 +116,7 @@ public class WeaponController : MonoBehaviour
                     hitEnemyCollider.TakeDamage(damage);
                 }
             }
+           
         }
 
         //Se non c'è la raffica allora spara solo un colpo e dopo finisce
