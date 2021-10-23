@@ -5,10 +5,10 @@ using UnityEngine;
 public class EnemyMeleeAttackState : EnemyBaseState
 {
     float distanceToTarget;
-    Transform enemyTransform;
-    Transform targetTransform;
-    PlayerController playerController;
-    GameObject playerRef;
+
+    GameObject enemyGameObject;
+    GameObject playerGameObject;
+
     EnemyHealthManager enemyHealthManager;
     EnemyController enemyController;
 
@@ -22,9 +22,8 @@ public class EnemyMeleeAttackState : EnemyBaseState
     public override void EnterState(EnemyStateManager enemy)
     {
         Debug.Log("Stato Nemico = Attacca");
-        enemyTransform = enemy.gameObject.transform;
-        playerRef = GameObject.FindGameObjectWithTag("Player");
-        targetTransform = playerRef.transform;
+        enemyGameObject = enemy.GetComponent<EnemyController>().gameObject;
+        playerGameObject = GameObject.FindGameObjectWithTag("Player");
         enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
         enemyController = enemy.GetComponent<EnemyController>();
         animator = enemy.GetComponent<Animator>();
@@ -38,10 +37,10 @@ public class EnemyMeleeAttackState : EnemyBaseState
 
     public override void UpdateState(EnemyStateManager enemy)
     {
-        distanceToTarget = Vector3.Distance(enemyTransform.position, targetTransform.position);
+        distanceToTarget = Vector3.Distance(enemyGameObject.transform.position, playerGameObject.transform.position);
 
         if (distanceToTarget <= 1.5f){
-            enemyTransform.LookAt(targetTransform);
+            enemyGameObject.transform.LookAt(playerGameObject.transform);
             EnemyAttack();
         }
         else{
@@ -71,7 +70,7 @@ public class EnemyMeleeAttackState : EnemyBaseState
                 if (hitPlayer != null)
                 {
                     Debug.Log("Sto colpendo il player con melee");
-                    playerRef.GetComponent<PlayerHealthManager>().HurtPlayer(enemyController.meleeDamage);
+                    playerGameObject.transform.GetComponent<PlayerHealthManager>().HurtPlayer(enemyController.meleeDamage);
 
                     //Una volta inflitto il danno il timer aggiornato alla metà lunghezza dell'animazione corrente, ovvero "AttaccoDirettoNemico"
                     timeRemainingToAttack = animator.GetCurrentAnimatorStateInfo(0).length/2;

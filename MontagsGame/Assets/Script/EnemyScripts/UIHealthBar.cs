@@ -14,7 +14,7 @@ public class UIHealthBar : MonoBehaviour
 
     void LateUpdate()
     {
-        //questa cosa serve per gestire la vista della barra se questa è alle spalle del nemico
+        //Questa cosa serve per gestire la vista della barra se questa è alle spalle del nemico
         //molto probabilmente può essere eliminata
         Vector3 direction = (target.position - Camera.main.transform.position).normalized;
         bool isBehind = Vector3.Dot(direction, Camera.main.transform.forward) <= 0.0f;

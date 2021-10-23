@@ -613,10 +613,8 @@ GameObject:
   - component: {fileID: 209854319124362670}
   - component: {fileID: 209854319124362656}
   - component: {fileID: 209854319253784454}
-  - component: {fileID: 209854318519255576}
   - component: {fileID: 209854318519255654}
   - component: {fileID: 209854318519255663}
-  - component: {fileID: 209854318519255655}
   - component: {fileID: 209854318519255577}
   m_Layer: 12
   m_Name: PirataNemico1
@@ -690,10 +688,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRef: {fileID: 0}
+  animator: {fileID: 0}
+  attackPoint: {fileID: 0}
+  attackRange: 0.5
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 0
   ready: 0
   material:
   - {fileID: 2100000, guid: 0053cfe5f112d06419c412b243969718, type: 2}
   renderEnemyBody: {fileID: 0}
+  meleeDamage: 1
 --- !u!195 &209854319124362656
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -733,20 +738,6 @@ MonoBehaviour:
   dieForce: 1
   blinkIntensity: 5
   blinkDuration: 1
---- !u!136 &209854318519255576
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1020316785476676659}
-  m_Material: {fileID: 13400000, guid: 7513933078f7b05499855437c2522303, type: 2}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.18
-  m_Height: 0.5672003
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.31071678, z: 0}
 --- !u!23 &209854318519255654
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -802,45 +793,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2253d5a86416cfa4484b0b69326496ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &209854318519255655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1020316785476676659}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95c047d0b67a5494680d544dfff36a45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 209854319124362656}
-  player: {fileID: 0}
-  target: {fileID: 0}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 128
-  health: 0
-  walkPoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 0
-  wayPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  viewRadius: 5
-  viewAngle: 134.2
-  timeBetweenAttacks: 0
-  projectile: {fileID: 0}
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 0
-  obstructionMask:
-    serializedVersion: 2
-    m_Bits: 0
-  playerInSightRange: 0
-  playerInAttackRange: 0
 --- !u!114 &209854318519255577
 MonoBehaviour:
   m_ObjectHideFlags: 0

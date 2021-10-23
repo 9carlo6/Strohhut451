@@ -5,27 +5,23 @@ using UnityEngine.AI;
 
 //Questa classe serve per la gestione del'animazione del nemico
 public class EnemyController : MonoBehaviour
-{
+{ 
+    public Transform[] wayPoints;   //Array di points verso cui il nemico dovrà effettuare il patroling
+    public LayerMask targetMask;    //Bersaglio, cioè il player
+    public LayerMask obstructionMask; //Ostacoli, ad esempio le pareti
 
-    Transform target;
+    //Per l'attacco Melee
+    public Transform attackPoint;
+    public float attackRange;
+    public float meleeDamage = 1f;
+    public float meleeDistance = 1.2f;
+    public float fireDistance = 6f;
 
-    private Rigidbody enemyRigidbody;
-    public GameObject playerRef;
-
-    //per l'animazione
+    //Per l'animazione
     public Animator animator;
     EnemyStateManager stateManager;
 
-    public Transform attackPoint;
-    public float attackRange = 0.5f;
-    public LayerMask targetMask;    //bersagli, cioe' il player
-
-    NavMeshAgent agent;
-
-    //variabili utilizzare per salvare informazioni relative al movimento del nemico
-    Vector3 currentPosition;
-    bool isMoving;
-    float initialSpeed;
+    NavMeshAgent enemyNavMeshAgent;  //NavMesh del nemico
 
     [HideInInspector] public bool ready = false;
 
@@ -36,12 +32,9 @@ public class EnemyController : MonoBehaviour
   	private GameObject enemyBody;
   	public Renderer renderEnemyBody;
 
-    public float meleeDamage = 1f;
-
 
     void Awake()
     {
-        targetMask = GetComponent<WayPoints>().targetMask;
         animator = GetComponent<Animator>();
         stateManager = GetComponent<EnemyStateManager>();
 
@@ -59,12 +52,7 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerRef = GameObject.FindGameObjectWithTag("Player");
-        enemyRigidbody = GetComponent<Rigidbody>();
-        currentPosition = transform.position;
-        target = playerRef.transform;
-        agent = GetComponent<NavMeshAgent>();
-        initialSpeed = agent.speed;
+        enemyNavMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -76,14 +64,12 @@ public class EnemyController : MonoBehaviour
     //Per gestire le animazioni
     void handleAnimation()
     {
-        float distanceToTarget = Vector3.Distance(transform.position, target.position);
         //Prende i parametri dall'animator
-        //bool isWalkingEnemy = animator.GetBool("isWalkingEnemy");
         bool attack = animator.GetBool("Attack");
 
         if (string.Equals(GetCurrentClipName(), "AttaccoDirettoNemico") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
         {
-            // se sta attaccando deve necessariamente finire l' animazione
+            //Se sta attaccando deve necessariamente finire l' animazione
             ready = false;
         }
         else
@@ -100,19 +86,19 @@ public class EnemyController : MonoBehaviour
                 case "EnemyPatrollingState":
                     animator.SetBool("isWalkingEnemy", true);
                     animator.SetBool("Attack", false);
-                    agent.isStopped = false; ;
+                    enemyNavMeshAgent.isStopped = false; ;
                     break;
 
                 case "EnemyChasePlayerState":
                     animator.SetBool("isWalkingEnemy", true);
                     animator.SetBool("Attack", false);
-                    agent.isStopped = false; ;
+                    enemyNavMeshAgent.isStopped = false; ;
                     break;
 
                 case "EnemyMeleeAttackState":
                     animator.SetBool("isWalkingEnemy", false);
                     animator.SetBool("Attack", true);
-                    //agent.isStopped = true;
+                    //enemyNavMeshAgent.isStopped = true;
                     break;
 
                 case "EnemyDeathState":
@@ -130,7 +116,7 @@ public class EnemyController : MonoBehaviour
     void EnemyDeath()
     {
         animator.SetBool("isDeathEnemy", true);
-        agent.isStopped = true;
+        enemyNavMeshAgent.isStopped = true;
 
         //I materiali del personaggio vengono settati al materiale con lo shader per la dissolvenza
         renderEnemyBody.sharedMaterials = material;
