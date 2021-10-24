@@ -90,7 +90,7 @@ public class PlayerAttackState : PlayerBaseState
                 //Gestione rotazione e posizionamento del giocatore nel momento in cui attacca stealth
                 playerController.gameObject.transform.LookAt(enemyCollider.gameObject.transform);
                 enemyCollider.gameObject.transform.LookAt(playerController.gameObject.transform);
-                //enemyCollider.gameObject.transform.position = new Vector3(playerController.gameObject.transform.position.x, 0, playerController.gameObject.transform.position.z + 1);
+                enemyCollider.gameObject.transform.position = new Vector3(playerController.gameObject.transform.position.x, 0, playerController.gameObject.transform.position.z + 1);
                 //enemyCollider.gameObject.transform.position = playerController.gameObject.transform.TransformPoint(5);
                 //Vector3 targetDir = enemy.gameObject.transform.position - playerController.gameObject.transform.position;
             }

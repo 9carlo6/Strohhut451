@@ -37,26 +37,40 @@ public class EnemyMeleeAttackState : EnemyBaseState
 
     public override void UpdateState(EnemyStateManager enemy)
     {
-        distanceToTarget = Vector3.Distance(enemyGameObject.transform.position, playerGameObject.transform.position);
 
-        if (distanceToTarget <= 1.5f){
-            enemyGameObject.transform.LookAt(playerGameObject.transform);
-            EnemyAttack();
-        }
-        else{
-            enemy.SwitchState(enemy.ChasePlayerState);
-        }
-
-        //Gestione passaggio allo stato Stunned del nemico
-        if (enemyAnimator.GetBool("isStunned"))
+        if(playerGameObject.transform.GetComponent<PlayerHealthManager>().currentHealth <= 0)
         {
-            enemy.SwitchState(enemy.StunnedState);
+            enemy.SwitchState(enemy.AliveState);
+
+        }
+        else
+        {
+
+            distanceToTarget = Vector3.Distance(enemyGameObject.transform.position, playerGameObject.transform.position);
+
+            if (distanceToTarget <= 1.5f)
+            {
+                enemyGameObject.transform.LookAt(playerGameObject.transform);
+                EnemyAttack();
+            }
+            else
+            {
+                enemy.SwitchState(enemy.ChasePlayerState);
+            }
+
+            //Gestione passaggio allo stato Stunned del nemico
+            if (enemyAnimator.GetBool("isStunned"))
+            {
+                enemy.SwitchState(enemy.StunnedState);
+            }
+
+            if (enemyHealthManager.currentHealth <= 0)
+            {
+                enemy.SwitchState(enemy.DeathState);
+            }
         }
 
-        if (enemyHealthManager.currentHealth <= 0)
-        {
-            enemy.SwitchState(enemy.DeathState);
-        }
+       
     }
 
     //Funzione per gestire il danno inflitto al personaggio dall'attacco del nemico
