@@ -13,7 +13,7 @@ public class EnemyMeleeAttackState : EnemyBaseState
     EnemyController enemyController;
 
     //per l'animazione
-  	public Animator animator;
+    public Animator enemyAnimator;
     private AnimatorClipInfo[] clipInfo;
 
     //Questo è il timer per gestire quando infliggere il danno al player
@@ -26,7 +26,7 @@ public class EnemyMeleeAttackState : EnemyBaseState
         playerGameObject = GameObject.FindGameObjectWithTag("Player");
         enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
         enemyController = enemy.GetComponent<EnemyController>();
-        animator = enemy.GetComponent<Animator>();
+        enemyAnimator = enemy.GetComponent<Animator>();
 
         //Il timer viene settato a un valore iniziale (che dovrebbe coincidire con la lunghezza dell'animazione "AttaccoDirettoNemico")
         //Bisogna trovare un modo per ricavare la lunghezza di una specifica animazione (ora sappiamo ricavare solo quella dell'animazione corrente)
@@ -47,7 +47,14 @@ public class EnemyMeleeAttackState : EnemyBaseState
             enemy.SwitchState(enemy.ChasePlayerState);
         }
 
-        if(enemyHealthManager.currentHealth <= 0){
+        //Gestione passaggio allo stato Stunned del nemico
+        if (enemyAnimator.GetBool("isStunned"))
+        {
+            enemy.SwitchState(enemy.StunnedState);
+        }
+
+        if (enemyHealthManager.currentHealth <= 0)
+        {
             enemy.SwitchState(enemy.DeathState);
         }
     }
@@ -73,7 +80,7 @@ public class EnemyMeleeAttackState : EnemyBaseState
                     playerGameObject.transform.GetComponent<PlayerHealthManager>().HurtPlayer(enemyController.meleeDamage);
 
                     //Una volta inflitto il danno il timer aggiornato alla metà lunghezza dell'animazione corrente, ovvero "AttaccoDirettoNemico"
-                    timeRemainingToAttack = animator.GetCurrentAnimatorStateInfo(0).length/2;
+                    timeRemainingToAttack = enemyAnimator.GetCurrentAnimatorStateInfo(0).length/2;
                 }
             }
         }
@@ -83,14 +90,14 @@ public class EnemyMeleeAttackState : EnemyBaseState
     //Funzione per il debug dell'attacco corpo a corpo
     void OnDrawGizmosSelected()
     {
-        if (!animator.GetBool("Attack")) return;
+        if (!enemyAnimator.GetBool("Attack")) return;
 
         Gizmos.DrawWireSphere(enemyController.attackPoint.position, enemyController.attackRange);
     }
 
     //Funzione necessaria per risalire al nome dell'animazione corrente
     public string GetCurrentClipName(){
-      clipInfo = animator.GetCurrentAnimatorClipInfo(0);
+      clipInfo = enemyAnimator.GetCurrentAnimatorClipInfo(0);
       return clipInfo[0].clip.name;
     }
 

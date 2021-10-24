@@ -27,6 +27,9 @@ public class EnemyPatrollingState : EnemyBaseState
 
     EnemyHealthManager enemyHealthManager;
 
+    //per l'animazione
+    public Animator enemyAnimator;
+
     public bool playerInSightRange;  //quando vedo il bersaglio = true
 
     public override void EnterState(EnemyStateManager enemy)
@@ -42,6 +45,7 @@ public class EnemyPatrollingState : EnemyBaseState
         targetMask = enemy.GetComponent<EnemyController>().targetMask;
         obstructionMask = enemy.GetComponent<EnemyController>().obstructionMask;
         enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
+        enemyAnimator = enemy.GetComponent<Animator>();
     }
 
     public override void UpdateState(EnemyStateManager enemy)
@@ -60,7 +64,13 @@ public class EnemyPatrollingState : EnemyBaseState
             enemy.SwitchState(enemy.ChasePlayerState);
         }
 
-        if(enemyHealthManager.currentHealth <= 0)
+        //Gestione passaggio allo stato Stunned del nemico
+        if (enemyAnimator.GetBool("isStunned"))
+        {
+            enemy.SwitchState(enemy.StunnedState);
+        }
+
+        if (enemyHealthManager.currentHealth <= 0)
         {
             enemy.SwitchState(enemy.DeathState);
         }

@@ -19,7 +19,7 @@ public class EnemyController : MonoBehaviour
 
     //Per l'animazione
     public Animator animator;
-    EnemyStateManager stateManager;
+    [HideInInspector] public EnemyStateManager stateManager;
 
     NavMeshAgent enemyNavMeshAgent;  //NavMesh del nemico
 
@@ -67,7 +67,7 @@ public class EnemyController : MonoBehaviour
         //Prende i parametri dall'animator
         bool attack = animator.GetBool("Attack");
 
-        if (string.Equals(GetCurrentClipName(), "AttaccoDirettoNemico") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
+        if ((string.Equals(GetCurrentClipName(), "AttaccoDirettoNemico") || string.Equals(GetCurrentClipName(), "PirataStordito")) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
         {
             //Se sta attaccando deve necessariamente finire l' animazione
             ready = false;
@@ -91,6 +91,7 @@ public class EnemyController : MonoBehaviour
 
                 case "EnemyChasePlayerState":
                     animator.SetBool("isWalkingEnemy", true);
+                    animator.SetBool("isStunned", false);
                     animator.SetBool("Attack", false);
                     enemyNavMeshAgent.isStopped = false; ;
                     break;
@@ -99,6 +100,12 @@ public class EnemyController : MonoBehaviour
                     animator.SetBool("isWalkingEnemy", false);
                     animator.SetBool("Attack", true);
                     //enemyNavMeshAgent.isStopped = true;
+                    break;
+
+                case "EnemyStunnedState":
+                    animator.SetBool("isWalkingEnemy", false);
+                    animator.SetBool("Attack", false);
+                    enemyNavMeshAgent.isStopped = true;
                     break;
 
                 case "EnemyDeathState":

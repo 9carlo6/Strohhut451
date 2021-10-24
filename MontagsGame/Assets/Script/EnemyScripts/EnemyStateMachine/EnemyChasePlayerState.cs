@@ -24,6 +24,7 @@ public class EnemyChasePlayerState : EnemyBaseState
     GameObject playerGameObject;
     GameObject enemyGameObject;
     NavMeshAgent enemyNavMesh;
+    private Animator enemyAnimator;
 
     float distanceToTarget;
 
@@ -50,6 +51,7 @@ public class EnemyChasePlayerState : EnemyBaseState
         targetMask = enemy.GetComponent<EnemyController>().targetMask;
         obstructionMask = enemy.GetComponent<EnemyController>().obstructionMask;
         enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
+        enemyAnimator = enemy.GetComponent<Animator>();
     }
 
     public override void UpdateState(EnemyStateManager enemy)
@@ -75,7 +77,13 @@ public class EnemyChasePlayerState : EnemyBaseState
             }
         }
 
-        if(enemyHealthManager.currentHealth <= 0)
+        //Gestione passaggio allo stato Stunned del nemico
+        if (enemyAnimator.GetBool("isStunned"))
+        {
+            enemy.SwitchState(enemy.StunnedState);
+        }
+
+        if (enemyHealthManager.currentHealth <= 0)
         {
             enemy.SwitchState(enemy.DeathState);
         }

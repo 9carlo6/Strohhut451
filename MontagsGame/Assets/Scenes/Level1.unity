@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -534,7 +534,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1172155675}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 7513933078f7b05499855437c2522303, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.15
@@ -1034,7 +1034,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-46064
+  m_Name: pb_Mesh-3784
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1339,6 +1339,16 @@ PrefabInstance:
       propertyPath: wayPoints.Array.data[1]
       value: 
       objectReference: {fileID: 37342806}
+    - target: {fileID: 209854319253784454, guid: 040c2552090e0514c912d4489618d701,
+        type: 3}
+      propertyPath: maxhealth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209854319253784454, guid: 040c2552090e0514c912d4489618d701,
+        type: 3}
+      propertyPath: currentHealth
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 388211276977075849, guid: 040c2552090e0514c912d4489618d701,
         type: 3}
       propertyPath: m_RootOrder
@@ -1449,7 +1459,7 @@ PrefabInstance:
     - target: {fileID: 839757687844688540, guid: 658cff369a96e824b8daa1347b5e2bda,
         type: 3}
       propertyPath: startingHealth
-      value: 1
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 839757687844688541, guid: 658cff369a96e824b8daa1347b5e2bda,
         type: 3}
@@ -1587,7 +1597,7 @@ PrefabInstance:
     - target: {fileID: 1566586078437838342, guid: beb5a3e67bcdc5540b941dce951eb592,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1566586078437838342, guid: beb5a3e67bcdc5540b941dce951eb592,
         type: 3}
