@@ -19,6 +19,7 @@ public class PlayerDeathState : PlayerBaseState
         animator = playerController.animator;
         phm = player.GetComponent<PlayerHealthManager>();
 
+
         //Viene nascosta la pistola
         playerController.weapon.SetActive(false);
   		animator.SetBool("isDeath", true);
@@ -43,7 +44,8 @@ public class PlayerDeathState : PlayerBaseState
         if (string.Equals(GetCurrentClipName(), "MortePersonaggio") && playerController.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
         {
             //quando finisce l'animazione scompare il personaggio (da cambiare)
-            //Object.Destroy(player.gameObject);
+
+
         }
 
         //Per gestire la dissolvenza durante la morte del MortePersonaggio
@@ -51,6 +53,9 @@ public class PlayerDeathState : PlayerBaseState
         {
             //Man mano che l'animazione va avanti l'intensita dello shader della dissolvenza aumenta di valore
             playerController.material[0].SetFloat("Vector_Intensity_Dissolve2", playerController.material[0].GetFloat("Vector_Intensity_Dissolve2") + 0.005f);
+            playerController.enabled = false;
+            
+
         }
     }
 

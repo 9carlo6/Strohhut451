@@ -109,9 +109,8 @@ public class PlayerController : MonoBehaviour
 		isAttacking = animator.GetBool("isAttacking");
 		if(!isAttacking){
 			characterController.Move(currentMovement * Time.deltaTime * moveSpeed);
+			handlePlayerRotation();
 		}
-
-		handlePlayerRotation();
 
 		handleFiring();
 

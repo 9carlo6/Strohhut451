@@ -43,6 +43,12 @@ public class EnemyHealthManager : MonoBehaviour
         blinkTimer = blinkDuration;
     }
 
+    //Questa funzione serve per gestire l'illuminazione del nemico quando viene stordito
+    public void enemyHit()
+    {
+        blinkTimer = blinkDuration;
+    }
+
     private void Die()
     {
         healthBar.gameObject.SetActive(false);
@@ -53,9 +59,8 @@ public class EnemyHealthManager : MonoBehaviour
         //Questa parte serve per far illuminare il nemico quando viene colpito
         blinkTimer -= Time.deltaTime;
         float lerp = Mathf.Clamp01(blinkTimer / blinkDuration);
-
         //Si aggiunge l'uno perche altrimenti il nemico appare totalmente nero
-        float intensity = (lerp * blinkIntensity) + 0.5f;
+        float intensity = (lerp * blinkIntensity) + 1.0f;
         skinnedMeshRenderer.material.color = Color.white * intensity;
     }
 }
