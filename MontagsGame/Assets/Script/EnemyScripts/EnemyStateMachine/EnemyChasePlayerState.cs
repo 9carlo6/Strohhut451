@@ -10,7 +10,7 @@ public class EnemyChasePlayerState : EnemyBaseState
 
     public float viewRadius;  //raggio di vista
     public float viewAngle;   //angolo di vista
-    private float offsetPosition = 0.1f;    //per determinare la distanza minima dal player
+    private float offsetPosition = 0.3f;    //per determinare la distanza minima dal player
     Vector3 destinationVector = new Vector3();  //per determinare la posizione target da raggiungere
 
     float meleeDistance; //distanza da quale fare l'attacco melee
@@ -24,6 +24,9 @@ public class EnemyChasePlayerState : EnemyBaseState
     GameObject playerGameObject;
     GameObject enemyGameObject;
     NavMeshAgent enemyNavMesh;
+    private Animator enemyAnimator;
+
+
 
     float distanceToTarget;
 
@@ -50,35 +53,51 @@ public class EnemyChasePlayerState : EnemyBaseState
         targetMask = enemy.GetComponent<EnemyController>().targetMask;
         obstructionMask = enemy.GetComponent<EnemyController>().obstructionMask;
         enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
+        enemyAnimator = enemy.GetComponent<Animator>();
     }
 
     public override void UpdateState(EnemyStateManager enemy)
     {
-        distanceToTarget = Vector3.Distance(enemyGameObject.transform.position, playerGameObject.transform.position);
-
-        FieldOfViewCheck();
-
-        if (!playerInSightRange && !ingaged)
+        if(playerGameObject.transform.GetComponent<PlayerHealthManager>().currentHealth <= 0)
         {
-            enemy.SwitchState(enemy.PatrollingState);
+            enemy.SwitchState(enemy.AliveState);
+
         }
         else
         {
-            if (distanceToTarget <= meleeDistance)
-            {
-                enemy.SwitchState(enemy.AttackMeleeState);
+            distanceToTarget = Vector3.Distance(enemyGameObject.transform.position, playerGameObject.transform.position);
 
+            FieldOfViewCheck();
+
+            if (!playerInSightRange && !ingaged)
+            {
+                enemy.SwitchState(enemy.PatrollingState);
             }
             else
             {
-                ChasePlayer(distanceToTarget);
+                if (distanceToTarget <= meleeDistance)
+                {
+                    enemy.SwitchState(enemy.AttackMeleeState);
+
+                }
+                else
+                {
+                    ChasePlayer(distanceToTarget);
+                }
+            }
+
+            //Gestione passaggio allo stato Stunned del nemico
+            if (enemyAnimator.GetBool("isStunned"))
+            {
+                enemy.SwitchState(enemy.StunnedState);
+            }
+
+            if (enemyHealthManager.currentHealth <= 0)
+            {
+                enemy.SwitchState(enemy.DeathState);
             }
         }
-
-        if(enemyHealthManager.currentHealth <= 0)
-        {
-            enemy.SwitchState(enemy.DeathState);
-        }
+        
     }
 
     //FOV
