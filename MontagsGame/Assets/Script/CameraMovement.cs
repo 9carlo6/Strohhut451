@@ -5,7 +5,7 @@ using UnityEngine;
 //questa classe serve per gestire il movimento della telecamera
 public class CameraMovement : MonoBehaviour
 {
-    public Transform target;
+    private GameObject player;
     //public float x = 0f;
     //public float y = 0f;
     //public float z = 0f;
@@ -14,15 +14,21 @@ public class CameraMovement : MonoBehaviour
     public float smoothSpeed = 2.5f;
     public Vector3 offset;
 
+    void Awake(){
+      player = GameObject.FindWithTag("Player");
+    }
+
     void FixedUpdate()
     {
-      //la posizione della telecamera viene aggiornata in base al target passato (ad esempio quella del giocatore)
-      //transform.position = new Vector3(target.transform.position.x + x, target.transform.position.y + y, target.transform.position.z + z);
+      if(player!=null){
+        //la posizione della telecamera viene aggiornata in base al target passato (ad esempio quella del giocatore)
+        //transform.position = new Vector3(target.transform.position.x + x, target.transform.position.y + y, target.transform.position.z + z);
 
-      Vector3 desiredPosition = target.position + offset;
-      Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
-      transform.position = smoothedPosition;
+        Vector3 desiredPosition = player.transform.position + offset;
+        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
+        transform.position = smoothedPosition;
 
-      //transform.LookAt(target);
+        //transform.LookAt(target);
+      }
     }
 }

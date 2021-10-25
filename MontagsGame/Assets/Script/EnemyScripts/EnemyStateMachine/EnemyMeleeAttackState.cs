@@ -36,27 +36,41 @@ public class EnemyMeleeAttackState : EnemyBaseState
     }
 
     public override void UpdateState(EnemyStateManager enemy)
-    {
-        distanceToTarget = Vector3.Distance(enemyGameObject.transform.position, playerGameObject.transform.position);
+    {
 
-        if (distanceToTarget <= 1.5f){
-            enemyGameObject.transform.LookAt(playerGameObject.transform);
-            EnemyAttack();
+        if(playerGameObject.transform.GetComponent<PlayerHealthManager>().currentHealth <= 0)
+        {
+            enemy.SwitchState(enemy.AliveState);
+
         }
-        else{
-            enemy.SwitchState(enemy.ChasePlayerState);
-        }
-
-        //Gestione passaggio allo stato Stunned del nemico
-        if (enemyAnimator.GetBool("isStunned"))
+        else
         {
-            enemy.SwitchState(enemy.StunnedState);
-        }
 
-        if (enemyHealthManager.currentHealth <= 0)
-        {
-            enemy.SwitchState(enemy.DeathState);
-        }
+            distanceToTarget = Vector3.Distance(enemyGameObject.transform.position, playerGameObject.transform.position);
+
+            if (distanceToTarget <= 1.5f)
+            {
+                enemyGameObject.transform.LookAt(playerGameObject.transform);
+                EnemyAttack();
+            }
+            else
+            {
+                enemy.SwitchState(enemy.ChasePlayerState);
+            }
+
+            //Gestione passaggio allo stato Stunned del nemico
+            if (enemyAnimator.GetBool("isStunned"))
+            {
+                enemy.SwitchState(enemy.StunnedState);
+            }
+
+            if (enemyHealthManager.currentHealth <= 0)
+            {
+                enemy.SwitchState(enemy.DeathState);
+            }
+        }
+
+       
     }
 
     //Funzione per gestire il danno inflitto al personaggio dall'attacco del nemico
@@ -70,7 +84,7 @@ public class EnemyMeleeAttackState : EnemyBaseState
         //Altrimenti si procede infliggendo il danno al nemico
         else
         {
-            if (string.Equals(GetCurrentClipName(), "AttaccoDirettoNemico"))
+            if (string.Equals(GetCurrentClipName(), "AttaccoDirettoNemico") && enemyAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.10f)
             {
                 Collider[] hitPlayer = Physics.OverlapSphere(enemyController.attackPoint.position, enemyController.attackRange, enemyController.targetMask);
 
