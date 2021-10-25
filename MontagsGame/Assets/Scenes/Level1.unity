@@ -220,7 +220,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ARE YOU SURE?
+  m_text: PAUSE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -309,7 +309,7 @@ GameObject:
   - component: {fileID: 374069658}
   - component: {fileID: 374069659}
   m_Layer: 0
-  m_Name: GameOverGlobalVolume
+  m_Name: PauseMenuGlobalVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -345,7 +345,7 @@ MonoBehaviour:
   priority: 2
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 4567bd1c6c8f3434b97a9c6f807d9653, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 1bdd14a3e55c156469b45ef8e08a3a6f, type: 2}
 --- !u!1 &438398968
 GameObject:
   m_ObjectHideFlags: 0
@@ -933,7 +933,7 @@ GameObject:
   m_Component:
   - component: {fileID: 725673752}
   m_Layer: 0
-  m_Name: AreYouSureText
+  m_Name: PauseText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -957,8 +957,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1583.865, y: 467.1879}
+  m_AnchoredPosition: {x: 0, y: 356}
+  m_SizeDelta: {x: 1553.8044, y: 236.723}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &734500758 stripped
 GameObject:
@@ -994,7 +994,7 @@ GameObject:
   - component: {fileID: 855582171}
   - component: {fileID: 855582170}
   m_Layer: 0
-  m_Name: CheckRestartCanvas
+  m_Name: PauseMenuCanvas
   m_TagString: GameOverCanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1708,7 +1708,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ARE YOU SURE?
+  m_text: PAUSE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1889,7 +1889,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-3296
+  m_Name: pb_Mesh-8738
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

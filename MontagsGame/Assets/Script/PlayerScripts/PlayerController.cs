@@ -53,6 +53,9 @@ public class PlayerController : MonoBehaviour
 	[HideInInspector] public Renderer renderAstroBody;
 	[HideInInspector] public Renderer renderAstroHead;
 
+	//Per far fermare completamente il giocatore
+	public bool isStopped = false;
+
 	void Awake()
 	{
 		playerInput = new PlayerInput();
@@ -108,17 +111,17 @@ public class PlayerController : MonoBehaviour
 	void Update()
 	{
 		//per poter far muovere il personaggio
-		//per potersi muovere il personaggio non deve star attaccando e non deve essere morto 
+		//per potersi muovere il personaggio non deve star attaccando e non deve essere morto
 
 		isAttacking = animator.GetBool("isAttacking");
 		isDeath = animator.GetBool("isDeath");
 
-		if(!isAttacking && !isDeath){
+		if(!isAttacking && !isDeath && !isStopped){
 			characterController.Move(currentMovement * Time.deltaTime * moveSpeed);
 			handlePlayerRotation();
-			
+
 			handleFiring();
-		
+
 		}
 		handleAnimation();
 	}
@@ -147,9 +150,9 @@ public class PlayerController : MonoBehaviour
     {
 		if (weaponController.isFiring)
 		{
-			weaponController.StartFiring();
+			//weaponController.StartFiring();
 			weaponController.UpdateFiring(Time.deltaTime);
-			
+
 		}
 	}
 
