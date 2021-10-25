@@ -84,7 +84,7 @@ public class EnemyMeleeAttackState : EnemyBaseState
         //Altrimenti si procede infliggendo il danno al nemico
         else
         {
-            if (string.Equals(GetCurrentClipName(), "AttaccoDirettoNemico"))
+            if (string.Equals(GetCurrentClipName(), "AttaccoDirettoNemico") && enemyAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.10f)
             {
                 Collider[] hitPlayer = Physics.OverlapSphere(enemyController.attackPoint.position, enemyController.attackRange, enemyController.targetMask);
 
