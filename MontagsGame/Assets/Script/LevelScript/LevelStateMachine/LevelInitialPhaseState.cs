@@ -31,8 +31,8 @@ public class LevelInitialPhaseState : LevelBaseState
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            Debug.Log("Restart del livello");
-            SceneManager.LoadScene("Level1");
+            Debug.Log("Passaggio dallo stato iniziale del livello allo stato check restart");
+            level.SwitchState(level.CheckRestartState);
         }
 
         if (player.GetComponent<PlayerHealthManager>().currentHealth <= 0)

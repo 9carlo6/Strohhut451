@@ -8,6 +8,7 @@ public class LevelStateManager : MonoBehaviour
     public LevelInitialPhaseState InitialState = new LevelInitialPhaseState();
     public LevelGameOverState GameOverState = new LevelGameOverState();
     public LevelCompletedState CompletedState = new LevelCompletedState();
+    public LevelCheckRestartState CheckRestartState = new LevelCheckRestartState();
 
     //Per individuare lo stato corrente del Livello
     public string getCurrentState()
