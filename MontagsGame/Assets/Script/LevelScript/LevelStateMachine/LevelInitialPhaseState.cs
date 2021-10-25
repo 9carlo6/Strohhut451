@@ -29,10 +29,10 @@ public class LevelInitialPhaseState : LevelBaseState
             level.SwitchState(level.CompletedState);
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("Restart del livello");
-            SceneManager.LoadScene("Level1");
+            Debug.Log("Passaggio dallo stato iniziale del livello allo stato pause");
+            level.SwitchState(level.PauseState);
         }
 
         if (player.GetComponent<PlayerHealthManager>().currentHealth <= 0)
