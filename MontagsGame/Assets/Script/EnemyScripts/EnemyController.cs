@@ -19,7 +19,7 @@ public class EnemyController : MonoBehaviour
 
     //Per l'animazione
     public Animator animator;
-    EnemyStateManager stateManager;
+    [HideInInspector] public EnemyStateManager stateManager;
 
     NavMeshAgent enemyNavMeshAgent;  //NavMesh del nemico
 
@@ -66,8 +66,8 @@ public class EnemyController : MonoBehaviour
     {
         //Prende i parametri dall'animator
         bool attack = animator.GetBool("Attack");
-
-        if (string.Equals(GetCurrentClipName(), "AttaccoDirettoNemico") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
+        
+        /*if (string.Equals(GetCurrentClipName(), "AttaccoDirettoNemico") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
         {
             //Se sta attaccando deve necessariamente finire l' animazione
             ready = false;
@@ -77,8 +77,8 @@ public class EnemyController : MonoBehaviour
             ready = true;
         }
 
-
-        if (ready)
+        */
+        if (true)
         {
             switch (stateManager.getCurrentState())
             {
@@ -86,20 +86,38 @@ public class EnemyController : MonoBehaviour
                 case "EnemyPatrollingState":
                     animator.SetBool("isWalkingEnemy", true);
                     animator.SetBool("Attack", false);
+                    animator.SetBool("isStunned", false);
                     enemyNavMeshAgent.isStopped = false; ;
                     break;
 
                 case "EnemyChasePlayerState":
                     animator.SetBool("isWalkingEnemy", true);
+                    animator.SetBool("isStunned", false);
                     animator.SetBool("Attack", false);
                     enemyNavMeshAgent.isStopped = false; ;
                     break;
 
                 case "EnemyMeleeAttackState":
-                    animator.SetBool("isWalkingEnemy", false);
+                    animator.SetBool("isWalkingEnemy", true);
                     animator.SetBool("Attack", true);
-                    //enemyNavMeshAgent.isStopped = true;
+                    animator.SetBool("isStunned", false);
+                    enemyNavMeshAgent.isStopped = false;
                     break;
+
+                case "EnemyStunnedState":
+                    animator.SetBool("isWalkingEnemy", false);
+                    animator.SetBool("Attack", false);
+                    animator.SetBool("isStunned", true);
+                    enemyNavMeshAgent.isStopped = true;
+                    break;
+                
+                case "EnemyAliveState":
+                    animator.SetBool("isWalkingEnemy", false);
+                    animator.SetBool("Attack", false);
+                    animator.SetBool("isStunned", false);
+                    enemyNavMeshAgent.isStopped = true;
+                    break;
+                    
 
                 case "EnemyDeathState":
                     EnemyDeath();

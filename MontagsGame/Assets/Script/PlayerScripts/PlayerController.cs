@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
 	[HideInInspector] public bool isMovementPressed;
 	[HideInInspector] public bool isAttackButtonPressed;
 	[HideInInspector] public bool isAttacking;
+	[HideInInspector] public bool isDeath;
 
 	//Per l'animazione
 	public Animator animator;
@@ -77,8 +78,10 @@ public class PlayerController : MonoBehaviour
 		playerInput.CharacterControls.Move.performed += onMovementInput;
 
 		//Callbacks per la gestione dello sparo
-		playerInput.CharacterControls.Fire.performed += _ => weaponController.StartFiring();
-		playerInput.CharacterControls.Fire.canceled += _ => weaponController.StopFiring();
+		//playerInput.CharacterControls.Fire.performed += _ => weaponController.StartFiring();
+		playerInput.CharacterControls.Fire.performed += _ => weaponController.isFiring = true;
+		//playerInput.CharacterControls.Fire.canceled += _ => weaponController.StopFiring();
+		playerInput.CharacterControls.Fire.canceled += _ => weaponController.isFiring = false;
 
 		//Callbacks per l'attacco corpo a corpo
 		playerInput.CharacterControls.MeleeAttack.performed += _ => isAttackButtonPressed = true;
@@ -105,16 +108,18 @@ public class PlayerController : MonoBehaviour
 	void Update()
 	{
 		//per poter far muovere il personaggio
-		//per potersi muovere il personaggio non deve star attaccando
+		//per potersi muovere il personaggio non deve star attaccando e non deve essere morto 
+
 		isAttacking = animator.GetBool("isAttacking");
-		if(!isAttacking){
+		isDeath = animator.GetBool("isDeath");
+
+		if(!isAttacking && !isDeath){
 			characterController.Move(currentMovement * Time.deltaTime * moveSpeed);
+			handlePlayerRotation();
+			
+			handleFiring();
+		
 		}
-
-		handlePlayerRotation();
-
-		handleFiring();
-
 		handleAnimation();
 	}
 
@@ -142,7 +147,9 @@ public class PlayerController : MonoBehaviour
     {
 		if (weaponController.isFiring)
 		{
+			weaponController.StartFiring();
 			weaponController.UpdateFiring(Time.deltaTime);
+			
 		}
 	}
 

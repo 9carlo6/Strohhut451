@@ -6,12 +6,16 @@ public class EnemyAliveState : EnemyBaseState
 {
 
     EnemyHealthManager enemyHealthManager;
+    GameObject playerGameObject;
+
 
 
     public override void EnterState(EnemyStateManager enemy)
     {
         Debug.Log("Stato Nemico = Vivo");
         enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
+        playerGameObject = GameObject.FindGameObjectWithTag("Player");
+
 
     }
 
@@ -23,7 +27,11 @@ public class EnemyAliveState : EnemyBaseState
         }
         else
         {
-            enemy.SwitchState(enemy.PatrollingState);
+            if(playerGameObject.transform.GetComponent<PlayerHealthManager>().currentHealth > 0)
+            {
+                enemy.SwitchState(enemy.PatrollingState);
+
+            }
         }
         
     }

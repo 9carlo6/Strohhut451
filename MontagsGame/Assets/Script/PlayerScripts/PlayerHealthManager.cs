@@ -16,7 +16,7 @@ public class PlayerHealthManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //abbassare barra vita grafica se ci sarà
     }
 
     public void HurtPlayer(float damageAmount)

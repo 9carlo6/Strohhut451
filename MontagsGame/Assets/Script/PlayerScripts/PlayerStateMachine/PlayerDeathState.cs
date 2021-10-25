@@ -34,7 +34,7 @@ public class PlayerDeathState : PlayerBaseState
         if (string.Equals(GetCurrentClipName(), "MortePersonaggio") && playerController.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
         {
             //quando finisce l'animazione scompare il personaggio (da cambiare)
-            //Object.Destroy(player.gameObject);
+            Object.Destroy(player.gameObject);
         }
 
         //Per gestire la dissolvenza durante la morte del MortePersonaggio
