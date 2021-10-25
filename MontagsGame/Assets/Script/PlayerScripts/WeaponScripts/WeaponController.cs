@@ -100,10 +100,21 @@ public class WeaponController : MonoBehaviour
             //Debug.DrawLine(ray.origin, hitInfo.point, Color.red, 1.0f);
 
             //Per la gestione del dallo al nemico in seguito alla collisione
-            var hitEnemyCollider = hitInfo.collider.GetComponent<EnemyHealthManager>();
-            if (hitEnemyCollider)
+            if (hitInfo.collider.gameObject.layer == 7)
             {
-                hitEnemyCollider.TakeDamage(damage);
+                var hitPlayerCollider = hitInfo.collider.GetComponent<PlayerHealthManager>();
+                if (hitPlayerCollider)
+                {
+                    hitPlayerCollider.HurtPlayer(damage);
+                }
+            }
+            else if (hitInfo.collider.gameObject.layer == 12)
+            {
+                var hitEnemyCollider = hitInfo.collider.GetComponent<EnemyHealthManager>();
+                if (hitEnemyCollider)
+                {
+                    hitEnemyCollider.TakeDamage(damage);
+                }
             }
         }
 
