@@ -15,11 +15,11 @@ C:/Users/Hp Gamingstation/Documents/GitHub/MontagsGame/MontagsGame
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-51582
+59662
 Successfully changed project path to: C:/Users/Hp Gamingstation/Documents/GitHub/MontagsGame/MontagsGame
 C:/Users/Hp Gamingstation/Documents/GitHub/MontagsGame/MontagsGame
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 60.86 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 175.67 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.2.7f1 (c53830e277f1)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/Resources/UnitySubsystems
@@ -36,242 +36,713 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56944
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56640
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001516 seconds.
+Registered in 0.003433 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 71.04 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 180.35 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.942 seconds
+- Completed reload, in  2.628 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.001749 seconds.
+Registered in 0.006928 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 63.61 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 174.50 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.627 seconds
+- Completed reload, in  3.885 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
-Refreshing native plugins compatible for Editor in 0.75 ms, found 0 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
+Refreshing native plugins compatible for Editor in 1.30 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3623 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 165.3 MB.
-System memory in use after: 165.5 MB.
+System memory in use before: 165.7 MB.
+System memory in use after: 165.9 MB.
 
 Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 4070.
-Total: 3.149600 ms (FindLiveObjects: 0.400800 ms CreateObjectMapping: 0.258300 ms MarkObjects: 2.397400 ms  DeleteObjects: 0.092300 ms)
+Total: 8.022700 ms (FindLiveObjects: 0.924100 ms CreateObjectMapping: 0.470400 ms MarkObjects: 6.403600 ms  DeleteObjects: 0.222100 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/Scenes/Level1.unity
-  artifactKey: Guid(dcf3aa688fdad5f4a92611430385ebd8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Level1.unity using Guid(dcf3aa688fdad5f4a92611430385ebd8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '254a50c9f2ff0f56ff1d1f1d21367612') in 0.022037 seconds
-  Import took 0.028031 seconds .
+  path: Assets/Weapons/Unity Particle Pack/EffectExamples/Weapon Effects/Textures/GoopStreakAlbedo.tif
+  artifactKey: Guid(07a10375da67ac9429e4694a4e70a774) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/Unity Particle Pack/EffectExamples/Weapon Effects/Textures/GoopStreakAlbedo.tif using Guid(07a10375da67ac9429e4694a4e70a774) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4cdefcee0545e5b10dee6c0440047566') in 0.171367 seconds
+  Import took 0.182609 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000241 seconds.
-  path: Assets/ProBuilder Data/Default Color Palette.asset
-  artifactKey: Guid(204b75b8cf4464041a6300ebc16603bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ProBuilder Data/Default Color Palette.asset using Guid(204b75b8cf4464041a6300ebc16603bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4da76ac61f4fe2b0b3a78692d0c27120') in 0.023972 seconds
-  Import took 0.031764 seconds .
+  Time since last request: 0.000492 seconds.
+  path: Assets/Weapons/Unity Particle Pack/EffectExamples/Weapon Effects/Textures/GoopSprayAlbedo.tif
+  artifactKey: Guid(3f4abfb4beaba874db09889251c0f146) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/Unity Particle Pack/EffectExamples/Weapon Effects/Textures/GoopSprayAlbedo.tif using Guid(3f4abfb4beaba874db09889251c0f146) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0c372cc19332b67c1270aba84e7eb0c0') in 0.039550 seconds
+  Import took 0.052997 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000390 seconds.
+  path: Assets/Weapons/Unity Particle Pack/EffectExamples/Weapon Effects/Textures/StreamNormal.tif
+  artifactKey: Guid(dbf5fd5c04eedf2418e86c377cf5b95b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/Unity Particle Pack/EffectExamples/Weapon Effects/Textures/StreamNormal.tif using Guid(dbf5fd5c04eedf2418e86c377cf5b95b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c4ffad8edfe42796e7c5b26f5453102') in 0.091719 seconds
+  Import took 0.106539 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000411 seconds.
+  path: Assets/Weapons/Unity Particle Pack/EffectExamples/Weapon Effects/Textures/GoopSprayNormal.tif
+  artifactKey: Guid(041de061027a6f7478b69332b265342b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/Unity Particle Pack/EffectExamples/Weapon Effects/Textures/GoopSprayNormal.tif using Guid(041de061027a6f7478b69332b265342b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'afc7a3d04bfaabd487e92a1d2054db63') in 0.037389 seconds
+  Import took 0.052444 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000302 seconds.
+  path: Assets/Weapons/Unity Particle Pack/EffectExamples/Weapon Effects/Textures/StoneAlbedo.tif
+  artifactKey: Guid(d6971144598309840aa5627e0797e545) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/Unity Particle Pack/EffectExamples/Weapon Effects/Textures/StoneAlbedo.tif using Guid(d6971144598309840aa5627e0797e545) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a5f1c8556331be80eb869b56f6ace04') in 0.047943 seconds
+  Import took 0.066244 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000428 seconds.
+  path: Assets/Weapons/Unity Particle Pack/EffectExamples/Weapon Effects/Textures/StoneNormal.tif
+  artifactKey: Guid(e6b70229308faa64880eac4945d59f5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/Unity Particle Pack/EffectExamples/Weapon Effects/Textures/StoneNormal.tif using Guid(e6b70229308faa64880eac4945d59f5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92cc9ff151ae4b1f3b2f2acf23ecab52') in 0.051891 seconds
+  Import took 0.067126 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 220.293457 seconds.
+  path: Assets/Weapons/Sci Fi Gun Light/_materials
+  artifactKey: Guid(a284953c5d79bdf4c8b4ee52f2cef5ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/Sci Fi Gun Light/_materials using Guid(a284953c5d79bdf4c8b4ee52f2cef5ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4380e691086727c394cb7ead694b223') in 0.015075 seconds
+  Import took 0.028111 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001434 seconds.
+  path: Assets/Weapons/Sci Fi Gun Light/_materials
+  artifactKey: Guid(a284953c5d79bdf4c8b4ee52f2cef5ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/Sci Fi Gun Light/_materials using Guid(a284953c5d79bdf4c8b4ee52f2cef5ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4380e691086727c394cb7ead694b223') in 0.003572 seconds
+  Import took 0.018368 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 124.937709 seconds.
+  path: Assets/Weapons/Unity Particle Pack/EffectExamples/Weapon Effects/Textures/d7sj7p8-fcc153e6-1b41-48aa-a6de-99e4003e68e3.png
+  artifactKey: Guid(9cd9f77fa2377ad4a9fb6c7c1375bdbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/Unity Particle Pack/EffectExamples/Weapon Effects/Textures/d7sj7p8-fcc153e6-1b41-48aa-a6de-99e4003e68e3.png using Guid(9cd9f77fa2377ad4a9fb6c7c1375bdbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd292489eb20dab52a319c298968a658a') in 0.046027 seconds
+  Import took 0.056950 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 42.934757 seconds.
+  path: Assets/Weapons/Unity Particle Pack/Shared/Sprites/TitleBorder.png
+  artifactKey: Guid(0a936ae5d70c6c14ab943882f62e0a7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/Unity Particle Pack/Shared/Sprites/TitleBorder.png using Guid(0a936ae5d70c6c14ab943882f62e0a7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '948ce03f20263051a38a89f2c9500290') in 0.075652 seconds
+  Import took 0.089378 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.014107 seconds.
+  path: Assets/Weapons/Unity Particle Pack/EffectExamples/Misc Effects/Textures/DustMote.png
+  artifactKey: Guid(394e93ce356b57344903a08ff72fcab2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/Unity Particle Pack/EffectExamples/Misc Effects/Textures/DustMote.png using Guid(394e93ce356b57344903a08ff72fcab2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a19d7f4a385c7a47110ea8000cae28ca') in 0.045736 seconds
+  Import took 0.060577 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000427 seconds.
+  path: Assets/Weapons/Unity Particle Pack/Shared/Sprites/Info.png
+  artifactKey: Guid(2969d90b86698124696637a6df64a112) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/Unity Particle Pack/Shared/Sprites/Info.png using Guid(2969d90b86698124696637a6df64a112) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '895685df2314799e65c0c8983e2d7bfd') in 0.062506 seconds
+  Import took 0.077358 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.001901 seconds.
+Registered in 0.002538 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.88 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.72 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.251 seconds
+- Completed reload, in  1.018 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.96 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.70 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3445 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 154.2 MB.
-System memory in use after: 154.4 MB.
-
-Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 4073.
-Total: 3.921300 ms (FindLiveObjects: 0.582600 ms CreateObjectMapping: 0.369000 ms MarkObjects: 2.869200 ms  DeleteObjects: 0.099000 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001734 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.66 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.976 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.74 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3445 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 154.3 MB.
-System memory in use after: 154.5 MB.
-
-Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 4076.
-Total: 2.856300 ms (FindLiveObjects: 0.348400 ms CreateObjectMapping: 0.201100 ms MarkObjects: 2.193400 ms  DeleteObjects: 0.111900 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001678 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.69 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.982 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.69 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3445 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 154.3 MB.
-System memory in use after: 154.5 MB.
-
-Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 4079.
-Total: 5.410400 ms (FindLiveObjects: 0.945200 ms CreateObjectMapping: 0.457400 ms MarkObjects: 3.906100 ms  DeleteObjects: 0.100300 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 252.121602 seconds.
-  path: Assets/Menu/CyberPunkYellow.asset
-  artifactKey: Guid(379ab54c6044a314aae9361b382018b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Menu/CyberPunkYellow.asset using Guid(379ab54c6044a314aae9361b382018b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7110aba983a65762d4c80d5b41b6aa52') in 0.016996 seconds
-  Import took 0.023412 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000308 seconds.
-  path: Assets/Menu/HotlineBlue.asset
-  artifactKey: Guid(b61ba345ebde5994b8babbb04cf2a15f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Menu/HotlineBlue.asset using Guid(b61ba345ebde5994b8babbb04cf2a15f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b40aee13f798ebd6a8e4364d2be7092a') in 0.006931 seconds
-  Import took 0.012384 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 6.075277 seconds.
-  path: Assets/Script/PlayerScripts/PlayerStateMachine
-  artifactKey: Guid(1ce968bb35ee7e14b8cd6104128b524a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Script/PlayerScripts/PlayerStateMachine using Guid(1ce968bb35ee7e14b8cd6104128b524a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '801ba5a3686b95f05f453edf0a849211') in 0.006789 seconds
-  Import took 0.013019 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.160599 seconds.
-  path: Assets/Script/PlayerScripts/PlayerStateMachine/PlayerStateManager.cs
-  artifactKey: Guid(9dd5cf7cabe5e5e4782f0a0b36e5ca3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Script/PlayerScripts/PlayerStateMachine/PlayerStateManager.cs using Guid(9dd5cf7cabe5e5e4782f0a0b36e5ca3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc9bb6050ff47b1dc1bed5f2f8a481fc') in 0.007956 seconds
-  Import took 0.014285 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.014890 seconds.
-  path: Assets/Script/PlayerScripts/PlayerStateMachine/PlayerStateManager.cs
-  artifactKey: Guid(9dd5cf7cabe5e5e4782f0a0b36e5ca3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Script/PlayerScripts/PlayerStateMachine/PlayerStateManager.cs using Guid(9dd5cf7cabe5e5e4782f0a0b36e5ca3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc9bb6050ff47b1dc1bed5f2f8a481fc') in 0.002726 seconds
-  Import took 0.009222 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.253553 seconds.
-  path: Assets/Script/PlayerScripts/PlayerStateMachine/PlayerDeathState.cs
-  artifactKey: Guid(ec1eb5db63d6b1348a43ddf847657461) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Script/PlayerScripts/PlayerStateMachine/PlayerDeathState.cs using Guid(ec1eb5db63d6b1348a43ddf847657461) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e25d6226ab30fc83b025b50512e2406') in 0.006785 seconds
-  Import took 0.012559 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.320290 seconds.
-  path: Assets/Script/PlayerScripts/PlayerStateMachine/PlayerBaseState.cs
-  artifactKey: Guid(baf64e7f6b640a645b7e7091c502d6d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Script/PlayerScripts/PlayerStateMachine/PlayerBaseState.cs using Guid(baf64e7f6b640a645b7e7091c502d6d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '957a63987ea9950c24ebc3678b42bb6d') in 0.007462 seconds
-  Import took 0.013295 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.373417 seconds.
-  path: Assets/Script/PlayerScripts/PlayerStateMachine/PlayerAttackState.cs
-  artifactKey: Guid(a173ed3e36d370e49af8f5c0f62c54ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Script/PlayerScripts/PlayerStateMachine/PlayerAttackState.cs using Guid(a173ed3e36d370e49af8f5c0f62c54ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe6d13531ae4bc8f49de43412181e2c5') in 0.005774 seconds
-  Import took 0.012054 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.001239 seconds.
-  path: Assets/Script/PlayerScripts/PlayerStateMachine/PlayerAttackState.cs
-  artifactKey: Guid(a173ed3e36d370e49af8f5c0f62c54ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Script/PlayerScripts/PlayerStateMachine/PlayerAttackState.cs using Guid(a173ed3e36d370e49af8f5c0f62c54ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe6d13531ae4bc8f49de43412181e2c5') in 0.002982 seconds
-  Import took 0.009493 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.372249 seconds.
-  path: Assets/Script/PlayerScripts/PlayerStateMachine/PlayerAliveState.cs
-  artifactKey: Guid(427976b6ab8f5cf4390809a7e0a885ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Script/PlayerScripts/PlayerStateMachine/PlayerAliveState.cs using Guid(427976b6ab8f5cf4390809a7e0a885ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0e5c4ffd1fedd29b07381935cf109d08') in 0.009566 seconds
-  Import took 0.018223 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.003076 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.80 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.292 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.97 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3445 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 154.4 MB.
-System memory in use after: 154.6 MB.
+System memory in use before: 157.6 MB.
+System memory in use after: 157.8 MB.
 
 Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 4082.
-Total: 5.860000 ms (FindLiveObjects: 0.644300 ms CreateObjectMapping: 0.617600 ms MarkObjects: 4.492500 ms  DeleteObjects: 0.103900 ms)
+Total: 3.611000 ms (FindLiveObjects: 0.470000 ms CreateObjectMapping: 0.275300 ms MarkObjects: 2.758400 ms  DeleteObjects: 0.106100 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 1570.398625 seconds.
-  path: Assets/Script/EnemyScripts/EnemyStateMachine/EnemyDeathState.cs
-  artifactKey: Guid(467f6b4f9f07d234f90dc6ac26cfae55) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Script/EnemyScripts/EnemyStateMachine/EnemyDeathState.cs using Guid(467f6b4f9f07d234f90dc6ac26cfae55) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a30eddc1c412a1005f1dd965e9ad8330') in 0.013094 seconds
-  Import took 0.021404 seconds .
+  Time since last request: 635.254477 seconds.
+  path: Assets/Weapons/Unity Particle Pack/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat
+  artifactKey: Guid(e73a58f6e2794ae7b1b7e50b7fb811b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/Unity Particle Pack/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat using Guid(e73a58f6e2794ae7b1b7e50b7fb811b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7be566c1652f0b4f073c40af213139d9') in 0.207946 seconds
+  Import took 0.214115 seconds .
 
-AssetImportWorkerClient::OnTransportError - code=2 error=End of file
+========================================================================
+Received Import Request.
+  Time since last request: 0.000269 seconds.
+  path: Assets/Weapons/Unity Particle Pack/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Outline.mat
+  artifactKey: Guid(79459efec17a4d00a321bdcc27bbc385) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/Unity Particle Pack/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Outline.mat using Guid(79459efec17a4d00a321bdcc27bbc385) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc40197ab6de6999fb50f60a78bb68ed') in 0.029950 seconds
+  Import took 0.035531 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000176 seconds.
+  path: Assets/Weapons/Unity Particle Pack/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat
+  artifactKey: Guid(e73a58f6e2794ae7b1b7e50b7fb811b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/Unity Particle Pack/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat using Guid(e73a58f6e2794ae7b1b7e50b7fb811b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7be566c1652f0b4f073c40af213139d9') in 0.026950 seconds
+  Import took 0.032503 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000300 seconds.
+  path: Assets/Weapons/Unity Particle Pack/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset
+  artifactKey: Guid(8f586378b4e144a9851e7b34d9b748ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/Unity Particle Pack/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset using Guid(8f586378b4e144a9851e7b34d9b748ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6754529fd16531bf14c737d91cf8915a') in 0.042937 seconds
+  Import took 0.048791 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002672 seconds.
+  path: Assets/Weapons/Unity Particle Pack/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset
+  artifactKey: Guid(8f586378b4e144a9851e7b34d9b748ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/Unity Particle Pack/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset using Guid(8f586378b4e144a9851e7b34d9b748ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6754529fd16531bf14c737d91cf8915a') in 0.021254 seconds
+  Import took 0.027011 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 378.570920 seconds.
+  path: Assets/Weapons/Unity Particle Pack/EffectExamples/Weapon Effects/Prefabs/FleshImpacts.prefab
+  artifactKey: Guid(24b82347924701148a13c746edfb6b22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/Unity Particle Pack/EffectExamples/Weapon Effects/Prefabs/FleshImpacts.prefab using Guid(24b82347924701148a13c746edfb6b22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ef5ff40c5d1a71903c4a01266e98dc2') in 0.365265 seconds
+  Import took 0.373136 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000198 seconds.
+  path: Assets/Weapons/Unity Particle Pack/EffectExamples/Weapon Effects/Prefabs/MetalImpacts.prefab
+  artifactKey: Guid(44be68b4fc4366142a9cd1ae1f761ea4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/Unity Particle Pack/EffectExamples/Weapon Effects/Prefabs/MetalImpacts.prefab using Guid(44be68b4fc4366142a9cd1ae1f761ea4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8563aac71d625d2e918a8337ce72c7d6') in 0.027142 seconds
+  Import took 0.034384 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000168 seconds.
+  path: Assets/Weapons/Unity Particle Pack/EffectExamples/Weapon Effects/Prefabs/StoneImpacts.prefab
+  artifactKey: Guid(8b7a1ffda5bb7474b8fae646c45ce7b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/Unity Particle Pack/EffectExamples/Weapon Effects/Prefabs/StoneImpacts.prefab using Guid(8b7a1ffda5bb7474b8fae646c45ce7b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '885fc8c274f54bad283160139ec79025') in 0.368917 seconds
+  Import took 0.375017 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000141 seconds.
+  path: Assets/Weapons/Unity Particle Pack/EffectExamples/Weapon Effects/Prefabs/SandImpacts.prefab
+  artifactKey: Guid(bca9020d2c9c915448fb5263a425faf4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/Unity Particle Pack/EffectExamples/Weapon Effects/Prefabs/SandImpacts.prefab using Guid(bca9020d2c9c915448fb5263a425faf4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33fa3f06ed8844bfc9e3feaf62235441') in 0.273412 seconds
+  Import took 0.278980 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000177 seconds.
+  path: Assets/Weapons/Unity Particle Pack/EffectExamples/Weapon Effects/Prefabs/WoodImpacts.prefab
+  artifactKey: Guid(3c0b5f221ea995442b9d11dc526de1c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/Unity Particle Pack/EffectExamples/Weapon Effects/Prefabs/WoodImpacts.prefab using Guid(3c0b5f221ea995442b9d11dc526de1c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9b989df6fd73be31b709fe7c465cb4f') in 0.582058 seconds
+  Import took 0.587548 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.081578 seconds.
+  path: Assets/Weapons/Unity Particle Pack/EffectExamples/Weapon Effects/Textures/PikPng.com_gun-png_606363.png
+  artifactKey: Guid(9994d58701dc9404ea2caf126575eec9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/Unity Particle Pack/EffectExamples/Weapon Effects/Textures/PikPng.com_gun-png_606363.png using Guid(9994d58701dc9404ea2caf126575eec9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '62723d3550e61d8a521d0f45d31cc598') in 0.016169 seconds
+  Import took 0.022432 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002629 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.69 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.062 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.68 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3445 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 160.4 MB.
+System memory in use after: 160.6 MB.
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 4162.
+Total: 3.394800 ms (FindLiveObjects: 0.614100 ms CreateObjectMapping: 0.222500 ms MarkObjects: 2.462400 ms  DeleteObjects: 0.094700 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 336.773259 seconds.
+  path: Assets/Weapons/Unity Particle Pack/EffectExamples/Weapon Effects/Materials/MuzzleFlash01.mat
+  artifactKey: Guid(a8cb413d77ceb054abf10c2c6ee66337) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/Unity Particle Pack/EffectExamples/Weapon Effects/Materials/MuzzleFlash01.mat using Guid(a8cb413d77ceb054abf10c2c6ee66337) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5c91e46b069e45d8c4dc970322e4f40') in 0.179133 seconds
+  Import took 0.185419 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001674 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.64 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.047 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.72 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3445 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 160.5 MB.
+System memory in use after: 160.8 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 4201.
+Total: 4.301400 ms (FindLiveObjects: 1.445200 ms CreateObjectMapping: 0.453500 ms MarkObjects: 2.319800 ms  DeleteObjects: 0.081500 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 447.518654 seconds.
+  path: Assets/Weapons/Unity Particle Pack/EffectExamples/Weapon Effects/Textures/—Pngtree—blue round technology border_4038542.png
+  artifactKey: Guid(70b55afe2c86dec45a262de561b75791) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/Unity Particle Pack/EffectExamples/Weapon Effects/Textures/—Pngtree—blue round technology border_4038542.png using Guid(70b55afe2c86dec45a262de561b75791) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa4619212bf58be062e7e930c079ea27') in 0.047554 seconds
+  Import took 0.054697 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.026432 seconds.
+  path: Assets/Weapons/Unity Particle Pack/EffectExamples/Weapon Effects/Textures/—Pngtree—blue round technology border_4038542.png
+  artifactKey: Guid(70b55afe2c86dec45a262de561b75791) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/Unity Particle Pack/EffectExamples/Weapon Effects/Textures/—Pngtree—blue round technology border_4038542.png using Guid(70b55afe2c86dec45a262de561b75791) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa4619212bf58be062e7e930c079ea27') in 0.009910 seconds
+  Import took 0.015615 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001746 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.71 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.084 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.03 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3445 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 160.6 MB.
+System memory in use after: 160.8 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 4204.
+Total: 4.343900 ms (FindLiveObjects: 0.466500 ms CreateObjectMapping: 0.227100 ms MarkObjects: 3.559900 ms  DeleteObjects: 0.089000 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 369.906654 seconds.
+  path: Assets/Weapons/Unity Particle Pack/EffectExamples/Weapon Effects/Textures/—Pngtree—technology border decoration material_4032963.png
+  artifactKey: Guid(3d493c4c380b1b649a18a599dbd89193) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/Unity Particle Pack/EffectExamples/Weapon Effects/Textures/—Pngtree—technology border decoration material_4032963.png using Guid(3d493c4c380b1b649a18a599dbd89193) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8299b08d103ab7996fb3d5778b9d4045') in 0.041445 seconds
+  Import took 0.048381 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001708 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.67 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.093 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.69 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3445 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 160.6 MB.
+System memory in use after: 160.8 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 4207.
+Total: 3.527000 ms (FindLiveObjects: 0.439400 ms CreateObjectMapping: 0.229000 ms MarkObjects: 2.779900 ms  DeleteObjects: 0.077700 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 266.126319 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/Bar.mat
+  artifactKey: Guid(269637ade25ef4a8c82adec0362f70cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/Bar.mat using Guid(269637ade25ef4a8c82adec0362f70cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a42e93225608676b570a39b86ccbb28b') in 0.181220 seconds
+  Import took 0.187476 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000188 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/SideFloor2.mat
+  artifactKey: Guid(11a230e37283f4701bd9dd18afd11c9c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/SideFloor2.mat using Guid(11a230e37283f4701bd9dd18afd11c9c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55d44fddc6a9f7d797f13367b1f8b3b0') in 0.082601 seconds
+  Import took 0.089080 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000136 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/Wall3.mat
+  artifactKey: Guid(9c2ff576c78f14041a506bd8dc01f1ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/Wall3.mat using Guid(9c2ff576c78f14041a506bd8dc01f1ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2496b55884031b2a4088e65d91bfc5f') in 0.024974 seconds
+  Import took 0.031034 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000228 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/Box1.mat
+  artifactKey: Guid(de6e923f7a4274cd09bd1f186ffbccae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/Box1.mat using Guid(de6e923f7a4274cd09bd1f186ffbccae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ac12b35398d269573fac38cfae42f4e') in 0.033091 seconds
+  Import took 0.039442 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000145 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/WallDoor.mat
+  artifactKey: Guid(8dc0721cdc04d4b9cbe87147971df2b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/WallDoor.mat using Guid(8dc0721cdc04d4b9cbe87147971df2b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '58096c78a6e1f8da6f55a47d4d1500ee') in 0.080741 seconds
+  Import took 0.086700 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000175 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/WallIntersection.mat
+  artifactKey: Guid(da36230c61a154acba2fe3f81813150a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/WallIntersection.mat using Guid(da36230c61a154acba2fe3f81813150a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b9b82b0662cbfd22e2c3cef0953de893') in 0.031964 seconds
+  Import took 0.038278 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000170 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/ProfileEnd.mat
+  artifactKey: Guid(2a75396521bdb4051a0eac381d767954) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/ProfileEnd.mat using Guid(2a75396521bdb4051a0eac381d767954) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd9af6bf469850c6a97541e2369a342aa') in 0.075474 seconds
+  Import took 0.082494 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000159 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/Floor2.mat
+  artifactKey: Guid(a1ecde157c64844cd91342234e9e354f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/Floor2.mat using Guid(a1ecde157c64844cd91342234e9e354f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd4ff5953cf817dd2ba79e5522631a40e') in 0.073940 seconds
+  Import took 0.079858 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000197 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/Light2.mat
+  artifactKey: Guid(08cdeb4852bec441bb600fa711ff2a98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/Light2.mat using Guid(08cdeb4852bec441bb600fa711ff2a98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a7e158a08160c410b8d503e210a0863') in 0.071291 seconds
+  Import took 0.077154 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000181 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/Floor1.mat
+  artifactKey: Guid(1f2175db829e2437a846b7256f968ac7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/Floor1.mat using Guid(1f2175db829e2437a846b7256f968ac7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '64564637f4981f210e1cbe8f61c31c1d') in 0.027342 seconds
+  Import took 0.033766 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000265 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/SideFloor1.mat
+  artifactKey: Guid(6a53c81e6d3be4bfaa582998715a16c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/SideFloor1.mat using Guid(6a53c81e6d3be4bfaa582998715a16c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96fda163e1a9f24d6916d077a245e782') in 0.081838 seconds
+  Import took 0.088142 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000192 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/WallIntersection2.mat
+  artifactKey: Guid(c84fc8a30e4d243798a7fe3095ce3d76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/WallIntersection2.mat using Guid(c84fc8a30e4d243798a7fe3095ce3d76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '68f8f307ad17e8f55e0a92f022176d5b') in 0.074867 seconds
+  Import took 0.080461 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000227 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/Light1.mat
+  artifactKey: Guid(e53a571c4435748ca83a349171212065) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/Light1.mat using Guid(e53a571c4435748ca83a349171212065) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87a24c1c454c375d55e04e7b7a01c4d9') in 0.073921 seconds
+  Import took 0.081738 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000148 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/Floor4.mat
+  artifactKey: Guid(94f56123865054b62a3c385450ada42d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/Floor4.mat using Guid(94f56123865054b62a3c385450ada42d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dca18193f2c94670dc4b192b079981d2') in 0.068036 seconds
+  Import took 0.073782 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000150 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/ProfileWindowGlass.mat
+  artifactKey: Guid(3b170b30bf99f496687342dedb21ab86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/ProfileWindowGlass.mat using Guid(3b170b30bf99f496687342dedb21ab86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f2ad4d8c5bc23025127e959124d358d6') in 0.024271 seconds
+  Import took 0.029943 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000157 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/ProfileWindow.mat
+  artifactKey: Guid(019a85c9b859f45188db6085216aafed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/ProfileWindow.mat using Guid(019a85c9b859f45188db6085216aafed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '802f5325e4571ef57bad8e7737b1457f') in 0.083548 seconds
+  Import took 0.090238 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000152 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/DoorGlass.mat
+  artifactKey: Guid(f7d13ec7f3ea54bff9b8ca871ba9da45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/DoorGlass.mat using Guid(f7d13ec7f3ea54bff9b8ca871ba9da45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b9518922d4f85ea09639730f394b38c8') in 0.070870 seconds
+  Import took 0.076972 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000143 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/IntersectionSideFloor.mat
+  artifactKey: Guid(73f473a5472e84ba7b92b1cb65cde658) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/IntersectionSideFloor.mat using Guid(73f473a5472e84ba7b92b1cb65cde658) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '02d7ffa2041fe90000a52ec1affff99a') in 0.069321 seconds
+  Import took 0.075373 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000240 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/ProfileWindow_Window.mat
+  artifactKey: Guid(5fc5bfdb816e243a881f2cee33c36257) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/ProfileWindow_Window.mat using Guid(5fc5bfdb816e243a881f2cee33c36257) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8005bf32c9cdeffecc7bbb0799c51414') in 0.070015 seconds
+  Import took 0.076165 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000159 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/Profile1.mat
+  artifactKey: Guid(9cb2930c9a4414150b9f11ac98bac990) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/Profile1.mat using Guid(9cb2930c9a4414150b9f11ac98bac990) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5a759d8d98798d567c814958d5f070b') in 0.057532 seconds
+  Import took 0.063694 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000190 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/ProfileWindowBar.mat
+  artifactKey: Guid(7b04b14f49f7a406d9ec52c118163a73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/ProfileWindowBar.mat using Guid(7b04b14f49f7a406d9ec52c118163a73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ec2f42c4656f9c7d1851ee9a90eee4b') in 0.068337 seconds
+  Import took 0.074458 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000198 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/WallIntersection3.mat
+  artifactKey: Guid(65424cb5f67f4418788e23c2be2ab06e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/WallIntersection3.mat using Guid(65424cb5f67f4418788e23c2be2ab06e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e49805eb6e3c862f44f5911911f6533d') in 0.069814 seconds
+  Import took 0.075586 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000153 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/ProfileWindowBar.mat
+  artifactKey: Guid(7b04b14f49f7a406d9ec52c118163a73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/ProfileWindowBar.mat using Guid(7b04b14f49f7a406d9ec52c118163a73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ec2f42c4656f9c7d1851ee9a90eee4b') in 0.021405 seconds
+  Import took 0.027072 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000204 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/ProfileWindowVent.mat
+  artifactKey: Guid(670ddabfd4373424a923eaa134fcc394) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/ProfileWindowVent.mat using Guid(670ddabfd4373424a923eaa134fcc394) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '27e37512d2477875cb0476e82fa67b44') in 0.070533 seconds
+  Import took 0.076664 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000386 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/WallIntersection1.mat
+  artifactKey: Guid(b7af82318fff149f7833d06387582e19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/WallIntersection1.mat using Guid(b7af82318fff149f7833d06387582e19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c715ad5fb5399fbe9e5f6f5d2037b3e') in 0.067744 seconds
+  Import took 0.073395 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000263 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/Door.mat
+  artifactKey: Guid(9c1f216d20d0143c495f8be440d54d74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/Door.mat using Guid(9c1f216d20d0143c495f8be440d54d74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5b33a734640edf4f83f135723b4b50a') in 0.082214 seconds
+  Import took 0.089399 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000215 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/ProfileIntersection.mat
+  artifactKey: Guid(edea2fcd3ceca464b94f378d3a6c2afe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/ProfileIntersection.mat using Guid(edea2fcd3ceca464b94f378d3a6c2afe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e0195879129661a80a0407e8cc530909') in 0.078372 seconds
+  Import took 0.084457 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000163 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/Light1_Steel.mat
+  artifactKey: Guid(ef2fe98e430e84ec0ac69deed6fbe49e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/Light1_Steel.mat using Guid(ef2fe98e430e84ec0ac69deed6fbe49e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd4953514fb01f158f402b9f5d31c8d5') in 0.061527 seconds
+  Import took 0.068322 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000285 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/TopWall4.mat
+  artifactKey: Guid(1949eb32d4bff4170aa413da81e1cd0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/TopWall4.mat using Guid(1949eb32d4bff4170aa413da81e1cd0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b7eee121c5ba39fc45f23d499915997c') in 0.080933 seconds
+  Import took 0.086706 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000189 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/Wall2_1.mat
+  artifactKey: Guid(ec2d99ba0a9fe436f92b82cac9a439d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/Wall2_1.mat using Guid(ec2d99ba0a9fe436f92b82cac9a439d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d9545073ba988c6a5da59a208b5f5b9') in 0.065554 seconds
+  Import took 0.071156 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000160 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/Wall12.mat
+  artifactKey: Guid(2237ef9c9ff4947158e0dfdd8809076b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/Wall12.mat using Guid(2237ef9c9ff4947158e0dfdd8809076b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1295cebb897f93133b9a5fce0fa27c23') in 0.065005 seconds
+  Import took 0.070313 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000181 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/Box3.mat
+  artifactKey: Guid(db6a37a1ce8f742aebcff4c72f94b067) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/Box3.mat using Guid(db6a37a1ce8f742aebcff4c72f94b067) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '78acc1d8c367b177a0880380ea2a89d3') in 0.044881 seconds
+  Import took 0.050277 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000147 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/SideWall1.1.mat
+  artifactKey: Guid(f5ffbb0426694437f9e70fd42524e6d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/SideWall1.1.mat using Guid(f5ffbb0426694437f9e70fd42524e6d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '225665ac485bf67cc55be5c001107904') in 0.076965 seconds
+  Import took 0.082587 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000152 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/Wall1.mat
+  artifactKey: Guid(653ae6bfa02f4445bb4349fb2bf160e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/Wall1.mat using Guid(653ae6bfa02f4445bb4349fb2bf160e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd8a12ee632dae8e6c3c5cbe82014375') in 0.070412 seconds
+  Import took 0.076282 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000223 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/ProfileDoor.mat
+  artifactKey: Guid(df6973c4d93b94b2f93310f1506165c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/ProfileDoor.mat using Guid(df6973c4d93b94b2f93310f1506165c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '51b6a1a364a3a44754c80749ca79d139') in 0.073542 seconds
+  Import took 0.079269 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000205 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/DoorFrame.mat
+  artifactKey: Guid(1c4616794813041a590a4b84a6f49e9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/DoorFrame.mat using Guid(1c4616794813041a590a4b84a6f49e9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '24d73c1545e347b0efe0ece2f693282c') in 0.261099 seconds
+  Import took 0.266382 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000211 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/Wall2.mat
+  artifactKey: Guid(6a471af3d39f945a3b8f4b18b6628152) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/Wall2.mat using Guid(6a471af3d39f945a3b8f4b18b6628152) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '46e1a2938f4c22a317f5d4c84b63cb7e') in 0.029010 seconds
+  Import took 0.034682 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000191 seconds.
+  path: Assets/Levels/Sci Fi Modular Pack/Materials/Floor5.mat
+  artifactKey: Guid(8a33980753f504f7da530fcbb60108bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/Sci Fi Modular Pack/Materials/Floor5.mat using Guid(8a33980753f504f7da530fcbb60108bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5aea80aa3b03a8c71c402023d7011687') in 0.031734 seconds
+  Import took 0.037627 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001880 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.65 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.957 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.67 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3445 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 160.9 MB.
+System memory in use after: 161.1 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 4246.
+Total: 3.058100 ms (FindLiveObjects: 0.478800 ms CreateObjectMapping: 0.257900 ms MarkObjects: 2.199800 ms  DeleteObjects: 0.120700 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 369.718198 seconds.
+  path: Assets/Weapons/Unity Particle Pack/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset
+  artifactKey: Guid(8f586378b4e144a9851e7b34d9b748ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/Unity Particle Pack/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset using Guid(8f586378b4e144a9851e7b34d9b748ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e1c6a4bf4116fdfd3cb4e4f2d7042929') in 0.048658 seconds
+  Import took 0.054159 seconds .
+
