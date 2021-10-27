@@ -46,6 +46,8 @@ public class EnemyPatrollingState : EnemyBaseState
         obstructionMask = enemy.GetComponent<EnemyController>().obstructionMask;
         enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
         enemyAnimator = enemy.GetComponent<Animator>();
+
+        enemyGameObject.transform.LookAt(wayPoints[wayPointIndex].transform);
     }
 
     public override void UpdateState(EnemyStateManager enemy)
