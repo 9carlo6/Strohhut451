@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 //Questa classe serve per la gestione del'animazione del nemico
 public class EnemyController : MonoBehaviour
-{ 
+{
     public Transform[] wayPoints;   //Array di points verso cui il nemico dovrà effettuare il patroling
     public LayerMask targetMask;    //Bersaglio, cioè il player
     public LayerMask obstructionMask; //Ostacoli, ad esempio le pareti
@@ -66,7 +66,7 @@ public class EnemyController : MonoBehaviour
     {
         //Prende i parametri dall'animator
         bool attack = animator.GetBool("Attack");
-        
+
         /*if (string.Equals(GetCurrentClipName(), "AttaccoDirettoNemico") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
         {
             //Se sta attaccando deve necessariamente finire l' animazione
@@ -101,7 +101,7 @@ public class EnemyController : MonoBehaviour
                     animator.SetBool("isWalkingEnemy", true);
                     animator.SetBool("Attack", true);
                     animator.SetBool("isStunned", false);
-                    enemyNavMeshAgent.isStopped = false;
+                    enemyNavMeshAgent.isStopped = true;
                     break;
 
                 case "EnemyStunnedState":
@@ -110,14 +110,14 @@ public class EnemyController : MonoBehaviour
                     animator.SetBool("isStunned", true);
                     enemyNavMeshAgent.isStopped = true;
                     break;
-                
+
                 case "EnemyAliveState":
                     animator.SetBool("isWalkingEnemy", false);
                     animator.SetBool("Attack", false);
                     animator.SetBool("isStunned", false);
                     enemyNavMeshAgent.isStopped = true;
                     break;
-                    
+
 
                 case "EnemyDeathState":
                     EnemyDeath();
