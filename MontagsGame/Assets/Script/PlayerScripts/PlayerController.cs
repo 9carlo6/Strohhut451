@@ -56,6 +56,9 @@ public class PlayerController : MonoBehaviour
 	//Per far fermare completamente il giocatore
 	public bool isStopped = false;
 
+	//Per capire se il collide con il piano che serve per passare al livello successivo
+	public bool nextLevelPlaneCollision = false;
+
 	void Awake()
 	{
 		playerInput = new PlayerInput();
@@ -112,7 +115,6 @@ public class PlayerController : MonoBehaviour
 	{
 		//per poter far muovere il personaggio
 		//per potersi muovere il personaggio non deve star attaccando e non deve essere morto
-
 		isAttacking = animator.GetBool("isAttacking");
 		isDeath = animator.GetBool("isDeath");
 
@@ -186,6 +188,29 @@ public class PlayerController : MonoBehaviour
 		animator.SetFloat("VelocityZ", velocityZ, 0.1f, Time.deltaTime);
 		animator.SetFloat("VelocityX", velocityX, 0.1f, Time.deltaTime);
 	}
+
+	//Rilevamento della collisione con il pavimento che permette di andare al livello successivo
+	void OnCollisionEnter(Collision hit)
+	{
+	   if (hit.collider.tag == "NextLevelPlane")
+	   {
+			 Debug.Log("Prossimo Piano:sta collidendo");
+			 nextLevelPlaneCollision = true;
+	   }
+
+		 Debug.Log("il player sta collidendo con qualcosa");
+	}
+
+	//Se non collide più con il pavimento che permette di andare al livello successivo
+
+	void OnCollisionExit(Collision hit)
+  {
+      if (hit.collider.tag == "NextLevelPlane")
+      {
+				Debug.Log("Prossimo Piano: non sta piu collidendo");
+				nextLevelPlaneCollision = false;
+      }
+  }
 
 	void OnEnable()
 	{

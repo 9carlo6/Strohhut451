@@ -84,10 +84,10 @@ public class PlayerAttackState : PlayerBaseState
             {
                 animator.SetFloat("isStealthAttack", 1);
                 Debug.Log("Il player sta colpendo Stealth: " + enemy.name);
-                enemyCollider = enemy;
                 enemyAnimator.SetBool("isAttackedStealth", true);
 
                 //Gestione rotazione e posizionamento del giocatore nel momento in cui attacca stealth
+                enemyCollider = enemy;
                 playerController.gameObject.transform.LookAt(enemyCollider.gameObject.transform);
                 enemyCollider.gameObject.transform.LookAt(playerController.gameObject.transform);
                 enemyCollider.gameObject.transform.position = playerController.gameObject.transform.position + playerController.gameObject.transform.forward * 1.5f;
