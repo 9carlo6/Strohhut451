@@ -13,6 +13,14 @@ public class EnemyController : MonoBehaviour
     //Per l'attacco Melee
     public Transform attackPoint;
     public float attackRange;
+{
+    public Transform[] wayPoints;   //Array di points verso cui il nemico dovrà effettuare il patroling
+    public LayerMask targetMask;    //Bersaglio, cioè il player
+    public LayerMask obstructionMask; //Ostacoli, ad esempio le pareti
+
+    //Per l'attacco Melee
+    public Transform attackPoint;
+    public float attackRange;
     public float meleeDamage = 1f;
     public float meleeDistance = 1.2f;
     public float fireDistance = 6f;
@@ -70,6 +78,8 @@ public class EnemyController : MonoBehaviour
         //Prende i parametri dall'animator
        
         
+        bool attack = animator.GetBool("Attack");
+
         /*if (string.Equals(GetCurrentClipName(), "AttaccoDirettoNemico") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
         {
             //Se sta attaccando deve necessariamente finire l' animazione
@@ -134,6 +144,53 @@ public class EnemyController : MonoBehaviour
 
                   
 
+            switch (stateManager.getCurrentState())
+            {
+
+                case "EnemyPatrollingState":
+                    animator.SetBool("isWalkingEnemy", true);
+                    animator.SetBool("Attack", false);
+                    animator.SetBool("isStunned", false);
+                    enemyNavMeshAgent.isStopped = false; ;
+                    break;
+
+                case "EnemyChasePlayerState":
+                    animator.SetBool("isWalkingEnemy", true);
+                    animator.SetBool("isStunned", false);
+                    animator.SetBool("Attack", false);
+                    enemyNavMeshAgent.isStopped = false; ;
+                    break;
+
+                case "EnemyMeleeAttackState":
+                    animator.SetBool("isWalkingEnemy", true);
+                    animator.SetBool("Attack", true);
+                    animator.SetBool("isStunned", false);
+                    enemyNavMeshAgent.isStopped = true;
+                    break;
+
+                case "EnemyStunnedState":
+                    animator.SetBool("isWalkingEnemy", false);
+                    animator.SetBool("Attack", false);
+                    animator.SetBool("isStunned", true);
+                    enemyNavMeshAgent.isStopped = true;
+                    break;
+
+                case "EnemyAliveState":
+                    animator.SetBool("isWalkingEnemy", false);
+                    animator.SetBool("Attack", false);
+                    animator.SetBool("isStunned", false);
+                    enemyNavMeshAgent.isStopped = true;
+                    break;
+
+
+                case "EnemyDeathState":
+                    EnemyDeath();
+                    break;
+
+                default:
+
+                    Debug.Log("animation error ");
+                    break;
             }
         }
     }

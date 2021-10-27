@@ -26,7 +26,7 @@ public class LevelPauseState : LevelBaseState
         if (Input.GetKeyDown(KeyCode.R))
         {
             Debug.Log("Passaggio dallo stato pause allo stato iniziale del livello con reload della scena");
-            SceneManager.LoadScene("Level1");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             pauseMenuCanvas.SetActive(false);
             player.GetComponent<PlayerController>().isStopped = false;
             gameIsPaused = false;
@@ -40,7 +40,14 @@ public class LevelPauseState : LevelBaseState
             player.GetComponent<PlayerController>().isStopped = false;
             gameIsPaused = false;
             resume();
-            level.SwitchState(level.InitialState);
+
+            if(level.isLevelCompleted){
+              level.SwitchState(level.CompletedState);
+            }
+            else
+            {
+              level.SwitchState(level.InitialState);
+            }
         }
 
     }

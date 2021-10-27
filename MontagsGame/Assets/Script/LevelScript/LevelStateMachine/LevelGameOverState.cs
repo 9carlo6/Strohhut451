@@ -21,7 +21,7 @@ public class LevelGameOverState : LevelBaseState
         if (Input.GetKeyDown(KeyCode.R))
         {
             Debug.Log("Passaggio dallo stato game over allo stato iniziale del livello");
-            SceneManager.LoadScene("Level1");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             gameOverCanvas.SetActive(false);
             level.SwitchState(level.InitialState);
         }

@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelStateManager : MonoBehaviour
+[HideInInspector] public class LevelStateManager : MonoBehaviour
 {
     LevelBaseState currentState;
     public LevelInitialPhaseState InitialState = new LevelInitialPhaseState();
     public LevelGameOverState GameOverState = new LevelGameOverState();
     public LevelCompletedState CompletedState = new LevelCompletedState();
     public LevelPauseState PauseState = new LevelPauseState();
+
+    public bool isLevelCompleted = false;
+    public Animator transition;
 
     //Per individuare lo stato corrente del Livello
     public string getCurrentState()
