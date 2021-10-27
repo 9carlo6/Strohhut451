@@ -17,6 +17,9 @@ public class EnemyController : MonoBehaviour
     public float meleeDistance = 1.2f;
     public float fireDistance = 6f;
 
+    //Attacco a distanza
+    public GameObject enemyWeapon;
+
     //Per l'animazione
     public Animator animator;
     [HideInInspector] public EnemyStateManager stateManager;
@@ -65,7 +68,7 @@ public class EnemyController : MonoBehaviour
     void handleAnimation()
     {
         //Prende i parametri dall'animator
-        bool attack = animator.GetBool("Attack");
+       
         
         /*if (string.Equals(GetCurrentClipName(), "AttaccoDirettoNemico") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
         {
@@ -82,8 +85,9 @@ public class EnemyController : MonoBehaviour
         {
             switch (stateManager.getCurrentState())
             {
-
+                
                 case "EnemyPatrollingState":
+
                     animator.SetBool("isWalkingEnemy", true);
                     animator.SetBool("Attack", false);
                     animator.SetBool("isStunned", false);
@@ -127,12 +131,16 @@ public class EnemyController : MonoBehaviour
 
                     Debug.Log("animation error ");
                     break;
+
+                  
+
             }
         }
     }
 
     void EnemyDeath()
     {
+       
         animator.SetBool("isDeathEnemy", true);
         enemyNavMeshAgent.isStopped = true;
 

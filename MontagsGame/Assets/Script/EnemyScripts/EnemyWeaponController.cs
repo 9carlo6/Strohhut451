@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponController : MonoBehaviour
+public class EnemyWeaponController : MonoBehaviour
 {
     //Per capire se si sta sparando o no
     public bool isFiring = false;
@@ -14,6 +14,7 @@ public class WeaponController : MonoBehaviour
     [HideInInspector] public int maxAmmoCount = 10;
     //Per gestire il numero di munizioni a disposizione
     public int ammoCount = 10;
+    public bool isAmmoInfinite = true;
 
     //Per gestire il danno dell'arma
     public float damage = 10;
@@ -24,8 +25,6 @@ public class WeaponController : MonoBehaviour
     //Questo accumulatedTime sarebbe il tempo che deve passare per poter sparare il prossimo proiettile
     float accumulatedTime;
 
-    //Per gestire il widget relativo alle munizioni
-    public AmmoWidget ammoWidget;
 
     //Per gestire gli effetti particellari
     public ParticleSystem[] muzzleFlash;
@@ -39,12 +38,6 @@ public class WeaponController : MonoBehaviour
     Ray ray;
     RaycastHit hitInfo;
 
-    void Awake()
-    {
-
-         ammoWidget.Refresh(ammoCount);
-
-    }
 
     //Funzione chiamata quando si riceve l'input per lo sparo
     public void StartFiring()
@@ -77,8 +70,11 @@ public class WeaponController : MonoBehaviour
             return;
         }
 
-        //Per diminuire il numero di munizioni quando si spara
-        ammoCount--;
+        if (!isAmmoInfinite)
+        {
+            //Per diminuire il numero di munizioni quando si spara
+            ammoCount--;
+        }
 
         //Questo ciclo permette di azionare tutti gli oggetti particellari in muzzleFlash
         foreach (var particle in muzzleFlash)
@@ -103,11 +99,13 @@ public class WeaponController : MonoBehaviour
 
             //Per la gestione del dallo al nemico in seguito alla collisione
             
-                var hitEnemyCollider = hitInfo.collider.GetComponent<EnemyHealthManager>();
-                if (hitEnemyCollider)
+                var hitPlayerCollider = hitInfo.collider.GetComponent<PlayerHealthManager>();
+                if (hitPlayerCollider)
                 {
-                    hitEnemyCollider.TakeDamage(damage);
+                    hitPlayerCollider.HurtPlayer(damage);
                 }
+
+
             
         }
 
@@ -117,27 +115,9 @@ public class WeaponController : MonoBehaviour
             StopFiring();
         }
 
-        //Questo serve per aggiornare le munizioni visibili nel widget
-      
-            ammoWidget.Refresh(ammoCount);
-
     }
 
-    //Funzione per gestire il drop delle munizioni
-    public void DropAmmo(int ammoDropCount)
-    {
-        if ((ammoCount + ammoDropCount) > maxAmmoCount)
-        {
-            ammoCount = maxAmmoCount;
-        }
-        else
-        {
-            ammoCount += ammoDropCount;
-        }
-
-        //Questo serve per aggiornare le munizioni visibili nel widget
-        ammoWidget.Refresh(ammoCount);
-    }
+    
 
     //Funzione chiamata quando termina l'input per lo sparo
     public void StopFiring()

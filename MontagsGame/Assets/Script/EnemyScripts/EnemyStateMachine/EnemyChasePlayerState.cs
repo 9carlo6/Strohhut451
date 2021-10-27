@@ -26,7 +26,7 @@ public class EnemyChasePlayerState : EnemyBaseState
     NavMeshAgent enemyNavMesh;
     private Animator enemyAnimator;
 
-    WeaponController weaponController;
+    EnemyWeaponController weaponController;
 
 
 
@@ -56,7 +56,7 @@ public class EnemyChasePlayerState : EnemyBaseState
         obstructionMask = enemy.GetComponent<EnemyController>().obstructionMask;
         enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
         enemyAnimator = enemy.GetComponent<Animator>();
-        weaponController = enemy.GetComponentInChildren<WeaponController>();
+        weaponController = enemy.GetComponentInChildren<EnemyWeaponController>();
     }
 
     public override void UpdateState(EnemyStateManager enemy)
@@ -80,6 +80,7 @@ public class EnemyChasePlayerState : EnemyBaseState
             {
                 if (distanceToTarget <= meleeDistance)
                 {
+                    
                     enemy.SwitchState(enemy.AttackMeleeState);
 
                 }
@@ -164,6 +165,8 @@ public class EnemyChasePlayerState : EnemyBaseState
 
         // funzione di sparo con precisione in funzione della distanza
         
+       
+
         if(distance <= fireDistance && enemyGameObject.name.Contains("Armato"))
         {
             Fire();
