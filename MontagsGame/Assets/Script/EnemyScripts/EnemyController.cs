@@ -13,14 +13,6 @@ public class EnemyController : MonoBehaviour
     //Per l'attacco Melee
     public Transform attackPoint;
     public float attackRange;
-{
-    public Transform[] wayPoints;   //Array di points verso cui il nemico dovrà effettuare il patroling
-    public LayerMask targetMask;    //Bersaglio, cioè il player
-    public LayerMask obstructionMask; //Ostacoli, ad esempio le pareti
-
-    //Per l'attacco Melee
-    public Transform attackPoint;
-    public float attackRange;
     public float meleeDamage = 1f;
     public float meleeDistance = 1.2f;
     public float fireDistance = 6f;
@@ -76,8 +68,8 @@ public class EnemyController : MonoBehaviour
     void handleAnimation()
     {
         //Prende i parametri dall'animator
-       
-        
+
+
         bool attack = animator.GetBool("Attack");
 
         /*if (string.Equals(GetCurrentClipName(), "AttaccoDirettoNemico") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
@@ -95,7 +87,7 @@ public class EnemyController : MonoBehaviour
         {
             switch (stateManager.getCurrentState())
             {
-                
+
                 case "EnemyPatrollingState":
 
                     animator.SetBool("isWalkingEnemy", true);
@@ -124,14 +116,14 @@ public class EnemyController : MonoBehaviour
                     animator.SetBool("isStunned", true);
                     enemyNavMeshAgent.isStopped = true;
                     break;
-                
+
                 case "EnemyAliveState":
                     animator.SetBool("isWalkingEnemy", false);
                     animator.SetBool("Attack", false);
                     animator.SetBool("isStunned", false);
                     enemyNavMeshAgent.isStopped = true;
                     break;
-                    
+
 
                 case "EnemyDeathState":
                     EnemyDeath();
@@ -142,85 +134,40 @@ public class EnemyController : MonoBehaviour
                     Debug.Log("animation error ");
                     break;
 
-                  
 
-            switch (stateManager.getCurrentState())
-            {
-
-                case "EnemyPatrollingState":
-                    animator.SetBool("isWalkingEnemy", true);
-                    animator.SetBool("Attack", false);
-                    animator.SetBool("isStunned", false);
-                    enemyNavMeshAgent.isStopped = false; ;
-                    break;
-
-                case "EnemyChasePlayerState":
-                    animator.SetBool("isWalkingEnemy", true);
-                    animator.SetBool("isStunned", false);
-                    animator.SetBool("Attack", false);
-                    enemyNavMeshAgent.isStopped = false; ;
-                    break;
-
-                case "EnemyMeleeAttackState":
-                    animator.SetBool("isWalkingEnemy", true);
-                    animator.SetBool("Attack", true);
-                    animator.SetBool("isStunned", false);
-                    enemyNavMeshAgent.isStopped = true;
-                    break;
-
-                case "EnemyStunnedState":
-                    animator.SetBool("isWalkingEnemy", false);
-                    animator.SetBool("Attack", false);
-                    animator.SetBool("isStunned", true);
-                    enemyNavMeshAgent.isStopped = true;
-                    break;
-
-                case "EnemyAliveState":
-                    animator.SetBool("isWalkingEnemy", false);
-                    animator.SetBool("Attack", false);
-                    animator.SetBool("isStunned", false);
-                    enemyNavMeshAgent.isStopped = true;
-                    break;
-
-
-                case "EnemyDeathState":
-                    EnemyDeath();
-                    break;
-
-                default:
-
-                    Debug.Log("animation error ");
-                    break;
+
+
             }
         }
     }
 
-    void EnemyDeath()
-    {
-       
-        animator.SetBool("isDeathEnemy", true);
-        enemyNavMeshAgent.isStopped = true;
-
-        //I materiali del personaggio vengono settati al materiale con lo shader per la dissolvenza
-        renderEnemyBody.sharedMaterials = material;
-
-        if (string.Equals(GetCurrentClipName(), "MorteNemico") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
+        void EnemyDeath()
         {
-            GameObject.Destroy(this.gameObject);
+
+            animator.SetBool("isDeathEnemy", true);
+            enemyNavMeshAgent.isStopped = true;
+
+            //I materiali del personaggio vengono settati al materiale con lo shader per la dissolvenza
+            renderEnemyBody.sharedMaterials = material;
+
+            if (string.Equals(GetCurrentClipName(), "MorteNemico") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
+            {
+                GameObject.Destroy(this.gameObject);
+            }
+
+            //Per gestire la dissolvenza durante la morte del MorteNemico
+            if (string.Equals(GetCurrentClipName(), "MorteNemico"))
+            {
+                //Man mano che l'animazione va avanti l'intensita dello shader della dissolvenza aumenta di valore
+                this.material[0].SetFloat("Vector_Intensity_Dissolve2", this.material[0].GetFloat("Vector_Intensity_Dissolve2") + 0.01f);
+            }
         }
 
-        //Per gestire la dissolvenza durante la morte del MorteNemico
-        if (string.Equals(GetCurrentClipName(), "MorteNemico"))
+        //Funzione necessaria per risalire al nome dell'animazione corrente
+        public string GetCurrentClipName()
         {
-            //Man mano che l'animazione va avanti l'intensita dello shader della dissolvenza aumenta di valore
-            this.material[0].SetFloat("Vector_Intensity_Dissolve2", this.material[0].GetFloat("Vector_Intensity_Dissolve2") + 0.01f);
+            clipInfo = animator.GetCurrentAnimatorClipInfo(0);
+            return clipInfo[0].clip.name;
         }
-    }
-
-    //Funzione necessaria per risalire al nome dell'animazione corrente
-    public string GetCurrentClipName()
-    {
-        clipInfo = animator.GetCurrentAnimatorClipInfo(0);
-        return clipInfo[0].clip.name;
-    }
+    
 }

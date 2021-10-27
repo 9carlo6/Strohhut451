@@ -103,11 +103,11 @@ public class WeaponController : MonoBehaviour
 
             //Per la gestione del dallo al nemico in seguito alla collisione
             
-                var hitEnemyCollider = hitInfo.collider.GetComponent<EnemyHealthManager>();
-                if (hitEnemyCollider)
-                {
-                    hitEnemyCollider.TakeDamage(damage);
-                }
+               var hitEnemyCollider = hitInfo.collider.GetComponent<EnemyHealthManager>();
+               if (hitEnemyCollider)
+               {
+                   hitEnemyCollider.TakeDamage(damage);
+               }
             
         }
 
