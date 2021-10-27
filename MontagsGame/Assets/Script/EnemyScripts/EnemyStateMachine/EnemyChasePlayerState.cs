@@ -26,6 +26,8 @@ public class EnemyChasePlayerState : EnemyBaseState
     NavMeshAgent enemyNavMesh;
     private Animator enemyAnimator;
 
+    EnemyWeaponController weaponController;
+
 
 
     float distanceToTarget;
@@ -54,6 +56,7 @@ public class EnemyChasePlayerState : EnemyBaseState
         obstructionMask = enemy.GetComponent<EnemyController>().obstructionMask;
         enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
         enemyAnimator = enemy.GetComponent<Animator>();
+        weaponController = enemy.GetComponentInChildren<EnemyWeaponController>();
     }
 
     public override void UpdateState(EnemyStateManager enemy)
@@ -77,6 +80,7 @@ public class EnemyChasePlayerState : EnemyBaseState
             {
                 if (distanceToTarget <= meleeDistance)
                 {
+                    
                     enemy.SwitchState(enemy.AttackMeleeState);
 
                 }
@@ -161,7 +165,9 @@ public class EnemyChasePlayerState : EnemyBaseState
 
         // funzione di sparo con precisione in funzione della distanza
         
-        if(distance <= fireDistance)
+       
+
+        if(distance <= fireDistance && enemyGameObject.name.Contains("Armato"))
         {
             Fire();
         }
@@ -171,6 +177,7 @@ public class EnemyChasePlayerState : EnemyBaseState
 
     public void Fire()
     {
+        weaponController.StartFiring();
         Debug.Log("BANG BANG");
         // qui funzione di sparo con calcolo precisione e spawn del proiettile,
         // ovviamente questa viene invocata ogni frame , quindi va gestito il fatto che si spara ogni secondo o mezzo secondo non 30 volte al secondo

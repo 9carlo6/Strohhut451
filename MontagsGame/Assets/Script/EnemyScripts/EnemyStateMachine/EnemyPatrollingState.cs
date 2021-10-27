@@ -46,6 +46,8 @@ public class EnemyPatrollingState : EnemyBaseState
         obstructionMask = enemy.GetComponent<EnemyController>().obstructionMask;
         enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
         enemyAnimator = enemy.GetComponent<Animator>();
+
+        enemyGameObject.transform.LookAt(wayPoints[wayPointIndex].transform);
     }
 
     public override void UpdateState(EnemyStateManager enemy)
@@ -127,7 +129,7 @@ public class EnemyPatrollingState : EnemyBaseState
         //la distanza dal waypoint da raggiungere è minore di 0.2(cioè ha raggiunto il prossimo waypoint), si va al waypoint successivo
         if (!enemyNavMeshAgent.pathPending && enemyNavMeshAgent.remainingDistance < 0.2f)  //se la distanza tra il nemico e il waypoint corrente è minore di 0.5f waypoint successivo
         {
-            GotoNextPoint();
+               GotoNextPoint();
         }
     }
 

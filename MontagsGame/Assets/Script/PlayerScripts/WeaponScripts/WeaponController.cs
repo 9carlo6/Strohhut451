@@ -41,7 +41,9 @@ public class WeaponController : MonoBehaviour
 
     void Awake()
     {
-        ammoWidget.Refresh(ammoCount);
+
+         ammoWidget.Refresh(ammoCount);
+
     }
 
     //Funzione chiamata quando si riceve l'input per lo sparo
@@ -100,11 +102,13 @@ public class WeaponController : MonoBehaviour
             //Debug.DrawLine(ray.origin, hitInfo.point, Color.red, 1.0f);
 
             //Per la gestione del dallo al nemico in seguito alla collisione
-            var hitEnemyCollider = hitInfo.collider.GetComponent<EnemyHealthManager>();
-            if (hitEnemyCollider)
-            {
-                hitEnemyCollider.TakeDamage(damage);
-            }
+            
+               var hitEnemyCollider = hitInfo.collider.GetComponent<EnemyHealthManager>();
+               if (hitEnemyCollider)
+               {
+                   hitEnemyCollider.TakeDamage(damage);
+               }
+            
         }
 
         //Se non c'è la raffica allora spara solo un colpo e dopo finisce
@@ -114,7 +118,9 @@ public class WeaponController : MonoBehaviour
         }
 
         //Questo serve per aggiornare le munizioni visibili nel widget
-        ammoWidget.Refresh(ammoCount);
+      
+            ammoWidget.Refresh(ammoCount);
+
     }
 
     //Funzione per gestire il drop delle munizioni

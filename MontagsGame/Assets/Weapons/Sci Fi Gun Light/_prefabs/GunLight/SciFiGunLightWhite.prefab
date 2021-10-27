@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 495698}
   - component: {fileID: 3336366}
   - component: {fileID: 2325452}
+  - component: {fileID: 7844842796424584105}
   m_Layer: 0
   m_Name: SciFiGunLightWhite
   m_TagString: Untagged
@@ -81,3 +82,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7844842796424584105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d8c9768a8a93f147a126de5f41e1f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFiring: 0
+  fireRate: 25
+  maxAmmoCount: 10
+  ammoCount: 10
+  isAmmoInfinite: 1
+  damage: 10
+  isBurst: 0
+  muzzleFlash:
+  - {fileID: 7082237603193101517, guid: 07fa1df8c070d7040b098ab2855d17c2, type: 3}
+  - {fileID: 0}
+  hitEffect: {fileID: 0}
+  tracerEffect: {fileID: 0}
+  raycastOrigin: {fileID: 0}
