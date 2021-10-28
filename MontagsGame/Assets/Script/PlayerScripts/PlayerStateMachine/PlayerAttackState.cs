@@ -10,6 +10,7 @@ public class PlayerAttackState : PlayerBaseState
     private Animator animator;
     private AnimatorClipInfo[] clipInfo;
     private Collider enemyCollider;
+    private EnemyStateManager enemymanager;
 
     public override void EnterState(PlayerStateManager player)
     {
@@ -75,9 +76,13 @@ public class PlayerAttackState : PlayerBaseState
         //Per infliggere danno ai nemici
         foreach (Collider enemy in hitEnemies)
         {
+
+            enemymanager = enemy.gameObject.GetComponent<EnemyStateManager>();
+
             if (enemiesAlreadyHitted.Contains(enemy.name)) break;
 
             string enemyState = enemy.gameObject.GetComponent<EnemyController>().stateManager.getCurrentState();
+
             Animator enemyAnimator = enemy.gameObject.GetComponent<Animator>();
 
             if (string.Equals(enemyState, "EnemyStunnedState"))
@@ -98,7 +103,8 @@ public class PlayerAttackState : PlayerBaseState
             {
                 animator.SetFloat("isStealthAttack", 0);
                 Debug.Log("Il player sta colpendo Melee: " + enemy.name);
-                enemyAnimator.SetBool("isStunned", true);
+                //enemyAnimator.SetBool("isStunned", true);
+                enemymanager.SwitchState(enemymanager.StunnedState);
 
                 //Gestione rotazione del giocatore nel momento in cui attacca melee
                 enemyCollider = enemy;

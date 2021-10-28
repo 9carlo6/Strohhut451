@@ -45,27 +45,31 @@ public class EnemyCheckState : EnemyBaseState
 
     public override void UpdateState(EnemyStateManager enemy)
     {
+
+        if (enemyHealthManager.currentHealth <= 0)
+        {
+            enemy.SwitchState(enemy.DeathState);
+        }
+
         FieldOfViewCheck();
-
-        if (checkTime > 3.5f)
-        {
-            enemy.SwitchState(enemy.PatrollingState);
-        }
-        else
-        {
-            checkTime += Time.deltaTime;
-        }
-
 
         if (playerInSightRange)
         {
             enemy.SwitchState(enemy.ChasePlayerState);
         }
 
-        if (enemyHealthManager.currentHealth <= 0)
+        else if (checkTime > 3.5f)
         {
-            enemy.SwitchState(enemy.DeathState);
+            enemy.SwitchState(enemy.PatrollingState);
         }
+        
+        else 
+        {
+            checkTime += Time.deltaTime;
+        }
+       
+
+      
 
 
     }

@@ -70,12 +70,7 @@ public class EnemyPatrollingState : EnemyBaseState
             enemy.SwitchState(enemy.ChasePlayerState);
         }
 
-        //Gestione passaggio allo stato Stunned del nemico
-        if (enemyAnimator.GetBool("isStunned"))
-        {
-            enemy.SwitchState(enemy.StunnedState);
-        }
-
+ 
         if (enemyHealthManager.currentHealth <= 0)
         {
             enemy.SwitchState(enemy.DeathState);
@@ -131,7 +126,7 @@ public class EnemyPatrollingState : EnemyBaseState
     {
         //a ogni frame vado a vedere se non gli ho ancora assegnato un path(!agent.pathPending) e
         //la distanza dal waypoint da raggiungere è minore di 0.2(cioè ha raggiunto il prossimo waypoint), si va al waypoint successivo
-        if (!enemyNavMeshAgent.pathPending && enemyNavMeshAgent.remainingDistance < 0.2f)  //se la distanza tra il nemico e il waypoint corrente è minore di 0.5f waypoint successivo
+        if (!enemyNavMeshAgent.pathPending && enemyNavMeshAgent.remainingDistance < 0.2f)  //se la distanza tra il nemico e il waypoint corrente è minore di 0.2f waypoint successivo
         {
             //check e set + 1 
 
@@ -140,10 +135,11 @@ public class EnemyPatrollingState : EnemyBaseState
             enemy.SwitchState(enemy.CheckState);
 
 
+
         }
         else
         {
-            Debug.Log("ELSE");
+            //Debug.Log("ELSE");
             GotoNextPoint();
         }
     }
@@ -151,7 +147,7 @@ public class EnemyPatrollingState : EnemyBaseState
     private void GotoNextPoint()
     {
        
-        enemyGameObject.transform.LookAt(wayPoints[wayPointIndex].transform);
+        //enemyGameObject.transform.LookAt(wayPoints[wayPointIndex].transform);
 
         //altrimeti setto la destinazione dell'agente al waypoints
         enemyNavMeshAgent.destination = wayPoints[wayPointIndex].position;
