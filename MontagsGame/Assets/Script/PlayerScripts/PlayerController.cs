@@ -59,6 +59,10 @@ public class PlayerController : MonoBehaviour
 	//Per capire se il collide con il piano che serve per passare al livello successivo
 	public bool nextLevelPlaneCollision = false;
 
+	//Per gestire la rotazione della spina dorsale
+	public GameObject spineTarget;
+	public float rotationSpeed = 2f;
+
 	void Awake()
 	{
 		playerInput = new PlayerInput();
@@ -125,6 +129,7 @@ public class PlayerController : MonoBehaviour
 			handleFiring();
 
 		}
+
 		handleAnimation();
 	}
 
@@ -143,7 +148,29 @@ public class PlayerController : MonoBehaviour
 			Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue);
 
 			//Questo pezzo serve per far ruotare il personaggio in base alla posizione del mouse
-			transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
+			//transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
+			spineTarget.transform.position = new Vector3(pointToLook.x, spineTarget.transform.position.y, pointToLook.z);
+			//weapon.transform.LookAt(new Vector3(pointToLook.x, weapon.transform.position.y, pointToLook.z));
+
+			Vector3 targetDir = spineTarget.transform.position - transform.position;
+			Debug.Log("Gradi: " + Vector3.Angle(targetDir, transform.forward));
+
+			Quaternion rotTarget = Quaternion.LookRotation(new Vector3(targetDir.x, 0, targetDir.z));
+
+			if (Vector3.Angle(targetDir, transform.forward) >= 40.0f)
+            {
+				//Debug.Log("Gradi: " + Vector3.Angle(targetDir, transform.forward));
+				//Quaternion rotTarget = Quaternion.LookRotation(new Vector3(targetDir.x, 0, targetDir.z));
+				transform.rotation = Quaternion.RotateTowards(transform.rotation, rotTarget, rotationSpeed * 100f * Time.deltaTime);
+                //transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
+            }
+            else
+            {
+				//weapon.transform.LookAt(new Vector3(pointToLook.x, weapon.transform.position.y, pointToLook.z));
+				weapon.transform.rotation = Quaternion.RotateTowards(weapon.transform.rotation, rotTarget, 50f * Time.deltaTime);
+			}
+
+
 		}
 	}
 

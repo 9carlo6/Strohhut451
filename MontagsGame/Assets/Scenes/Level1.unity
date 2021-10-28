@@ -22437,6 +22437,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 955249961}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1162522434 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3748430496747856325, guid: 658cff369a96e824b8daa1347b5e2bda,
+    type: 3}
+  m_PrefabInstance: {fileID: 839757686218751677}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1166098768
 GameObject:
   m_ObjectHideFlags: 0
@@ -44321,6 +44327,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 839757687844688543, guid: 658cff369a96e824b8daa1347b5e2bda,
         type: 3}
+      propertyPath: spineTarget
+      value: 
+      objectReference: {fileID: 1162522434}
+    - target: {fileID: 839757687844688543, guid: 658cff369a96e824b8daa1347b5e2bda,
+        type: 3}
       propertyPath: material.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -44393,6 +44404,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420197903334451710, guid: 658cff369a96e824b8daa1347b5e2bda,
+        type: 3}
+      propertyPath: m_Weight
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420197903334451710, guid: 658cff369a96e824b8daa1347b5e2bda,
+        type: 3}
+      propertyPath: m_Data.m_MinLimit
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420197903334451710, guid: 658cff369a96e824b8daa1347b5e2bda,
+        type: 3}
+      propertyPath: m_Data.m_Offset.y
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420197903334451710, guid: 658cff369a96e824b8daa1347b5e2bda,
+        type: 3}
+      propertyPath: m_Data.m_Offset.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4798037202614441942, guid: 658cff369a96e824b8daa1347b5e2bda,
+        type: 3}
+      propertyPath: m_Weight
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4798037202614441942, guid: 658cff369a96e824b8daa1347b5e2bda,
+        type: 3}
+      propertyPath: m_Data.m_Offset.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4798037202614441942, guid: 658cff369a96e824b8daa1347b5e2bda,
+        type: 3}
+      propertyPath: m_Data.m_SourceObjects.m_Item0.weight
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271374426631091215, guid: 658cff369a96e824b8daa1347b5e2bda,
+        type: 3}
+      propertyPath: m_Name
+      value: SpineRig
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 839757686065028439, guid: 658cff369a96e824b8daa1347b5e2bda, type: 3}
