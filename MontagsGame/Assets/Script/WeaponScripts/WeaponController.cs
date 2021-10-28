@@ -39,6 +39,11 @@ public class WeaponController : MonoBehaviour
     Ray ray;
     RaycastHit hitInfo;
 
+    //Per gestire il puntatore dell'arma
+    public GameObject weaponSight;
+    Ray rayWeaponSight;
+    RaycastHit hitInfoWeaponSight;
+
     void Awake()
     {
 
@@ -121,6 +126,25 @@ public class WeaponController : MonoBehaviour
       
             ammoWidget.Refresh(ammoCount);
 
+    }
+
+    //Per gestire il puntatore
+    public void handleWeaponSight()
+    {
+        rayWeaponSight.origin = raycastOrigin.position;
+        rayWeaponSight.direction = raycastOrigin.forward;
+
+        if (Physics.Raycast(rayWeaponSight, out hitInfoWeaponSight))
+        {
+            //Debug.DrawLine(ray2.origin, hitInfo2.point, Color.red, 1.0f);
+            weaponSight.transform.position = new Vector3(hitInfoWeaponSight.point.x, 1, hitInfoWeaponSight.point.z);
+
+        }
+    }
+
+    void Update()
+    {
+        handleWeaponSight();
     }
 
     //Funzione per gestire il drop delle munizioni

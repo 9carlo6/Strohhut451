@@ -169,8 +169,8 @@ public class PlayerController : MonoBehaviour
 				animator.SetBool("isRotating",true);
                 //transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
 			}
-      else
-      {
+			else
+			{
 				//weapon.transform.LookAt(new Vector3(pointToLook.x, weapon.transform.position.y, pointToLook.z));
 				weapon.transform.rotation = Quaternion.RotateTowards(weapon.transform.rotation, rotTarget, 50f * Time.deltaTime);
 				animator.SetBool("isRotating", false);
@@ -274,4 +274,6 @@ public class PlayerController : MonoBehaviour
 			return;
 		Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
+
+
 }

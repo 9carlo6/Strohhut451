@@ -47,9 +47,9 @@ GameObject:
   - component: {fileID: 839757687844688540}
   - component: {fileID: 839757687844688543}
   - component: {fileID: 839757686065028433}
-  - component: {fileID: 839757686065028447}
   - component: {fileID: 839757686065028437}
   - component: {fileID: 1812374109186495363}
+  - component: {fileID: 5148580947125031965}
   m_Layer: 7
   m_Name: Astronauta 2
   m_TagString: Player
@@ -192,6 +192,8 @@ MonoBehaviour:
   renderAstroHead: {fileID: 0}
   isStopped: 0
   nextLevelPlaneCollision: 0
+  spineTarget: {fileID: 0}
+  rotationSpeed: 2
 --- !u!23 &839757686065028433
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -233,18 +235,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &839757686065028447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 533116884415357088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9dd5cf7cabe5e5e4782f0a0b36e5ca3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &839757686065028437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,6 +347,18 @@ MonoBehaviour:
   - {fileID: 594533780190498491}
   - {fileID: 3949318555636070979}
   - {fileID: 5742418606594751572}
+--- !u!114 &5148580947125031965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533116884415357088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dd5cf7cabe5e5e4782f0a0b36e5ca3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &703325261368026941
 GameObject:
   m_ObjectHideFlags: 0
