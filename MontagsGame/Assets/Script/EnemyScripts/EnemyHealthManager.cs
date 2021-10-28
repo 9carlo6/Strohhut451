@@ -53,6 +53,7 @@ public class EnemyHealthManager : MonoBehaviour
 
     private void Die()
     {
+        //stateManager.SwitchState(stateManager.DeathState);
         currentHealth = 0;
         healthBar.gameObject.SetActive(false);
     }
