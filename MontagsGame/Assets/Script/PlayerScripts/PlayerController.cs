@@ -125,7 +125,6 @@ public class PlayerController : MonoBehaviour
 		if(!isAttacking && !isDeath && !isStopped){
 			characterController.Move(currentMovement * Time.deltaTime * moveSpeed);
 			handlePlayerRotation();
-
 			handleFiring();
 
 		}
@@ -156,22 +155,34 @@ public class PlayerController : MonoBehaviour
 			Debug.Log("Gradi: " + Vector3.Angle(targetDir, transform.forward));
 
 			Quaternion rotTarget = Quaternion.LookRotation(new Vector3(targetDir.x, 0, targetDir.z));
-
 			if (Vector3.Angle(targetDir, transform.forward) >= 40.0f)
-            {
+			{
 				//Debug.Log("Gradi: " + Vector3.Angle(targetDir, transform.forward));
 				//Quaternion rotTarget = Quaternion.LookRotation(new Vector3(targetDir.x, 0, targetDir.z));
-				transform.rotation = Quaternion.RotateTowards(transform.rotation, rotTarget, rotationSpeed * 100f * Time.deltaTime);
+				if(!animator.GetBool("isWalking")){
+					transform.rotation = Quaternion.RotateTowards(transform.rotation, rotTarget, rotationSpeed * 100f * Time.deltaTime);
+				}
+				else
+				{
+					transform.rotation = Quaternion.RotateTowards(transform.rotation, rotTarget, rotationSpeed * 200f * Time.deltaTime);
+				}
+				animator.SetBool("isRotating",true);
                 //transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
-            }
-            else
-            {
+			}
+      else
+      {
 				//weapon.transform.LookAt(new Vector3(pointToLook.x, weapon.transform.position.y, pointToLook.z));
 				weapon.transform.rotation = Quaternion.RotateTowards(weapon.transform.rotation, rotTarget, 50f * Time.deltaTime);
+				animator.SetBool("isRotating", false);
 			}
-
-
 		}
+	}
+
+	//Funzione necessaria per risalire al nome dell'animazione corrente
+	public string GetCurrentClipName()
+	{
+			AnimatorClipInfo[] clipInfo = animator.GetCurrentAnimatorClipInfo(0);
+			return clipInfo[0].clip.name;
 	}
 
 	//Per gestire lo sparo dell'arma
