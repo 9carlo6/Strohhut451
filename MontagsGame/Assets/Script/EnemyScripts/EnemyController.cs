@@ -10,15 +10,13 @@ public class EnemyController : MonoBehaviour
     public LayerMask targetMask;    //Bersaglio, cioè il player
     public LayerMask obstructionMask; //Ostacoli, ad esempio le pareti
 
-    //Per l'attacco Melee
+    //Per l'attacco
+    public GameObject enemyWeapon;
     public Transform attackPoint;
     public float attackRange;
     public float meleeDamage = 1f;
     public float meleeDistance = 1.2f;
-    public float fireDistance = 6f;
-
-    //Attacco a distanza
-    public GameObject enemyWeapon;
+    public float fireDistance = 6f;    
 
     //Per l'animazione
     public Animator animator;
@@ -69,20 +67,8 @@ public class EnemyController : MonoBehaviour
     {
         //Prende i parametri dall'animator
 
-
         bool attack = animator.GetBool("Attack");
 
-        /*if (string.Equals(GetCurrentClipName(), "AttaccoDirettoNemico") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
-        {
-            //Se sta attaccando deve necessariamente finire l' animazione
-            ready = false;
-        }
-        else
-        {
-            ready = true;
-        }
-
-        */
         if (true)
         {
             switch (stateManager.getCurrentState())
@@ -133,10 +119,6 @@ public class EnemyController : MonoBehaviour
 
                     Debug.Log("animation error ");
                     break;
-
-
-
-
             }
         }
     }

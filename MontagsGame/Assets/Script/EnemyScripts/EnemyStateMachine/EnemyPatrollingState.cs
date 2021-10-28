@@ -40,14 +40,15 @@ public class EnemyPatrollingState : EnemyBaseState
         viewAngle = 110;
 
         enemyNavMeshAgent = enemy.GetComponent<NavMeshAgent>();
+
+        enemyNavMeshAgent.speed = 3f;
+
         enemyGameObject = enemy.GetComponent<EnemyController>().gameObject;
         wayPoints = enemy.GetComponent<EnemyController>().wayPoints;
         targetMask = enemy.GetComponent<EnemyController>().targetMask;
         obstructionMask = enemy.GetComponent<EnemyController>().obstructionMask;
         enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
         enemyAnimator = enemy.GetComponent<Animator>();
-
-        enemyGameObject.transform.LookAt(wayPoints[wayPointIndex].transform);
     }
 
     public override void UpdateState(EnemyStateManager enemy)
@@ -140,6 +141,8 @@ public class EnemyPatrollingState : EnemyBaseState
         {
             return;
         }
+
+        enemyGameObject.transform.LookAt(wayPoints[wayPointIndex].transform);
 
         //altrimeti setto la destinazione dell'agente al waypoints
         enemyNavMeshAgent.destination = wayPoints[wayPointIndex].position;
