@@ -10,15 +10,13 @@ public class EnemyController : MonoBehaviour
     public LayerMask targetMask;    //Bersaglio, cioè il player
     public LayerMask obstructionMask; //Ostacoli, ad esempio le pareti
 
-    //Per l'attacco Melee
+    //Per l'attacco
+    public GameObject enemyWeapon;
     public Transform attackPoint;
     public float attackRange;
     public float meleeDamage = 1f;
     public float meleeDistance = 1.2f;
-    public float fireDistance = 6f;
-
-    //Attacco a distanza
-    public GameObject enemyWeapon;
+    public float fireDistance = 6f;    
 
     //Per l'animazione
     public Animator animator;
@@ -56,6 +54,18 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         enemyNavMeshAgent = GetComponent<NavMeshAgent>();
+        if (enemyWeapon != null)
+        {
+            animator.SetFloat("isWeapon", 1);
+        }
+        else
+        {
+            animator.SetFloat("isWeapon", 0);
+
+        }
+
+
+
     }
 
     // Update is called once per frame
@@ -69,37 +79,34 @@ public class EnemyController : MonoBehaviour
     {
         //Prende i parametri dall'animator
 
-
-        bool attack = animator.GetBool("Attack");
-
-        /*if (string.Equals(GetCurrentClipName(), "AttaccoDirettoNemico") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
-        {
-            //Se sta attaccando deve necessariamente finire l' animazione
-            ready = false;
-        }
-        else
-        {
-            ready = true;
-        }
-
-        */
         if (true)
         {
             switch (stateManager.getCurrentState())
             {
 
                 case "EnemyPatrollingState":
-
                     animator.SetBool("isWalkingEnemy", true);
                     animator.SetBool("Attack", false);
                     animator.SetBool("isStunned", false);
+                    animator.SetBool("waypointReached", false);
                     enemyNavMeshAgent.isStopped = false; ;
+                    break;
+
+                case "EnemyCheckState":
+                    animator.SetBool("isWalkingEnemy", false);
+                    animator.SetBool("Attack", false);
+                    animator.SetBool("isStunned", false);
+                    animator.SetBool("waypointReached", true);
+                    enemyNavMeshAgent.isStopped = true; ;
+
                     break;
 
                 case "EnemyChasePlayerState":
                     animator.SetBool("isWalkingEnemy", true);
                     animator.SetBool("isStunned", false);
                     animator.SetBool("Attack", false);
+                    animator.SetBool("waypointReached", false);
+
                     enemyNavMeshAgent.isStopped = false; ;
                     break;
 
@@ -107,6 +114,8 @@ public class EnemyController : MonoBehaviour
                     animator.SetBool("isWalkingEnemy", true);
                     animator.SetBool("Attack", true);
                     animator.SetBool("isStunned", false);
+                    animator.SetBool("waypointReached", false);
+
                     enemyNavMeshAgent.isStopped = false;
                     break;
 
@@ -114,6 +123,8 @@ public class EnemyController : MonoBehaviour
                     animator.SetBool("isWalkingEnemy", false);
                     animator.SetBool("Attack", false);
                     animator.SetBool("isStunned", true);
+                    animator.SetBool("waypointReached", false);
+
                     enemyNavMeshAgent.isStopped = true;
                     break;
 
@@ -121,6 +132,8 @@ public class EnemyController : MonoBehaviour
                     animator.SetBool("isWalkingEnemy", false);
                     animator.SetBool("Attack", false);
                     animator.SetBool("isStunned", false);
+                    animator.SetBool("waypointReached", false);
+
                     enemyNavMeshAgent.isStopped = true;
                     break;
 
@@ -133,10 +146,6 @@ public class EnemyController : MonoBehaviour
 
                     Debug.Log("animation error ");
                     break;
-
-
-
-
             }
         }
     }

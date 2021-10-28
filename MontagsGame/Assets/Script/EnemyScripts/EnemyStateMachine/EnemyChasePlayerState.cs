@@ -50,7 +50,12 @@ public class EnemyChasePlayerState : EnemyBaseState
 
 
         playerGameObject = GameObject.FindGameObjectWithTag("Player");
+
         enemyNavMesh = enemy.GetComponent<NavMeshAgent>();
+
+        enemyNavMesh.speed = 6f;
+
+
         enemyGameObject = enemy.GetComponent<EnemyController>().gameObject;
         targetMask = enemy.GetComponent<EnemyController>().targetMask;
         obstructionMask = enemy.GetComponent<EnemyController>().obstructionMask;

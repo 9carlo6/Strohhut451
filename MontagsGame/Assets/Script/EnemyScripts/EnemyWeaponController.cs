@@ -117,8 +117,6 @@ public class EnemyWeaponController : MonoBehaviour
 
     }
 
-    
-
     //Funzione chiamata quando termina l'input per lo sparo
     public void StopFiring()
     {
