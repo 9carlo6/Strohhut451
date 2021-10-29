@@ -28,7 +28,7 @@ public class EnemyChasePlayerState : EnemyBaseState
 
     EnemyWeaponController weaponController;
 
-
+    float agentAcceleration = 0.8f;
 
     float distanceToTarget;
 
@@ -53,7 +53,7 @@ public class EnemyChasePlayerState : EnemyBaseState
 
         enemyNavMesh = enemy.GetComponent<NavMeshAgent>();
 
-        enemyNavMesh.speed = 6f;
+        enemyNavMesh.speed = 3f;
 
 
         enemyGameObject = enemy.GetComponent<EnemyController>().gameObject;
@@ -66,6 +66,11 @@ public class EnemyChasePlayerState : EnemyBaseState
 
     public override void UpdateState(EnemyStateManager enemy)
     {
+        //aumenta la velocità del nemico progressivamente
+        if (enemyNavMesh.speed <= 4.5f)
+        {
+            enemyNavMesh.speed = enemyNavMesh.speed + Time.deltaTime * agentAcceleration;
+        }
         if(playerGameObject.transform.GetComponent<PlayerHealthManager>().currentHealth <= 0)
         {
             enemy.SwitchState(enemy.AliveState);

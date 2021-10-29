@@ -18,6 +18,8 @@ public class EnemyController : MonoBehaviour
     public float meleeDistance = 1.2f;
     public float fireDistance = 6f;    
 
+
+
     //Per l'animazione
     public Animator animator;
     [HideInInspector] public EnemyStateManager stateManager;
@@ -27,6 +29,12 @@ public class EnemyController : MonoBehaviour
     [HideInInspector] public bool ready = false;
 
     private AnimatorClipInfo[] clipInfo;
+
+    public float acceleration = 0.3f;
+    public float deceleration = 0.3f;
+    float velocity = 0.4f;
+    int velocityHash;
+
 
     //Per modificare i materiali dei figli runtime
   	public Material[] material;
@@ -53,14 +61,26 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        
         enemyNavMeshAgent = GetComponent<NavMeshAgent>();
+
         if (enemyWeapon != null)
         {
-            animator.SetFloat("isWeapon", 1);
+            animator.SetFloat("isWeapon", 0.25f);
+            animator.SetFloat("isRunning", 1f);
+            velocityHash = Animator.StringToHash("isRunningWithWeapon");
+
+
+
         }
         else
         {
-            animator.SetFloat("isWeapon", 0);
+
+            animator.SetFloat("isWeapon", 0f);
+            animator.SetFloat("isRunning", 0f);
+            velocityHash = Animator.StringToHash("isRunningWithoutWeapon");
+
 
         }
 
@@ -85,6 +105,17 @@ public class EnemyController : MonoBehaviour
             {
 
                 case "EnemyPatrollingState":
+
+                    if (velocity >= 0.2f)
+                    {
+                        Debug.Log("Decelero");
+
+                        velocity -= Time.deltaTime * deceleration;
+                       
+
+                    }
+                    
+                    animator.SetFloat(velocityHash, velocity);
                     animator.SetBool("isWalkingEnemy", true);
                     animator.SetBool("Attack", false);
                     animator.SetBool("isStunned", false);
@@ -102,6 +133,14 @@ public class EnemyController : MonoBehaviour
                     break;
 
                 case "EnemyChasePlayerState":
+
+                    // animator.SetFloat("isWeapon", animator.GetFloat("isWeapon") + 0.001f);
+                    if(velocity <= 1.0f) {
+                        velocity += Time.deltaTime * acceleration;
+                    }
+                    //Debug.Log(enemyNavMeshAgent.speed);
+
+                    animator.SetFloat(velocityHash, velocity);
                     animator.SetBool("isWalkingEnemy", true);
                     animator.SetBool("isStunned", false);
                     animator.SetBool("Attack", false);
