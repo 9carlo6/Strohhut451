@@ -63,6 +63,9 @@ public class PlayerController : MonoBehaviour
 	public GameObject spineTarget;
 	public float rotationSpeed = 2f;
 
+	//Per gestire l'arma corpo a corpo
+	public GameObject rodWeapon;
+
 	void Awake()
 	{
 		playerInput = new PlayerInput();
