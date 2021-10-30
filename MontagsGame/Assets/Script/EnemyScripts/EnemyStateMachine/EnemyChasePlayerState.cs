@@ -28,6 +28,10 @@ public class EnemyChasePlayerState : EnemyBaseState
 
     EnemyWeaponController weaponController;
 
+    //ALERT
+    public bool playerFire;  //Viene utilizzata per l'alert
+    public bool fireInHearRange;
+
 
 
     float distanceToTarget;
@@ -65,7 +69,23 @@ public class EnemyChasePlayerState : EnemyBaseState
 
     public override void UpdateState(EnemyStateManager enemy)
     {
-        if(playerGameObject.transform.GetComponent<PlayerHealthManager>().currentHealth <= 0)
+
+        playerFire = playerGameObject.GetComponent<PlayerController>().getBoolToAlert();
+
+        Debug.Log("Stampo l'alert" + playerFire);
+
+        if (playerFire)
+        {
+            if (Vector3.Distance(enemyGameObject.transform.position, playerGameObject.transform.position) <= 20f)
+                fireInHearRange = true;
+            else
+            {
+                fireInHearRange = false;
+            }
+        }
+
+
+        if (playerGameObject.transform.GetComponent<PlayerHealthManager>().currentHealth <= 0)
         {
             enemy.SwitchState(enemy.AliveState);
 
@@ -76,7 +96,7 @@ public class EnemyChasePlayerState : EnemyBaseState
 
             FieldOfViewCheck();
 
-            if (!playerInSightRange && !ingaged)
+            if (!playerInSightRange && !ingaged && !fireInHearRange)
             {
                 enemy.SwitchState(enemy.PatrollingState);
             }

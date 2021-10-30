@@ -67,6 +67,7 @@ public class PlayerController : MonoBehaviour
 	//GameObject[] enemyGameObjects;
 	//private EnemyStateManager enemyStateManager;
 	private bool playerIsFiring = false;
+	private float timerToReset = 2;
 
 	void Awake()
 	{
@@ -194,14 +195,23 @@ public class PlayerController : MonoBehaviour
 	//Per gestire lo sparo dell'arma
 	void handleFiring()
     {
+
 		if (weaponController.isFiring)
 		{
-			playerIsFiring = true;
 			weaponController.UpdateFiring(Time.deltaTime);
+
+			playerIsFiring = true;
+		
+        }
+
+        if (playerIsFiring && timerToReset > 0)
+        {
+			timerToReset -= Time.deltaTime;
         }
         else
         {
 			playerIsFiring = false;
+			timerToReset = 2;
         }
 	}
 

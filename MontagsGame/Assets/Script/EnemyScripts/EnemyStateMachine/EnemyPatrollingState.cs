@@ -34,7 +34,8 @@ public class EnemyPatrollingState : EnemyBaseState
 
     //ALERT
     public GameObject playerGameObject;
-    public bool playerFireClosedToEnemy;  //Viene utilizzata per l'alert
+    public bool playerFire;  //Viene utilizzata per l'alert
+    public bool fireInHearRange;
 
 
 
@@ -67,14 +68,26 @@ public class EnemyPatrollingState : EnemyBaseState
     public override void UpdateState(EnemyStateManager enemy)
         {
 
-        playerFireClosedToEnemy = playerGameObject.GetComponent<PlayerController>().getBoolToAlert();
+        playerFire = playerGameObject.GetComponent<PlayerController>().getBoolToAlert();
 
-        Debug.Log("Stampo l'alert" + playerFireClosedToEnemy);
+        Debug.Log("Stampo l'alert" + playerFire);
+
+        if (playerFire)
+        {
+            if (Vector3.Distance(enemyGameObject.transform.position, playerGameObject.transform.position) <= 20f)
+
+                fireInHearRange = true;
+            else
+            {
+                fireInHearRange = false;
+            }
+        }
+
 
         FieldOfViewCheck();   //Il fov dovrà essere sempre attivo, ritorna il valore di playerInSightRange
 
 
-        if (!playerInSightRange && !playerFireClosedToEnemy)
+        if (!playerInSightRange && !fireInHearRange)
         {
             //se il player NON è nel campo visivo del nemico, esso continuerà il patroling
             Patrolling(enemy);
