@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Animations.Rigging;
 
 //Questa classe serve per la gestione del'animazione del nemico
 public class EnemyController : MonoBehaviour
@@ -32,6 +33,10 @@ public class EnemyController : MonoBehaviour
   	public Material[] material;
   	private GameObject enemyBody;
   	public Renderer renderEnemyBody;
+
+    //Per l'animazione dell'arma
+    public Rig aimLayer;
+    float aimDuration = 0.3f;
 
 
     void Awake()
@@ -85,6 +90,10 @@ public class EnemyController : MonoBehaviour
             {
 
                 case "EnemyPatrollingState":
+                    if (aimLayer != null)
+                    {
+                        aimLayer.weight -= Time.deltaTime / aimDuration;
+                    }
                     animator.SetBool("isWalkingEnemy", true);
                     animator.SetBool("Attack", false);
                     animator.SetBool("isStunned", false);
@@ -102,6 +111,10 @@ public class EnemyController : MonoBehaviour
                     break;
 
                 case "EnemyChasePlayerState":
+                    if (aimLayer != null)
+                    {
+                        aimLayer.weight += Time.deltaTime / aimDuration;
+                    }
                     animator.SetBool("isWalkingEnemy", true);
                     animator.SetBool("isStunned", false);
                     animator.SetBool("Attack", false);

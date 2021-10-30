@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
+
 public class EnemyChasePlayerState : EnemyBaseState
 {
     EnemyHealthManager enemyHealthManager;
@@ -25,9 +26,10 @@ public class EnemyChasePlayerState : EnemyBaseState
     GameObject enemyGameObject;
     NavMeshAgent enemyNavMesh;
     private Animator enemyAnimator;
+    EnemyController enemyController;
+
 
     EnemyWeaponController weaponController;
-
 
 
     float distanceToTarget;
@@ -36,6 +38,9 @@ public class EnemyChasePlayerState : EnemyBaseState
     bool isArmed = true;
 
     public bool ingaged = false;
+
+
+    
 
     public override void EnterState(EnemyStateManager enemy)
     {
@@ -47,14 +52,18 @@ public class EnemyChasePlayerState : EnemyBaseState
 
         meleeDistance = enemy.GetComponent<EnemyController>().meleeDistance;
         fireDistance = enemy.GetComponent<EnemyController>().fireDistance;
+        enemyController = enemy.GetComponent<EnemyController>();
 
 
         playerGameObject = GameObject.FindGameObjectWithTag("Player");
 
         enemyNavMesh = enemy.GetComponent<NavMeshAgent>();
 
-        enemyNavMesh.speed = 6f;
-
+        //enemyNavMesh.speed = 6f;
+        if (enemyController.enemyWeapon != null)
+        {
+            enemyController.enemyWeapon.SetActive(true);
+        }
 
         enemyGameObject = enemy.GetComponent<EnemyController>().gameObject;
         targetMask = enemy.GetComponent<EnemyController>().targetMask;
@@ -66,6 +75,7 @@ public class EnemyChasePlayerState : EnemyBaseState
 
     public override void UpdateState(EnemyStateManager enemy)
     {
+
         if(playerGameObject.transform.GetComponent<PlayerHealthManager>().currentHealth <= 0)
         {
             enemy.SwitchState(enemy.AliveState);

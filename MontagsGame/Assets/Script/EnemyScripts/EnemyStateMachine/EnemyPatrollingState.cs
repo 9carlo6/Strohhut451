@@ -57,6 +57,8 @@ public class EnemyPatrollingState : EnemyBaseState
     public override void UpdateState(EnemyStateManager enemy)
         {
 
+
+
         FieldOfViewCheck();   //Il fov dovrà essere sempre attivo, ritorna il valore di playerInSightRange
 
         if (!playerInSightRange)

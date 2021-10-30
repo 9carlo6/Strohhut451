@@ -21,6 +21,7 @@ public class EnemyMeleeAttackState : EnemyBaseState
 
     public override void EnterState(EnemyStateManager enemy)
     {
+
         Debug.Log("Stato Nemico = Attacca");
         enemyGameObject = enemy.GetComponent<EnemyController>().gameObject;
         playerGameObject = GameObject.FindGameObjectWithTag("Player");
@@ -31,6 +32,7 @@ public class EnemyMeleeAttackState : EnemyBaseState
         //Il timer viene settato a un valore iniziale (che dovrebbe coincidire con la lunghezza dell'animazione "AttaccoDirettoNemico")
         //Bisogna trovare un modo per ricavare la lunghezza di una specifica animazione (ora sappiamo ricavare solo quella dell'animazione corrente)
         timeRemainingToAttack = 0;
+        enemyController.enemyWeapon.SetActive(false);
 
         EnemyAttack();
     }
