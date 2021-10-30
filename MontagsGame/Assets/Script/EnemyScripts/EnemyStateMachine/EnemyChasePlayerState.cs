@@ -33,7 +33,6 @@ public class EnemyChasePlayerState : EnemyBaseState
     float distanceToTarget;
 
     public bool playerInSightRange;  //quando vedo il bersaglio = true
-    bool isArmed = true;
 
     public bool ingaged = false;
 
@@ -169,8 +168,6 @@ public class EnemyChasePlayerState : EnemyBaseState
         enemyGameObject.transform.LookAt(playerGameObject.transform);
 
         // funzione di sparo con precisione in funzione della distanza
-        
-       
 
         if(distance <= fireDistance && enemyGameObject.name.Contains("Armato"))
         {
