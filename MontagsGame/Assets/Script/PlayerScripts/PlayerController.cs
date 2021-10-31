@@ -62,13 +62,15 @@ public class PlayerController : MonoBehaviour
 	//Per gestire la rotazione della spina dorsale
 	public GameObject spineTarget;
 	public float rotationSpeed = 2f;
-
-	//Per l'alert
+  
+  //Per l'alert
 	//GameObject[] enemyGameObjects;
 	//private EnemyStateManager enemyStateManager;
 	private bool playerIsFiring = false;
 	private float timerToReset = 2;
-
+  
+  //Per gestire l'arma corpo a corpo
+	public GameObject rodWeapon;
 	void Awake()
 	{
 		playerInput = new PlayerInput();
