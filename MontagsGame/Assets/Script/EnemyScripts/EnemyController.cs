@@ -39,6 +39,12 @@ public class EnemyController : MonoBehaviour
     float aimDuration = 0.3f;
 
 
+    public float acceleration = 0.3f;
+    public float deceleration = 0.3f;
+    float velocity = 0.4f;
+    int velocityHash;
+
+
     void Awake()
     {
         animator = GetComponent<Animator>();
@@ -62,10 +68,14 @@ public class EnemyController : MonoBehaviour
         if (enemyWeapon != null)
         {
             animator.SetFloat("isWeapon", 1);
+            animator.SetFloat("isRunning", 1f);
+            velocityHash = Animator.StringToHash("isRunningWithWeapon");
         }
         else
         {
-            animator.SetFloat("isWeapon", 0);
+            animator.SetFloat("isWeapon", 0f);
+            animator.SetFloat("isRunning", 0f);
+            velocityHash = Animator.StringToHash("isRunningWithoutWeapon");
 
         }
 
@@ -94,6 +104,15 @@ public class EnemyController : MonoBehaviour
                     {
                         aimLayer.weight -= Time.deltaTime / aimDuration;
                     }
+                    if (velocity >= 0.2f)
+                    {
+                        Debug.Log("Decelero");
+
+                        velocity -= Time.deltaTime * deceleration;
+
+
+                    }
+                    animator.SetFloat(velocityHash, velocity);
                     animator.SetBool("isWalkingEnemy", true);
                     animator.SetBool("Attack", false);
                     animator.SetBool("isStunned", false);
@@ -115,6 +134,12 @@ public class EnemyController : MonoBehaviour
                     {
                         aimLayer.weight += Time.deltaTime / aimDuration;
                     }
+                    if (velocity <= 1.0f)
+                    {
+                        velocity += Time.deltaTime * acceleration;
+                    }
+                    animator.SetFloat(velocityHash, velocity);
+
                     animator.SetBool("isWalkingEnemy", true);
                     animator.SetBool("isStunned", false);
                     animator.SetBool("Attack", false);

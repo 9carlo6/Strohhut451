@@ -32,7 +32,11 @@ public class EnemyMeleeAttackState : EnemyBaseState
         //Il timer viene settato a un valore iniziale (che dovrebbe coincidire con la lunghezza dell'animazione "AttaccoDirettoNemico")
         //Bisogna trovare un modo per ricavare la lunghezza di una specifica animazione (ora sappiamo ricavare solo quella dell'animazione corrente)
         timeRemainingToAttack = 0;
-        enemyController.enemyWeapon.SetActive(false);
+
+        if (enemyController.enemyWeapon != null)
+        {
+            enemyController.enemyWeapon.SetActive(false);
+        }
 
         EnemyAttack();
     }
@@ -50,7 +54,7 @@ public class EnemyMeleeAttackState : EnemyBaseState
 
             distanceToTarget = Vector3.Distance(enemyGameObject.transform.position, playerGameObject.transform.position);
 
-            if (distanceToTarget <= 1.5f)
+            if (distanceToTarget <= 2f)
             {
                 enemyGameObject.transform.LookAt(playerGameObject.transform);
                 EnemyAttack();

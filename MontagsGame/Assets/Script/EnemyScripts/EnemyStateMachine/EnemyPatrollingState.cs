@@ -28,6 +28,7 @@ public class EnemyPatrollingState : EnemyBaseState
     //per l'animazione
     public Animator enemyAnimator;
     public bool waypointReached = false;
+    float agentDeceleration = 1.5f;
 
 
     public bool playerInSightRange;  //quando vedo il bersaglio = true
@@ -41,7 +42,7 @@ public class EnemyPatrollingState : EnemyBaseState
 
         enemyNavMeshAgent = enemy.GetComponent<NavMeshAgent>();
 
-        enemyNavMeshAgent.speed = 1f;
+        //enemyNavMeshAgent.speed = 1f;
 
         enemyGameObject = enemy.GetComponent<EnemyController>().gameObject;
         wayPoints = enemy.GetComponent<EnemyController>().wayPoints;
@@ -57,9 +58,18 @@ public class EnemyPatrollingState : EnemyBaseState
     public override void UpdateState(EnemyStateManager enemy)
         {
 
+        if (enemyNavMeshAgent.speed > 1f)
+        {
+            Debug.Log("velocità in riduzione " + enemyNavMeshAgent.speed);
 
+            enemyNavMeshAgent.speed = enemyNavMeshAgent.speed - Time.deltaTime * agentDeceleration;
+
+        }
 
         FieldOfViewCheck();   //Il fov dovrà essere sempre attivo, ritorna il valore di playerInSightRange
+
+        // riduce la velocità del nemico progressivamente
+      
 
         if (!playerInSightRange)
         {

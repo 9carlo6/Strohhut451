@@ -152,7 +152,7 @@ public class PlayerController : MonoBehaviour
 			//weapon.transform.LookAt(new Vector3(pointToLook.x, weapon.transform.position.y, pointToLook.z));
 
 			Vector3 targetDir = spineTarget.transform.position - transform.position;
-			Debug.Log("Gradi: " + Vector3.Angle(targetDir, transform.forward));
+			//Debug.Log("Gradi: " + Vector3.Angle(targetDir, transform.forward));
 
 			Quaternion rotTarget = Quaternion.LookRotation(new Vector3(targetDir.x, 0, targetDir.z));
 			if (Vector3.Angle(targetDir, transform.forward) >= 40.0f)
