@@ -29,8 +29,15 @@ public class EnemyPatrollingState : EnemyBaseState
     public Animator enemyAnimator;
     public bool waypointReached = false;
 
-
     public bool playerInSightRange;  //quando vedo il bersaglio = true
+
+
+    //ALERT
+    public GameObject playerGameObject;
+    public bool playerFire;  //Viene utilizzata per l'alert
+    public bool fireInHearRange;
+
+
 
     public override void EnterState(EnemyStateManager enemy)
         {
@@ -52,14 +59,35 @@ public class EnemyPatrollingState : EnemyBaseState
 
         enemyNavMeshAgent.destination = wayPoints[wayPointIndex].position;
 
+        playerGameObject = GameObject.FindGameObjectWithTag("Player");
+        
+
+
     }
 
     public override void UpdateState(EnemyStateManager enemy)
         {
 
+        playerFire = playerGameObject.GetComponent<PlayerController>().getBoolToAlert();
+
+        Debug.Log("Stampo l'alert" + playerFire);
+
+        if (playerFire)
+        {
+            if (Vector3.Distance(enemyGameObject.transform.position, playerGameObject.transform.position) <= 20f)
+
+                fireInHearRange = true;
+            else
+            {
+                fireInHearRange = false;
+            }
+        }
+
+
         FieldOfViewCheck();   //Il fov dovrà essere sempre attivo, ritorna il valore di playerInSightRange
 
-        if (!playerInSightRange)
+
+        if (!playerInSightRange && !fireInHearRange)
         {
             //se il player NON è nel campo visivo del nemico, esso continuerà il patroling
             Patrolling(enemy);
@@ -120,7 +148,6 @@ public class EnemyPatrollingState : EnemyBaseState
         else
             playerInSightRange = false;
     }
-
 
     private void Patrolling(EnemyStateManager enemy)
     {
