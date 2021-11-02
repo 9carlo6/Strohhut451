@@ -22,6 +22,8 @@ public class EnemyPatrollingState : EnemyBaseState
 
     NavMeshAgent enemyNavMeshAgent;
     GameObject enemyGameObject;
+    EnemyController enemyController;
+
 
     EnemyHealthManager enemyHealthManager;
 
@@ -50,8 +52,13 @@ public class EnemyPatrollingState : EnemyBaseState
         obstructionMask = enemy.GetComponent<EnemyController>().obstructionMask;
         enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
         enemyAnimator = enemy.GetComponent<Animator>();
+        enemyController = enemy.GetComponent<EnemyController>();
+
 
         enemyNavMeshAgent.destination = wayPoints[wayPointIndex].position;
+
+        
+
 
     }
 

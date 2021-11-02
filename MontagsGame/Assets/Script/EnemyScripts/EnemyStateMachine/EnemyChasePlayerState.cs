@@ -68,12 +68,15 @@ public class EnemyChasePlayerState : EnemyBaseState
             enemyController.enemyWeapon.SetActive(true);
         }
 
+
         enemyGameObject = enemy.GetComponent<EnemyController>().gameObject;
         targetMask = enemy.GetComponent<EnemyController>().targetMask;
         obstructionMask = enemy.GetComponent<EnemyController>().obstructionMask;
         enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
         enemyAnimator = enemy.GetComponent<Animator>();
         weaponController = enemy.GetComponentInChildren<EnemyWeaponController>();
+
+       
     }
 
     public override void UpdateState(EnemyStateManager enemy)
@@ -86,7 +89,7 @@ public class EnemyChasePlayerState : EnemyBaseState
 
             enemyNavMesh.speed = enemyNavMesh.speed + Time.deltaTime * agentAcceleration;
         }
-
+       
         if (playerGameObject.transform.GetComponent<PlayerHealthManager>().currentHealth <= 0)
         {
             enemy.SwitchState(enemy.AliveState);

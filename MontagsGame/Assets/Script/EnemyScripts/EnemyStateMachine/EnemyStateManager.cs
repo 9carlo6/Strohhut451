@@ -30,7 +30,7 @@ public class EnemyStateManager : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        currentState.OnCollisionEnter(this, collision);
+       // currentState.OnCollisionEnter(this, collision);
     }
 
     public void Update()

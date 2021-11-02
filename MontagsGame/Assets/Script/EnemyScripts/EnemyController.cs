@@ -36,6 +36,7 @@ public class EnemyController : MonoBehaviour
 
     //Per l'animazione dell'arma
     public Rig aimLayer;
+   
     float aimDuration = 0.3f;
 
 
@@ -100,6 +101,7 @@ public class EnemyController : MonoBehaviour
             {
 
                 case "EnemyPatrollingState":
+                    
                     if (aimLayer != null)
                     {
                         aimLayer.weight -= Time.deltaTime / aimDuration;
@@ -109,7 +111,6 @@ public class EnemyController : MonoBehaviour
                         Debug.Log("Decelero");
 
                         velocity -= Time.deltaTime * deceleration;
-
 
                     }
                     animator.SetFloat(velocityHash, velocity);
@@ -130,6 +131,8 @@ public class EnemyController : MonoBehaviour
                     break;
 
                 case "EnemyChasePlayerState":
+                    
+
                     if (aimLayer != null)
                     {
                         aimLayer.weight += Time.deltaTime / aimDuration;
