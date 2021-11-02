@@ -7,6 +7,9 @@ public class LevelController : MonoBehaviour
 {
     private GameObject levelInfoCanvas;
 
+    //Per controllare il tempo impiegato per superare il livello
+    public float levelTimeCounter = 0;
+
     //Per gestire i punti accumulati nel livello
     public GameObject pointsText;
     public int levelPoints = 0;
@@ -40,8 +43,14 @@ public class LevelController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Per modificare incrementare il valore del cronometro del tempo impiegato per superare il livello
+        if(currentNumberOfEnemies > 0)
+        {
+            levelTimeCounter += Time.deltaTime;
+        }
+
         //Per gestire i punti da assegnare ogni volta che si uccide un nemico
-       if (currentNumberOfEnemies != GameObject.FindGameObjectsWithTag("Enemy").Length)
+        if (currentNumberOfEnemies != GameObject.FindGameObjectsWithTag("Enemy").Length)
         {
             //Per prendere il numero corrente di nemici presenti nel livello
             currentNumberOfEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
