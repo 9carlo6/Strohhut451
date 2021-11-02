@@ -28,7 +28,7 @@ public class LevelCompletedState : LevelBaseState
       {
           Debug.Log("Passaggio al livello successivo");
           level.StartCoroutine(LoadLevel(level, SceneManager.GetActiveScene().buildIndex + 1));
-          levelCompletedCanvas.SetActive(false);
+          //levelCompletedCanvas.SetActive(false);
           level.isLevelCompleted = false;
           player.GetComponent<Rigidbody>().isKinematic = true;
           player.GetComponent<CapsuleCollider>().enabled = false;

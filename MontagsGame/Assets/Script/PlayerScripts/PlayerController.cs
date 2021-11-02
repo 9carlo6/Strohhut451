@@ -59,6 +59,18 @@ public class PlayerController : MonoBehaviour
 	//Per capire se il collide con il piano che serve per passare al livello successivo
 	public bool nextLevelPlaneCollision = false;
 
+	//Per gestire la rotazione della spina dorsale
+	public GameObject spineTarget;
+	public float rotationSpeed = 2f;
+  
+  //Per l'alert
+	//GameObject[] enemyGameObjects;
+	//private EnemyStateManager enemyStateManager;
+	private bool playerIsFiring = false;
+	private float timerToReset = 2;
+  
+  //Per gestire l'arma corpo a corpo
+	public GameObject rodWeapon;
 	void Awake()
 	{
 		playerInput = new PlayerInput();
@@ -108,6 +120,8 @@ public class PlayerController : MonoBehaviour
 	{
 		myRigidbody = GetComponent<Rigidbody>();
 		mainCamera = FindObjectOfType<Camera>();
+
+	//	enemyGameObjects = GameObject.FindGameObjectsWithTag("Enemy");
 	}
 
 	// Update is called once per frame
@@ -121,10 +135,9 @@ public class PlayerController : MonoBehaviour
 		if(!isAttacking && !isDeath && !isStopped){
 			characterController.Move(currentMovement * Time.deltaTime * moveSpeed);
 			handlePlayerRotation();
-
 			handleFiring();
-
 		}
+
 		handleAnimation();
 	}
 
@@ -143,19 +156,65 @@ public class PlayerController : MonoBehaviour
 			Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue);
 
 			//Questo pezzo serve per far ruotare il personaggio in base alla posizione del mouse
-			transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
+			//transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
+			spineTarget.transform.position = new Vector3(pointToLook.x, spineTarget.transform.position.y, pointToLook.z);
+			//weapon.transform.LookAt(new Vector3(pointToLook.x, weapon.transform.position.y, pointToLook.z));
+
+			Vector3 targetDir = spineTarget.transform.position - transform.position;
+			//Debug.Log("Gradi: " + Vector3.Angle(targetDir, transform.forward));
+
+			Quaternion rotTarget = Quaternion.LookRotation(new Vector3(targetDir.x, 0, targetDir.z));
+			if (Vector3.Angle(targetDir, transform.forward) >= 40.0f)
+			{
+				//Debug.Log("Gradi: " + Vector3.Angle(targetDir, transform.forward));
+				//Quaternion rotTarget = Quaternion.LookRotation(new Vector3(targetDir.x, 0, targetDir.z));
+				if(!animator.GetBool("isWalking")){
+					transform.rotation = Quaternion.RotateTowards(transform.rotation, rotTarget, rotationSpeed * 100f * Time.deltaTime);
+				}
+				else
+				{
+					transform.rotation = Quaternion.RotateTowards(transform.rotation, rotTarget, rotationSpeed * 200f * Time.deltaTime);
+				}
+				animator.SetBool("isRotating",true);
+                //transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
+			}
+			else
+			{
+				//weapon.transform.LookAt(new Vector3(pointToLook.x, weapon.transform.position.y, pointToLook.z));
+				weapon.transform.rotation = Quaternion.RotateTowards(weapon.transform.rotation, rotTarget, 50f * Time.deltaTime);
+				animator.SetBool("isRotating", false);
+			}
 		}
+	}
+
+	//Funzione necessaria per risalire al nome dell'animazione corrente
+	public string GetCurrentClipName()
+	{
+			AnimatorClipInfo[] clipInfo = animator.GetCurrentAnimatorClipInfo(0);
+			return clipInfo[0].clip.name;
 	}
 
 	//Per gestire lo sparo dell'arma
 	void handleFiring()
     {
+
 		if (weaponController.isFiring)
 		{
-			//weaponController.StartFiring();
 			weaponController.UpdateFiring(Time.deltaTime);
 
-		}
+			playerIsFiring = true;
+		
+        }
+
+        if (playerIsFiring && timerToReset > 0)
+        {
+			timerToReset -= Time.deltaTime;
+        }
+        else
+        {
+			playerIsFiring = false;
+			timerToReset = 2;
+        }
 	}
 
 	//Per gestire le animazioni
@@ -236,4 +295,35 @@ public class PlayerController : MonoBehaviour
 			return;
 		Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
+
+	public bool getBoolToAlert()
+    {
+		return playerIsFiring;
+    }
 }
+
+/*Debug.Log("Il player sta sparando, controllo le distanze dai nemici");
+
+			foreach(GameObject enemyGameObject in enemyGameObjects)
+            {
+				enemyStateManager = enemyGameObject.GetComponent<EnemyStateManager>();
+
+				Debug.Log("Sono entrato nel foreach");
+
+				Vector3 distanceToAlert = enemyGameObject.transform.position - this.gameObject.transform.position;
+
+				Debug.Log("Stampo la distance To Alert" + distanceToAlert);
+
+				Debug.Log("Stampo la magnitude" + distanceToAlert.magnitude);
+
+				Debug.Log("Stampo la Distanza con Vector3.Distance: " + Vector3.Distance(enemyGameObject.transform.position, this.gameObject.transform.position));	
+
+				//if(Vector3.Distance(enemyGameObject.transform.position, this.gameObject.transform.position) <= 20f)
+				if (distanceToAlert.magnitude <= 20f)
+				{
+					Debug.Log("Entro nell'if, dovrebbe cambiare lo stato del nemico in chasing");
+					enemyStateManager.SwitchState(enemyStateManager.ChasePlayerState);
+				} 
+            }
+
+		Debug.Log("Faccio quello che viene dopo");*/

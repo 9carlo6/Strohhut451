@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 
@@ -29,8 +27,17 @@ public class EnemyPatrollingState : EnemyBaseState
 
     //per l'animazione
     public Animator enemyAnimator;
+    public bool waypointReached = false;
 
     public bool playerInSightRange;  //quando vedo il bersaglio = true
+
+
+    //ALERT
+    public GameObject playerGameObject;
+    public bool playerFire;  //Viene utilizzata per l'alert
+    public bool fireInHearRange;
+
+
 
     public override void EnterState(EnemyStateManager enemy)
         {
@@ -40,6 +47,9 @@ public class EnemyPatrollingState : EnemyBaseState
         viewAngle = 110;
 
         enemyNavMeshAgent = enemy.GetComponent<NavMeshAgent>();
+
+        enemyNavMeshAgent.speed = 1f;
+
         enemyGameObject = enemy.GetComponent<EnemyController>().gameObject;
         wayPoints = enemy.GetComponent<EnemyController>().wayPoints;
         targetMask = enemy.GetComponent<EnemyController>().targetMask;
@@ -47,18 +57,40 @@ public class EnemyPatrollingState : EnemyBaseState
         enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
         enemyAnimator = enemy.GetComponent<Animator>();
 
-        enemyGameObject.transform.LookAt(wayPoints[wayPointIndex].transform);
+        enemyNavMeshAgent.destination = wayPoints[wayPointIndex].position;
+
+        playerGameObject = GameObject.FindGameObjectWithTag("Player");
+        
+
+
     }
 
     public override void UpdateState(EnemyStateManager enemy)
         {
 
+        playerFire = playerGameObject.GetComponent<PlayerController>().getBoolToAlert();
+
+        Debug.Log("Stampo l'alert" + playerFire);
+
+        if (playerFire)
+        {
+            if (Vector3.Distance(enemyGameObject.transform.position, playerGameObject.transform.position) <= 20f)
+
+                fireInHearRange = true;
+            else
+            {
+                fireInHearRange = false;
+            }
+        }
+
+
         FieldOfViewCheck();   //Il fov dovrà essere sempre attivo, ritorna il valore di playerInSightRange
 
-        if (!playerInSightRange)
+
+        if (!playerInSightRange && !fireInHearRange)
         {
             //se il player NON è nel campo visivo del nemico, esso continuerà il patroling
-            Patrolling();
+            Patrolling(enemy);
         }
         else
         {
@@ -66,12 +98,7 @@ public class EnemyPatrollingState : EnemyBaseState
             enemy.SwitchState(enemy.ChasePlayerState);
         }
 
-        //Gestione passaggio allo stato Stunned del nemico
-        if (enemyAnimator.GetBool("isStunned"))
-        {
-            enemy.SwitchState(enemy.StunnedState);
-        }
-
+ 
         if (enemyHealthManager.currentHealth <= 0)
         {
             enemy.SwitchState(enemy.DeathState);
@@ -122,31 +149,40 @@ public class EnemyPatrollingState : EnemyBaseState
             playerInSightRange = false;
     }
 
-
-    private void Patrolling()
+    private void Patrolling(EnemyStateManager enemy)
     {
         //a ogni frame vado a vedere se non gli ho ancora assegnato un path(!agent.pathPending) e
         //la distanza dal waypoint da raggiungere è minore di 0.2(cioè ha raggiunto il prossimo waypoint), si va al waypoint successivo
-        if (!enemyNavMeshAgent.pathPending && enemyNavMeshAgent.remainingDistance < 0.2f)  //se la distanza tra il nemico e il waypoint corrente è minore di 0.5f waypoint successivo
+        if (!enemyNavMeshAgent.pathPending && enemyNavMeshAgent.remainingDistance < 0.2f)  //se la distanza tra il nemico e il waypoint corrente è minore di 0.2f waypoint successivo
         {
-               GotoNextPoint();
+            //check e set + 1 
+
+            wayPointIndex = (wayPointIndex + 1) % wayPoints.Length;
+
+            enemy.SwitchState(enemy.CheckState);
+
+
+
+        }
+        else
+        {
+            //Debug.Log("ELSE");
+            GotoNextPoint();
         }
     }
 
     private void GotoNextPoint()
     {
-        //se l'array è vuoto non fa niente
-        if (wayPoints.Length == 0)
-        {
-            return;
-        }
+       
+        //enemyGameObject.transform.LookAt(wayPoints[wayPointIndex].transform);
 
         //altrimeti setto la destinazione dell'agente al waypoints
         enemyNavMeshAgent.destination = wayPoints[wayPointIndex].position;
 
-  
+
         //usando un modulo ciclo sui numeri e aumento l'index
-        wayPointIndex = (wayPointIndex + 1) % wayPoints.Length;
+
+
     }
 
 

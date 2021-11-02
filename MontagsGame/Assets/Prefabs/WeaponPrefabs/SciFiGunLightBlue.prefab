@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 8021170967745586153}
   - component: {fileID: 8021170967746277181}
   - component: {fileID: 8021170968664291730}
-  - component: {fileID: 8021170968664291733}
+  - component: {fileID: 7049261298646661773}
   m_Layer: 0
   m_Name: SciFiGunLightBlue
   m_TagString: Untagged
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48948dfe9d76b07488dacd46a7955fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8021170968664291733
+--- !u!114 &7049261298646661773
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -200,17 +200,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 8021170967744547945}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7fb81c1940672b41922fc2cbec3f174, type: 3}
+  m_Script: {fileID: 11500000, guid: a8bbb373fbf1cc844b489a42f65d1ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isFiring: 0
   fireRate: 25
+  maxAmmoCount: 10
+  ammoCount: 10
   damage: 10
+  isBurst: 0
+  ammoWidget: {fileID: 0}
   muzzleFlash:
-  - {fileID: 0}
+  - {fileID: 5077878036752709022}
   - {fileID: 7895277161748327556}
   hitEffect: {fileID: 7895451817934589023}
-  tracerEffect: {fileID: 5222779810168309988, guid: 0e8662fa6bdcdfa439cdeee92a96a140,
+  tracerEffect: {fileID: 6882462699824183605, guid: fa17202d1440ed1419fd36f8701a8f52,
     type: 3}
   raycastOrigin: {fileID: 8021170966555338859}
 --- !u!1 &8022101917295529515
@@ -24145,37 +24149,37 @@ PrefabInstance:
     - target: {fileID: 4710665412663223955, guid: 6e6458fa6c7747742ace4a1d4ede727b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.85660625
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 4710665412663223955, guid: 6e6458fa6c7747742ace4a1d4ede727b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.679
+      value: 0.137
       objectReference: {fileID: 0}
     - target: {fileID: 4710665412663223955, guid: 6e6458fa6c7747742ace4a1d4ede727b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -13.797858
+      value: 0.688
       objectReference: {fileID: 0}
     - target: {fileID: 4710665412663223955, guid: 6e6458fa6c7747742ace4a1d4ede727b,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.92387956
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4710665412663223955, guid: 6e6458fa6c7747742ace4a1d4ede727b,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4710665412663223955, guid: 6e6458fa6c7747742ace4a1d4ede727b,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.38268343
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4710665412663223955, guid: 6e6458fa6c7747742ace4a1d4ede727b,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4710665412663223955, guid: 6e6458fa6c7747742ace4a1d4ede727b,
         type: 3}
@@ -24185,15 +24189,61 @@ PrefabInstance:
     - target: {fileID: 4710665412663223955, guid: 6e6458fa6c7747742ace4a1d4ede727b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4710665412663223955, guid: 6e6458fa6c7747742ace4a1d4ede727b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4868575250561767389, guid: 6e6458fa6c7747742ace4a1d4ede727b,
+        type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4868575250561767389, guid: 6e6458fa6c7747742ace4a1d4ede727b,
+        type: 3}
+      propertyPath: ColorModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4868575250561767389, guid: 6e6458fa6c7747742ace4a1d4ede727b,
+        type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4868575250561767389, guid: 6e6458fa6c7747742ace4a1d4ede727b,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4868575250561767389, guid: 6e6458fa6c7747742ace4a1d4ede727b,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4868575250561767389, guid: 6e6458fa6c7747742ace4a1d4ede727b,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4868575250561767389, guid: 6e6458fa6c7747742ace4a1d4ede727b,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.94018793
+      objectReference: {fileID: 0}
+    - target: {fileID: 4868575250561767389, guid: 6e6458fa6c7747742ace4a1d4ede727b,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e6458fa6c7747742ace4a1d4ede727b, type: 3}
+--- !u!198 &5077878036752709022 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4868575250561767389, guid: 6e6458fa6c7747742ace4a1d4ede727b,
+    type: 3}
+  m_PrefabInstance: {fileID: 425757629631504963}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4951493878962947280 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4710665412663223955, guid: 6e6458fa6c7747742ace4a1d4ede727b,

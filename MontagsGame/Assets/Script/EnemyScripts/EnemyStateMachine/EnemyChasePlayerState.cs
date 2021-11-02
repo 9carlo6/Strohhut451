@@ -28,12 +28,15 @@ public class EnemyChasePlayerState : EnemyBaseState
 
     EnemyWeaponController weaponController;
 
+    //ALERT
+    public bool playerFire;  //Viene utilizzata per l'alert
+    public bool fireInHearRange;
+
 
 
     float distanceToTarget;
 
     public bool playerInSightRange;  //quando vedo il bersaglio = true
-    bool isArmed = true;
 
     public bool ingaged = false;
 
@@ -50,7 +53,12 @@ public class EnemyChasePlayerState : EnemyBaseState
 
 
         playerGameObject = GameObject.FindGameObjectWithTag("Player");
+
         enemyNavMesh = enemy.GetComponent<NavMeshAgent>();
+
+        enemyNavMesh.speed = 6f;
+
+
         enemyGameObject = enemy.GetComponent<EnemyController>().gameObject;
         targetMask = enemy.GetComponent<EnemyController>().targetMask;
         obstructionMask = enemy.GetComponent<EnemyController>().obstructionMask;
@@ -61,7 +69,23 @@ public class EnemyChasePlayerState : EnemyBaseState
 
     public override void UpdateState(EnemyStateManager enemy)
     {
-        if(playerGameObject.transform.GetComponent<PlayerHealthManager>().currentHealth <= 0)
+
+        playerFire = playerGameObject.GetComponent<PlayerController>().getBoolToAlert();
+
+        Debug.Log("Stampo l'alert" + playerFire);
+
+        if (playerFire)
+        {
+            if (Vector3.Distance(enemyGameObject.transform.position, playerGameObject.transform.position) <= 20f)
+                fireInHearRange = true;
+            else
+            {
+                fireInHearRange = false;
+            }
+        }
+
+
+        if (playerGameObject.transform.GetComponent<PlayerHealthManager>().currentHealth <= 0)
         {
             enemy.SwitchState(enemy.AliveState);
 
@@ -72,7 +96,7 @@ public class EnemyChasePlayerState : EnemyBaseState
 
             FieldOfViewCheck();
 
-            if (!playerInSightRange && !ingaged)
+            if (!playerInSightRange && !ingaged && !fireInHearRange)
             {
                 enemy.SwitchState(enemy.PatrollingState);
             }
@@ -164,8 +188,6 @@ public class EnemyChasePlayerState : EnemyBaseState
         enemyGameObject.transform.LookAt(playerGameObject.transform);
 
         // funzione di sparo con precisione in funzione della distanza
-        
-       
 
         if(distance <= fireDistance && enemyGameObject.name.Contains("Armato"))
         {
