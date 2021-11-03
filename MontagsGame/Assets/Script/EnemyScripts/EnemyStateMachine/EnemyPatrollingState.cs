@@ -65,6 +65,8 @@ public class EnemyPatrollingState : EnemyBaseState
     public override void UpdateState(EnemyStateManager enemy)
         {
 
+        
+
         if (enemyNavMeshAgent.speed > 1f)
         {
             Debug.Log("velocità in riduzione " + enemyNavMeshAgent.speed);
@@ -152,6 +154,7 @@ public class EnemyPatrollingState : EnemyBaseState
             wayPointIndex = (wayPointIndex + 1) % wayPoints.Length;
 
             enemy.SwitchState(enemy.CheckState);
+            
 
 
 

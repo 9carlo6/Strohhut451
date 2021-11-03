@@ -137,10 +137,11 @@ public class EnemyController : MonoBehaviour
                     {
                         aimLayer.weight += Time.deltaTime / aimDuration;
                     }
-                    if (velocity <= 1.0f)
+                    if (velocity <= 0.5f)
                     {
                         velocity += Time.deltaTime * acceleration;
                     }
+
                     animator.SetFloat(velocityHash, velocity);
 
                     animator.SetBool("isWalkingEnemy", true);
