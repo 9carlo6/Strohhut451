@@ -54,7 +54,7 @@ public class EnemyMeleeAttackState : EnemyBaseState
 
             distanceToTarget = Vector3.Distance(enemyGameObject.transform.position, playerGameObject.transform.position);
 
-            if (distanceToTarget <= 2f)
+            if (distanceToTarget <= 1.5f)
             {
                 enemyGameObject.transform.LookAt(playerGameObject.transform);
                 EnemyAttack();

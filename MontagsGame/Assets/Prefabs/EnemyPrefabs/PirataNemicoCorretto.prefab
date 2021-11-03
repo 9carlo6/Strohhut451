@@ -63,6 +63,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 209854319124362656, guid: 040c2552090e0514c912d4489618d701,
         type: 3}
+      propertyPath: m_Speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209854319124362656, guid: 040c2552090e0514c912d4489618d701,
+        type: 3}
       propertyPath: m_Radius
       value: 0.15
       objectReference: {fileID: 0}
@@ -70,6 +75,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StoppingDistance
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 209854319124362659, guid: 040c2552090e0514c912d4489618d701,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 209854319124362670, guid: 040c2552090e0514c912d4489618d701,
         type: 3}
@@ -99,7 +109,7 @@ PrefabInstance:
     - target: {fileID: 209854319124362670, guid: 040c2552090e0514c912d4489618d701,
         type: 3}
       propertyPath: wayPoints.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 209854319124362670, guid: 040c2552090e0514c912d4489618d701,
         type: 3}
@@ -119,7 +129,7 @@ PrefabInstance:
     - target: {fileID: 209854319253784454, guid: 040c2552090e0514c912d4489618d701,
         type: 3}
       propertyPath: maxhealth
-      value: 101
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 209854319253784454, guid: 040c2552090e0514c912d4489618d701,
         type: 3}
@@ -184,7 +194,7 @@ PrefabInstance:
     - target: {fileID: 1020316785476676659, guid: 040c2552090e0514c912d4489618d701,
         type: 3}
       propertyPath: m_Name
-      value: PirataNemico1
+      value: PirataNemicoCorretto
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 209854318621677436, guid: 040c2552090e0514c912d4489618d701, type: 3}

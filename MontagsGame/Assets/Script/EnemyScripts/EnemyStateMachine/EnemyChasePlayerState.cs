@@ -59,7 +59,10 @@ public class EnemyChasePlayerState : EnemyBaseState
         enemyController = enemy.GetComponent<EnemyController>();
 
 
-        playerGameObject = GameObject.FindGameObjectWithTag("Player");
+        if (GameObject.FindGameObjectWithTag("Player") != null)
+        {
+            playerGameObject = GameObject.FindGameObjectWithTag("Player");
+        }
 
         enemyNavMesh = enemy.GetComponent<NavMeshAgent>();
 
@@ -84,10 +87,29 @@ public class EnemyChasePlayerState : EnemyBaseState
     public override void UpdateState(EnemyStateManager enemy)
     {
 
+        if (playerGameObject != null)
+        {
+            playerFire = playerGameObject.GetComponent<PlayerController>().getBoolToAlert();
+
+
+           
+
+            if (playerFire)
+            {
+                if (Vector3.Distance(enemyGameObject.transform.position, playerGameObject.transform.position) <= 12f)
+
+                    fireInHearRange = true;
+                else
+                {
+                    fireInHearRange = false;
+                }
+            }
+
+        }
+
         //aumenta la velocità del nemico progressivamente
         if (enemyNavMesh.speed <= 6.5f)
         {
-            Debug.Log("velocità in aumento " + enemyNavMesh.speed);
 
             enemyNavMesh.speed = enemyNavMesh.speed + Time.deltaTime * agentAcceleration;
         }
