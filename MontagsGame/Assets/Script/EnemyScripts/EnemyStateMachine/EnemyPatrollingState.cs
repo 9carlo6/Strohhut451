@@ -32,8 +32,15 @@ public class EnemyPatrollingState : EnemyBaseState
     public bool waypointReached = false;
     float agentDeceleration = 1.5f;
 
-
     public bool playerInSightRange;  //quando vedo il bersaglio = true
+
+
+    //ALERT
+    public GameObject playerGameObject;
+    public bool playerFire;  //Viene utilizzata per l'alert
+    public bool fireInHearRange;
+
+
 
     public override void EnterState(EnemyStateManager enemy)
         {
@@ -57,6 +64,7 @@ public class EnemyPatrollingState : EnemyBaseState
 
         enemyNavMeshAgent.destination = wayPoints[wayPointIndex].position;
 
+        playerGameObject = GameObject.FindGameObjectWithTag("Player");
         
 
 
@@ -65,22 +73,26 @@ public class EnemyPatrollingState : EnemyBaseState
     public override void UpdateState(EnemyStateManager enemy)
         {
 
-        
+        playerFire = playerGameObject.GetComponent<PlayerController>().getBoolToAlert();
 
-        if (enemyNavMeshAgent.speed > 1f)
+        Debug.Log("Stampo l'alert" + playerFire);
+
+        if (playerFire)
         {
-            Debug.Log("velocità in riduzione " + enemyNavMeshAgent.speed);
+            if (Vector3.Distance(enemyGameObject.transform.position, playerGameObject.transform.position) <= 20f)
 
-            enemyNavMeshAgent.speed = enemyNavMeshAgent.speed - Time.deltaTime * agentDeceleration;
-
+                fireInHearRange = true;
+            else
+            {
+                fireInHearRange = false;
+            }
         }
+
 
         FieldOfViewCheck();   //Il fov dovrà essere sempre attivo, ritorna il valore di playerInSightRange
 
-        // riduce la velocità del nemico progressivamente
-      
 
-        if (!playerInSightRange)
+        if (!playerInSightRange && !fireInHearRange)
         {
             //se il player NON è nel campo visivo del nemico, esso continuerà il patroling
             Patrolling(enemy);
@@ -141,7 +153,6 @@ public class EnemyPatrollingState : EnemyBaseState
         else
             playerInSightRange = false;
     }
-
 
     private void Patrolling(EnemyStateManager enemy)
     {

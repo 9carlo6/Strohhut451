@@ -40,6 +40,9 @@ public class PlayerAttackState : PlayerBaseState
             //Per riabilitare il RigBuilder
             playerController.rigBuilder.enabled = true;
 
+            //Gestione scomparsa dell'arma stealth del personaggio
+            playerController.rodWeapon.SetActive(false);
+
             //Per far illuminare il nemico quando viene colpito
             //enemyCollider.GetComponent<EnemyHealthManager>().enemyHit();
 
@@ -91,11 +94,14 @@ public class PlayerAttackState : PlayerBaseState
                 Debug.Log("Il player sta colpendo Stealth: " + enemy.name);
                 enemyAnimator.SetBool("isAttackedStealth", true);
 
+                //Gestione comparsa dell'arma stealth del personaggio
+                playerController.rodWeapon.SetActive(true);
+
                 //Gestione rotazione e posizionamento del giocatore nel momento in cui attacca stealth
                 enemyCollider = enemy;
                 playerController.gameObject.transform.LookAt(enemyCollider.gameObject.transform);
                 enemyCollider.gameObject.transform.LookAt(playerController.gameObject.transform);
-                enemyCollider.gameObject.transform.position = playerController.gameObject.transform.position + playerController.gameObject.transform.forward * 1.5f;
+                enemyCollider.gameObject.transform.position = playerController.gameObject.transform.position + playerController.gameObject.transform.forward * 0.5f;
                 //enemyCollider.gameObject.transform.position = playerController.gameObject.transform.TransformPoint(5);
                 //Vector3 targetDir = enemy.gameObject.transform.position - playerController.gameObject.transform.position;
             }
