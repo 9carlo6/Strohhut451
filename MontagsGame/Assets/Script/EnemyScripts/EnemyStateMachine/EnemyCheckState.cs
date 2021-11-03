@@ -15,7 +15,12 @@ public class EnemyCheckState : EnemyBaseState
     public LayerMask targetMask;    //bersaglio, cioè il player
     public LayerMask obstructionMask; //ostacoli, ad esempio le pareti
 
+    
     GameObject enemyGameObject;
+
+    public Transform[] wayPoints;   //Array di points verso cui il nemico dovrà effettuare il patroling
+
+
 
     //per l'animazione
     public Animator enemyAnimator;
@@ -28,16 +33,30 @@ public class EnemyCheckState : EnemyBaseState
 
     public float checkTime;
 
+    //ALERT
+    public GameObject playerGameObject;
+    public bool playerFire;  //Viene utilizzata per l'alert
+    public bool fireInHearRange;
+
     public override void EnterState(EnemyStateManager enemy)
     {
-
-        Debug.Log("CHECK");
+        viewRadius = 10;
+        viewAngle = 110;
+        Debug.Log("Stato nemico = CHECK");
 
         checkTime = 0;
         enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
         enemyGameObject = enemy.GetComponent<EnemyController>().gameObject;
         targetMask = enemy.GetComponent<EnemyController>().targetMask;
         obstructionMask = enemy.GetComponent<EnemyController>().obstructionMask;
+        wayPoints = enemy.GetComponent<EnemyController>().wayPoints;
+
+
+        if (GameObject.FindGameObjectWithTag("Player") != null)
+        {
+            playerGameObject = GameObject.FindGameObjectWithTag("Player");
+        }
+
 
 
     }
@@ -46,6 +65,25 @@ public class EnemyCheckState : EnemyBaseState
     public override void UpdateState(EnemyStateManager enemy)
     {
 
+        if (playerGameObject != null)
+        {
+            playerFire = playerGameObject.GetComponent<PlayerController>().getBoolToAlert();
+
+           
+           
+
+            if (playerFire)
+            {
+                if (Vector3.Distance(enemyGameObject.transform.position, playerGameObject.transform.position) <= 12f)
+
+                    fireInHearRange = true;
+                else
+                {
+                    fireInHearRange = false;
+                }
+            }
+
+        }
         if (enemyHealthManager.currentHealth <= 0)
         {
             enemy.SwitchState(enemy.DeathState);
@@ -60,9 +98,11 @@ public class EnemyCheckState : EnemyBaseState
 
         else if (checkTime > 3.5f)
         {
-            enemy.SwitchState(enemy.PatrollingState);
+            if (wayPoints.Length != 1)
+            {
+                enemy.SwitchState(enemy.PatrollingState);
+            }
         }
-        
         else 
         {
             checkTime += Time.deltaTime;

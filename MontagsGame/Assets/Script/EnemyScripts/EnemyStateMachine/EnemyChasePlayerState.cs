@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
+
 public class EnemyChasePlayerState : EnemyBaseState
 {
     EnemyHealthManager enemyHealthManager;
@@ -25,6 +26,10 @@ public class EnemyChasePlayerState : EnemyBaseState
     GameObject enemyGameObject;
     NavMeshAgent enemyNavMesh;
     private Animator enemyAnimator;
+    EnemyController enemyController;
+
+    float agentAcceleration = 1.7f;
+
 
     EnemyWeaponController weaponController;
 
@@ -32,13 +37,14 @@ public class EnemyChasePlayerState : EnemyBaseState
     public bool playerFire;  //Viene utilizzata per l'alert
     public bool fireInHearRange;
 
-
-
     float distanceToTarget;
 
     public bool playerInSightRange;  //quando vedo il bersaglio = true
 
     public bool ingaged = false;
+
+
+    
 
     public override void EnterState(EnemyStateManager enemy)
     {
@@ -50,13 +56,22 @@ public class EnemyChasePlayerState : EnemyBaseState
 
         meleeDistance = enemy.GetComponent<EnemyController>().meleeDistance;
         fireDistance = enemy.GetComponent<EnemyController>().fireDistance;
+        enemyController = enemy.GetComponent<EnemyController>();
 
 
-        playerGameObject = GameObject.FindGameObjectWithTag("Player");
+        if (GameObject.FindGameObjectWithTag("Player") != null)
+        {
+            playerGameObject = GameObject.FindGameObjectWithTag("Player");
+        }
 
         enemyNavMesh = enemy.GetComponent<NavMeshAgent>();
 
-        enemyNavMesh.speed = 6f;
+        enemyNavMesh.speed = 2f;
+
+        if (enemyController.enemyWeapon != null)
+        {
+            enemyController.enemyWeapon.SetActive(true);
+        }
 
 
         enemyGameObject = enemy.GetComponent<EnemyController>().gameObject;
@@ -65,26 +80,40 @@ public class EnemyChasePlayerState : EnemyBaseState
         enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
         enemyAnimator = enemy.GetComponent<Animator>();
         weaponController = enemy.GetComponentInChildren<EnemyWeaponController>();
+
+       
     }
 
     public override void UpdateState(EnemyStateManager enemy)
     {
 
-        playerFire = playerGameObject.GetComponent<PlayerController>().getBoolToAlert();
-
-        Debug.Log("Stampo l'alert" + playerFire);
-
-        if (playerFire)
+        if (playerGameObject != null)
         {
-            if (Vector3.Distance(enemyGameObject.transform.position, playerGameObject.transform.position) <= 20f)
-                fireInHearRange = true;
-            else
+            playerFire = playerGameObject.GetComponent<PlayerController>().getBoolToAlert();
+
+
+           
+
+            if (playerFire)
             {
-                fireInHearRange = false;
+                if (Vector3.Distance(enemyGameObject.transform.position, playerGameObject.transform.position) <= 12f)
+
+                    fireInHearRange = true;
+                else
+                {
+                    fireInHearRange = false;
+                }
             }
+
         }
 
+        //aumenta la velocità del nemico progressivamente
+        if (enemyNavMesh.speed <= 6.5f)
+        {
 
+            enemyNavMesh.speed = enemyNavMesh.speed + Time.deltaTime * agentAcceleration;
+        }
+       
         if (playerGameObject.transform.GetComponent<PlayerHealthManager>().currentHealth <= 0)
         {
             enemy.SwitchState(enemy.AliveState);
