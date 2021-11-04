@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
 	//GameObject[] enemyGameObjects;
 	//private EnemyStateManager enemyStateManager;
 	private bool playerIsFiring = false;
-	private float timerToReset = 2;
+	private float timerToReset = 1;
 
   //Per gestire l'arma corpo a corpo
 	public GameObject rodWeapon;
@@ -239,7 +239,7 @@ public class PlayerController : MonoBehaviour
         else
         {
 			playerIsFiring = false;
-			timerToReset = 2;
+			timerToReset = 1;
         }
 	}
 
@@ -326,30 +326,9 @@ public class PlayerController : MonoBehaviour
     {
 		return playerIsFiring;
     }
+
+	public void PlaySound(string name)
+    {
+		FindObjectOfType<AudioManager>().Play(name);
+    }
 }
-
-/*Debug.Log("Il player sta sparando, controllo le distanze dai nemici");
-
-			foreach(GameObject enemyGameObject in enemyGameObjects)
-            {
-				enemyStateManager = enemyGameObject.GetComponent<EnemyStateManager>();
-
-				Debug.Log("Sono entrato nel foreach");
-
-				Vector3 distanceToAlert = enemyGameObject.transform.position - this.gameObject.transform.position;
-
-				Debug.Log("Stampo la distance To Alert" + distanceToAlert);
-
-				Debug.Log("Stampo la magnitude" + distanceToAlert.magnitude);
-
-				Debug.Log("Stampo la Distanza con Vector3.Distance: " + Vector3.Distance(enemyGameObject.transform.position, this.gameObject.transform.position));
-
-				//if(Vector3.Distance(enemyGameObject.transform.position, this.gameObject.transform.position) <= 20f)
-				if (distanceToAlert.magnitude <= 20f)
-				{
-					Debug.Log("Entro nell'if, dovrebbe cambiare lo stato del nemico in chasing");
-					enemyStateManager.SwitchState(enemyStateManager.ChasePlayerState);
-				}
-            }
-
-		Debug.Log("Faccio quello che viene dopo");*/

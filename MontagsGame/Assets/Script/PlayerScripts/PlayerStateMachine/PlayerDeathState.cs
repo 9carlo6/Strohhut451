@@ -27,6 +27,9 @@ public class PlayerDeathState : PlayerBaseState
         //I materiali del personaggio vengono settati al materiale con lo shader per la dissolvenza
         playerController.renderAstroBody.sharedMaterials = playerController.material;
     	playerController.renderAstroHead.sharedMaterials = playerController.material;
+
+        //Richiamo il suono della morte
+        //playerController.PlaySound("Nome suono");
     }
 
     public override void UpdateState(PlayerStateManager player)

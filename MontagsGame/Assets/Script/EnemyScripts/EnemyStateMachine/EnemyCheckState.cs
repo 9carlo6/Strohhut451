@@ -91,7 +91,7 @@ public class EnemyCheckState : EnemyBaseState
 
         FieldOfViewCheck();
 
-        if (playerInSightRange)
+        if (playerInSightRange || fireInHearRange)
         {
             enemy.SwitchState(enemy.ChasePlayerState);
         }
