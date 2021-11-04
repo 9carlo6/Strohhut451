@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Animations.Rigging;
+using System.IO;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,12 +16,12 @@ public class PlayerController : MonoBehaviour
 	private Camera mainCamera;
 
 	//Serve per muovere il personaggio con il new input System
-	PlayerInput playerInput;
-	CharacterController characterController;
+	private PlayerInput playerInput;
+	private CharacterController characterController;
 
 	//Variabili per salvare i valori di input del giocatore
-	Vector2 currentMovementInput;
-	Vector3 currentMovement;
+	private Vector2 currentMovementInput;
+	private Vector3 currentMovement;
 	[HideInInspector] public bool isMovementPressed;
 	[HideInInspector] public bool isAttackButtonPressed;
 	[HideInInspector] public bool isAttacking;
@@ -29,22 +30,22 @@ public class PlayerController : MonoBehaviour
 	//Per l'animazione
 	public Animator animator;
 	//Queste due variabili servono per modificare l'animazione in base alla direzione del personaggio
-	float velocityX = 0.0f;
-	float velocityZ = 0.0f;
+	private float velocityX = 0.0f;
+	private float velocityZ = 0.0f;
 
 	//Per la gestione dello sparo
 	public GameObject weapon;
 	//Per collegarsi alla classe che gestisce l'arma
-	WeaponController weaponController;
+	private WeaponController weaponController;
 
 	//Per accedere allo script RigBuilder
-	public RigBuilder rigBuilder;
+	[HideInInspector] public RigBuilder rigBuilder;
 
 	//Per l'attacco corpo a corpo
 	public Transform attackPoint;
 	public LayerMask enemyLayers;
-	public float attackRange = 0.5f;
-	public float meleeDamage = 1f;
+	public float attackRange;
+	public float meleeDamage;
 
 	//Per modificare i materiali dei figli runtime
 	public Material[] material;
@@ -54,23 +55,32 @@ public class PlayerController : MonoBehaviour
 	[HideInInspector] public Renderer renderAstroHead;
 
 	//Per far fermare completamente il giocatore
-	public bool isStopped = false;
+	[HideInInspector] public bool isStopped = false;
 
 	//Per capire se il collide con il piano che serve per passare al livello successivo
-	public bool nextLevelPlaneCollision = false;
+	[HideInInspector] public bool nextLevelPlaneCollision = false;
 
 	//Per gestire la rotazione della spina dorsale
 	public GameObject spineTarget;
 	public float rotationSpeed = 2f;
-  
+
   //Per l'alert
 	//GameObject[] enemyGameObjects;
 	//private EnemyStateManager enemyStateManager;
 	private bool playerIsFiring = false;
 	private float timerToReset = 2;
-  
+
   //Per gestire l'arma corpo a corpo
 	public GameObject rodWeapon;
+
+	//Per gestire i Componenti
+	public Component[] components;
+
+	//Per gestire le feature;
+	public Dictionary<string, HumanFeature> features;
+	private HumanFeaturesJsonMap humanMapper;
+
+
 	void Awake()
 	{
 		playerInput = new PlayerInput();
@@ -85,6 +95,22 @@ public class PlayerController : MonoBehaviour
 		renderAstroBody = astroBody.GetComponent<Renderer>();
 		renderAstroHead = astroHead.GetComponent<Renderer>();
 		//Fine - Componenti dei Figli
+
+		//Inizio - Inizializzazione delle feature
+		string fileString = new StreamReader("Assets/Push-To-Data/Feature/Human/player_features.json").ReadToEnd();
+		humanMapper = JsonUtility.FromJson<HumanFeaturesJsonMap>(fileString);
+
+		features = new Dictionary<string, HumanFeature>();
+		features.Add("moveSpeed", new HumanFeature(humanMapper.FT_SPEED, HumanFeature.FeatureType.FT_SPEED));
+		features.Add("healt", new HumanFeature(humanMapper.FT_HEALTH, HumanFeature.FeatureType.FT_HEALTH));
+		features.Add("attackRange", new HumanFeature(humanMapper.FT_ATTACK_RANGE, HumanFeature.FeatureType.FT_ATTACK_RANGE));
+		features.Add("meleeDamage", new HumanFeature(humanMapper.FT_MELEE_DAMAGE, HumanFeature.FeatureType.FT_MELEE_DAMAGE));
+
+		//Da eliminare???
+		moveSpeed = (float) features["moveSpeed"].currentValue;
+		attackRange  = (float) features["attackRange"].currentValue;
+		meleeDamage  = (float) features["meleeDamage"].currentValue;
+		//Fine - Inizializzazione delle feature
 
 		//Callbacks per il movimento
 		//ascolta quando il giocatore inizia a utilizzare l'azione Move
@@ -173,7 +199,7 @@ public class PlayerController : MonoBehaviour
 				}
 				else
 				{
-					transform.rotation = Quaternion.RotateTowards(transform.rotation, rotTarget, rotationSpeed * 200f * Time.deltaTime);
+					transform.rotation = Quaternion.RotateTowards(transform.rotation, rotTarget, rotationSpeed * 300f * Time.deltaTime);
 				}
 				animator.SetBool("isRotating",true);
                 //transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
@@ -203,7 +229,7 @@ public class PlayerController : MonoBehaviour
 			weaponController.UpdateFiring(Time.deltaTime);
 
 			playerIsFiring = true;
-		
+
         }
 
         if (playerIsFiring && timerToReset > 0)
@@ -316,14 +342,14 @@ public class PlayerController : MonoBehaviour
 
 				Debug.Log("Stampo la magnitude" + distanceToAlert.magnitude);
 
-				Debug.Log("Stampo la Distanza con Vector3.Distance: " + Vector3.Distance(enemyGameObject.transform.position, this.gameObject.transform.position));	
+				Debug.Log("Stampo la Distanza con Vector3.Distance: " + Vector3.Distance(enemyGameObject.transform.position, this.gameObject.transform.position));
 
 				//if(Vector3.Distance(enemyGameObject.transform.position, this.gameObject.transform.position) <= 20f)
 				if (distanceToAlert.magnitude <= 20f)
 				{
 					Debug.Log("Entro nell'if, dovrebbe cambiare lo stato del nemico in chasing");
 					enemyStateManager.SwitchState(enemyStateManager.ChasePlayerState);
-				} 
+				}
             }
 
 		Debug.Log("Faccio quello che viene dopo");*/

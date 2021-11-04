@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class WeaponController : MonoBehaviour
+public class WeaponController : MonoBehaviour, Component
 {
     //Per capire se si sta sparando o no
     public bool isFiring = false;
@@ -44,11 +45,13 @@ public class WeaponController : MonoBehaviour
     Ray rayWeaponSight;
     RaycastHit hitInfoWeaponSight;
 
+    //Per la gestione dei moficatori
+    public WeaponModifier weaponModifier;
+    //public Text jsonWeaponModifier;
+
     void Awake()
     {
-
          ammoWidget.Refresh(ammoCount);
-
     }
 
     //Funzione chiamata quando si riceve l'input per lo sparo
@@ -62,7 +65,7 @@ public class WeaponController : MonoBehaviour
     //Funzione necessaria per gestire l'update dello sparo
     public void UpdateFiring(float deltaTime)
     {
-        //Minore è il fireRate maggiore è il tempo che intercorre tra uno sparo e un'altro (quando si tiene premuto il pulsante per sparare)
+        //Minore ï¿½ il fireRate maggiore ï¿½ il tempo che intercorre tra uno sparo e un'altro (quando si tiene premuto il pulsante per sparare)
         accumulatedTime += deltaTime;
         float fireInterval = 1.0f / fireRate;
 
@@ -107,25 +110,23 @@ public class WeaponController : MonoBehaviour
             //Debug.DrawLine(ray.origin, hitInfo.point, Color.red, 1.0f);
 
             //Per la gestione del dallo al nemico in seguito alla collisione
-            
+
                var hitEnemyCollider = hitInfo.collider.GetComponent<EnemyHealthManager>();
                if (hitEnemyCollider)
                {
                    hitEnemyCollider.TakeDamage(damage);
                }
-            
+
         }
 
-        //Se non c'è la raffica allora spara solo un colpo e dopo finisce
+        //Se non c'ï¿½ la raffica allora spara solo un colpo e dopo finisce
         if (!isBurst)
         {
             StopFiring();
         }
 
         //Questo serve per aggiornare le munizioni visibili nel widget
-      
-            ammoWidget.Refresh(ammoCount);
-
+        ammoWidget.Refresh(ammoCount);
     }
 
     //Per gestire il puntatore
@@ -138,13 +139,29 @@ public class WeaponController : MonoBehaviour
         {
             //Debug.DrawLine(ray2.origin, hitInfo2.point, Color.red, 1.0f);
             weaponSight.transform.position = new Vector3(hitInfoWeaponSight.point.x, 1, hitInfoWeaponSight.point.z);
-
         }
+    }
+
+    //Per gestire i modificatori
+    public void handleWeaponModifier(){
+      //legge il modificatore collegato all'arma
+
+
+
+      this.fireRate = weaponModifier.fireRate;
+      this.maxAmmoCount = weaponModifier.maxAmmoCount;
+      this.ammoCount = weaponModifier.ammoCount;
+      this.damage = weaponModifier.damage;
+      this.isBurst = weaponModifier.isBurst;
+      this.tracerEffect = weaponModifier.tracerEffect;
     }
 
     void Update()
     {
-        handleWeaponSight();
+      //Per gestire i modificatori
+      //handleWeaponModifier();
+      //Per gestire il puntatore
+      handleWeaponSight();
     }
 
     //Funzione per gestire il drop delle munizioni
