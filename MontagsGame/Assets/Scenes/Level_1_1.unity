@@ -25762,6 +25762,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1693636558}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1694247017
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1694247018}
+  m_Layer: 0
+  m_Name: RayCastOriginCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1694247018
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694247017}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1968180353}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1694567402
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30540,6 +30570,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 102e12c64dfbb7744ab442a7998207cb, type: 3}
+--- !u!4 &1968180353 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1566586078437838342, guid: beb5a3e67bcdc5540b941dce951eb592,
+    type: 3}
+  m_PrefabInstance: {fileID: 1566586077478986610}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1968380050 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 6f8d58e7ba74d374d82dcd3326e22bbb,
@@ -34076,6 +34112,11 @@ PrefabInstance:
       propertyPath: smoothSpeed
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1566586078437838343, guid: beb5a3e67bcdc5540b941dce951eb592,
+        type: 3}
+      propertyPath: raycastOrigin
+      value: 
+      objectReference: {fileID: 1694247018}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: beb5a3e67bcdc5540b941dce951eb592, type: 3}
 --- !u!1001 &1965771497510512173
