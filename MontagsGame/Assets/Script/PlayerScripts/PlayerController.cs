@@ -226,21 +226,19 @@ public class PlayerController : MonoBehaviour
 
 		if (weaponController.isFiring)
 		{
-			weaponController.UpdateFiring(Time.deltaTime);
-
+			//weaponController.UpdateFiring(Time.deltaTime);
 			playerIsFiring = true;
+    }
 
-        }
-
-        if (playerIsFiring && timerToReset > 0)
-        {
+    if (playerIsFiring && timerToReset > 0)
+    {
 			timerToReset -= Time.deltaTime;
-        }
-        else
-        {
+    }
+    else
+    {
 			playerIsFiring = false;
 			timerToReset = 1;
-        }
+    }
 	}
 
 	//Per gestire le animazioni
