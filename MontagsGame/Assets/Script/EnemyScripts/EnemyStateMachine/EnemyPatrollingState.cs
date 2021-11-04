@@ -22,12 +22,15 @@ public class EnemyPatrollingState : EnemyBaseState
 
     NavMeshAgent enemyNavMeshAgent;
     GameObject enemyGameObject;
+    EnemyController enemyController;
+
 
     EnemyHealthManager enemyHealthManager;
 
     //per l'animazione
     public Animator enemyAnimator;
     public bool waypointReached = false;
+    float agentDeceleration = 1.5f;
 
     public bool playerInSightRange;  //quando vedo il bersaglio = true
 
@@ -48,7 +51,7 @@ public class EnemyPatrollingState : EnemyBaseState
 
         enemyNavMeshAgent = enemy.GetComponent<NavMeshAgent>();
 
-        enemyNavMeshAgent.speed = 1f;
+        //enemyNavMeshAgent.speed = 1f;
 
         enemyGameObject = enemy.GetComponent<EnemyController>().gameObject;
         wayPoints = enemy.GetComponent<EnemyController>().wayPoints;
@@ -56,10 +59,15 @@ public class EnemyPatrollingState : EnemyBaseState
         obstructionMask = enemy.GetComponent<EnemyController>().obstructionMask;
         enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
         enemyAnimator = enemy.GetComponent<Animator>();
+        enemyController = enemy.GetComponent<EnemyController>();
+
 
         enemyNavMeshAgent.destination = wayPoints[wayPointIndex].position;
 
-        playerGameObject = GameObject.FindGameObjectWithTag("Player");
+        if (GameObject.FindGameObjectWithTag("Player") != null)
+        {
+            playerGameObject = GameObject.FindGameObjectWithTag("Player");
+        }
         
 
 
@@ -68,22 +76,24 @@ public class EnemyPatrollingState : EnemyBaseState
     public override void UpdateState(EnemyStateManager enemy)
         {
 
-        playerFire = playerGameObject.GetComponent<PlayerController>().getBoolToAlert();
-
-        Debug.Log("Stampo l'alert" + playerFire);
-
-        if (playerFire)
+        if (playerGameObject != null)
         {
-            if (Vector3.Distance(enemyGameObject.transform.position, playerGameObject.transform.position) <= 20f)
+            playerFire = playerGameObject.GetComponent<PlayerController>().getBoolToAlert();
 
-                fireInHearRange = true;
-            else
+           
+
+            if (playerFire)
             {
-                fireInHearRange = false;
+                if (Vector3.Distance(enemyGameObject.transform.position, playerGameObject.transform.position) <= 12f)
+
+                    fireInHearRange = true;
+                else
+                {
+                    fireInHearRange = false;
+                }
             }
+
         }
-
-
         FieldOfViewCheck();   //Il fov dovrà essere sempre attivo, ritorna il valore di playerInSightRange
 
 
@@ -160,6 +170,7 @@ public class EnemyPatrollingState : EnemyBaseState
             wayPointIndex = (wayPointIndex + 1) % wayPoints.Length;
 
             enemy.SwitchState(enemy.CheckState);
+            
 
 
 

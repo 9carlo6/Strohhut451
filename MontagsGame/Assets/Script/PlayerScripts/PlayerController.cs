@@ -199,7 +199,7 @@ public class PlayerController : MonoBehaviour
 				}
 				else
 				{
-					transform.rotation = Quaternion.RotateTowards(transform.rotation, rotTarget, rotationSpeed * 200f * Time.deltaTime);
+					transform.rotation = Quaternion.RotateTowards(transform.rotation, rotTarget, rotationSpeed * 300f * Time.deltaTime);
 				}
 				animator.SetBool("isRotating",true);
                 //transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));

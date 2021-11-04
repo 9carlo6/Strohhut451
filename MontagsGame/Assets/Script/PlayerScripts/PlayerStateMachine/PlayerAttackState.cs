@@ -105,7 +105,7 @@ public class PlayerAttackState : PlayerBaseState
                 //enemyCollider.gameObject.transform.position = playerController.gameObject.transform.TransformPoint(5);
                 //Vector3 targetDir = enemy.gameObject.transform.position - playerController.gameObject.transform.position;
             }
-            else if (string.Equals(enemyState, "EnemyChasePlayerState") || string.Equals(enemyState, "EnemyMeleeAttackState") || string.Equals(enemyState, "EnemyPatrollingState"))
+            else if (string.Equals(enemyState, "EnemyChasePlayerState") || string.Equals(enemyState, "EnemyMeleeAttackState") || string.Equals(enemyState, "EnemyPatrollingState") || string.Equals(enemyState, "EnemyCheckState"))
             {
                 animator.SetFloat("isStealthAttack", 0);
                 Debug.Log("Il player sta colpendo Melee: " + enemy.name);
