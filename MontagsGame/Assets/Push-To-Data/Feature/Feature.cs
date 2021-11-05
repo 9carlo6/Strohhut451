@@ -4,5 +4,10 @@ using UnityEngine;
 
 public abstract class Feature
 {
-  
+    public enum FeatureType
+    {
+
+    }
+
+    //public FeatureType featureName;
 }

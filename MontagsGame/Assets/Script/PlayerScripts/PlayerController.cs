@@ -76,10 +76,12 @@ public class PlayerController : MonoBehaviour
 	//Per gestire i Componenti
 	public Component[] components;
 
-	//Per gestire le feature;
+	//Per gestire le feature
 	public Dictionary<string, HumanFeature> features;
 	private HumanFeaturesJsonMap humanMapper;
 
+	//Per gestire i modificatori
+	public Dictionary<string, Modifier> modifiers;
 
 	void Awake()
 	{
@@ -111,6 +113,11 @@ public class PlayerController : MonoBehaviour
 		attackRange  = (float) features["attackRange"].currentValue;
 		meleeDamage  = (float) features["meleeDamage"].currentValue;
 		//Fine - Inizializzazione delle feature
+
+		//Inizio prova modificatori da cancellare
+		modifiers = new Dictionary<string, Modifier>();
+		modifiers.Add("SpeedModifier", new Modifier((Feature.FeatureType) HumanFeature.FeatureType.FT_SPEED, "moveSpeed", 0.5f));
+		//Fine prova modificatori da cancellare
 
 		//Callbacks per il movimento
 		//ascolta quando il giocatore inizia a utilizzare l'azione Move
@@ -158,13 +165,29 @@ public class PlayerController : MonoBehaviour
 		isAttacking = animator.GetBool("isAttacking");
 		isDeath = animator.GetBool("isDeath");
 
-		if(!isAttacking && !isDeath && !isStopped){
-			characterController.Move(currentMovement * Time.deltaTime * moveSpeed);
+		//Solo per Debug -> per controllare il valore corrente della velocita tramite l'Inspector
+		moveSpeed = (float)features["moveSpeed"].currentValue;
+
+		if (!isAttacking && !isDeath && !isStopped){
+			characterController.Move(currentMovement * Time.deltaTime * (float) features["moveSpeed"].currentValue);
 			handlePlayerRotation();
 			handleFiring();
 		}
 
 		handleAnimation();
+
+		//Per gestire i modificatori
+		foreach (var modifier in modifiers.Values)
+        {
+			HumanFeature.FeatureType enumValue;
+			if (HumanFeature.FeatureType.TryParse(modifier.m_type.ToString(), out enumValue))
+			{
+				Debug.Log("OK SI PUO APPLICARE E IL TIPO E': " + enumValue.ToString());
+				features[modifier.m_feature_id].currentValue = (float) features[modifier.m_feature_id].baseValue * modifier.m_fFactor;
+			}
+			
+		}
+
 	}
 
 	//Per gestire la rotazione del player con il movimento del mouse
