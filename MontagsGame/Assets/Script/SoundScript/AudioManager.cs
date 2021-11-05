@@ -8,11 +8,11 @@ public class AudioManager : MonoBehaviour
 
     public Sound[] sounds;
 
-    //public static AudioManager instance;
+    public static AudioManager instance;
     // Start is called before the first frame update
     void Awake()
     {
-        /*
+        
         //Per fare in modo che persita tra le diverse scene, se ne venisse creato un duplicato lo eliminiamo con questo controllo 
         if(instance == null)
         {
@@ -26,8 +26,8 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        DontDestroyOnLoad(gameObject);
-        */
+    //    DontDestroyOnLoad(gameObject);
+        
 
         foreach (Sound s in sounds)
         {
@@ -64,3 +64,5 @@ public class AudioManager : MonoBehaviour
 
 
 }
+
+//FindObjectOfType<AudioManager>().Play("Shot");

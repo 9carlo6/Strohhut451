@@ -9942,9 +9942,9 @@ MonoBehaviour:
   isFiring: 0
   fireRate: 25
   maxAmmoCount: 10
-  ammoCount: 10
+  ammoCount: 500
   damage: 10
-  isBurst: 0
+  isBurst: 1
   ammoWidget: {fileID: 1648711280}
   muzzleFlash:
   - {fileID: 1232031745}
@@ -14996,6 +14996,18 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &965584135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965584123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa62574449d3520458ca6d0d16a15a63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &965641250 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 677159305870264291, guid: 658cff369a96e824b8daa1347b5e2bda,
@@ -25405,9 +25417,27 @@ MonoBehaviour:
   sounds:
   - audioClip: {fileID: 8300000, guid: 8749c704380672c48b60578d976b394b, type: 3}
     name: Theme
-    volume: 1
+    volume: 0.81
     pitch: 2
     loop: 1
+    audioSource: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: 79ec50c62f3ee6f4d89620658d0feae2, type: 3}
+    name: NormalFire
+    volume: 1
+    pitch: 2.41
+    loop: 0
+    audioSource: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: 0c82d789ea22c734ab504e7ae43d9c97, type: 3}
+    name: running
+    volume: 1
+    pitch: 1.65
+    loop: 1
+    audioSource: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: b3f484b49755edc4695fcc15dc4d8a0f, type: 3}
+    name: BurstFire
+    volume: 1
+    pitch: 1.65
+    loop: 0
     audioSource: {fileID: 0}
 --- !u!4 &1663589037
 Transform:

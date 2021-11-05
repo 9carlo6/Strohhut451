@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
   //Per l'alert
 	//GameObject[] enemyGameObjects;
 	//private EnemyStateManager enemyStateManager;
-	private bool playerIsFiring = false;
+	public bool playerIsFiring = false;
 	private float timerToReset = 1;
 
   //Per gestire l'arma corpo a corpo

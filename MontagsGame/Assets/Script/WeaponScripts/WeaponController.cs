@@ -49,6 +49,9 @@ public class WeaponController : MonoBehaviour, Component
     public WeaponModifier weaponModifier;
     //public Text jsonWeaponModifier;
 
+   
+
+    
     void Awake()
     {
          ammoWidget.Refresh(ammoCount);
@@ -88,6 +91,8 @@ public class WeaponController : MonoBehaviour, Component
         //Per diminuire il numero di munizioni quando si spara
         ammoCount--;
 
+
+
         //Questo ciclo permette di azionare tutti gli oggetti particellari in muzzleFlash
         foreach (var particle in muzzleFlash)
         {
@@ -102,6 +107,8 @@ public class WeaponController : MonoBehaviour, Component
 
         if (Physics.Raycast(ray, out hitInfo))
         {
+
+            
             hitEffect.transform.position = hitInfo.point;
             hitEffect.transform.forward = hitInfo.normal;
             hitEffect.Emit(1);
