@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class WeaponFeature : Feature
 {
@@ -14,13 +15,14 @@ public class WeaponFeature : Feature
     FT_TRACER_EFFECT
   }
 
-  Object baseValue;
-  Object currentValue;
-  FeatureType featureName;
+  public System.Object baseValue;
+  public System.Object currentValue;
+  public FeatureType featureName;
 
-  public WeaponFeature(Object baseValue, FeatureType featureName){
+  public WeaponFeature(System.Object baseValue, FeatureType featureName){
     this.baseValue = baseValue;
     this.currentValue = baseValue;
     this. featureName = featureName;
   }
+
 }
