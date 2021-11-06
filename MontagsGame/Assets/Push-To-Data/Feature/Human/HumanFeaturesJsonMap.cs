@@ -10,5 +10,6 @@ public class HumanFeaturesJsonMap
   public float FT_HEALTH;
   public float FT_ATTACK_RANGE;
   public float FT_MELEE_DAMAGE;
+  public bool FT_INCREASED_FOV;
 
 }

@@ -6,6 +6,7 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
     private GameObject player;
+    public PlayerController playerController;
     //public float x = 0f;
     //public float y = 0f;
     //public float z = 0f;
@@ -22,6 +23,7 @@ public class CameraMovement : MonoBehaviour
 
     void Awake(){
         player = GameObject.FindWithTag("Player");
+        playerController = player.GetComponent<PlayerController>();
         mainCamera = FindObjectOfType<Camera>();
     }
 
@@ -40,7 +42,9 @@ public class CameraMovement : MonoBehaviour
         }
 
         //Per spostare la telecamera quando si preme il tasto shift
-        if (Input.GetKey(KeyCode.LeftShift))
+        //Per poterla spostare il giocatore deve avere il booleano a true
+        //Questo puo è essere ottenuto prendendo la TreasureChest (per ora)
+        if (Input.GetKey(KeyCode.LeftShift) && (bool)playerController.features["increasedVisualField"].currentValue)
         {
             handleCameraMovementOnShifPressed();
         }
