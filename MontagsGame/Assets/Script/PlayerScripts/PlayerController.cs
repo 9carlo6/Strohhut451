@@ -73,6 +73,9 @@ public class PlayerController : MonoBehaviour
   //Per gestire l'arma corpo a corpo
 	public GameObject rodWeapon;
 
+	//Per gestire la possibilità di poter aumentare il campo visivo premendo shift
+	public bool increasedVisualField;
+
 	//Per gestire i Componenti
 	public Component[] components;
 
@@ -107,11 +110,13 @@ public class PlayerController : MonoBehaviour
 		features.Add("healt", new HumanFeature(humanMapper.FT_HEALTH, HumanFeature.FeatureType.FT_HEALTH));
 		features.Add("attackRange", new HumanFeature(humanMapper.FT_ATTACK_RANGE, HumanFeature.FeatureType.FT_ATTACK_RANGE));
 		features.Add("meleeDamage", new HumanFeature(humanMapper.FT_MELEE_DAMAGE, HumanFeature.FeatureType.FT_MELEE_DAMAGE));
+		features.Add("increasedVisualField", new HumanFeature(humanMapper.FT_INCREASED_FOV, HumanFeature.FeatureType.FT_INCREASED_FOV));
 
 		//Da eliminare???
 		moveSpeed = (float) features["moveSpeed"].currentValue;
 		attackRange  = (float) features["attackRange"].currentValue;
 		meleeDamage  = (float) features["meleeDamage"].currentValue;
+		increasedVisualField = (bool) features["increasedVisualField"].currentValue;
 		//Fine - Inizializzazione delle feature
 
 		//Inizio prova modificatori da cancellare
