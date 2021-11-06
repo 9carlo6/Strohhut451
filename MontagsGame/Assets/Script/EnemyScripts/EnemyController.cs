@@ -39,12 +39,14 @@ public class EnemyController : MonoBehaviour
    
     float aimDuration = 0.3f;
 
-
     public float acceleration = 0.3f;
     public float deceleration = 0.3f;
     float velocity = 0.4f;
     int velocityHash;
 
+    //Per Gestire lo shader corrente
+    public Shader baseEnemyShader;
+    public Shader stunnedEnemyShader;
 
     void Awake()
     {
@@ -59,6 +61,7 @@ public class EnemyController : MonoBehaviour
         //Per gestire il passaggio allo shader per la dissolvenza
         //L'intensita dello shader per la dissolvenza viene settato inizialmente a 0.3
         this.material[0].SetFloat("Vector_Intensity_Dissolve2", 0.4f);
+
 
     }
 
@@ -118,7 +121,10 @@ public class EnemyController : MonoBehaviour
                     animator.SetBool("Attack", false);
                     animator.SetBool("isStunned", false);
                     animator.SetBool("waypointReached", false);
-                    enemyNavMeshAgent.isStopped = false; ;
+                    enemyNavMeshAgent.isStopped = false;
+
+                    //Per gestire lo shader
+                    renderEnemyBody.material.shader = baseEnemyShader;
                     break;
 
                 case "EnemyCheckState":
@@ -126,13 +132,14 @@ public class EnemyController : MonoBehaviour
                     animator.SetBool("Attack", false);
                     animator.SetBool("isStunned", false);
                     animator.SetBool("waypointReached", true);
-                    enemyNavMeshAgent.isStopped = true; ;
+                    enemyNavMeshAgent.isStopped = true;
 
+                    //Per gestire lo shader
+                    renderEnemyBody.material.shader = baseEnemyShader;
                     break;
 
                 case "EnemyChasePlayerState":
                     
-
                     if (aimLayer != null)
                     {
                         aimLayer.weight += Time.deltaTime / aimDuration;
@@ -148,8 +155,10 @@ public class EnemyController : MonoBehaviour
                     animator.SetBool("isStunned", false);
                     animator.SetBool("Attack", false);
                     animator.SetBool("waypointReached", false);
+                    enemyNavMeshAgent.isStopped = false;
 
-                    enemyNavMeshAgent.isStopped = false; ;
+                    //Per gestire lo shader
+                    renderEnemyBody.material.shader = baseEnemyShader;
                     break;
 
                 case "EnemyMeleeAttackState":
@@ -157,8 +166,10 @@ public class EnemyController : MonoBehaviour
                     animator.SetBool("Attack", true);
                     animator.SetBool("isStunned", false);
                     animator.SetBool("waypointReached", false);
-
                     enemyNavMeshAgent.isStopped = false;
+
+                    //Per gestire lo shader
+                    renderEnemyBody.material.shader = baseEnemyShader;
                     break;
 
                 case "EnemyStunnedState":
@@ -166,8 +177,10 @@ public class EnemyController : MonoBehaviour
                     animator.SetBool("Attack", false);
                     animator.SetBool("isStunned", true);
                     animator.SetBool("waypointReached", false);
-
                     enemyNavMeshAgent.isStopped = true;
+
+                    //Per gestire lo shader
+                    renderEnemyBody.material.shader = stunnedEnemyShader;
                     break;
 
                 case "EnemyAliveState":
@@ -175,8 +188,10 @@ public class EnemyController : MonoBehaviour
                     animator.SetBool("Attack", false);
                     animator.SetBool("isStunned", false);
                     animator.SetBool("waypointReached", false);
-
                     enemyNavMeshAgent.isStopped = true;
+
+                    //Per gestire lo shader
+                    renderEnemyBody.material.shader = baseEnemyShader;
                     break;
 
 

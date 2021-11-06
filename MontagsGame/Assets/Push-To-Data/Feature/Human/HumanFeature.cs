@@ -10,8 +10,9 @@ public class HumanFeature : Feature
     FT_SPEED,
     FT_HEALTH,
     FT_ATTACK_RANGE,
-    FT_MELEE_DAMAGE
-  }
+    FT_MELEE_DAMAGE,
+    FT_INCREASED_FOV
+    }
 
   public System.Object baseValue;
   public System.Object currentValue;

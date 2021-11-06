@@ -2,23 +2,22 @@ using UnityEngine.Audio;
 using System;
 using UnityEngine;
 
-//In questa classe inseriamo tutti i suoni presenti nel gioco, gestiamo le proprietà degli stessi ed il metodo per riprodurre i suoni
+//In questa classe inseriamo tutti i suoni presenti nel gioco, gestiamo le proprietï¿½ degli stessi ed il metodo per riprodurre i suoni
 public class AudioManager : MonoBehaviour
 {
-
+    //Definiamo un array di suoni a partire dalla classe Sound
     public Sound[] sounds;
 
     public static AudioManager instance;
+
     // Start is called before the first frame update
     void Awake()
     {
-        
-        //Per fare in modo che persita tra le diverse scene, se ne venisse creato un duplicato lo eliminiamo con questo controllo 
+        //Per fare in modo che l'audio Manager persita tra le diverse scene
         if(instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
-
+            DontDestroyOnLoad(gameObject);  //Non distrugge il gameObject quando carica una nuova scena
         }
         else
         {
@@ -26,9 +25,10 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-    //    DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         
 
+        //Per ogni suono inserito andiamo ad aggiungere la proprietï¿½ relativa all'audioSource
         foreach (Sound s in sounds)
         {
             s.audioSource = gameObject.AddComponent<AudioSource>();
@@ -36,14 +36,22 @@ public class AudioManager : MonoBehaviour
             s.audioSource.clip = s.audioClip;
 
             s.audioSource.volume = s.volume;
+
             s.audioSource.pitch = s.pitch;
 
             s.audioSource.loop = s.loop;
+
+            s.audioSource.panStereo = s.panStereo;
+
+            s.audioSource.spatialBlend = s.spatialBlend;
+
+            s.audioSource.reverbZoneMix = s.reverbZoneMix;
 
         }
 
     }
 
+    //Play la canzone principale
     void Start()
     {
         Play("Theme");
