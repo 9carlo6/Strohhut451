@@ -7,24 +7,28 @@ public class PlayerSounds : MonoBehaviour
     AudioManager audioManager;
     PlayerController playerController;
     WeaponController weaponController;
+    Coin coin;
     // Start is called before the first frame update
     void Start()
     {
         playerController = GetComponent<PlayerController>();
         weaponController = GetComponentInChildren<WeaponController>();
         audioManager = GetComponent<AudioManager>();
+        coin = GetComponent<Coin>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Fire();
-        Running();
+        FireSound();
+        RunningSound();
+        CoinSound();
         
 
     }
 
-    void Fire()
+    void FireSound()
     {
         if (weaponController.isFiring && weaponController.ammoCount > 0 && !weaponController.isBurst)
         {
@@ -36,12 +40,20 @@ public class PlayerSounds : MonoBehaviour
    }
 
     //da gestire un po meglio
-    void Running()
+    void RunningSound()
     {
         if (!playerController.isMovementPressed)
         {
             FindObjectOfType<AudioManager>().Play("running");
         }
         
+    }
+
+    void CoinSound()
+    {
+        /*if (coin.taking)
+        {
+            FindObjectOfType<AudioManager>().Play("Coin");
+        }*/
     }
 }
