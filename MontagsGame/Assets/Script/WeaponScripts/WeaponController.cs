@@ -150,7 +150,7 @@ public class WeaponController : MonoBehaviour, Component
           }
         }
 
-        //Se non c'� la raffica allora spara solo un colpo e dopo finisce
+        //Se non c'è la raffica allora spara solo un colpo e dopo finisce
         if (!isBurst)
         {
           StopFiring();
@@ -219,6 +219,7 @@ public class WeaponController : MonoBehaviour, Component
     //Funzione chiamata quando termina l'input per lo sparo
     public void StopFiring()
     {
+        FindObjectOfType<AudioManager>().Play("NormalFire");
         isFiring = false;
     }
 }

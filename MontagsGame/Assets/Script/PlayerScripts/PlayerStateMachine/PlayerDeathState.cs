@@ -9,6 +9,7 @@ public class PlayerDeathState : PlayerBaseState
     private Animator animator;
     private AnimatorClipInfo[] clipInfo;
 
+
     public override void EnterState(PlayerStateManager player)
     {
         Debug.Log("Stato Player = Morto");
@@ -28,8 +29,9 @@ public class PlayerDeathState : PlayerBaseState
         playerController.renderAstroBody.sharedMaterials = playerController.material;
     	playerController.renderAstroHead.sharedMaterials = playerController.material;
 
-        //Richiamo il suono della morte
-        //playerController.PlaySound("Nome suono");
+       // GameObject.FindObjectOfType<AudioManager>().Play("Morte Nemico");
+
+
     }
 
     public override void UpdateState(PlayerStateManager player)

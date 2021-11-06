@@ -255,6 +255,7 @@ public class PlayerController : MonoBehaviour
 		if (weaponController.isFiring)
 		{
 			//weaponController.UpdateFiring(Time.deltaTime);
+			
 			playerIsFiring = true;
     }
 
@@ -280,10 +281,12 @@ public class PlayerController : MonoBehaviour
 		//Gestione Camminata
 		if (isMovementPressed && !isWalking)
 		{
+			FindObjectOfType<AudioManager>().Play("Running");
 			animator.SetBool("isWalking", true);
 		}
 		else if (!isMovementPressed && isWalking)
 		{
+			FindObjectOfType<AudioManager>().Stop("Running");
 			animator.SetBool("isWalking", false);
 		}
 
@@ -351,10 +354,5 @@ public class PlayerController : MonoBehaviour
 	public bool getBoolToAlert()
     {
 		return playerIsFiring;
-    }
-
-	public void PlaySound(string name)
-    {
-		FindObjectOfType<AudioManager>().Play(name);
     }
 }
