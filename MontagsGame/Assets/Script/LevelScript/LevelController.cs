@@ -26,6 +26,10 @@ public class LevelController : MonoBehaviour
     private int currentNumberOfEnemies;
     public GameObject enemiesNumberText;
 
+    //Per gestire il numero di monete raccolte
+    public GameObject coinsText;
+    public int currentCoins = 0;
+
 
     // Start is called before the first frame update
     void Start()
@@ -86,5 +90,9 @@ public class LevelController : MonoBehaviour
         }
 
         pointsText.GetComponent<TMP_Text>().text = levelPoints.ToString() + " " + "PT";
+
+
+        //Per modificare il valore del testo relativo alle monete raccolte
+        coinsText.GetComponent<TMP_Text>().text = currentCoins.ToString() + " " + "$";
     }
 }

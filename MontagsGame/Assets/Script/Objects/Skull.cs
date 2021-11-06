@@ -16,6 +16,7 @@ public class Skull : MonoBehaviour
 
         //Porta nello stato morto il nemico selezionato
         enemies[i].GetComponent<EnemyHealthManager>().currentHealth = 0;
+
         Destroy(gameObject);
     }
 }
