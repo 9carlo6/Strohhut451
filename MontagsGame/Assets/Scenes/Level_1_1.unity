@@ -6165,6 +6165,44 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 334449657}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &335546449 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100012, guid: 6845f63e25810ac439d2f1d1d33c78f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1412451195}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &335546454
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335546449}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aae8eb6e34252164babb4a06788af5dc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &335546455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335546449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2004ff518192a294f866d0fbd70993ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tr: {fileID: 918873709}
 --- !u!1001 &343493677
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14422,6 +14460,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 995af39bed222d046ac3ba5d09e5bc6e,
     type: 3}
   m_PrefabInstance: {fileID: 911427386}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &918873709 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400008, guid: 6845f63e25810ac439d2f1d1d33c78f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1412451195}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &930719003 stripped
 Transform:
@@ -22747,7 +22791,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1374050732}
     m_Modifications:
+    - target: {fileID: 100008, guid: 6845f63e25810ac439d2f1d1d33c78f3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 100010, guid: 6845f63e25810ac439d2f1d1d33c78f3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100012, guid: 6845f63e25810ac439d2f1d1d33c78f3, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -22757,7 +22809,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 6845f63e25810ac439d2f1d1d33c78f3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.84
+      value: -2.13
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 6845f63e25810ac439d2f1d1d33c78f3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -25828,7 +25880,7 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 8749c704380672c48b60578d976b394b, type: 3}
     volume: 0.81
     pitch: 2
-    panStereo: -1
+    panStereo: 0
     spatialBlend: 0
     reverbZoneMix: 0
     loop: 1
@@ -25851,8 +25903,8 @@ MonoBehaviour:
     reverbZoneMix: 0
     loop: 1
     audioSource: {fileID: 0}
-  - name: BurstFire
-    audioClip: {fileID: 8300000, guid: b3f484b49755edc4695fcc15dc4d8a0f, type: 3}
+  - name: Coin
+    audioClip: {fileID: 8300000, guid: 9424d59765838634fa3e59ff205aa86f, type: 3}
     volume: 1
     pitch: 1.65
     panStereo: 0
@@ -25860,8 +25912,17 @@ MonoBehaviour:
     reverbZoneMix: 0
     loop: 0
     audioSource: {fileID: 0}
-  - audioClip: {fileID: 8300000, guid: 9424d59765838634fa3e59ff205aa86f, type: 3}
-    name: Coin
+  - name: BurstFire
+    audioClip: {fileID: 8300000, guid: 79ec50c62f3ee6f4d89620658d0feae2, type: 3}
+    volume: 1
+    pitch: 1.65
+    panStereo: 0
+    spatialBlend: 0
+    reverbZoneMix: 0
+    loop: 1
+    audioSource: {fileID: 0}
+  - name: OpenDoor
+    audioClip: {fileID: 8300000, guid: cb84693c87e6c444db49d28a21dd5b8b, type: 3}
     volume: 1
     pitch: 1.65
     panStereo: 0

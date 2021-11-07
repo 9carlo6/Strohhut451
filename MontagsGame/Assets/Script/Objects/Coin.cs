@@ -15,7 +15,9 @@ public class Coin : MonoBehaviour
 
         //Aumenta il numero di monete raccolte nel livello
         GameObject.FindWithTag("LevelController").GetComponent<LevelController>().currentCoins += 1;
-       // taking = true;
-        Destroy(gameObject, 3);
+        // taking = true;
+        FindObjectOfType<AudioManager>().Play("Coin");
+
+        Destroy(gameObject);
     }
 }

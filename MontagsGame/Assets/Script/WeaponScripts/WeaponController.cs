@@ -54,7 +54,7 @@ public class WeaponController : MonoBehaviour, Component
     //public WeaponModifier weaponModifier;
     //public Text jsonWeaponModifier;
 
-   
+    AudioManager audioManager;
 
     
     void Awake()
@@ -78,7 +78,9 @@ public class WeaponController : MonoBehaviour, Component
      		ammoCount  = (int) features["ammoCount"].currentValue;
      		damage  = (float) features["damage"].currentValue;
      		isBurst  = (bool) features["isBurst"].currentValue;
-     		//Fine - Inizializzazione delle feature
+        //Fine - Inizializzazione delle feature
+
+        audioManager = GetComponent<AudioManager>();
 
         ammoWidget.Refresh(ammoCount);
     }
@@ -155,6 +157,12 @@ public class WeaponController : MonoBehaviour, Component
         {
           StopFiring();
         }
+        if (isBurst)
+        {
+            FindObjectOfType<AudioManager>().Play("BurstFire");
+        }
+       
+
 
         //Questo serve per aggiornare le munizioni visibili nel widget
         ammoWidget.Refresh(ammoCount);
@@ -220,6 +228,8 @@ public class WeaponController : MonoBehaviour, Component
     public void StopFiring()
     {
         FindObjectOfType<AudioManager>().Play("NormalFire");
+        
         isFiring = false;
     }
+    
 }
