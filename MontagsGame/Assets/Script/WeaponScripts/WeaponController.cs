@@ -135,11 +135,9 @@ public class WeaponController : MonoBehaviour, Component
 
         if (Physics.Raycast(ray, out hitInfo))
         {
-
-            
-            hitEffect.transform.position = hitInfo.point;
-            hitEffect.transform.forward = hitInfo.normal;
-            hitEffect.Emit(1);
+          hitEffect.transform.position = hitInfo.point;
+          hitEffect.transform.forward = hitInfo.normal;
+          hitEffect.Emit(1);
 
           tracer.transform.position = hitInfo.point;
           //Debug.DrawLine(ray.origin, hitInfo.point, Color.red, 1.0f);
@@ -152,7 +150,7 @@ public class WeaponController : MonoBehaviour, Component
           }
         }
 
-        //Se non c'� la raffica allora spara solo un colpo e dopo finisce
+        //Se non c'è la raffica allora spara solo un colpo e dopo finisce
         if (!isBurst)
         {
           StopFiring();
@@ -221,6 +219,7 @@ public class WeaponController : MonoBehaviour, Component
     //Funzione chiamata quando termina l'input per lo sparo
     public void StopFiring()
     {
+        FindObjectOfType<AudioManager>().Play("NormalFire");
         isFiring = false;
     }
 }
