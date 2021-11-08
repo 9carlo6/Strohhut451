@@ -25454,7 +25454,7 @@ MonoBehaviour:
   - name: NormalFire
     audioClip: {fileID: 8300000, guid: 79ec50c62f3ee6f4d89620658d0feae2, type: 3}
     volume: 1
-    pitch: 2.41
+    pitch: 3
     panStereo: 0
     spatialBlend: 0
     reverbZoneMix: 0
@@ -25489,6 +25489,15 @@ MonoBehaviour:
     audioSource: {fileID: 0}
   - name: OpenDoor
     audioClip: {fileID: 8300000, guid: cb84693c87e6c444db49d28a21dd5b8b, type: 3}
+    volume: 1
+    pitch: 1.65
+    panStereo: 0
+    spatialBlend: 0
+    reverbZoneMix: 0
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: mitras
+    audioClip: {fileID: 8300000, guid: bc7d2744e9d6bd6458f056834e756b5d, type: 3}
     volume: 1
     pitch: 1.65
     panStereo: 0
@@ -35118,10 +35127,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7670466807888937260, guid: d7016784144460f4ea232eca46e03221,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7670466807888937261, guid: d7016784144460f4ea232eca46e03221,
         type: 3}
       propertyPath: m_Name
       value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7670466807888937261, guid: d7016784144460f4ea232eca46e03221,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7670466807888937263, guid: d7016784144460f4ea232eca46e03221,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8315951370470544433, guid: d7016784144460f4ea232eca46e03221,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9057703456133443090, guid: d7016784144460f4ea232eca46e03221,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7016784144460f4ea232eca46e03221, type: 3}

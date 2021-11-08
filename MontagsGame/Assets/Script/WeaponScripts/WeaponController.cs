@@ -120,6 +120,8 @@ public class WeaponController : MonoBehaviour, Component
 
         //Per diminuire il numero di munizioni quando si spara
         ammoCount--;
+        if(!isBurst)
+              FindObjectOfType<AudioManager>().Play("NormalFire");
 
 
 
@@ -157,10 +159,7 @@ public class WeaponController : MonoBehaviour, Component
         {
           StopFiring();
         }
-        if (isBurst)
-        {
-            FindObjectOfType<AudioManager>().Play("BurstFire");
-        }
+     
        
 
 
@@ -202,9 +201,18 @@ public class WeaponController : MonoBehaviour, Component
       //Per gestire il puntatore
 
       if(isFiring){
-        UpdateFiring(Time.deltaTime);
-      }
 
+            if (isBurst) {
+                FindObjectOfType<AudioManager>().Play("mitras");
+
+            }
+            UpdateFiring(Time.deltaTime);
+        }
+        else
+        { 
+            FindObjectOfType<AudioManager>().Stop("mitras");
+        }
+       
       handleWeaponSight();
     }
 
@@ -227,8 +235,8 @@ public class WeaponController : MonoBehaviour, Component
     //Funzione chiamata quando termina l'input per lo sparo
     public void StopFiring()
     {
-        FindObjectOfType<AudioManager>().Play("NormalFire");
         
+
         isFiring = false;
     }
     

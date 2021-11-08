@@ -113,15 +113,16 @@ public class PlayerController : MonoBehaviour
 		features.Add("increasedVisualField", new HumanFeature(humanMapper.FT_INCREASED_FOV, HumanFeature.FeatureType.FT_INCREASED_FOV));
 
 		//Da eliminare???
-		moveSpeed = (float) features["moveSpeed"].currentValue;
-		attackRange  = (float) features["attackRange"].currentValue;
-		meleeDamage  = (float) features["meleeDamage"].currentValue;
-		increasedVisualField = (bool) features["increasedVisualField"].currentValue;
+		//moveSpeed = (float) features["moveSpeed"].currentValue;
+		//attackRange  = (float) features["attackRange"].currentValue;
+		//meleeDamage  = (float) features["meleeDamage"].currentValue;
+		//increasedVisualField = (bool) features["increasedVisualField"].currentValue;
 		//Fine - Inizializzazione delle feature
 
 		//Inizio prova modificatori da cancellare
 		modifiers = new Dictionary<string, Modifier>();
-		//modifiers.Add("SpeedModifier", new Modifier((Feature.FeatureType) HumanFeature.FeatureType.FT_SPEED, "moveSpeed", 0.5f));
+		modifiers.Add("SpeedModifier", new Modifier((Feature.FeatureType) HumanFeature.FeatureType.FT_SPEED, "moveSpeed", 0.5f));
+		modifiers.Add("FOVModifier", new Modifier((Feature.FeatureType) HumanFeature.FeatureType.FT_SPEED, "increasedVisualField", true));
 		//Fine prova modificatori da cancellare
 
 		//Callbacks per il movimento
@@ -184,13 +185,18 @@ public class PlayerController : MonoBehaviour
 		//Per gestire i modificatori
 		foreach (var modifier in modifiers.Values)
         {
-			HumanFeature.FeatureType enumValue;
-			if (HumanFeature.FeatureType.TryParse(modifier.m_type.ToString(), out enumValue))
-			{
-				Debug.Log("OK SI PUO APPLICARE E IL TIPO E': " + enumValue.ToString());
-				features[modifier.m_feature_id].currentValue = (float) features[modifier.m_feature_id].baseValue * modifier.m_fFactor;
+            switch (modifier.m_feature_id)
+            {
+				case "moveSpeed":
+					features[modifier.m_feature_id].currentValue = (float) features[modifier.m_feature_id].baseValue * (float) modifier.m_fFactor;
+					break;
+				case "increasedVisualField":
+					features[modifier.m_feature_id].currentValue = (bool) modifier.m_fFactor;
+					break;
+				default:
+					Debug.Log("Non entro sorry!   " + modifier.m_type.ToString());
+					break;
 			}
-			
 		}
 
 	}
