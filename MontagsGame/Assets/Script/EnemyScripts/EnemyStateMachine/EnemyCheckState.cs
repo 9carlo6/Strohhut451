@@ -31,7 +31,7 @@ public class EnemyCheckState : EnemyBaseState
     EnemyHealthManager enemyHealthManager;
 
 
-    public float checkTime;
+    public float checkTime = 0;
 
     //ALERT
     public GameObject playerGameObject;
@@ -40,11 +40,11 @@ public class EnemyCheckState : EnemyBaseState
 
     public override void EnterState(EnemyStateManager enemy)
     {
-        viewRadius = 10;
-        viewAngle = 110;
         Debug.Log("Stato nemico = CHECK");
 
-        checkTime = 0;
+        viewRadius = 10;
+        viewAngle = 110;
+
         enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
         enemyGameObject = enemy.GetComponent<EnemyController>().gameObject;
         targetMask = enemy.GetComponent<EnemyController>().targetMask;
@@ -56,9 +56,6 @@ public class EnemyCheckState : EnemyBaseState
         {
             playerGameObject = GameObject.FindGameObjectWithTag("Player");
         }
-
-
-
     }
 
 
@@ -68,9 +65,6 @@ public class EnemyCheckState : EnemyBaseState
         if (playerGameObject != null)
         {
             playerFire = playerGameObject.GetComponent<PlayerController>().getBoolToAlert();
-
-           
-           
 
             if (playerFire)
             {
@@ -107,11 +101,6 @@ public class EnemyCheckState : EnemyBaseState
         {
             checkTime += Time.deltaTime;
         }
-       
-
-      
-
-
     }
 
     
@@ -153,7 +142,7 @@ public class EnemyCheckState : EnemyBaseState
             else
                 playerInSightRange = false;
         }
-        //fallisce il controllo se il player non è alla portata, non si trova nemmeno nel raggio
+        //Fallisce il controllo se il player non è alla portata, non si trova nemmeno nel raggio
         else
             playerInSightRange = false;
     }

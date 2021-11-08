@@ -82,9 +82,6 @@ public class EnemyController : MonoBehaviour
             velocityHash = Animator.StringToHash("isRunningWithoutWeapon");
 
         }
-
-
-
     }
 
     // Update is called once per frame
@@ -97,7 +94,6 @@ public class EnemyController : MonoBehaviour
     void handleAnimation()
     {
         //Prende i parametri dall'animator
-
         if (true)
         {
             switch (stateManager.getCurrentState())
@@ -111,7 +107,6 @@ public class EnemyController : MonoBehaviour
                     }
                     if (velocity >= 0.2f)
                     {
-                        Debug.Log("Decelero");
 
                         velocity -= Time.deltaTime * deceleration;
 

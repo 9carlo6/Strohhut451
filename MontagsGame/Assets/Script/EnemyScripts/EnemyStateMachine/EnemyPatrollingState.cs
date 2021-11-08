@@ -80,13 +80,12 @@ public class EnemyPatrollingState : EnemyBaseState
         {
             playerFire = playerGameObject.GetComponent<PlayerController>().getBoolToAlert();
 
-           
-
             if (playerFire)
             {
                 if (Vector3.Distance(enemyGameObject.transform.position, playerGameObject.transform.position) <= 12f)
-
+                {
                     fireInHearRange = true;
+                }
                 else
                 {
                     fireInHearRange = false;
@@ -94,21 +93,22 @@ public class EnemyPatrollingState : EnemyBaseState
             }
 
         }
-        FieldOfViewCheck();   //Il fov dovrà essere sempre attivo, ritorna il valore di playerInSightRange
+
+        //Il fov dovrà essere sempre attivo, ritorna il valore di playerInSightRange
+        FieldOfViewCheck();   
 
 
         if (!playerInSightRange && !fireInHearRange)
         {
-            //se il player NON è nel campo visivo del nemico, esso continuerà il patroling
+            //Se il player NON è nel campo visivo del nemico e nel raggio di ascolto dello sparo, esso continuerà il patroling
             Patrolling(enemy);
         }
         else
         {
-            //se il player è nel campo visivo del nemico, esso inseguirà il player
+            //se il player è nel campo visivo del nemico o nel raggio di ascolto dello sparo, esso inseguirà il player
             enemy.SwitchState(enemy.ChasePlayerState);
         }
 
- 
         if (enemyHealthManager.currentHealth <= 0)
         {
             enemy.SwitchState(enemy.DeathState);
@@ -154,46 +154,35 @@ public class EnemyPatrollingState : EnemyBaseState
             else
                 playerInSightRange = false;
         }
-        //fallisce il controllo se il player non è alla portata, non si trova nemmeno nel raggio
+        //Fallisce il controllo se il player non è alla portata, non si trova nemmeno nel raggio
         else
             playerInSightRange = false;
     }
 
     private void Patrolling(EnemyStateManager enemy)
     {
-        //a ogni frame vado a vedere se non gli ho ancora assegnato un path(!agent.pathPending) e
+        //Ad ogni frame vado a vedere se non gli ho ancora assegnato un path(!agent.pathPending) e
         //la distanza dal waypoint da raggiungere è minore di 0.2(cioè ha raggiunto il prossimo waypoint), si va al waypoint successivo
         if (!enemyNavMeshAgent.pathPending && enemyNavMeshAgent.remainingDistance < 0.2f)  //se la distanza tra il nemico e il waypoint corrente è minore di 0.2f waypoint successivo
         {
             //check e set + 1 
+            //usando un modulo ciclo sui numeri e aumento l'index
+
 
             wayPointIndex = (wayPointIndex + 1) % wayPoints.Length;
 
             enemy.SwitchState(enemy.CheckState);
-            
-
-
-
         }
         else
         {
-            //Debug.Log("ELSE");
             GotoNextPoint();
         }
     }
 
     private void GotoNextPoint()
     {
-       
-        //enemyGameObject.transform.LookAt(wayPoints[wayPointIndex].transform);
-
         //altrimeti setto la destinazione dell'agente al waypoints
         enemyNavMeshAgent.destination = wayPoints[wayPointIndex].position;
-
-
-        //usando un modulo ciclo sui numeri e aumento l'index
-
-
     }
 
 
