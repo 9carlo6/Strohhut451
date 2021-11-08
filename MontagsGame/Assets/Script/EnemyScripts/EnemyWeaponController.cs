@@ -25,7 +25,6 @@ public class EnemyWeaponController : MonoBehaviour
     //Questo accumulatedTime sarebbe il tempo che deve passare per poter sparare il prossimo proiettile
     float accumulatedTime;
 
-
     //Per gestire gli effetti particellari
     public ParticleSystem[] muzzleFlash;
     public ParticleSystem hitEffect;
@@ -37,7 +36,6 @@ public class EnemyWeaponController : MonoBehaviour
     public Transform raycastOrigin;
     Ray ray;
     RaycastHit hitInfo;
-
 
     //Funzione chiamata quando si riceve l'input per lo sparo
     public void StartFiring()
@@ -95,18 +93,13 @@ public class EnemyWeaponController : MonoBehaviour
             hitEffect.Emit(1);
 
             tracer.transform.position = hitInfo.point;
-            //Debug.DrawLine(ray.origin, hitInfo.point, Color.red, 1.0f);
 
-            //Per la gestione del dallo al nemico in seguito alla collisione
-            
+            //Per la gestione del danno al nemico in seguito alla collisione
                 var hitPlayerCollider = hitInfo.collider.GetComponent<PlayerHealthManager>();
                 if (hitPlayerCollider)
                 {
                     hitPlayerCollider.HurtPlayer(damage);
                 }
-
-
-            
         }
 
         //Se non c'è la raffica allora spara solo un colpo e dopo finisce

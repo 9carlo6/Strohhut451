@@ -54,6 +54,9 @@ public class WeaponController : MonoBehaviour, Component
     //public WeaponModifier weaponModifier;
     //public Text jsonWeaponModifier;
 
+    AudioManager audioManager;
+
+    
     void Awake()
     {
         //Inizio - Inizializzazione delle feature
@@ -75,7 +78,9 @@ public class WeaponController : MonoBehaviour, Component
      		ammoCount  = (int) features["ammoCount"].currentValue;
      		damage  = (float) features["damage"].currentValue;
      		isBurst  = (bool) features["isBurst"].currentValue;
-     		//Fine - Inizializzazione delle feature
+        //Fine - Inizializzazione delle feature
+
+        audioManager = GetComponent<AudioManager>();
 
         ammoWidget.Refresh(ammoCount);
     }
@@ -116,6 +121,8 @@ public class WeaponController : MonoBehaviour, Component
         //Per diminuire il numero di munizioni quando si spara
         ammoCount--;
 
+
+
         //Questo ciclo permette di azionare tutti gli oggetti particellari in muzzleFlash
         foreach (var particle in muzzleFlash)
         {
@@ -145,11 +152,17 @@ public class WeaponController : MonoBehaviour, Component
           }
         }
 
-        //Se non c'� la raffica allora spara solo un colpo e dopo finisce
+        //Se non c'è la raffica allora spara solo un colpo e dopo finisce
         if (!isBurst)
         {
           StopFiring();
         }
+        if (isBurst)
+        {
+            FindObjectOfType<AudioManager>().Play("BurstFire");
+        }
+       
+
 
         //Questo serve per aggiornare le munizioni visibili nel widget
         ammoWidget.Refresh(ammoCount);
@@ -214,6 +227,9 @@ public class WeaponController : MonoBehaviour, Component
     //Funzione chiamata quando termina l'input per lo sparo
     public void StopFiring()
     {
+        FindObjectOfType<AudioManager>().Play("NormalFire");
+        
         isFiring = false;
     }
+    
 }

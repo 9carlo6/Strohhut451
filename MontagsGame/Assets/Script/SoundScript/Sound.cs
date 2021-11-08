@@ -4,11 +4,11 @@ using UnityEngine;
 [System.Serializable] //In questo modo compare nell'inspector e possiamo inserire tutti i suoni
 public class Sound
 {
-    //Clip
-    public AudioClip audioClip;
-
     //Nome audio
     public string name;
+
+    //Clip che vogliamo riprodurre
+    public AudioClip audioClip;
 
     //Volume
     [Range(0f, 1f)]
@@ -30,6 +30,6 @@ public class Sound
     public bool loop;
 
     [HideInInspector]
-    public AudioSource audioSource;
+    public AudioSource audioSource; //Non vogliamo che compaia nell'inspector perchè viene impostato nell'Awake dell'audioManager
 }
 

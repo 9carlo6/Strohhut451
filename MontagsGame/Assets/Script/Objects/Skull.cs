@@ -9,6 +9,8 @@ public class Skull : MonoBehaviour
     //Funzione che si attiva quando l'oggetto viene toccato
     private void OnTriggerEnter(Collider other)
     {
+        // FindObjectOfType<AudioManager>().Play("Suono del tocco di questo oggetto");
+
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
         //Calcola un numero random da 0 al numero dei nemici -1
