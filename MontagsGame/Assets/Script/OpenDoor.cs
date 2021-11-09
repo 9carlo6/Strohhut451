@@ -21,18 +21,22 @@ public class OpenDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        distance = Vector3.Distance(playerGameObjects.transform.position, transform.position);
-
-        if (distance<=4.5 && distance >=4.2 && animator.GetBool("Open") != true)
+        if (playerGameObjects != null)
         {
-            animator.SetBool("Open", true);
+            distance = Vector3.Distance(playerGameObjects.transform.position, transform.position);
 
-            Sound();
+            if (distance <= 4.5 && distance >= 4.2 && animator.GetBool("Open") != true)
+            {
+                animator.SetBool("Open", true);
+
+                Sound();
+            }
+            else
+            {
+                //animator.SetBool("Open", false);
+            }
         }
-        else
-        {
-            //animator.SetBool("Open", false);
-        }
+        
     }
 
     void Sound()

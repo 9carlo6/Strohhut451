@@ -6189,12 +6189,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7187a0848bc5bd7479f8e80a94c9a2c2, type: 3}
---- !u!4 &344979776 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 839757686877610967, guid: 658cff369a96e824b8daa1347b5e2bda,
-    type: 3}
-  m_PrefabInstance: {fileID: 839757686218751677}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &346295714
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10116,45 +10110,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 746515550}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &592832594 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 839757687831676885, guid: 658cff369a96e824b8daa1347b5e2bda,
-    type: 3}
-  m_PrefabInstance: {fileID: 839757686218751677}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &592832595 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 839757687831433991, guid: 658cff369a96e824b8daa1347b5e2bda,
     type: 3}
   m_PrefabInstance: {fileID: 839757686218751677}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &592832599
+--- !u!114 &592832596 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 2323297255226784985, guid: 658cff369a96e824b8daa1347b5e2bda,
+    type: 3}
+  m_PrefabInstance: {fileID: 839757686218751677}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 592832594}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8bbb373fbf1cc844b489a42f65d1ec9, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a59ea05694659f4c91f730308858ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFiring: 0
-  fireRate: 25
-  maxAmmoCount: 10
-  ammoCount: 500
-  damage: 10
-  isBurst: 0
-  ammoWidget: {fileID: 1648711280}
-  muzzleFlash:
-  - {fileID: 1232031745}
-  - {fileID: 1680356350}
-  hitEffect: {fileID: 965641250}
-  tracerEffect: {fileID: 6882462699824183605, guid: fa17202d1440ed1419fd36f8701a8f52,
-    type: 3}
-  raycastOrigin: {fileID: 344979776}
-  weaponSight: {fileID: 1978362815}
 --- !u!4 &596253121 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 820003c13537f3844adcbe15b0d5ac2b,
@@ -15302,12 +15275,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 962210578}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &965641250 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 677159305870264291, guid: 658cff369a96e824b8daa1347b5e2bda,
-    type: 3}
-  m_PrefabInstance: {fileID: 839757686218751677}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &966501834
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19803,12 +19770,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: bf6b8a7d24ae30d4496823e3dd7ef9d1,
     type: 3}
   m_PrefabInstance: {fileID: 1224649563}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &1232031745 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 2490411970514943522, guid: 658cff369a96e824b8daa1347b5e2bda,
-    type: 3}
-  m_PrefabInstance: {fileID: 839757686218751677}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1232391088
 GameObject:
@@ -26111,12 +26072,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 200909545b1d0ec40b5af41e01ca2726,
     type: 3}
   m_PrefabInstance: {fileID: 1674369475}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &1680356350 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 677281479705241400, guid: 658cff369a96e824b8daa1347b5e2bda,
-    type: 3}
-  m_PrefabInstance: {fileID: 839757686218751677}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1683043447
 PrefabInstance:
@@ -34521,6 +34476,21 @@ PrefabInstance:
       propertyPath: m_Data.m_Offset.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2323297255226784985, guid: 658cff369a96e824b8daa1347b5e2bda,
+        type: 3}
+      propertyPath: ammoWidget
+      value: 
+      objectReference: {fileID: 1648711280}
+    - target: {fileID: 2323297255226784985, guid: 658cff369a96e824b8daa1347b5e2bda,
+        type: 3}
+      propertyPath: weaponSight
+      value: 
+      objectReference: {fileID: 1978362815}
+    - target: {fileID: 2323297255226784985, guid: 658cff369a96e824b8daa1347b5e2bda,
+        type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1663589036}
     - target: {fileID: 4798037202614441942, guid: 658cff369a96e824b8daa1347b5e2bda,
         type: 3}
       propertyPath: m_Weight
@@ -34541,7 +34511,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpineRig
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7621517583465957738, guid: 658cff369a96e824b8daa1347b5e2bda, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 658cff369a96e824b8daa1347b5e2bda, type: 3}
 --- !u!1001 &1126719040681015255
 PrefabInstance:
@@ -34832,7 +34803,7 @@ PrefabInstance:
         type: 3}
       propertyPath: weapon
       value: 
-      objectReference: {fileID: 592832599}
+      objectReference: {fileID: 0}
     - target: {fileID: 1965771499065664080, guid: a320f48899dcda041996116f38a9e097,
         type: 3}
       propertyPath: ammoDropped
@@ -35109,7 +35080,7 @@ PrefabInstance:
         type: 3}
       propertyPath: weapon
       value: 
-      objectReference: {fileID: 592832599}
+      objectReference: {fileID: 592832596}
     - target: {fileID: 2068854156603986020, guid: b07947e302be3a94086468f33b4ed434,
         type: 3}
       propertyPath: raycastWeapon
