@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
 	//Per la gestione dello sparo
 	public GameObject weapon;
 	//Per collegarsi alla classe che gestisce l'arma
-	private WeaponController weaponController;
+	private WeaponPlayerController weaponController;
 
 	//Per accedere allo script RigBuilder
 	[HideInInspector] public RigBuilder rigBuilder;
@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
 		characterController = GetComponent<CharacterController>();
 		animator = GetComponent<Animator>();
 		rigBuilder = GetComponent<RigBuilder>();
-		weaponController = GetComponentInChildren<WeaponController>();
+		weaponController = GetComponentInChildren<WeaponPlayerController>();
 
 		//Inizio - Componenti dei Figli
 		astroBody = transform.Find("CorpoAstronauta").gameObject;
@@ -111,13 +111,6 @@ public class PlayerController : MonoBehaviour
 		features.Add("attackRange", new HumanFeature(humanMapper.FT_ATTACK_RANGE, HumanFeature.FeatureType.FT_ATTACK_RANGE));
 		features.Add("meleeDamage", new HumanFeature(humanMapper.FT_MELEE_DAMAGE, HumanFeature.FeatureType.FT_MELEE_DAMAGE));
 		features.Add("increasedVisualField", new HumanFeature(humanMapper.FT_INCREASED_FOV, HumanFeature.FeatureType.FT_INCREASED_FOV));
-
-		//Da eliminare???
-		//moveSpeed = (float) features["moveSpeed"].currentValue;
-		//attackRange  = (float) features["attackRange"].currentValue;
-		//meleeDamage  = (float) features["meleeDamage"].currentValue;
-		//increasedVisualField = (bool) features["increasedVisualField"].currentValue;
-		//Fine - Inizializzazione delle feature
 
 		//Inizio prova modificatori da cancellare
 		modifiers = new Dictionary<string, Modifier>();

@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 8021170967745586153}
   - component: {fileID: 8021170967746277181}
   - component: {fileID: 8021170968664291730}
-  - component: {fileID: 7049261298646661773}
+  - component: {fileID: 4956640057368115045}
   m_Layer: 0
   m_Name: SciFiGunLightBlue
   m_TagString: Untagged
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48948dfe9d76b07488dacd46a7955fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7049261298646661773
+--- !u!114 &4956640057368115045
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8021170967744547945}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8bbb373fbf1cc844b489a42f65d1ec9, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a59ea05694659f4c91f730308858ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isFiring: 0
@@ -209,14 +209,24 @@ MonoBehaviour:
   ammoCount: 10
   damage: 10
   isBurst: 0
-  ammoWidget: {fileID: 0}
+  accumulatedTime: 0
   muzzleFlash:
-  - {fileID: 5077878036752709022}
   - {fileID: 7895277161748327556}
+  - {fileID: 5077878036752709022}
   hitEffect: {fileID: 7895451817934589023}
   tracerEffect: {fileID: 6882462699824183605, guid: fa17202d1440ed1419fd36f8701a8f52,
     type: 3}
   raycastOrigin: {fileID: 8021170966555338859}
+  weaponMapper:
+    FT_FIRE_RATE: 0
+    FT_MAX_AMMO_COUNT: 0
+    FT_AMMO_COUNT: 0
+    FT_DAMAGE: 0
+    FT_BURST: 0
+    FT_TRACER_EFFECT: 
+  audioManager: {fileID: 0}
+  ammoWidget: {fileID: 0}
+  weaponSight: {fileID: 0}
 --- !u!1 &8022101917295529515
 GameObject:
   m_ObjectHideFlags: 0
