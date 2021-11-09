@@ -7,7 +7,7 @@ public class LevelPauseState : LevelBaseState
 {
     private PlayerInput playerInput;
     private GameObject pauseMenuCanvas;
-    public static bool gameIsPaused = false;
+    public bool gameIsPaused = false;
     private GameObject player;
 
     public override void EnterState(LevelStateManager level)
@@ -25,6 +25,9 @@ public class LevelPauseState : LevelBaseState
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
+            //Serve per aggiornare le info relative alla sessione
+            level.UpdateSessionInfo();
+
             Debug.Log("Passaggio dallo stato pause allo stato iniziale del livello con reload della scena");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             pauseMenuCanvas.SetActive(false);
@@ -49,15 +52,16 @@ public class LevelPauseState : LevelBaseState
               level.SwitchState(level.InitialState);
             }
         }
-
     }
 
-    void pause(){
-      Time.timeScale = 0f;
+    public void pause()
+    {
+        Time.timeScale = 0f;
     }
 
-    void resume(){
-      Time.timeScale = 1f;
+    public void resume()
+    {
+        Time.timeScale = 1f;
     }
 
     public override void OnCollisionEnter(LevelStateManager level, Collision collision)

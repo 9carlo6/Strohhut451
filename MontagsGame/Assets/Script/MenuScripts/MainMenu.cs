@@ -15,6 +15,11 @@ public class MainMenu : MonoBehaviour
     [HideInInspector] public bool leftDirection;
     [HideInInspector] public bool forwardDirection;
 
+    public Animator transition;
+
+    public GameObject sessionController;
+    public SessionController sc;
+
 
     public void StartGame()
     {
@@ -26,6 +31,14 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Uscita dal Gioco");
         Application.Quit();
     }
+
+    public void AddNewSession()
+    {
+        sessionController = GameObject.FindWithTag("SessionController");
+        sc = sessionController.GetComponent<SessionController>();
+        sc.AddNewSession();
+    }
+
 
     void Start()
     {
