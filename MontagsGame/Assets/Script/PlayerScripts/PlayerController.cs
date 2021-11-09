@@ -121,8 +121,8 @@ public class PlayerController : MonoBehaviour
 
 		//Inizio prova modificatori da cancellare
 		modifiers = new Dictionary<string, Modifier>();
-		modifiers.Add("SpeedModifier", new Modifier((Feature.FeatureType) HumanFeature.FeatureType.FT_SPEED, "moveSpeed", 0.5f));
-		modifiers.Add("FOVModifier", new Modifier((Feature.FeatureType) HumanFeature.FeatureType.FT_SPEED, "increasedVisualField", true));
+		//modifiers.Add("SpeedModifier", new Modifier((Feature.FeatureType) HumanFeature.FeatureType.FT_SPEED, "moveSpeed", 0.5f));
+		//modifiers.Add("FOVModifier", new Modifier((Feature.FeatureType) HumanFeature.FeatureType.FT_SPEED, "increasedVisualField", true));
 		//Fine prova modificatori da cancellare
 
 		//Callbacks per il movimento

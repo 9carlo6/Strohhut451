@@ -13,6 +13,7 @@ public class LevelCompletedState : LevelBaseState
 
     public override void EnterState(LevelStateManager level)
     {
+
         Debug.Log("Stato Livello = Livello completato");
         player = GameObject.FindWithTag("Player");
         player.GetComponent<Rigidbody>().isKinematic = false;
@@ -20,6 +21,9 @@ public class LevelCompletedState : LevelBaseState
         levelCompletedCanvas = level.gameObject.transform.Find("LevelCompletedCanvas").gameObject;
         levelCompletedCanvas.SetActive(true);
         level.isLevelCompleted = true;
+
+        //Serve per aggiornare le info relative alla sessione
+        level.UpdateSessionInfo();
     }
 
     public override void UpdateState(LevelStateManager level)
@@ -29,7 +33,6 @@ public class LevelCompletedState : LevelBaseState
           Debug.Log("Passaggio al livello successivo");
           level.StartCoroutine(LoadLevel(level, SceneManager.GetActiveScene().buildIndex + 1));
           //levelCompletedCanvas.SetActive(false);
-          level.isLevelCompleted = false;
           player.GetComponent<Rigidbody>().isKinematic = true;
           player.GetComponent<CapsuleCollider>().enabled = false;
       }
