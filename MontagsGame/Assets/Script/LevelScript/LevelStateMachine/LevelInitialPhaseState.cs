@@ -7,14 +7,13 @@ public class LevelInitialPhaseState : LevelBaseState
 {
     private int initialNumberOfEnemies;
     private int currentNumberOfEnemies;
-    private GameObject player;
 
     public override void EnterState(LevelStateManager level)
     {
         Debug.Log("Stato Livello = Fase Iniziale");
+        Debug.Log("Stato Livello = Fase Iniziale");
 
         initialNumberOfEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
-        player = GameObject.FindWithTag("Player");
 
         Debug.Log("Numero di nemici iniziale nel livello = " + initialNumberOfEnemies);
     }
@@ -23,7 +22,8 @@ public class LevelInitialPhaseState : LevelBaseState
     {
         currentNumberOfEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
 
-        if (currentNumberOfEnemies == 0 && player.GetComponent<PlayerHealthManager>().currentHealth > 0)
+        //Si fa un controllo sul personaggio
+        if (currentNumberOfEnemies == 0 && level.player.GetComponent<PlayerHealthManager>().currentHealth > 0)
         {
             Debug.Log("Passaggio dallo stato iniziale del livello allo stato livello completato");
             level.SwitchState(level.CompletedState);
@@ -35,7 +35,7 @@ public class LevelInitialPhaseState : LevelBaseState
             level.SwitchState(level.PauseState);
         }
 
-        if (player.GetComponent<PlayerHealthManager>().currentHealth <= 0)
+        if (level.player.GetComponent<PlayerHealthManager>().currentHealth <= 0)
         {
             Debug.Log("Passaggio dallo stato iniziale del livello allo stato game over");
             level.SwitchState(level.GameOverState);

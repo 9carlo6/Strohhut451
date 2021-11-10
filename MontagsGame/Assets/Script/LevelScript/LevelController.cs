@@ -2,46 +2,93 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
 {
     private GameObject levelInfoCanvas;
 
     //Per controllare il tempo impiegato per superare il livello
-    public float levelTimeCounter = 0;
+    [HideInInspector]
+    public float levelTimeCounter;
 
     //Per gestire i punti accumulati nel livello
+    [HideInInspector]
     public GameObject pointsText;
-    public int levelPoints = 0;
+    [HideInInspector]
+    public int levelPoints;
 
     //Per gestire la combo
+    [HideInInspector]
     public GameObject comboText;
-    public float comboTimeCounter = 0;
-    public int comboMultiplier = 0;
+    [HideInInspector]
+    public float comboTimeCounter;
+    [HideInInspector]
+    public int comboMultiplier;
 
     //Per gestire i vari tipi di punteggio
-    public int enemyKillScore = 250;
+    [HideInInspector]
+    public int enemyKillScore;
 
     //Per controllare il numero corrente di nemici presenti nel livello
-    private int currentNumberOfEnemies;
+    [HideInInspector]
+    public int currentNumberOfEnemies;
+    [HideInInspector]
     public GameObject enemiesNumberText;
 
     //Per gestire il numero di monete raccolte
+    [HideInInspector]
     public GameObject coinsText;
-    public int currentCoins = 0;
+    [HideInInspector]
+    public int currentCoins;
 
+    //Per gestire il numero di munizioni
+    [HideInInspector] 
+    public GameObject ammoText;
+    [HideInInspector] 
+    public WeaponController weapon;
+
+    //Singleton
+    public static LevelController lcstatic;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        //Per accedere al canvas relativo alle info del livello
-        levelInfoCanvas = transform.Find("LevelInfoCanvas").gameObject;
+        int currentSceneId = SceneManager.GetActiveScene().buildIndex;
 
-        //Per prendere il numero corrente di nemici presenti nel livello
-        currentNumberOfEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        //Singleton
+        //Diversa da 0 perchè la scena 0 è il menu
+        if (lcstatic == null && currentSceneId != 0)
+        {
+            lcstatic = this;
+            DontDestroyOnLoad(gameObject);
 
-        //Aggiorna il numero di nemici sulla UI
-        enemiesNumberText.GetComponent<TMP_Text>().text = new string('*', currentNumberOfEnemies);
+            levelTimeCounter = 0;
+            levelPoints = 0;
+            comboTimeCounter = 0;
+            comboMultiplier = 0;
+            enemyKillScore = 250;
+            currentCoins = 0;
+
+            pointsText = GameObject.FindWithTag("PointsText");
+            comboText = GameObject.FindWithTag("ComboText");
+            enemiesNumberText = GameObject.FindWithTag("EnemiesNumberText");
+            coinsText = GameObject.FindWithTag("CoinsText");
+            ammoText = GameObject.FindWithTag("AmmoText");
+
+            //Per accedere al canvas relativo alle info del livello
+            levelInfoCanvas = transform.Find("LevelInfoCanvas").gameObject;
+
+            //Per prendere il numero corrente di nemici presenti nel livello
+            currentNumberOfEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
+
+            //Aggiorna il numero di nemici sulla UI
+            enemiesNumberText.GetComponent<TMP_Text>().text = new string('*', currentNumberOfEnemies);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Update is called once per frame
@@ -89,10 +136,18 @@ public class LevelController : MonoBehaviour
             comboText.GetComponent<TMP_Text>().text = " ";
         }
 
+        //Per modificare il valore del testo relativo al punteggio
         pointsText.GetComponent<TMP_Text>().text = levelPoints.ToString() + " " + "PT";
 
 
         //Per modificare il valore del testo relativo alle monete raccolte
         coinsText.GetComponent<TMP_Text>().text = currentCoins.ToString() + " " + "$";
+
+        if(GameObject.FindWithTag("PlayerWeapon") != null)
+        {
+            weapon = GameObject.FindWithTag("PlayerWeapon").GetComponent<WeaponPlayerController>();
+            //Per modificare il valore delle munizioni
+            ammoText.GetComponent<TMP_Text>().text = weapon.ammoCount.ToString() + "/" + weapon.maxAmmoCount.ToString();
+        }
     }
 }
