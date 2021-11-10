@@ -15,10 +15,12 @@ public class SessionController : MonoBehaviour
     public int lastSessionId;
     public string new_scene_name;
 
+    //Singleton
     public static SessionController scstatic;
    
     void Awake()
     {
+        //Singleton
         if (scstatic == null)
         {
             scstatic = this;
