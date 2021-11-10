@@ -50,6 +50,22 @@ public class SessionController : MonoBehaviour
         return lastSessionId;
     }
 
+    //Funzione per ricavare i dati dell'ultima sessione
+    public Dictionary<string, string> GetLastDataSession()
+    {
+        Dictionary<string, string> data = new Dictionary<string, string>();
+
+        Scene scene = new Scene();
+        scene = sessions.sessions_list.LastOrDefault().scenes.LastOrDefault();
+
+        data.Add("time", scene.time.ToString());
+        data.Add("attempts", scene.restart_numbers.ToString());
+        data.Add("points", scene.score.ToString());
+        data.Add("coins", scene.coins.ToString());
+
+        return data;
+    }
+
     //Funzione per aggiungere una nuova sessione
     public void AddNewSession()
     {

@@ -102,11 +102,26 @@ public class LevelController : MonoBehaviour
         }
     }
 
+    //Funzione necessaria per controllare se la scena corrente è un livello
+    //In caso contrario bisogna distruggere l'oggetto LevelController
+    public void CheckSceneType()
+    {
+        //Se la scena corrente non contiene la parola level allora viene cancellata
+        if (!SceneManager.GetActiveScene().name.ToString().Contains("Level"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
+        //Continua costantemente la tipologia della scena corrente
+        //Se non è un livello distrugge l'oggetto LevelController
+        CheckSceneType();
+
         //Per modificare incrementare il valore del cronometro del tempo impiegato per superare il livello
-        if(currentNumberOfEnemies > 0)
+        if (currentNumberOfEnemies > 0)
         {
             levelTimeCounter += Time.deltaTime;
         }
