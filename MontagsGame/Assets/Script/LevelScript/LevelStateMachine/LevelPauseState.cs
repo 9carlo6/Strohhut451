@@ -36,8 +36,10 @@ public class LevelPauseState : LevelBaseState
             level.ParametersReset();
 
             int levelIndex = SceneManager.GetActiveScene().buildIndex;
+
             //Per gestire il passaggio da uno stato all'altro quando si carica un livello
             level.StartCoroutine(level.LoadLevel(level.InitialState, levelIndex));
+ 
         }
         else if (Input.GetKeyDown(KeyCode.Escape))
         {
