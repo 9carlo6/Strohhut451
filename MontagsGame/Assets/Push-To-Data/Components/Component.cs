@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface Component
 {
-  
+  public float GetWeight();
 }

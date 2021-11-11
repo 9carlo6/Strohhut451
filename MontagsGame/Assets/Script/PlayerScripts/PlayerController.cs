@@ -77,11 +77,11 @@ public class PlayerController : MonoBehaviour
 	public bool increasedVisualField;
 
 	//Per gestire i Componenti
-	public Component[] components;
+	public Dictionary<string, Component> components;
 
 	//Per gestire le feature
 	public Dictionary<string, HumanFeature> features;
-	private HumanFeaturesJsonMap humanMapper;
+	public HumanFeaturesJsonMap humanMapper;
 
 	//Per gestire i modificatori
 	public Dictionary<string, Modifier> modifiers;
@@ -111,12 +111,25 @@ public class PlayerController : MonoBehaviour
 		features.Add("attackRange", new HumanFeature(humanMapper.FT_ATTACK_RANGE, HumanFeature.FeatureType.FT_ATTACK_RANGE));
 		features.Add("meleeDamage", new HumanFeature(humanMapper.FT_MELEE_DAMAGE, HumanFeature.FeatureType.FT_MELEE_DAMAGE));
 		features.Add("increasedVisualField", new HumanFeature(humanMapper.FT_INCREASED_FOV, HumanFeature.FeatureType.FT_INCREASED_FOV));
+		//Fine - Inizializzazione delle feature
 
 		//Inizio prova modificatori da cancellare
 		modifiers = new Dictionary<string, Modifier>();
 		//modifiers.Add("SpeedModifier", new Modifier((Feature.FeatureType) HumanFeature.FeatureType.FT_SPEED, "moveSpeed", 0.5f));
 		//modifiers.Add("FOVModifier", new Modifier((Feature.FeatureType) HumanFeature.FeatureType.FT_SPEED, "increasedVisualField", true));
 		//Fine prova modificatori da cancellare
+
+
+		//Inizio parte components
+		components = new Dictionary<string, Component>();
+		components.Add("weapon", weaponController);
+
+		//Per gestire i modificatori
+		foreach (var component in components.Values)
+		{
+			features["moveSpeed"].baseValue = (float) features["moveSpeed"].baseValue - (component.GetWeight() * 0.1);
+		}
+		//Fine parte components
 
 		//Callbacks per il movimento
 		//ascolta quando il giocatore inizia a utilizzare l'azione Move
@@ -165,7 +178,8 @@ public class PlayerController : MonoBehaviour
 		isDeath = animator.GetBool("isDeath");
 
 		//Solo per Debug -> per controllare il valore corrente della velocita tramite l'Inspector
-		moveSpeed = (float)features["moveSpeed"].currentValue;
+		moveSpeed = (float) features["moveSpeed"].currentValue;
+		Debug.Log("SPEED BASE VALUE: " + features["moveSpeed"].baseValue);
 
 		if (!isAttacking && !isDeath && !isStopped){
 			characterController.Move(currentMovement * Time.deltaTime * (float) features["moveSpeed"].currentValue);
@@ -177,21 +191,20 @@ public class PlayerController : MonoBehaviour
 
 		//Per gestire i modificatori
 		foreach (var modifier in modifiers.Values)
-        {
-            switch (modifier.m_feature_id)
-            {
-				case "moveSpeed":
-					features[modifier.m_feature_id].currentValue = (float) features[modifier.m_feature_id].baseValue * (float) modifier.m_fFactor;
-					break;
-				case "increasedVisualField":
-					features[modifier.m_feature_id].currentValue = (bool) modifier.m_fFactor;
-					break;
-				default:
-					Debug.Log("Non entro sorry!   " + modifier.m_type.ToString());
-					break;
-			}
+		{
+				switch (modifier.m_feature_id)
+				{
+					case "moveSpeed":
+						features[modifier.m_feature_id].currentValue = (float) features[modifier.m_feature_id].baseValue * (float) modifier.m_fFactor;
+						break;
+					case "increasedVisualField":
+						features[modifier.m_feature_id].currentValue = (bool) modifier.m_fFactor;
+						break;
+					default:
+						Debug.Log("Add Modifer Error - Type: " + modifier.m_type.ToString());
+						break;
+				}
 		}
-
 	}
 
 	//Per gestire la rotazione del player con il movimento del mouse
@@ -254,7 +267,7 @@ public class PlayerController : MonoBehaviour
 		if (weaponController.isFiring)
 		{
 			//weaponController.UpdateFiring(Time.deltaTime);
-			
+
 			playerIsFiring = true;
     }
 

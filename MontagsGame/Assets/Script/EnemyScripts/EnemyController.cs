@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using UnityEngine.AI;
 using UnityEngine.Animations.Rigging;
+using System.IO;
 
 //Questa classe serve per la gestione del'animazione del nemico
 public class EnemyController : MonoBehaviour
@@ -23,7 +24,7 @@ public class EnemyController : MonoBehaviour
     public float attackRange;
     public float meleeDamage = 1f;
     public float meleeDistance = 1.2f;
-    public float fireDistance = 6f;    
+    public float fireDistance = 6f;
 
     //Per l'animazione
     public Animator animator;
@@ -42,7 +43,7 @@ public class EnemyController : MonoBehaviour
 
     //Per l'animazione dell'arma
     public Rig aimLayer;
-   
+
     float aimDuration = 0.3f;
 
     public float acceleration = 0.3f;
@@ -54,6 +55,10 @@ public class EnemyController : MonoBehaviour
     public Shader baseEnemyShader;
     public Shader stunnedEnemyShader;
 
+    //Per gestire le feature
+  	public Dictionary<string, EnemyFeature> features;
+  	private EnemyFeaturesJsonMap enemyMapper;
+
     void Awake()
     {
 
@@ -61,15 +66,28 @@ public class EnemyController : MonoBehaviour
         stateManager = GetComponent<EnemyStateManager>();
 
         //Inizio - Componenti dei Figli
-    	enemyBody = transform.Find("EnemyPirateSkin").gameObject;
-    	renderEnemyBody = enemyBody.GetComponent<Renderer>();
-    	//Fine - Componenti dei Figli
+      	enemyBody = transform.Find("EnemyPirateSkin").gameObject;
+      	renderEnemyBody = enemyBody.GetComponent<Renderer>();
+      	//Fine - Componenti dei Figli
 
         //Per gestire il passaggio allo shader per la dissolvenza
         //L'intensita dello shader per la dissolvenza viene settato inizialmente a 0.3
         this.material[0].SetFloat("Vector_Intensity_Dissolve2", 0.4f);
 
+        //Inizio - Inizializzazione delle feature
+    		string fileString = new StreamReader("Assets/Push-To-Data/Feature/Enemy/enemy_features.json").ReadToEnd();
+    		enemyMapper = JsonUtility.FromJson<EnemyFeaturesJsonMap>(fileString);
 
+    		features = new Dictionary<string, EnemyFeature>();
+    		features.Add("velocity", new EnemyFeature(enemyMapper.FT_VELOCITY , EnemyFeature.FeatureType.FT_VELOCITY));
+    		features.Add("acceleration", new EnemyFeature(enemyMapper.FT_ACCELERATION , EnemyFeature.FeatureType.FT_ACCELERATION));
+    		features.Add("deceleration", new EnemyFeature(enemyMapper.FT_DECELERATION , EnemyFeature.FeatureType.FT_DECELERATION));
+    		features.Add("healt", new EnemyFeature(enemyMapper.FT_HEALTH , EnemyFeature.FeatureType.FT_HEALTH));
+    		features.Add("meleeRange", new EnemyFeature(enemyMapper.FT_MELEE_RANGE , EnemyFeature.FeatureType.FT_MELEE_RANGE));
+    		features.Add("meleeDamage", new EnemyFeature(enemyMapper.FT_MELEE_DAMAGE , EnemyFeature.FeatureType.FT_MELEE_DAMAGE));
+    		features.Add("isWeaponed", new EnemyFeature(enemyMapper.FT_IS_WEAPONED , EnemyFeature.FeatureType.FT_IS_WEAPONED));
+    		features.Add("fireDistance", new EnemyFeature(enemyMapper.FT_FIRE_DISTANCE , EnemyFeature.FeatureType.FT_FIRE_DISTANCE));
+    		//Fine - Inizializzazione delle feature
     }
 
     // Start is called before the first frame update
@@ -107,7 +125,7 @@ public class EnemyController : MonoBehaviour
             {
 
                 case "EnemyPatrollingState":
-                    
+
                     if (aimLayer != null)
                     {
                         aimLayer.weight -= Time.deltaTime / aimDuration;
@@ -141,7 +159,7 @@ public class EnemyController : MonoBehaviour
                     break;
 
                 case "EnemyChasePlayerState":
-                    
+
                     if (aimLayer != null)
                     {
                         aimLayer.weight += Time.deltaTime / aimDuration;

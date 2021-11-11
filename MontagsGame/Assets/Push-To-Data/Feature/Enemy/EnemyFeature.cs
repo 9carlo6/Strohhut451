@@ -3,24 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class WeaponFeature : Feature
+public class EnemyFeature : Feature
 {
   public enum FeatureType
   {
-    FT_FIRE_RATE,
-    FT_MAX_AMMO_COUNT,
-    FT_AMMO_COUNT,
-    FT_DAMAGE,
-    FT_BURST,
-    FT_TRACER_EFFECT,
-    FT_WEIGHT
-  }
+    FT_VELOCITY,
+    FT_ACCELERATION,
+    FT_DECELERATION,
+    FT_HEALTH,
+    FT_MELEE_RANGE,
+    FT_MELEE_DAMAGE,
+    FT_IS_WEAPONED,
+    FT_FIRE_DISTANCE
+    }
 
   public System.Object baseValue;
   public System.Object currentValue;
   public FeatureType featureName;
 
-  public WeaponFeature(System.Object baseValue, FeatureType featureName){
+  public EnemyFeature(System.Object baseValue, FeatureType featureName){
     this.baseValue = baseValue;
     this.currentValue = baseValue;
     this. featureName = featureName;
