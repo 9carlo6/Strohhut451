@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 839757686065028437}
   - component: {fileID: 1812374109186495363}
   - component: {fileID: 5148580947125031965}
+  - component: {fileID: 7406634194165393144}
   m_Layer: 7
   m_Name: Astronauta 2
   m_TagString: Player
@@ -182,6 +183,12 @@ MonoBehaviour:
   playerIsFiring: 0
   rodWeapon: {fileID: 0}
   increasedVisualField: 0
+  humanMapper:
+    FT_SPEED: 0
+    FT_HEALTH: 0
+    FT_ATTACK_RANGE: 0
+    FT_MELEE_DAMAGE: 0
+    FT_INCREASED_FOV: 0
 --- !u!23 &839757686065028433
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -347,6 +354,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dd5cf7cabe5e5e4782f0a0b36e5ca3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &7406634194165393144
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533116884415357088}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  m_Radius: 0.5
+  m_Height: 1.6684735
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.7788738, z: 0}
 --- !u!1 &703325261368026941
 GameObject:
   m_ObjectHideFlags: 0
@@ -3372,12 +3393,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7275432525395872700}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &839757686823362689 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8021170966602836797, guid: 610fc2f5c6848e540a375bfef5b4d623,
-    type: 3}
-  m_PrefabInstance: {fileID: 7275432525395872700}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &839757687831433991 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8021170967744338107, guid: 610fc2f5c6848e540a375bfef5b4d623,
@@ -3387,6 +3402,12 @@ Transform:
 --- !u!1 &839757687831676885 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8021170967744547945, guid: 610fc2f5c6848e540a375bfef5b4d623,
+    type: 3}
+  m_PrefabInstance: {fileID: 7275432525395872700}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &839757686823362689 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8021170966602836797, guid: 610fc2f5c6848e540a375bfef5b4d623,
     type: 3}
   m_PrefabInstance: {fileID: 7275432525395872700}
   m_PrefabAsset: {fileID: 0}
