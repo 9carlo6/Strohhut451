@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 6543165673451462752}
   - component: {fileID: 839757687844688537}
   - component: {fileID: 839757687844688541}
-  - component: {fileID: 839757687844688542}
   - component: {fileID: 839757687844688540}
   - component: {fileID: 839757687844688543}
   - component: {fileID: 839757686065028433}
@@ -130,20 +129,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
---- !u!136 &839757687844688542
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 533116884415357088}
-  m_Material: {fileID: 13400000, guid: 7513933078f7b05499855437c2522303, type: 2}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.4
-  m_Height: 1.99
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &839757687844688540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,6 +179,9 @@ MonoBehaviour:
   nextLevelPlaneCollision: 0
   spineTarget: {fileID: 0}
   rotationSpeed: 2
+  playerIsFiring: 0
+  rodWeapon: {fileID: 0}
+  increasedVisualField: 0
 --- !u!23 &839757686065028433
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3384,6 +3372,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7275432525395872700}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &839757686823362689 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8021170966602836797, guid: 610fc2f5c6848e540a375bfef5b4d623,
+    type: 3}
+  m_PrefabInstance: {fileID: 7275432525395872700}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &839757687831433991 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8021170967744338107, guid: 610fc2f5c6848e540a375bfef5b4d623,
@@ -3393,12 +3387,6 @@ Transform:
 --- !u!1 &839757687831676885 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8021170967744547945, guid: 610fc2f5c6848e540a375bfef5b4d623,
-    type: 3}
-  m_PrefabInstance: {fileID: 7275432525395872700}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &839757686823362689 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8021170966602836797, guid: 610fc2f5c6848e540a375bfef5b4d623,
     type: 3}
   m_PrefabInstance: {fileID: 7275432525395872700}
   m_PrefabAsset: {fileID: 0}

@@ -6,45 +6,31 @@ using UnityEngine;
 public class OpenDoor : MonoBehaviour
 {
     Animator animator;
-    GameObject playerGameObjects;
-    float distance;
+    AudioSource audioSource;
     
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
-        playerGameObjects = GameObject.FindGameObjectWithTag("Player");
-
+        audioSource = GetComponent<AudioSource>();
        
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        if (playerGameObjects != null)
-        {
-            distance = Vector3.Distance(playerGameObjects.transform.position, transform.position);
+        animator.SetBool("Open", true);
 
-            if (distance <= 4.5 && distance >= 4.2 && animator.GetBool("Open") != true)
-            {
-                animator.SetBool("Open", true);
-
-                Sound();
-            }
-            else
-            {
-                //animator.SetBool("Open", false);
-            }
-        }
-        
+        audioSource.Play();
     }
 
-    void Sound()
+    private void OnTriggerExit(Collider other)
     {
-        Debug.Log("sooooooooooooooooooooundddddddddddddddddddddddd");
-        FindObjectOfType<AudioManager>().Play("OpenDoor");
+        animator.SetBool("Open", false);
 
-        //animator.SetBool("Open", false);
+        audioSource.Play();
     }
+
+   
+
 
 }

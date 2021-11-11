@@ -16,7 +16,7 @@ public class Coin : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        // FindObjectOfType<AudioManager>().Play("Suono del tocco di questo oggetto");
+        FindObjectOfType<AudioManager>().Play("Coin");
 
         //Aumenta il numero di monete raccolte nel livello
         GameObject.FindWithTag("LevelController").GetComponent<LevelController>().currentCoins += 1;
@@ -26,7 +26,6 @@ public class Coin : MonoBehaviour
         
 
         Destroy(gameObject);
-        audioSource.Play();
 
 
     }

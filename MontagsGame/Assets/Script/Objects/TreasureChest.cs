@@ -14,7 +14,7 @@ public class TreasureChest : MonoBehaviour
     //Funzione che si attiva quando l'oggetto viene toccato
     private void OnTriggerEnter(Collider other)
     {
-        // FindObjectOfType<AudioManager>().Play("Suono del tocco di questo oggetto");
+        FindObjectOfType<AudioManager>().Play("Pickup");
 
         playerController.increasedVisualField = true;
         playerController.features["increasedVisualField"].currentValue = true;

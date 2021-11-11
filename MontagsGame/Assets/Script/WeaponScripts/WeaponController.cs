@@ -46,6 +46,7 @@ public class WeaponController : MonoBehaviour, Component
     //public WeaponModifier weaponModifier;
     //public Text jsonWeaponModifier;
 
+    
     public AudioManager audioManager;
 
 
@@ -82,17 +83,10 @@ public class WeaponController : MonoBehaviour, Component
         //handleWeaponModifier();
         if (isFiring)
         {
-            if (isBurst)
-            {
-                FindObjectOfType<AudioManager>().Play("mitras");
-
-            }
+           
             UpdateFiring(Time.deltaTime);
         }
-        else
-        {
-            FindObjectOfType<AudioManager>().Stop("mitras");
-        }
+       
     }
 
     //Funzione chiamata quando termina l'input per lo sparo

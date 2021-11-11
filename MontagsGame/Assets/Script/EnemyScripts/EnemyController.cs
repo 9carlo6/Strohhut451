@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using UnityEngine.AI;
 using UnityEngine.Animations.Rigging;
 using System.IO;
@@ -11,6 +12,11 @@ public class EnemyController : MonoBehaviour
     public Transform[] wayPoints;   //Array di points verso cui il nemico dovrà effettuare il patroling
     public LayerMask targetMask;    //Bersaglio, cioè il player
     public LayerMask obstructionMask; //Ostacoli, ad esempio le pareti
+
+    public AudioSource deathClip;
+    public AudioSource punchClip;
+
+
 
     //Per l'attacco
     public GameObject enemyWeapon;
@@ -55,6 +61,7 @@ public class EnemyController : MonoBehaviour
 
     void Awake()
     {
+
         animator = GetComponent<Animator>();
         stateManager = GetComponent<EnemyStateManager>();
 
@@ -221,9 +228,9 @@ public class EnemyController : MonoBehaviour
     }
 
         void EnemyDeath()
-        {
+        {      
 
-            animator.SetBool("isDeathEnemy", true);
+        animator.SetBool("isDeathEnemy", true);
             enemyNavMeshAgent.isStopped = true;
 
             //I materiali del personaggio vengono settati al materiale con lo shader per la dissolvenza
@@ -249,4 +256,13 @@ public class EnemyController : MonoBehaviour
             return clipInfo[0].clip.name;
         }
 
+    public void PlaySoundDeath()
+    {
+        deathClip.Play();
+    }
+
+    public void PlaySoundPunch()
+    {
+        punchClip.Play();
+    }
 }

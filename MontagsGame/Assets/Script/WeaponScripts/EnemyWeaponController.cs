@@ -7,6 +7,8 @@ public class EnemyWeaponController : WeaponController
 {
     public bool isAmmoInfinite = true;
 
+    public AudioSource audioSource;
+
     public override void Awake()
     {
         //Inizio - Inizializzazione delle feature
@@ -29,8 +31,10 @@ public class EnemyWeaponController : WeaponController
        	damage  = (float) features["damage"].currentValue;
        	isBurst  = (bool) features["isBurst"].currentValue;
         //Fine - Inizializzazione delle feature
+        
+        audioSource = GetComponent<AudioSource>();
     }
-
+    
     //Funzione per sparare
     public override void FireBullet()
     {
@@ -77,6 +81,7 @@ public class EnemyWeaponController : WeaponController
         //Se non c'� la raffica allora spara solo un colpo e dopo finisce
         if (!isBurst)
         {
+            audioSource.Play();
             StopFiring();
         }
     }
