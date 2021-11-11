@@ -47,6 +47,10 @@ public class AudioManager : MonoBehaviour
             s.audioSource.spatialBlend = s.spatialBlend;
 
             s.audioSource.reverbZoneMix = s.reverbZoneMix;
+
+            s.audioSource.minDistance = s.minDistance;
+
+            s.audioSource.maxDistance = s.maxDistance;
         }
     }
 
@@ -68,6 +72,19 @@ public class AudioManager : MonoBehaviour
         }
 
         s.audioSource.Play();
+    }
+
+    public void PlayDelayed(string name, float time)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+
+        if (s == null)
+        {
+            Debug.LogWarning("Sound " + name + " Not Found");
+            return;
+        }
+
+        s.audioSource.PlayDelayed(time);
     }
 
 

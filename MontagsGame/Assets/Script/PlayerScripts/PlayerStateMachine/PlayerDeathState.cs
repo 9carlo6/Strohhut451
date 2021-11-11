@@ -29,7 +29,7 @@ public class PlayerDeathState : PlayerBaseState
         playerController.renderAstroBody.sharedMaterials = playerController.material;
     	playerController.renderAstroHead.sharedMaterials = playerController.material;
 
-       // GameObject.FindObjectOfType<AudioManager>().Play("Morte Nemico");
+       GameObject.FindObjectOfType<AudioManager>().Play("mortePlayer");
 
 
     }
