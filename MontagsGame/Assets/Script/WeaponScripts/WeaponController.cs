@@ -48,32 +48,11 @@ public class WeaponController : MonoBehaviour, Component
 
     public AudioManager audioManager;
 
-    
+
     public virtual void Awake()
     {
-        //Inizio - Inizializzazione delle feature
-     	string fileString = new StreamReader("Assets/Push-To-Data/Feature/Weapon/weapon_features.txt").ReadToEnd();
-     	weaponMapper = JsonUtility.FromJson<WeaponFeaturesJsonMap>(fileString);
-
-     	features = new Dictionary<string, WeaponFeature>();
-     	features.Add("fireRate", new WeaponFeature(weaponMapper.FT_FIRE_RATE, WeaponFeature.FeatureType.FT_FIRE_RATE));
-     	features.Add("maxAmmoCount", new WeaponFeature(weaponMapper.FT_MAX_AMMO_COUNT, WeaponFeature.FeatureType.FT_MAX_AMMO_COUNT));
-     	features.Add("ammoCount", new WeaponFeature(weaponMapper.FT_AMMO_COUNT, WeaponFeature.FeatureType.FT_AMMO_COUNT));
-     	features.Add("damage", new WeaponFeature(weaponMapper.FT_DAMAGE, WeaponFeature.FeatureType.FT_DAMAGE));
-     	features.Add("isBurst", new WeaponFeature(weaponMapper.FT_BURST, WeaponFeature.FeatureType.FT_BURST));
-     	//features.Add("tracerEffect", new WeaponFeature(weaponMapper.FT_MELEE_DAMAGE, WeaponFeature.FeatureType.FT_MELEE_DAMAGE));
-
-     	//Da eliminare???
-     	fireRate = (int) features["fireRate"].currentValue;
-     	maxAmmoCount  = (int) features["maxAmmoCount"].currentValue;
-     	ammoCount  = (int) features["ammoCount"].currentValue;
-     	damage  = (float) features["damage"].currentValue;
-     	isBurst  = (bool) features["isBurst"].currentValue;
-        //Fine - Inizializzazione delle feature
-
-        audioManager = GetComponent<AudioManager>();
+      audioManager = GetComponent<AudioManager>();
     }
-
 
     //Funzione necessaria per gestire l'update dello sparo
     public void UpdateFiring(float deltaTime)
@@ -121,5 +100,10 @@ public class WeaponController : MonoBehaviour, Component
     {
         isFiring = false;
     }
-    
+
+    public virtual float GetWeight()
+    {
+      return -1;
+    }
+
 }

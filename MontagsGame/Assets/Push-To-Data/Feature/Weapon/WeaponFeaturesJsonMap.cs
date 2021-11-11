@@ -12,5 +12,6 @@ public class WeaponFeaturesJsonMap
   public float FT_DAMAGE;
   public bool FT_BURST;
   public string FT_TRACER_EFFECT;
+  public float FT_WEIGHT;
 
 }
