@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.IO;
+using System.Linq;
+using System.Text;
 
 public class ChapterCompletedMenu : MonoBehaviour
 {
@@ -25,12 +28,17 @@ public class ChapterCompletedMenu : MonoBehaviour
     public SessionController sc;
 
     //Per gestire il punteggio finale
-    public Dictionary<string, string> finalScore;
+    public Dictionary<string, int> finalScore;
     public TMP_Text time;
     public TMP_Text attempts;
     public TMP_Text points;
     public TMP_Text coins;
-    [HideInInspector] public float scoreTimeCounter = 2;
+    [HideInInspector] public float scoreTimeCounter = 1.5f;
+
+    //Per gestire il voto finale
+    public ChapterScores chapterScores;
+    public TextAsset scoreJSON;
+    public List<string> votes = new List<string>();
 
 
     public void LoadMenu()
@@ -57,8 +65,16 @@ public class ChapterCompletedMenu : MonoBehaviour
         sessionController = GameObject.FindWithTag("SessionController");
         sc = sessionController.GetComponent<SessionController>();
 
-        //Per recuperare il punteggio finale()
+        //Per recuperare il punteggio finale
         finalScore = sc.GetLastDataSession();
+
+        //Per gestire il voto finale
+        chapterScores = new ChapterScores();
+        //Leggiamo il json contenente le info di sessione
+        chapterScores = JsonUtility.FromJson<ChapterScores>(scoreJSON.text);
+
+
+        handleVoteLoading();
     }
 
 
@@ -123,6 +139,7 @@ public class ChapterCompletedMenu : MonoBehaviour
         }
     }
 
+    //Funzione per gestire il caricamento del punteggio
     public void handleScoreLoading()
     {
         if (scoreTimeCounter > 0)
@@ -137,12 +154,107 @@ public class ChapterCompletedMenu : MonoBehaviour
         }
         else
         {
-            time.text = finalScore["time"];
-            attempts.text = finalScore["attempts"];
-            points.text = finalScore["points"];
-            coins.text = finalScore["coins"];
+            time.text = finalScore["time"].ToString();
+            attempts.text = finalScore["attempts"].ToString();
+            points.text = finalScore["points"].ToString();
+            coins.text = finalScore["coins"].ToString();
+        }
+    }
+
+    //Funzione per gestire il calcolo del voto finale e del suo caricamento
+    public void handleVoteLoading()
+    {
+        Scores scores = new Scores();
+        scores = chapterScores.chapter_scores_list[finalScore["chapter"]-1];
+
+
+        //TIME SCORE
+        if (finalScore["time"] < scores.scores_list[0].time)
+        {
+            Debug.Log("TIME SCORE = A");
+            votes.Add("A");
+        }
+        else if (finalScore["time"] < scores.scores_list[1].time)
+        {
+            Debug.Log("TIME SCORE = B");
+            votes.Add("B");
+        }
+        else if (finalScore["time"] < scores.scores_list[2].time)
+        {
+            Debug.Log("TIME SCORE = C");
+            votes.Add("C");
+        }
+        else
+        {
+            Debug.Log("TIME SCORE = D");
+            votes.Add("D");
         }
 
+        //ATTEMPTS SCORE
+        if (finalScore["attempts"] < scores.scores_list[0].attempts)
+        {
+            Debug.Log("ATTEMPTS SCORE = A");
+            votes.Add("A");
+        }
+        else if (finalScore["attempts"] < scores.scores_list[1].attempts)
+        {
+            Debug.Log("ATTEMPTS SCORE = B");
+            votes.Add("B");
+        }
+        else if (finalScore["attempts"] < scores.scores_list[2].attempts)
+        {
+            Debug.Log("ATTEMPTS SCORE = C");
+            votes.Add("C");
+        }
+        else
+        {
+            Debug.Log("ATTEMPTS SCORE = D");
+            votes.Add("D");
+        }
+
+        //POINTS SCORE
+        if (finalScore["points"] > scores.scores_list[0].points)
+        {
+            Debug.Log("POINTS SCORE = A");
+            votes.Add("A");
+        }
+        else if (finalScore["points"] > scores.scores_list[1].points)
+        {
+            Debug.Log("POINTS SCORE = B");
+            votes.Add("B");
+        }
+        else if (finalScore["points"] > scores.scores_list[2].points)
+        {
+            Debug.Log("POINTS SCORE = C");
+            votes.Add("C");
+        }
+        else
+        {
+            Debug.Log("POINTS SCORE = D");
+            votes.Add("D");
+        }
+
+        //COINS SCORE
+        if (finalScore["coins"] > scores.scores_list[0].coins)
+        {
+            Debug.Log("COINS SCORE = A");
+            votes.Add("A");
+        }
+        else if (finalScore["coins"] > scores.scores_list[1].coins)
+        {
+            Debug.Log("COINS SCORE = B");
+            votes.Add("B");
+        }
+        else if (finalScore["coins"] > scores.scores_list[2].coins)
+        {
+            Debug.Log("COINS SCORE = C");
+            votes.Add("C");
+        }
+        else
+        {
+            Debug.Log("COINS SCORE = D");
+            votes.Add("D");
+        }
     }
 }
 

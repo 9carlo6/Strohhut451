@@ -31,11 +31,12 @@ public class LevelCompletedState : LevelBaseState
 	  {
 			Debug.Log("Passaggio al livello successivo");
 			//set di alcuni contatori a zero
-			level.lc.levelTimeCounter = 0;
+			
 			level.lc.comboTimeCounter = 0;
 			level.lc.comboMultiplier = 0;
 			level.lc.valid_levelPoints = level.lc.levelPoints;
 			level.lc.valid_currentCoins = level.lc.currentCoins;
+			level.lc.valid_levelTimeCounter = level.lc.valid_levelTimeCounter;
 
 			//caricamento scena successiva
 			level.StartCoroutine(LoadLevel(level, SceneManager.GetActiveScene().buildIndex + 1));

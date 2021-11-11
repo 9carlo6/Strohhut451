@@ -51,27 +51,32 @@ public class SessionController : MonoBehaviour
     }
 
     //Funzione per ricavare i dati dell'ultima sessione
-    public Dictionary<string, string> GetLastDataSession()
+    public Dictionary<string, int> GetLastDataSession()
     {
-        Dictionary<string, string> data = new Dictionary<string, string>();
+        Dictionary<string, int> data = new Dictionary<string, int>();
+
+        Session session = new Session();
+        session = sessions.sessions_list.LastOrDefault();
 
         Scene scene = new Scene();
         scene = sessions.sessions_list.LastOrDefault().scenes.LastOrDefault();
 
-        data.Add("time", scene.time.ToString());
-        data.Add("attempts", scene.restart_numbers.ToString());
-        data.Add("points", scene.score.ToString());
-        data.Add("coins", scene.coins.ToString());
+        data.Add("chapter", session.chapter);
+        data.Add("time", (int) scene.time);
+        data.Add("attempts", scene.restart_numbers);
+        data.Add("points", scene.score);
+        data.Add("coins", scene.coins);
 
         return data;
     }
 
     //Funzione per aggiungere una nuova sessione
-    public void AddNewSession()
+    public void AddNewSession(int chapter)
     {
         //Creiamo una nuova sessione e gli diamo come id il successivo dell'ultimo registrato nelle sessioni
         Session new_session = new Session();
         new_session.session_id = GetLastSessionId() + 1;
+        new_session.chapter = chapter;
 
         Debug.Log("NEW SESSION ID: " + new_session.session_id);
 

@@ -27,7 +27,6 @@ public class LevelStateManager : MonoBehaviour
     [HideInInspector] public GameObject player;
 
 
-
     //Per individuare lo stato corrente del Livello
     public string getCurrentState()
     {
@@ -141,8 +140,10 @@ public class LevelStateManager : MonoBehaviour
         lc.enemiesNumberText.GetComponent<TMP_Text>().text = new string('*', lc.valid_currentNumberOfEnemies);
         lc.levelPoints = lc.valid_levelPoints;
         lc.currentCoins = lc.valid_currentCoins;
+        lc.levelTimeCounter = lc.valid_levelTimeCounter;
         lc.comboTimeCounter = 0;
         lc.comboMultiplier = 0;
+
     }
 
 }

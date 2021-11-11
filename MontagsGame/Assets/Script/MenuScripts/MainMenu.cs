@@ -43,11 +43,15 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    public void AddNewSession()
+    //Funzione per avviare una nuova sessione
+    //Questa viene richiamata quando viene premuto il pulsante "start game" o il pulsante dedicato al capitolo
+    //In futuro quando viene premuto il pulsante "start game" si deve fare un controllo
+    //sull'ultimo livello completato in maniera tale da partire dal successivo
+    public void AddNewSession(int chapter)
     {
         sessionController = GameObject.FindWithTag("SessionController");
         sc = sessionController.GetComponent<SessionController>();
-        sc.AddNewSession();
+        sc.AddNewSession(1);
     }
 
 

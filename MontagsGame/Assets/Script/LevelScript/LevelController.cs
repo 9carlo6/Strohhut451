@@ -53,6 +53,7 @@ public class LevelController : MonoBehaviour
     [HideInInspector] public int valid_levelPoints;
     [HideInInspector] public int valid_currentCoins;
     [HideInInspector] public int valid_currentNumberOfEnemies;
+    [HideInInspector] public int valid_levelTimeCounter;
 
 
     //Singleton
@@ -78,6 +79,7 @@ public class LevelController : MonoBehaviour
             currentCoins = 0;
             valid_levelPoints = 0;
             valid_currentCoins = 0;
+            valid_levelTimeCounter = 0;
 
             pointsText = GameObject.FindWithTag("PointsText");
             comboText = GameObject.FindWithTag("ComboText");
