@@ -5,8 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelGameOverState : LevelBaseState
 {
-    private PlayerInput playerInput;
-    private GameObject gameOverCanvas;
+    public GameObject gameOverCanvas;
 
     public override void EnterState(LevelStateManager level)
     {
@@ -24,9 +23,15 @@ public class LevelGameOverState : LevelBaseState
             level.UpdateSessionInfo();
 
             Debug.Log("Passaggio dallo stato game over allo stato iniziale del livello");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
             gameOverCanvas.SetActive(false);
-            level.SwitchState(level.InitialState);
+
+            //Per resettare i parametri
+            level.ParametersReset();
+
+            int levelIndex = SceneManager.GetActiveScene().buildIndex;
+            //Per gestire il passaggio da uno stato all'altro quando si carica un livello
+            level.StartCoroutine(level.LoadLevel(level.InitialState, levelIndex));
         }
     }
 

@@ -4,9 +4,8 @@ using UnityEngine;
 using System;
 
 [System.Serializable]
-public class Session
+public class Scores
 {
-    public int session_id;
     public int chapter;
-    public List<Scene> scenes;
+    public List<Score> scores_list;
 }

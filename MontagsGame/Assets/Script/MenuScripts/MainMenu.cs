@@ -15,7 +15,9 @@ public class MainMenu : MonoBehaviour
     [HideInInspector] public bool leftDirection;
     [HideInInspector] public bool forwardDirection;
 
+    //Per gestire l'animazione della transizione tra un livello e un altro
     public Animator transition;
+    public float transitionTime = 1f;
 
     public GameObject sessionController;
     public SessionController sc;
@@ -23,7 +25,16 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+    }
+
+    //Per gestire l'animazione della transizione tra un livello e un altro
+    IEnumerator LoadLevel(int levelIndex)
+    {
+        this.transition.SetTrigger("Start");
+        yield return new WaitForSeconds(transitionTime);
+        SceneManager.LoadScene(levelIndex);
     }
 
     public void ExitGame()
@@ -32,11 +43,15 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    public void AddNewSession()
+    //Funzione per avviare una nuova sessione
+    //Questa viene richiamata quando viene premuto il pulsante "start game" o il pulsante dedicato al capitolo
+    //In futuro quando viene premuto il pulsante "start game" si deve fare un controllo
+    //sull'ultimo livello completato in maniera tale da partire dal successivo
+    public void AddNewSession(int chapter)
     {
         sessionController = GameObject.FindWithTag("SessionController");
         sc = sessionController.GetComponent<SessionController>();
-        sc.AddNewSession();
+        sc.AddNewSession(1);
     }
 
 

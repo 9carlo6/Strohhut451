@@ -8,17 +8,15 @@ public class LevelPauseState : LevelBaseState
     private PlayerInput playerInput;
     private GameObject pauseMenuCanvas;
     public bool gameIsPaused = false;
-    private GameObject player;
 
     public override void EnterState(LevelStateManager level)
     {
         Debug.Log("Stato Livello = Check Restart");
-        player = GameObject.FindWithTag("Player");
         pauseMenuCanvas = level.gameObject.transform.Find("PauseMenuCanvas").gameObject;
         pauseMenuCanvas.SetActive(true);
         gameIsPaused = true;
         pause();
-        player.GetComponent<PlayerController>().isStopped = true;
+        level.player.GetComponent<PlayerController>().isStopped = true;
     }
 
     public override void UpdateState(LevelStateManager level)
@@ -29,18 +27,25 @@ public class LevelPauseState : LevelBaseState
             level.UpdateSessionInfo();
 
             Debug.Log("Passaggio dallo stato pause allo stato iniziale del livello con reload della scena");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             pauseMenuCanvas.SetActive(false);
-            player.GetComponent<PlayerController>().isStopped = false;
+            level.player.GetComponent<PlayerController>().isStopped = false;
             gameIsPaused = false;
             resume();
-            level.SwitchState(level.InitialState);
+
+            //Per resettare i parametri
+            level.ParametersReset();
+
+            int levelIndex = SceneManager.GetActiveScene().buildIndex;
+
+            //Per gestire il passaggio da uno stato all'altro quando si carica un livello
+            level.StartCoroutine(level.LoadLevel(level.InitialState, levelIndex));
+ 
         }
         else if (Input.GetKeyDown(KeyCode.Escape))
         {
             Debug.Log("Passaggio dallo stato pause allo stato iniziale del livello senza reload della scena");
             pauseMenuCanvas.SetActive(false);
-            player.GetComponent<PlayerController>().isStopped = false;
+            level.player.GetComponent<PlayerController>().isStopped = false;
             gameIsPaused = false;
             resume();
 

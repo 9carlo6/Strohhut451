@@ -7,7 +7,7 @@ using System.IO;
 public class WeaponPlayerController : WeaponController
 {
     //Per gestire il widget relativo alle munizioni
-    public AmmoWidget ammoWidget;
+    //[HideInInspector] public AmmoWidget ammoWidget;
 
     //Per gestire il puntatore dell'arma
     public GameObject weaponSight;
@@ -16,6 +16,8 @@ public class WeaponPlayerController : WeaponController
 
     public override void Awake()
     {
+        weaponSight = GameObject.FindWithTag("WeaponSight");
+
         //Inizio - Inizializzazione delle feature
         string fileString = new StreamReader("Assets/Push-To-Data/Feature/Weapon/weapon_features.txt").ReadToEnd();
         weaponMapper = JsonUtility.FromJson<WeaponFeaturesJsonMap>(fileString);
@@ -38,7 +40,7 @@ public class WeaponPlayerController : WeaponController
         //Fine - Inizializzazione delle feature
 
 
-        ammoWidget.Refresh(ammoCount);
+        //ammoWidget.Refresh(ammoCount);
     }
 
     //Funzione per sparare
@@ -90,7 +92,7 @@ public class WeaponPlayerController : WeaponController
             StopFiring();
         }
         //Questo serve per aggiornare le munizioni visibili nel widget
-        ammoWidget.Refresh(ammoCount);
+        //ammoWidget.Refresh(ammoCount);
     }
 
     //Per gestire il puntatore
@@ -132,6 +134,6 @@ public class WeaponPlayerController : WeaponController
         }
 
         //Questo serve per aggiornare le munizioni visibili nel widget
-        ammoWidget.Refresh(ammoCount);
+        //ammoWidget.Refresh(ammoCount);
     }
 }
