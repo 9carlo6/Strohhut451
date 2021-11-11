@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
 {
-    private GameObject levelInfoCanvas;
+    public GameObject levelInfoCanvas;
 
     //Per controllare il tempo impiegato per superare il livello
     [HideInInspector]
@@ -31,8 +31,8 @@ public class LevelController : MonoBehaviour
     public int enemyKillScore;
 
     //Per controllare il numero corrente di nemici presenti nel livello
-    [HideInInspector]
-    public int currentNumberOfEnemies;
+
+    public int currentNumberOfEnemies,NumberOfEnemiesCheck;
     [HideInInspector]
     public GameObject enemiesNumberText;
 
@@ -43,10 +43,18 @@ public class LevelController : MonoBehaviour
     public int currentCoins;
 
     //Per gestire il numero di munizioni
-    [HideInInspector] 
+    [HideInInspector]
     public GameObject ammoText;
-    [HideInInspector] 
+    [HideInInspector]
     public WeaponController weapon;
+
+    //Questi paramentri servono per salvare i valori validi relativi allo score del livello
+    //Quando il giocatore va al livello successivo devono essere aggiornati
+    [HideInInspector] public int valid_levelPoints;
+    [HideInInspector] public int valid_currentCoins;
+    [HideInInspector] public int valid_currentNumberOfEnemies;
+    [HideInInspector] public int valid_levelTimeCounter;
+
 
     //Singleton
     public static LevelController lcstatic;
@@ -57,7 +65,7 @@ public class LevelController : MonoBehaviour
         int currentSceneId = SceneManager.GetActiveScene().buildIndex;
 
         //Singleton
-        //Diversa da 0 perchè la scena 0 è il menu
+        //Diversa da 0 perchï¿½ la scena 0 ï¿½ il menu
         if (lcstatic == null && currentSceneId != 0)
         {
             lcstatic = this;
@@ -69,6 +77,9 @@ public class LevelController : MonoBehaviour
             comboMultiplier = 0;
             enemyKillScore = 250;
             currentCoins = 0;
+            valid_levelPoints = 0;
+            valid_currentCoins = 0;
+            valid_levelTimeCounter = 0;
 
             pointsText = GameObject.FindWithTag("PointsText");
             comboText = GameObject.FindWithTag("ComboText");
@@ -80,7 +91,9 @@ public class LevelController : MonoBehaviour
             levelInfoCanvas = transform.Find("LevelInfoCanvas").gameObject;
 
             //Per prendere il numero corrente di nemici presenti nel livello
+            valid_currentNumberOfEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
             currentNumberOfEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
+            NumberOfEnemiesCheck = GameObject.FindGameObjectsWithTag("Enemy").Length;
 
             //Aggiorna il numero di nemici sulla UI
             enemiesNumberText.GetComponent<TMP_Text>().text = new string('*', currentNumberOfEnemies);
@@ -91,20 +104,38 @@ public class LevelController : MonoBehaviour
         }
     }
 
+    //Funzione necessaria per controllare se la scena corrente Ã¨ un livello
+    //In caso contrario bisogna distruggere l'oggetto LevelController
+    public void CheckSceneType()
+    {
+        //Se la scena corrente non contiene la parola level allora viene cancellata
+        if (!SceneManager.GetActiveScene().name.ToString().Contains("Level"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
+        //Continua costantemente la tipologia della scena corrente
+        //Se non Ã¨ un livello distrugge l'oggetto LevelController
+        CheckSceneType();
+
         //Per modificare incrementare il valore del cronometro del tempo impiegato per superare il livello
-        if(currentNumberOfEnemies > 0)
+        if (currentNumberOfEnemies > 0)
         {
             levelTimeCounter += Time.deltaTime;
         }
 
+        NumberOfEnemiesCheck = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        Debug.Log("BBBBBB: " + NumberOfEnemiesCheck );
         //Per gestire i punti da assegnare ogni volta che si uccide un nemico
-        if (currentNumberOfEnemies != GameObject.FindGameObjectsWithTag("Enemy").Length)
+        if (currentNumberOfEnemies > NumberOfEnemiesCheck)
         {
+            Debug.Log("AAAAAAAAAAsssss: " + currentNumberOfEnemies );
             //Per prendere il numero corrente di nemici presenti nel livello
-            currentNumberOfEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
+            currentNumberOfEnemies=NumberOfEnemiesCheck;
 
             //Il moltiplicatore viene incrementato a ogni nemico ucciso
             comboMultiplier++;
@@ -112,18 +143,22 @@ public class LevelController : MonoBehaviour
             //Per aggiornare il valore del moltiplicatore sulla UI
             comboText.GetComponent<TMP_Text>().text = (comboMultiplier + 1).ToString() + " " + "X";
 
-            //Il punti vengono aggiornato 
+            //Il punti vengono aggiornato
             levelPoints += enemyKillScore * comboMultiplier;
 
             //Quando si uccide un nemico il contatore viene riportato a 5 secondi
             comboTimeCounter = 5;
-
-            //Aggiorna il numero di nemici sulla UI
-            enemiesNumberText.GetComponent<TMP_Text>().text = new string('*', currentNumberOfEnemies);
+        }
+        else if(currentNumberOfEnemies < NumberOfEnemiesCheck){
+          currentNumberOfEnemies=NumberOfEnemiesCheck;
+          levelPoints=valid_levelPoints;
+          currentCoins=valid_currentCoins;
+          comboMultiplier=0;
+          comboText.GetComponent<TMP_Text>().text = " ";
         }
 
         //Per modificare il valore del testo relativo ai punti accumulati nel livello (DA RIMUOVERE CONTATORE)
-        if (comboTimeCounter > 0)
+        if (comboTimeCounter > 0 )
         {
             comboTimeCounter -= Time.deltaTime;
         }
@@ -136,9 +171,11 @@ public class LevelController : MonoBehaviour
             comboText.GetComponent<TMP_Text>().text = " ";
         }
 
+        //Aggiorna il numero di nemici sulla UI
+        enemiesNumberText.GetComponent<TMP_Text>().text = new string('*', currentNumberOfEnemies);
+
         //Per modificare il valore del testo relativo al punteggio
         pointsText.GetComponent<TMP_Text>().text = levelPoints.ToString() + " " + "PT";
-
 
         //Per modificare il valore del testo relativo alle monete raccolte
         coinsText.GetComponent<TMP_Text>().text = currentCoins.ToString() + " " + "$";

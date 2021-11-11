@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
-//[HideInInspector] 
+//[HideInInspector]
 public class LevelStateManager : MonoBehaviour
 {
     LevelBaseState currentState;
@@ -25,11 +26,6 @@ public class LevelStateManager : MonoBehaviour
     //Per gestire il player
     [HideInInspector] public GameObject player;
 
-    //Questi paramentri servono per salvare i valori validi relativi allo score del livello
-    //Quando il giocatore va al livello successivo devono essere aggiornati
-    [HideInInspector] public int valid_levelPoints;
-    [HideInInspector] public int valid_currentCoins;
-
 
     //Per individuare lo stato corrente del Livello
     public string getCurrentState()
@@ -48,9 +44,6 @@ public class LevelStateManager : MonoBehaviour
         sc = sessionController.GetComponent<SessionController>();
 
         player = GameObject.FindWithTag("Player");
-
-        valid_levelPoints = 0;
-        valid_currentCoins = 0;
     }
 
     public void Start()
@@ -89,7 +82,7 @@ public class LevelStateManager : MonoBehaviour
 
         StartCoroutine(LoadMenu());
 
-        //Per uscire dall pausa se il gioco è in pausa
+        //Per uscire dall pausa se il gioco ï¿½ in pausa
         if (PauseState.gameIsPaused)
         {
             PauseState.resume();
@@ -107,7 +100,7 @@ public class LevelStateManager : MonoBehaviour
         float scene_time = lc.levelTimeCounter;
         bool scene_is_completed = isLevelCompleted;
 
-        //Questa è la funzione che permette di aggiornare le info
+        //Questa ï¿½ la funzione che permette di aggiornare le info
         sc.UpdateCurrentSceneData(
             scene_name,
             scene_restart_numbers,
@@ -142,10 +135,15 @@ public class LevelStateManager : MonoBehaviour
     //Per il reset dei parametri quando si riavvia la scena
     public void ParametersReset()
     {
-        lc.levelPoints = valid_levelPoints;
-        lc.currentCoins = valid_currentCoins;
+        lc.currentNumberOfEnemies = lc.valid_currentNumberOfEnemies;
+        lc.NumberOfEnemiesCheck = lc.valid_currentNumberOfEnemies;
+        lc.enemiesNumberText.GetComponent<TMP_Text>().text = new string('*', lc.valid_currentNumberOfEnemies);
+        lc.levelPoints = lc.valid_levelPoints;
+        lc.currentCoins = lc.valid_currentCoins;
+        lc.levelTimeCounter = lc.valid_levelTimeCounter;
         lc.comboTimeCounter = 0;
         lc.comboMultiplier = 0;
+
     }
 
 }

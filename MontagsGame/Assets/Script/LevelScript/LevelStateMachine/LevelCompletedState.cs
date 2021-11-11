@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class LevelCompletedState : LevelBaseState
 {
@@ -20,7 +21,7 @@ public class LevelCompletedState : LevelBaseState
 		//Serve per aggiornare le info relative alla sessione
 		level.UpdateSessionInfo();
 
-		//La collisione tra il player e il pavimento è avventua e quindi settiamo il parametro a true
+		//La collisione tra il player e il pavimento ï¿½ avventua e quindi settiamo il parametro a true
 		isCollided = true;
 	}
 
@@ -30,11 +31,12 @@ public class LevelCompletedState : LevelBaseState
 	  {
 			Debug.Log("Passaggio al livello successivo");
 			//set di alcuni contatori a zero
-			level.lc.levelTimeCounter = 0;
+			
 			level.lc.comboTimeCounter = 0;
 			level.lc.comboMultiplier = 0;
-			level.valid_levelPoints = level.lc.levelPoints;
-			level.valid_currentCoins = level.lc.currentCoins;
+			level.lc.valid_levelPoints = level.lc.levelPoints;
+			level.lc.valid_currentCoins = level.lc.currentCoins;
+			level.lc.valid_levelTimeCounter = level.lc.valid_levelTimeCounter;
 
 			//caricamento scena successiva
 			level.StartCoroutine(LoadLevel(level, SceneManager.GetActiveScene().buildIndex + 1));
@@ -42,6 +44,10 @@ public class LevelCompletedState : LevelBaseState
 			level.player.GetComponent<Rigidbody>().isKinematic = true;
 			level.player.GetComponent<CapsuleCollider>().enabled = false;
 			levelCompletedCanvas.SetActive(false);
+
+			//set del parametro dei nunmero dei nemici
+			level.lc.currentNumberOfEnemies = level.lc.valid_currentNumberOfEnemies;
+			level.lc.NumberOfEnemiesCheck = level.lc.valid_currentNumberOfEnemies;
 
 			//Qui viene settato a false per evitare di entrare continuamente nell'update
 			isCollided = false;
@@ -67,6 +73,8 @@ public class LevelCompletedState : LevelBaseState
 			yield return null;
 		// Wait a frame so every Awake and Start method is called
 		yield return new WaitForEndOfFrame();
+		level.transition.SetTrigger("End");
+		yield return new WaitForSeconds(level.transitionTime);
 
 		level.SwitchState(level.InitialState);
 	}
