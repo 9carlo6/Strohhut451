@@ -112,7 +112,7 @@ public class ChapterCompletedMenu : MonoBehaviour
             leftDirection = !leftDirection;
 
             //Deve essere il doppio in quanto partendo dal centro impieghera un tempo paria defaultTimeCounter per arrivare a sinistra
-            //e successivamente un tempo pari a defaultTimeCounter * 2 per arrivare a destra (poi sarà sempre cosi)
+            //e successivamente un tempo pari a defaultTimeCounter * 2 per arrivare a destra (poi sarï¿½ sempre cosi)
             timeCounterMovement = defaultTimeCounterMovement * 2;
         }
     }
@@ -255,6 +255,10 @@ public class ChapterCompletedMenu : MonoBehaviour
             Debug.Log("COINS SCORE = D");
             votes.Add("D");
         }
+
+        string combindedString = string.Join( "", votes);
+
+        
+        Debug.Log("SCORE = " + combindedString.GroupBy(x => x).OrderByDescending(x => x.Count()).First().Key);
     }
 }
-
