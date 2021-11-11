@@ -20,7 +20,6 @@ public class EnemyHealthManager : MonoBehaviour
     float blinkTimer;
 
     //Per gestire la barra della vita
-    UIHealthBar healthBar;
     [HideInInspector] public EnemyStateManager stateManager;
 
     // Start is called before the first frame update
@@ -29,14 +28,12 @@ public class EnemyHealthManager : MonoBehaviour
         stateManager = GetComponent<EnemyStateManager>();
         skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         currentHealth = maxhealth;
-        healthBar = GetComponentInChildren<UIHealthBar>();
     }
 
     //Questa funzione serve per diminuire la vita del nemico ogni volta che esso viene colpito.
     public void TakeDamage(float amount)
     { 
             currentHealth -= amount;
-            healthBar.SetHealthBarPercentage(currentHealth / maxhealth);
             if (currentHealth <= 0.0f || stateManager.getCurrentState() == "EnemyStunnedState")
             {
                 Die();
@@ -55,7 +52,6 @@ public class EnemyHealthManager : MonoBehaviour
     {
         //stateManager.SwitchState(stateManager.DeathState);
         currentHealth = 0;
-        healthBar.gameObject.SetActive(false);
     }
 
     private void Update()

@@ -1,6 +1,6 @@
 Using pre-set license
 Built from '2020.2/staging' branch; Version is '2020.2.7f1 (c53830e277f1) revision 12924976'; Using compiler version '192528614'; Build Type 'Release'
-OS: 'Windows 10 Home; OS build 19042.1288; Version 2009; 64bit' Language: 'it' Physical Memory: 8129 MB
+OS: 'Windows 10 Pro; OS build 22000.282; Version 2009; 64bit' Language: 'it' Physical Memory: 16167 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
  COMMAND LINE ARGUMENTS:
@@ -11,7 +11,7 @@ C:\Program Files\Unity\Hub\Editor\2020.2.7f1\Editor\Unity.exe
 -name
 AssetImportWorker0
 -projectPath
-C:/Users/pcarl/Desktop/Caturano/MontagsGame/MontagsGame
+C:/Users/molin/Desktop/MontagsGame/MontagsGame/MontagsGame
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
@@ -23,14 +23,14 @@ Refreshing native plugins compatible for Editor in 102.34 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.2.7f1 (c53830e277f1)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/pcarl/Desktop/Caturano/MontagsGame/MontagsGame/Assets
+[Subsystems] Discovering subsystems at path C:/Users/molin/Desktop/MontagsGame/MontagsGame/MontagsGame/Assets
 GfxDevice: creating device client; threaded=0
 Direct3D:
-    Version:  Direct3D 11.0 [level 11.0]
-    Renderer: NVIDIA GeForce GTX 770 (ID=0x1184)
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: Intel(R) Iris(R) Xe Graphics (ID=0x9a49)
     Vendor:   
-    VRAM:     2007 MB
-    Driver:   27.21.14.5730
+    VRAM:     8083 MB
+    Driver:   27.20.100.9664
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/Managed'
@@ -91,6 +91,14 @@ Start importing Assets/Script/MenuScripts/AisleController.cs using Guid(5b0fd322
   Import took 0.050735 seconds .
 
 ========================================================================
+Received Import Request.
+  Time since last request: 0.236616 seconds.
+  path: Assets/Script/SoundScript/Sound.cs
+  artifactKey: Guid(f2a274c08b2bb11488514a49bd974b46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Script/SoundScript/Sound.cs using Guid(f2a274c08b2bb11488514a49bd974b46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c539599402fa55489bb83ce09682a8d5') in 0.005743 seconds
+  Import took 0.014501 seconds .
+
+========================================================================
 Received Prepare
 Registering precompiled user dll's ...
 Registered in 0.003210 seconds.
@@ -140,8 +148,8 @@ Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Ren
 Refreshing native plugins compatible for Editor in 0.99 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3799 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 177.5 MB.
-System memory in use after: 177.7 MB.
+System memory in use before: 172.3 MB.
+System memory in use after: 172.5 MB.
 
 Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 4444.
 Total: 4.003600 ms (FindLiveObjects: 0.545500 ms CreateObjectMapping: 0.494500 ms MarkObjects: 2.858700 ms  DeleteObjects: 0.103600 ms)
@@ -220,8 +228,8 @@ Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Ren
 Refreshing native plugins compatible for Editor in 1.17 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3799 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 177.6 MB.
-System memory in use after: 177.8 MB.
+System memory in use before: 172.4 MB.
+System memory in use after: 172.6 MB.
 
 Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 4453.
 Total: 5.459900 ms (FindLiveObjects: 0.508400 ms CreateObjectMapping: 0.262500 ms MarkObjects: 4.557500 ms  DeleteObjects: 0.129100 ms)
@@ -244,8 +252,8 @@ Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Ren
 Refreshing native plugins compatible for Editor in 1.12 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3799 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 177.6 MB.
-System memory in use after: 177.8 MB.
+System memory in use before: 172.4 MB.
+System memory in use after: 172.6 MB.
 
 Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 4456.
 Total: 13.005400 ms (FindLiveObjects: 1.063300 ms CreateObjectMapping: 0.463300 ms MarkObjects: 11.368100 ms  DeleteObjects: 0.108600 ms)

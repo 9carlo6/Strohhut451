@@ -39,7 +39,6 @@ public class WeaponPlayerController : WeaponController
         isBurst = (bool)features["isBurst"].currentValue;
         //Fine - Inizializzazione delle feature
 
-        audioManager = GetComponent<AudioManager>();
 
         //ammoWidget.Refresh(ammoCount);
     }
@@ -115,16 +114,7 @@ public class WeaponPlayerController : WeaponController
         //handleWeaponModifier();
         if (isFiring)
         {
-            if (isBurst)
-            {
-                FindObjectOfType<AudioManager>().Play("mitras");
-
-            }
             UpdateFiring(Time.deltaTime);
-        }
-        else
-        {
-            FindObjectOfType<AudioManager>().Stop("mitras");
         }
 
         //Per gestire il puntatore

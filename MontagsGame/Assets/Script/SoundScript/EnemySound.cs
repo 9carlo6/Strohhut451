@@ -2,7 +2,7 @@ using UnityEngine.Audio;
 using UnityEngine;
 
 [System.Serializable] //In questo modo compare nell'inspector e possiamo inserire tutti i suoni
-public class Sound
+public class EnemySounds
 {
     //Nome audio
     public string name;

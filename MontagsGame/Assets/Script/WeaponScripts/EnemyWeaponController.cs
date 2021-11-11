@@ -6,6 +6,13 @@ public class EnemyWeaponController : WeaponController
 {
     public bool isAmmoInfinite = true;
 
+    AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     //Funzione per sparare
     public override void FireBullet()
     {
@@ -52,6 +59,7 @@ public class EnemyWeaponController : WeaponController
         //Se non c'è la raffica allora spara solo un colpo e dopo finisce
         if (!isBurst)
         {
+            audioSource.Play();
             StopFiring();
         }
     }

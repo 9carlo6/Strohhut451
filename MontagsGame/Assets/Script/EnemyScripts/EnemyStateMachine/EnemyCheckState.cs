@@ -42,6 +42,8 @@ public class EnemyCheckState : EnemyBaseState
     {
         Debug.Log("Stato nemico = CHECK");
 
+        checkTime = 0;
+
         viewRadius = 10;
         viewAngle = 110;
 
@@ -92,7 +94,7 @@ public class EnemyCheckState : EnemyBaseState
 
         else if (checkTime > 3.5f)
         {
-            if (wayPoints.Length != 1)
+            if (wayPoints.Length > 1)
             {
                 enemy.SwitchState(enemy.PatrollingState);
             }

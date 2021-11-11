@@ -22,12 +22,16 @@ public class EnemyMeleeAttackState : EnemyBaseState
     public override void EnterState(EnemyStateManager enemy)
     {
 
+
+
         Debug.Log("Stato Nemico = Attacca");
         enemyGameObject = enemy.GetComponent<EnemyController>().gameObject;
         playerGameObject = GameObject.FindGameObjectWithTag("Player");
         enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
         enemyController = enemy.GetComponent<EnemyController>();
         enemyAnimator = enemy.GetComponent<Animator>();
+
+        enemyController.PlaySoundPunch();
 
         //Il timer viene settato a un valore iniziale (che dovrebbe coincidire con la lunghezza dell'animazione "AttaccoDirettoNemico")
         //Bisogna trovare un modo per ricavare la lunghezza di una specifica animazione (ora sappiamo ricavare solo quella dell'animazione corrente)
@@ -82,6 +86,7 @@ public class EnemyMeleeAttackState : EnemyBaseState
     //Funzione per gestire il danno inflitto al personaggio dall'attacco del nemico
     public void EnemyAttack()
     {
+
         //Se il tempo per il prossimo attacco è ancora maggiore di zero allo si diminuisce timer
         if (timeRemainingToAttack > 0)
         {
@@ -98,6 +103,7 @@ public class EnemyMeleeAttackState : EnemyBaseState
                 {
                     Debug.Log("Sto colpendo il player con melee");
                     playerGameObject.transform.GetComponent<PlayerHealthManager>().HurtPlayer(enemyController.meleeDamage);
+
 
                     //Una volta inflitto il danno il timer aggiornato alla metà lunghezza dell'animazione corrente, ovvero "AttaccoDirettoNemico"
                     timeRemainingToAttack = enemyAnimator.GetCurrentAnimatorStateInfo(0).length/2;
