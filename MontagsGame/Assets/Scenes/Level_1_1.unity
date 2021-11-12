@@ -7271,6 +7271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ec39d8d675f0194fb63c3cfe8635f2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelInfoCanvas: {fileID: 0}
   levelTimeCounter: 0
   pointsText: {fileID: 510126133}
   levelPoints: 0
@@ -7279,11 +7280,16 @@ MonoBehaviour:
   comboMultiplier: 0
   enemyKillScore: 250
   currentNumberOfEnemies: 0
+  NumberOfEnemiesCheck: 0
   enemiesNumberText: {fileID: 870448036}
   coinsText: {fileID: 1794437045}
   currentCoins: 0
   ammoText: {fileID: 0}
   weapon: {fileID: 0}
+  valid_levelPoints: 0
+  valid_currentCoins: 0
+  valid_currentNumberOfEnemies: 0
+  valid_levelTimeCounter: 0
 --- !u!114 &382756535 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2136778093394784796, guid: ae19e22aabdf0ac43a8da48ce3610c0f,
@@ -8351,13 +8357,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 437083563}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.15294118, g: 0.99215686, b: 0.9607843, a: 1}
+  m_Color: {r: 0.15294118, g: 0.99215686, b: 0.9607843, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8527,7 +8533,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &466735882
 PrefabInstance:

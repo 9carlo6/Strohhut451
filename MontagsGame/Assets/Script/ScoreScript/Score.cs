@@ -6,9 +6,14 @@ using System;
 [System.Serializable]
 public class Score
 {
-    public string vote;
-    public float time;
-    public int attempts;
-    public int points;
-    public int coins;
+    public string player_name { get; set; }
+    public float vote { get; set; }
+
+    public Score(string player_name, float vote)
+    {
+        this.player_name = player_name;
+        this.vote = vote;
+    }
 }
+
+

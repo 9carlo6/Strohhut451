@@ -7,8 +7,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
-public class ChapterCompletedMenu : MonoBehaviour
+public class LeaderboardsMenu : MonoBehaviour
 {
     public float moveSpeed = 10f;
     public float turnSpeed = 2f;
@@ -28,63 +29,36 @@ public class ChapterCompletedMenu : MonoBehaviour
     public GameObject sessionController;
     public SessionController sc;
 
-    //Per gestire il punteggio finale
-    public Dictionary<string, int> finalScore;
-    public TMP_Text time;
-    public TMP_Text attempts;
-    public TMP_Text points;
-    public TMP_Text coins;
-    public TMP_Text total;
-    [HideInInspector] public float scoreTimeCounter = 1.5f;
-
-    //Per gestire il voto finale
-    public float total_score;
-
-    //Per gestire la visibilità del bottone
-    public GameObject okButton;
-
-
-    public void LoadMenu()
-    {
-        StartCoroutine(LoadLevel(0));
-    }
-
-    //Per gestire l'animazione della transizione tra un livello e un altro
-    IEnumerator LoadLevel(int levelIndex)
-    {
-        this.transition.SetTrigger("Start");
-        yield return new WaitForSeconds(transitionTime);
-        SceneManager.LoadScene(levelIndex);
-    }
-
-    public void ExitGame()
-    {
-        Debug.Log("Uscita dal Gioco");
-        Application.Quit();
-    }
+    //Per gestire i primi 4 punteggi
+    public TMP_Text first_place_front;
+    public TMP_Text first_place_back;
+    public TMP_Text second_place_front;
+    public TMP_Text second_place_back;
+    public TMP_Text third_place_front;
+    public TMP_Text third_place_back;
+    public TMP_Text fourth_place_front;
+    public TMP_Text fourth_place_back;
+    public List<Score> scores = new List<Score>();
 
     void Awake()
     {
         sessionController = GameObject.FindWithTag("SessionController");
         sc = sessionController.GetComponent<SessionController>();
-
-        //Per recuperare il punteggio finale
-        finalScore = sc.GetLastDataSession();
     }
-
 
     void Start()
     {
         timeCounterMovement = defaultTimeCounterMovement;
         timeCounterRotation = defaultTimeCounterRotation;
         leftDirection = true;
+
+        LoadScores();
     }
 
     void Update()
     {
         handleLateralMovement();
         handleOndulatoryMovement();
-        handleScoreLoading();
     }
 
     void handleLateralMovement()
@@ -134,32 +108,71 @@ public class ChapterCompletedMenu : MonoBehaviour
         }
     }
 
-    //Funzione per gestire il caricamento del punteggio
-    public void handleScoreLoading()
+    public void LoadScores()
     {
-        if (scoreTimeCounter > 0)
+        foreach(Session s in sc.sessions.sessions_list)
         {
-            scoreTimeCounter -= Time.deltaTime;
+            if(s.final_score != null)
+            {
+                scores.Add(new Score(s.player_name, s.final_score));
+            }
+        }
 
-            //Cambia casualmente il valore dei numeri
-            time.text = Random.Range(0, 100000).ToString();
-            attempts.text = Random.Range(0, 100000).ToString();
-            points.text = Random.Range(0, 100000).ToString();
-            coins.text = Random.Range(0, 100000).ToString();
-            total.text = Random.Range(0, 100000).ToString();
+        int i = 4;
+
+
+        List<Score> orderedScores = scores.OrderByDescending(item => item.vote).ToList();
+
+
+        //first_place_front.text = scores["CARLO"].ToString();
+        //first_place_back.text = scores["CARLO"].ToString();
+
+        
+        if (orderedScores[0] != null)
+        {
+            first_place_front.text = "1 : " + orderedScores[0].player_name + " - " + orderedScores[0].vote.ToString();
+            first_place_back.text = "1 : " + orderedScores[0].player_name + " - " + orderedScores[0].vote.ToString();
         }
         else
         {
-            time.text = finalScore["time"].ToString();
-            attempts.text = finalScore["attempts"].ToString();
-            points.text = finalScore["points"].ToString();
-            coins.text = finalScore["coins"].ToString();
-
-            total_score = ((finalScore["points"] * finalScore["coins"]) / (finalScore["time"] * finalScore["attempts"])) * 100;
-            total.text = total_score.ToString();
-
-            okButton.gameObject.SetActive(true);
+            first_place_front.text = "1 - NO SCORE";
+            first_place_back.text = "1 - NO SCORE";
         }
-    }
-}
 
+        if (orderedScores[1] != null)
+        {
+            second_place_front.text = "2 : " + orderedScores[1].player_name + " - " + orderedScores[1].vote.ToString();
+            second_place_back.text = "2 : " + orderedScores[1].player_name + " - " + orderedScores[1].vote.ToString();
+        }
+        else
+        {
+            second_place_front.text = "2 - NO SCORE";
+            second_place_back.text = "2 - NO SCORE";
+        }
+
+        if (orderedScores[2] != null)
+        {
+            third_place_front.text = "3 : " + orderedScores[2].player_name + " - " + orderedScores[2].vote.ToString();
+            third_place_back.text = "3 : " + orderedScores[2].player_name + " - " + orderedScores[2].vote.ToString();
+        }
+        else
+        {
+            third_place_front.text = "3 - NO SCORE";
+            third_place_back.text = "3 - NO SCORE";
+        }
+
+        if (orderedScores[3] != null)
+        {
+            fourth_place_front.text = "4 : " + orderedScores[3].player_name + " - " + orderedScores[3].vote.ToString();
+            fourth_place_back.text = "4 : " + orderedScores[3].player_name + " - " + orderedScores[3].vote.ToString();
+        }
+        else
+        {
+            fourth_place_front.text = "4 - NO SCORE";
+            fourth_place_back.text = "4 - NO SCORE";
+        }
+
+
+    }
+
+}

@@ -70,6 +70,16 @@ public class SessionController : MonoBehaviour
         return data;
     }
 
+    //Funzione per aggiornare il punteggio finale e il nome del giocatore della sessione quando essa termina
+    public void EndSession(float final_score, string player_name)
+    {
+        sessions.sessions_list.LastOrDefault().final_score = final_score;
+        sessions.sessions_list.LastOrDefault().is_completed = true;
+        sessions.sessions_list.LastOrDefault().player_name = player_name;
+
+        UpdateJson();
+    }
+
     //Funzione per aggiungere una nuova sessione
     public void AddNewSession(int chapter)
     {
@@ -77,6 +87,9 @@ public class SessionController : MonoBehaviour
         Session new_session = new Session();
         new_session.session_id = GetLastSessionId() + 1;
         new_session.chapter = chapter;
+        new_session.final_score = 0;
+        new_session.is_completed = false;
+        new_session.player_name = "Samantha";
 
         Debug.Log("NEW SESSION ID: " + new_session.session_id);
 

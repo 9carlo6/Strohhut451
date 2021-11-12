@@ -6,9 +6,8 @@ using TMPro;
 using System.IO;
 using System.Linq;
 using System.Text;
-using UnityEngine.UI;
 
-public class ChapterCompletedMenu : MonoBehaviour
+public class InputPlayerNameMenu : MonoBehaviour
 {
     public float moveSpeed = 10f;
     public float turnSpeed = 2f;
@@ -30,18 +29,12 @@ public class ChapterCompletedMenu : MonoBehaviour
 
     //Per gestire il punteggio finale
     public Dictionary<string, int> finalScore;
-    public TMP_Text time;
-    public TMP_Text attempts;
-    public TMP_Text points;
-    public TMP_Text coins;
-    public TMP_Text total;
+    public GameObject name;
+    [HideInInspector] public TMP_Text total;
     [HideInInspector] public float scoreTimeCounter = 1.5f;
 
     //Per gestire il voto finale
-    public float total_score;
-
-    //Per gestire la visibilità del bottone
-    public GameObject okButton;
+    [HideInInspector] public float total_score;
 
 
     public void LoadMenu()
@@ -70,8 +63,10 @@ public class ChapterCompletedMenu : MonoBehaviour
 
         //Per recuperare il punteggio finale
         finalScore = sc.GetLastDataSession();
-    }
 
+        total_score = ((finalScore["points"] * finalScore["coins"]) / (finalScore["time"] * finalScore["attempts"])) * 100;
+        total.text = total_score.ToString();
+    }
 
     void Start()
     {
@@ -84,7 +79,6 @@ public class ChapterCompletedMenu : MonoBehaviour
     {
         handleLateralMovement();
         handleOndulatoryMovement();
-        handleScoreLoading();
     }
 
     void handleLateralMovement()
@@ -134,32 +128,13 @@ public class ChapterCompletedMenu : MonoBehaviour
         }
     }
 
-    //Funzione per gestire il caricamento del punteggio
-    public void handleScoreLoading()
+
+    //Funzione per caricare il punteggio e tornare al menu iniziale
+    public void SaveScore()
     {
-        if (scoreTimeCounter > 0)
-        {
-            scoreTimeCounter -= Time.deltaTime;
-
-            //Cambia casualmente il valore dei numeri
-            time.text = Random.Range(0, 100000).ToString();
-            attempts.text = Random.Range(0, 100000).ToString();
-            points.text = Random.Range(0, 100000).ToString();
-            coins.text = Random.Range(0, 100000).ToString();
-            total.text = Random.Range(0, 100000).ToString();
-        }
-        else
-        {
-            time.text = finalScore["time"].ToString();
-            attempts.text = finalScore["attempts"].ToString();
-            points.text = finalScore["points"].ToString();
-            coins.text = finalScore["coins"].ToString();
-
-            total_score = ((finalScore["points"] * finalScore["coins"]) / (finalScore["time"] * finalScore["attempts"])) * 100;
-            total.text = total_score.ToString();
-
-            okButton.gameObject.SetActive(true);
-        }
+        sc.EndSession(total_score, name.GetComponent<TMP_InputField>().text);
+        LoadMenu();
     }
 }
+
 
