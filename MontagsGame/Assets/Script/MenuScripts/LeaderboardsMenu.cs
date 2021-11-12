@@ -81,7 +81,7 @@ public class LeaderboardsMenu : MonoBehaviour
             leftDirection = !leftDirection;
 
             //Deve essere il doppio in quanto partendo dal centro impieghera un tempo paria defaultTimeCounter per arrivare a sinistra
-            //e successivamente un tempo pari a defaultTimeCounter * 2 per arrivare a destra (poi sarà sempre cosi)
+            //e successivamente un tempo pari a defaultTimeCounter * 2 per arrivare a destra (poi sarï¿½ sempre cosi)
             timeCounterMovement = defaultTimeCounterMovement * 2;
         }
     }
@@ -110,6 +110,7 @@ public class LeaderboardsMenu : MonoBehaviour
 
     public void LoadScores()
     {
+        //Si scorrono tutte le sessioni e si aggiungono alla lista di Score
         foreach(Session s in sc.sessions.sessions_list)
         {
             if(s.final_score != null)
@@ -118,16 +119,10 @@ public class LeaderboardsMenu : MonoBehaviour
             }
         }
 
-        int i = 4;
-
-
+        //Si ordina la lista in ordine discendente
         List<Score> orderedScores = scores.OrderByDescending(item => item.vote).ToList();
 
-
-        //first_place_front.text = scores["CARLO"].ToString();
-        //first_place_back.text = scores["CARLO"].ToString();
-
-        
+        //PRIMO POSTO
         if (orderedScores[0] != null)
         {
             first_place_front.text = "1 : " + orderedScores[0].player_name + " - " + orderedScores[0].vote.ToString();
@@ -139,6 +134,7 @@ public class LeaderboardsMenu : MonoBehaviour
             first_place_back.text = "1 - NO SCORE";
         }
 
+        //SECONDO POSTO
         if (orderedScores[1] != null)
         {
             second_place_front.text = "2 : " + orderedScores[1].player_name + " - " + orderedScores[1].vote.ToString();
@@ -150,6 +146,7 @@ public class LeaderboardsMenu : MonoBehaviour
             second_place_back.text = "2 - NO SCORE";
         }
 
+        //TERZO POSTO
         if (orderedScores[2] != null)
         {
             third_place_front.text = "3 : " + orderedScores[2].player_name + " - " + orderedScores[2].vote.ToString();
@@ -161,6 +158,7 @@ public class LeaderboardsMenu : MonoBehaviour
             third_place_back.text = "3 - NO SCORE";
         }
 
+        //QUARTO POSTO
         if (orderedScores[3] != null)
         {
             fourth_place_front.text = "4 : " + orderedScores[3].player_name + " - " + orderedScores[3].vote.ToString();

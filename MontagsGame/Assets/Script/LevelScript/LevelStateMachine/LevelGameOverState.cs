@@ -27,7 +27,7 @@ public class LevelGameOverState : LevelBaseState
             gameOverCanvas.SetActive(false);
 
             //Per resettare i parametri
-            level.ParametersReset();
+            level.lc.ParametersReset();
 
             int levelIndex = SceneManager.GetActiveScene().buildIndex;
             //Per gestire il passaggio da uno stato all'altro quando si carica un livello

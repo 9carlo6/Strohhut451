@@ -15,11 +15,11 @@ C:/Users/pcarl/Desktop/Caturano/MontagsGame/MontagsGame
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-14540
+1482
 Successfully changed project path to: C:/Users/pcarl/Desktop/Caturano/MontagsGame/MontagsGame
 C:/Users/pcarl/Desktop/Caturano/MontagsGame/MontagsGame
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 105.09 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 94.01 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.2.7f1 (c53830e277f1)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/Resources/UnitySubsystems
@@ -36,1293 +36,154 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56436
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56916
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.002219 seconds.
+Registered in 0.002478 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 90.89 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 109.82 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.172 seconds
+- Completed reload, in  1.585 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.002527 seconds.
+Registered in 0.003413 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 83.25 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 92.73 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.646 seconds
+- Completed reload, in  1.748 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 0.94 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.87 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3990 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 185.9 MB.
 System memory in use after: 186.1 MB.
 
 Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 4445.
-Total: 4.239400 ms (FindLiveObjects: 0.367300 ms CreateObjectMapping: 0.223000 ms MarkObjects: 3.490700 ms  DeleteObjects: 0.156600 ms)
+Total: 4.892000 ms (FindLiveObjects: 0.805100 ms CreateObjectMapping: 0.366400 ms MarkObjects: 3.522800 ms  DeleteObjects: 0.195500 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/Prefabs/SessionControllerPrefab/SessionController.prefab
-  artifactKey: Guid(02ca5ac972dd817429684f46d6547921) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/SessionControllerPrefab/SessionController.prefab using Guid(02ca5ac972dd817429684f46d6547921) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e557920e6a01dab1996a5dcc6fed6fc1') in 0.057555 seconds
-  Import took 0.063851 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 29.782564 seconds.
-  path: Assets/Script/SessionScript/SessionController.cs
-  artifactKey: Guid(eebde8ce5b39fa84e9240dd31b297174) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Script/SessionScript/SessionController.cs using Guid(eebde8ce5b39fa84e9240dd31b297174) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b85b1b13476641469a382c8e439de5d3') in 0.007737 seconds
-  Import took 0.013583 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 374.700515 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.011007 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.021012 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.100450 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001854 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.012341 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110695 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001607 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.031339 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.103437 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001669 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.016104 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.098795 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000736 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.008191 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.109302 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001269 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.012057 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.103316 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000717 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.007826 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.108895 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000733 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006203 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110200 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000747 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006611 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110363 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000870 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.008441 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.107412 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000739 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006335 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110923 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000760 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.007276 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.108627 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000693 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006095 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110397 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000697 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006445 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110068 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000709 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006143 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110282 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000752 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006422 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110204 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000696 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006251 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110347 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000695 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006792 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.109838 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000732 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006131 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110309 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000750 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006319 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110384 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000978 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.009903 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.106325 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000710 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006736 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.109888 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000745 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006247 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110287 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000739 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006147 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110438 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000740 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006793 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.109887 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000727 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006142 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110387 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000762 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006192 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110281 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000725 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006731 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.109732 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000696 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006169 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110257 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000718 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006437 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110121 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000788 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006499 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110095 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000701 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006553 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.109977 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000747 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006286 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110286 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000761 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006438 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110151 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000863 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.007623 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.108840 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000795 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006332 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110233 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000774 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006457 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.109922 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000736 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006919 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.109694 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000772 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006607 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.109790 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001005 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.007707 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.108929 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000765 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006271 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110081 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000806 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.007447 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.111474 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000951 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.008596 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.107799 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001775 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.010070 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.108679 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001254 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.011429 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.102605 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001027 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.008318 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.107803 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001024 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.008741 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.107841 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000782 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006488 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110040 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000826 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006648 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.111406 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001300 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.010771 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.106799 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001996 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.014972 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.100268 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001932 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.029004 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110417 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001755 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.014186 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.103684 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001537 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.012970 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.105057 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000967 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.010286 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.106074 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000773 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.008213 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.108691 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000768 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.007939 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.108653 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001142 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.007569 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110301 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000819 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006712 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.109389 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000761 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006911 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.109609 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000760 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.007706 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.108882 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000779 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006893 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.109428 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000776 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.007181 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110108 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000706 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006580 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.109325 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001179 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.007959 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.108717 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000717 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006445 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.109906 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000736 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006172 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110266 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000781 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006655 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110339 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000809 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006929 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.109310 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000754 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006424 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110151 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000779 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006605 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.109708 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000752 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006799 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.109760 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000740 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006886 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.109680 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000762 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006285 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110233 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000845 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006794 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.114897 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000969 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.007548 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.107637 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000782 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.007140 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.109437 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000798 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.007164 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.109190 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000698 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006147 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110323 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000697 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006107 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.111037 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000759 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006159 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110042 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000840 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006804 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.109891 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000780 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006401 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110278 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000823 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006772 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.109465 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000769 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006378 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.111923 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000915 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.009405 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.105185 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000792 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.008373 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.108729 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000764 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.007869 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.111273 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001667 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.015445 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.103734 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000788 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.007601 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.108924 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000749 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006484 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110234 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000780 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.007747 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.108663 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000759 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.007274 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.109133 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000727 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006532 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110522 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000782 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.007363 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.111834 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001208 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.011453 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.101973 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000716 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006428 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110476 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000908 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.007432 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.109377 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001058 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.008733 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.107060 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000736 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.007837 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.108732 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000734 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.007001 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.109335 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000746 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006934 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.111076 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001660 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.034336 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.097690 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.004545 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.029517 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.101746 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001205 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.010802 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.105531 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001014 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.009057 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.112189 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001109 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.012265 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.116942 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000904 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.008240 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.107921 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000955 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.008289 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.108082 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000997 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.008336 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.108123 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000760 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.008003 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.108524 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001293 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.010120 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.106658 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000976 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.009634 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.106250 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001097 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.009584 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.107259 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000993 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.008716 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.107636 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000836 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.008814 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.107889 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001728 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.017655 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.099360 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001285 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.008989 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.107318 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000877 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.007745 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.112963 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.002437 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.056599 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.086865 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001360 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.012630 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110644 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001248 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.011855 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.102426 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000832 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.008387 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.110508 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000825 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.006718 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.109683 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000850 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.007535 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.108789 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000851 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.008154 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.109264 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000793 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.008185 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.107292 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001047 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.009706 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.107005 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000818 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.008766 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.107604 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000914 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.008303 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.108376 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001033 seconds
-  ERROR: Build asset version error: assets/push-to-data/sessions.txt in SourceAssetDB has modification time of '2021-11-12T10:05:40.6454698Z' while content on disk has modification time of '2021-11-12T10:12:38.3440354Z'
-  Import took 0.008587 seconds .
+  path: Assets/Script/MenuScripts/LeaderboardsMenu.cs
+  artifactKey: Guid(d90f98b8e89e02c4180bb3452f302381) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Script/MenuScripts/LeaderboardsMenu.cs using Guid(d90f98b8e89e02c4180bb3452f302381) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '496a57e628a8f25161f91b425eec496a') in 0.036702 seconds
+  Import took 0.043655 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.003902 seconds.
+Registered in 0.003070 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.08 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.80 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.597 seconds
+- Completed reload, in  1.263 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 2.77 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.85 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3805 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 174.3 MB.
 System memory in use after: 174.5 MB.
 
 Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 4448.
-Total: 7.967900 ms (FindLiveObjects: 0.916200 ms CreateObjectMapping: 0.594300 ms MarkObjects: 6.292700 ms  DeleteObjects: 0.161800 ms)
+Total: 7.823800 ms (FindLiveObjects: 0.701800 ms CreateObjectMapping: 0.517100 ms MarkObjects: 6.457400 ms  DeleteObjects: 0.142700 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 12.705356 seconds.
-  path: Assets/Push-To-Data/Sessions.txt
-  artifactKey: Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Sessions.txt using Guid(8c365a29ea4cdde468b499a6ea031b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f51d499efa86b543845237faed7fca7') in 0.048575 seconds
-  Import took 0.071603 seconds .
+  Time since last request: 171.347841 seconds.
+  path: Assets/Unity Asset/Sci-Fi Construction Kit/Furniture_2/Furnirure_2_Chair_2.FBX
+  artifactKey: Guid(f8c0983c0819bfa43b35afa51ac2b784) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity Asset/Sci-Fi Construction Kit/Furniture_2/Furnirure_2_Chair_2.FBX using Guid(f8c0983c0819bfa43b35afa51ac2b784) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53bb2f5e45395886503e545675547b08') in 0.350231 seconds
+  Import took 0.357749 seconds .
 
 ========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.137440 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.85 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  8.530 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.83 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3805 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 174.3 MB.
-System memory in use after: 174.6 MB.
+Received Import Request.
+  Time since last request: 0.000454 seconds.
+  path: Assets/Unity Asset/Sci-Fi Construction Kit/!Prefabs/Furniture/Chairs/Chair_2.prefab
+  artifactKey: Guid(ae00d777cf5caab4898f724b6423ba9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity Asset/Sci-Fi Construction Kit/!Prefabs/Furniture/Chairs/Chair_2.prefab using Guid(ae00d777cf5caab4898f724b6423ba9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b72c791391f3a6b4989a702dd153a366') in 0.105560 seconds
+  Import took 0.114721 seconds .
 
-Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 4451.
-Total: 3.691500 ms (FindLiveObjects: 0.548200 ms CreateObjectMapping: 0.336200 ms MarkObjects: 2.721200 ms  DeleteObjects: 0.083100 ms)
+========================================================================
+Received Import Request.
+  Time since last request: 0.000263 seconds.
+  path: Assets/Script/MenuScripts/LeaderboardsMenu.cs
+  artifactKey: Guid(d90f98b8e89e02c4180bb3452f302381) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Script/MenuScripts/LeaderboardsMenu.cs using Guid(d90f98b8e89e02c4180bb3452f302381) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed5da1eb72a7ccca5f2fdf7f8c1b5bf9') in 0.003958 seconds
+  Import took 0.012316 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000393 seconds.
+  path: Assets/Unity Asset/Sci-Fi Construction Kit/!Prefabs/Furniture/Chairs/Chair_3.prefab
+  artifactKey: Guid(483442d222bb5084991877f2f15ba8d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity Asset/Sci-Fi Construction Kit/!Prefabs/Furniture/Chairs/Chair_3.prefab using Guid(483442d222bb5084991877f2f15ba8d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b8529a63a7eaed6d5dcd8a83d92e6b49') in 0.033307 seconds
+  Import took 0.043273 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000321 seconds.
+  path: Assets/Unity Asset/Sci-Fi Construction Kit/!Prefabs/Furniture/Chairs/Chair_4.prefab
+  artifactKey: Guid(e7c659942412ed54ba0c8368e28099be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity Asset/Sci-Fi Construction Kit/!Prefabs/Furniture/Chairs/Chair_4.prefab using Guid(e7c659942412ed54ba0c8368e28099be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bef2f7c74d1515538624dde38f28dc80') in 0.044360 seconds
+  Import took 0.056359 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000298 seconds.
+  path: Assets/Unity Asset/Sci-Fi Construction Kit/Furniture_2/Furnirure_2_Chair_4.FBX
+  artifactKey: Guid(8cf9d4dd8ad0b5f48b2f3966544f156b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity Asset/Sci-Fi Construction Kit/Furniture_2/Furnirure_2_Chair_4.FBX using Guid(8cf9d4dd8ad0b5f48b2f3966544f156b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b2fe1af3a7c9e5fc01579089bd2142ac') in 0.037510 seconds
+  Import took 0.047770 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000302 seconds.
+  path: Assets/Unity Asset/Sci-Fi Construction Kit/Furniture_2/Furnirure_2_Chair_1.FBX
+  artifactKey: Guid(4526fa8701b8099419a9d8fa4c2a3278) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity Asset/Sci-Fi Construction Kit/Furniture_2/Furnirure_2_Chair_1.FBX using Guid(4526fa8701b8099419a9d8fa4c2a3278) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '34e883df16ddf0d0cb0b43cbfee42d90') in 0.058193 seconds
+  Import took 0.066902 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000309 seconds.
+  path: Assets/Unity Asset/Sci-Fi Construction Kit/!Prefabs/Furniture/Chairs/Chair_1.prefab
+  artifactKey: Guid(1e19bfa72395d0b40a11a2fa19d2ef4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity Asset/Sci-Fi Construction Kit/!Prefabs/Furniture/Chairs/Chair_1.prefab using Guid(1e19bfa72395d0b40a11a2fa19d2ef4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '28567c26b4025a1fe68589e4d6c57d29') in 0.024703 seconds
+  Import took 0.033106 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000270 seconds.
+  path: Assets/Unity Asset/Sci-Fi Construction Kit/Furniture_2/Furnirure_2_Chair_3.FBX
+  artifactKey: Guid(4f38d8db19f77b2458ea265e31775bc9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unity Asset/Sci-Fi Construction Kit/Furniture_2/Furnirure_2_Chair_3.FBX using Guid(4f38d8db19f77b2458ea265e31775bc9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd7ae24ad0712551bd401473d50ce0ea5') in 0.050883 seconds
+  Import took 0.057685 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.593495 seconds.
+  path: Assets/Script/MenuScripts/ChapterCompletedMenu.cs
+  artifactKey: Guid(aed1434c5f0d8334897bd1f39560f987) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Script/MenuScripts/ChapterCompletedMenu.cs using Guid(aed1434c5f0d8334897bd1f39560f987) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7acb1130af2ff1f5f20e8751e061078f') in 0.007211 seconds
+  Import took 0.014575 seconds .
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

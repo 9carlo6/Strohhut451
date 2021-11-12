@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using System;
 
 public class LevelController : MonoBehaviour
 {
@@ -31,7 +33,6 @@ public class LevelController : MonoBehaviour
     public int enemyKillScore;
 
     //Per controllare il numero corrente di nemici presenti nel livello
-
     public int currentNumberOfEnemies,NumberOfEnemiesCheck;
     [HideInInspector]
     public GameObject enemiesNumberText;
@@ -54,6 +55,13 @@ public class LevelController : MonoBehaviour
     [HideInInspector] public int valid_currentCoins;
     [HideInInspector] public int valid_currentNumberOfEnemies;
     [HideInInspector] public int valid_levelTimeCounter;
+
+    //Per la gestione delle avarie
+    //public float BreakdownTimeCounter;
+    public GameObject breakdownCanvas;
+    public Image firstBreakdownImage;
+    public Image secondBreakdownImage;
+    public Image thirdBreakdownImage;
 
 
     //Singleton
@@ -127,13 +135,11 @@ public class LevelController : MonoBehaviour
         {
             levelTimeCounter += Time.deltaTime;
         }
-
         NumberOfEnemiesCheck = GameObject.FindGameObjectsWithTag("Enemy").Length;
-        Debug.Log("BBBBBB: " + NumberOfEnemiesCheck );
+
         //Per gestire i punti da assegnare ogni volta che si uccide un nemico
         if (currentNumberOfEnemies > NumberOfEnemiesCheck)
         {
-            Debug.Log("AAAAAAAAAAsssss: " + currentNumberOfEnemies );
             //Per prendere il numero corrente di nemici presenti nel livello
             currentNumberOfEnemies=NumberOfEnemiesCheck;
 
@@ -186,5 +192,43 @@ public class LevelController : MonoBehaviour
             //Per modificare il valore delle munizioni
             ammoText.GetComponent<TMP_Text>().text = weapon.ammoCount.ToString() + "/" + weapon.maxAmmoCount.ToString();
         }
+    }
+
+    //Per il reset dei parametri quando si riavvia il livello
+    public void ParametersReset()
+    {
+        currentNumberOfEnemies = valid_currentNumberOfEnemies;
+        NumberOfEnemiesCheck = valid_currentNumberOfEnemies;
+        enemiesNumberText.GetComponent<TMP_Text>().text = new string('*', valid_currentNumberOfEnemies);
+        levelPoints = valid_levelPoints;
+        currentCoins = valid_currentCoins;
+        levelTimeCounter = valid_levelTimeCounter;
+        comboTimeCounter = 0;
+        comboMultiplier = 0;
+    }
+
+
+    public void handleBreakdown(PlayerController pc, bool isLevelCompleted)
+    {
+      //Applico la prima avaria
+      //Se:
+      //1) sono passati 30 secondi
+      //2) non è completato il Livello
+      //3) non contiene già un modicatore con questa chiave
+      if((levelTimeCounter + valid_levelTimeCounter) >= 20 && !isLevelCompleted)
+      {
+        if(!pc.modifiers.ContainsKey("SpeedModifier")){
+          breakdownCanvas.SetActive(true);
+          firstBreakdownImage.enabled = true;
+          pc.modifiers.Add("SpeedModifier", new Modifier((Feature.FeatureType) HumanFeature.FeatureType.FT_SPEED, "moveSpeed", 0.5f));
+        }
+      }
+      else
+      {
+        //Altrimenti fa il reset del BreakdownCanvas
+        breakdownCanvas.SetActive(false);
+        firstBreakdownImage.enabled = false;
+      }
+
     }
 }
