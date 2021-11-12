@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Animations.Rigging;
 using System.IO;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -127,7 +128,7 @@ public class PlayerController : MonoBehaviour
 		//Per gestire i modificatori
 		foreach (var component in components.Values)
 		{
-			features["moveSpeed"].baseValue = (float) features["moveSpeed"].baseValue - (component.GetWeight() * 0.1);
+			features["moveSpeed"].baseValue = Convert.ToSingle(features["moveSpeed"].baseValue) - (component.GetWeight() * 0.1);
 		}
 		//Fine parte components
 
@@ -182,7 +183,7 @@ public class PlayerController : MonoBehaviour
 		Debug.Log("SPEED BASE VALUE: " + features["moveSpeed"].baseValue);
 
 		if (!isAttacking && !isDeath && !isStopped){
-			characterController.Move(currentMovement * Time.deltaTime * (float) features["moveSpeed"].currentValue);
+			characterController.Move(currentMovement * Time.deltaTime * Convert.ToSingle(features["moveSpeed"].currentValue));
 			handlePlayerRotation();
 			handleFiring();
 		}
@@ -195,7 +196,7 @@ public class PlayerController : MonoBehaviour
 				switch (modifier.m_feature_id)
 				{
 					case "moveSpeed":
-						features[modifier.m_feature_id].currentValue = (float) features[modifier.m_feature_id].baseValue * (float) modifier.m_fFactor;
+						features[modifier.m_feature_id].currentValue = Convert.ToSingle(features[modifier.m_feature_id].baseValue) * Convert.ToSingle(modifier.m_fFactor);
 						break;
 					case "increasedVisualField":
 						features[modifier.m_feature_id].currentValue = (bool) modifier.m_fFactor;

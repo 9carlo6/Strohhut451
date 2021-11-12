@@ -63,6 +63,11 @@ public class LevelStateManager : MonoBehaviour
     {
         //Richiama qualsiasi logica presente nell'UpdateState dello stato corrente
         currentState.UpdateState(this);
+
+        //Per gestire le avarie
+        if(player!=null){
+          lc.handleBreakdown(player.GetComponent<PlayerController>(), isLevelCompleted);
+        }
     }
 
     public void SwitchState(LevelBaseState state)
@@ -130,20 +135,6 @@ public class LevelStateManager : MonoBehaviour
         yield return new WaitForEndOfFrame();
 
         SwitchState(levelToSwitch);
-    }
-
-    //Per il reset dei parametri quando si riavvia la scena
-    public void ParametersReset()
-    {
-        lc.currentNumberOfEnemies = lc.valid_currentNumberOfEnemies;
-        lc.NumberOfEnemiesCheck = lc.valid_currentNumberOfEnemies;
-        lc.enemiesNumberText.GetComponent<TMP_Text>().text = new string('*', lc.valid_currentNumberOfEnemies);
-        lc.levelPoints = lc.valid_levelPoints;
-        lc.currentCoins = lc.valid_currentCoins;
-        lc.levelTimeCounter = lc.valid_levelTimeCounter;
-        lc.comboTimeCounter = 0;
-        lc.comboMultiplier = 0;
-
     }
 
 }
