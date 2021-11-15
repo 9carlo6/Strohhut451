@@ -46,9 +46,6 @@ public class EnemyPatrollingState : EnemyBaseState
         {
         Debug.Log("Stato Nemico = Patrolling");
 
-        viewRadius = viewRadius = (float)enemyController.features["viewRadius"].currentValue;
-
-        viewAngle = (float) enemyController.features["viewAnglePatrolling"].currentValue;
 
 
         enemyNavMeshAgent = enemy.GetComponent<NavMeshAgent>();
@@ -62,6 +59,11 @@ public class EnemyPatrollingState : EnemyBaseState
         enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
         enemyAnimator = enemy.GetComponent<Animator>();
         enemyController = enemy.GetComponent<EnemyController>();
+
+
+        viewRadius = (float)enemyController.features["viewRadius"].currentValue;
+
+        viewAngle = (float)enemyController.features["viewAnglePatrolling"].currentValue;
 
 
         enemyNavMeshAgent.destination = wayPoints[wayPointIndex].position;

@@ -46,16 +46,18 @@ public class EnemyCheckState : EnemyBaseState
 
         checkTime = 0;
 
-        viewRadius = (float)enemyController.features["viewRadius"].currentValue;
-
-        viewAngle = (float)enemyController.features["viewAnglePatrolling"].currentValue;
-
+      
         enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
         enemyGameObject = enemy.GetComponent<EnemyController>().gameObject;
         targetMask = enemy.GetComponent<EnemyController>().targetMask;
         obstructionMask = enemy.GetComponent<EnemyController>().obstructionMask;
         wayPoints = enemy.GetComponent<EnemyController>().wayPoints;
         enemyController = enemy.GetComponent<EnemyController>();
+
+        viewRadius = (float)enemyController.features["viewRadius"].currentValue;
+
+        viewAngle = (float)enemyController.features["viewAnglePatrolling"].currentValue;
+
 
 
         if (GameObject.FindGameObjectWithTag("Player") != null)

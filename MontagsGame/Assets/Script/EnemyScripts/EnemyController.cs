@@ -80,7 +80,7 @@ public class EnemyController : MonoBehaviour
 
     		features = new Dictionary<string, EnemyFeature>();
             
-            features.Add("viewRadius", new EnemyFeature(enemyMapper.FT_VIEW_RADIUS , EnemyFeature.FeatureType.FT_VIEW_RADIUS));
+            features.Add("viewRadius", new EnemyFeature(enemyMapper.FT_VIEW_RADIUS, EnemyFeature.FeatureType.FT_VIEW_RADIUS));
             features.Add("viewAnglePatrolling", new EnemyFeature(enemyMapper.FT_VIEW_ANGLE_PATROLLING, EnemyFeature.FeatureType.FT_VIEW_ANGLE_PATROLLING));
             features.Add("viewAngleChasing", new EnemyFeature(enemyMapper.FT_VIEW_ANGLE_CHASING, EnemyFeature.FeatureType.FT_VIEW_ANGLE_CHASING));
 
