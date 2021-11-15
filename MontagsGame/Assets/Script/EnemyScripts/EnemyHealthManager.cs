@@ -19,15 +19,26 @@ public class EnemyHealthManager : MonoBehaviour
     public float blinkDuration;
     float blinkTimer;
 
+
+    EnemyController enemyController;
+
+
     //Per gestire la barra della vita
     [HideInInspector] public EnemyStateManager stateManager;
 
     // Start is called before the first frame update
     void Start()
     {
+
         stateManager = GetComponent<EnemyStateManager>();
         skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
+        enemyController = enemyController.GetComponent<EnemyController>();
+
+        maxhealth = (float) enemyController.features["health"].currentValue;
         currentHealth = maxhealth;
+
+
+
     }
 
     //Questa funzione serve per diminuire la vita del nemico ogni volta che esso viene colpito.

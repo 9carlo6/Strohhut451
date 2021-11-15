@@ -265,6 +265,7 @@ public class PlayerController : MonoBehaviour
 
 		if (weaponController.isFiring && weaponController.ammoCount > 0)
 		{
+			
 			playerIsFiring = true;
 			//weaponController.UpdateFiring(Time.deltaTime);
 		}

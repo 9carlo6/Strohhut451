@@ -14,4 +14,7 @@ public class EnemyFeaturesJsonMap
   public float FT_MELEE_DAMAGE;
   public bool FT_IS_WEAPONED;
   public float FT_FIRE_DISTANCE;
+    public float FT_VIEW_RADIUS;
+    public float FT_VIEW_ANGLE_PATROLLING;
+    public float FT_VIEW_ANGLE_CHASING;
 }
