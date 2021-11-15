@@ -32,7 +32,7 @@ public class EnemyHealthManager : MonoBehaviour
 
         stateManager = GetComponent<EnemyStateManager>();
         skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
-        enemyController = enemyController.GetComponent<EnemyController>();
+        enemyController = GetComponent<EnemyController>();
 
         maxhealth = (float) enemyController.features["health"].currentValue;
         currentHealth = maxhealth;

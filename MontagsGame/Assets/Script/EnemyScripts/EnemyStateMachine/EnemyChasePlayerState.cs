@@ -52,9 +52,7 @@ public class EnemyChasePlayerState : EnemyBaseState
     {
         Debug.Log("Stato Nemico = Chasing");
 
-        viewRadius = (float)enemyController.features["viewRadius"].currentValue;
         
-        viewAngle = (float)enemyController.features["viewAngleChasing"].currentValue; 
 
         playerInSightRange = true;
 
@@ -63,7 +61,11 @@ public class EnemyChasePlayerState : EnemyBaseState
         meleeDistance = enemy.GetComponent<EnemyController>().meleeDistance;
         fireDistance = enemy.GetComponent<EnemyController>().fireDistance;
         enemyController = enemy.GetComponent<EnemyController>();
-        
+
+        viewRadius = (float)enemyController.features["viewRadius"].currentValue;
+
+        viewAngle = (float)enemyController.features["viewAngleChasing"].currentValue;
+
 
         if (GameObject.FindGameObjectWithTag("Player") != null)
         {
