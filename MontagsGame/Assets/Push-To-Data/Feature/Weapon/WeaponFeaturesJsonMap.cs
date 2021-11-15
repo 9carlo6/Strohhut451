@@ -13,5 +13,6 @@ public class WeaponFeaturesJsonMap
   public bool FT_BURST;
   public string FT_TRACER_EFFECT;
   public float FT_WEIGHT;
+   public float FT_NOISE_RANGE;
 
 }

@@ -13,9 +13,12 @@ public class WeaponPlayerController : WeaponController
     public GameObject weaponSight;
     Ray rayWeaponSight;
     RaycastHit hitInfoWeaponSight;
+    public GameObject[] enemies;
 
+    public float noiseRange;
     public override void Awake()
     {
+
         weaponSight = GameObject.FindWithTag("WeaponSight");
 
         //Inizio - Inizializzazione delle feature
@@ -29,8 +32,9 @@ public class WeaponPlayerController : WeaponController
        	features.Add("damage", new WeaponFeature(weaponMapper.FT_DAMAGE, WeaponFeature.FeatureType.FT_DAMAGE));
        	features.Add("isBurst", new WeaponFeature(weaponMapper.FT_BURST, WeaponFeature.FeatureType.FT_BURST));
        	features.Add("weight", new WeaponFeature(weaponMapper.FT_WEIGHT, WeaponFeature.FeatureType.FT_WEIGHT));
-       	//features.Add("tracerEffect", new WeaponFeature(weaponMapper.FT_MELEE_DAMAGE, WeaponFeature.FeatureType.FT_MELEE_DAMAGE));
+        features.Add("noiseRange", new WeaponFeature(weaponMapper.FT_NOISE_RANGE, WeaponFeature.FeatureType.FT_NOISE_RANGE));
 
+        noiseRange = 12f;//DA CAMBIARE PER PUSH TO DATA
 
        	//Da eliminare???
        	fireRate = (int) features["fireRate"].currentValue;
@@ -109,12 +113,20 @@ public class WeaponPlayerController : WeaponController
         }
     }
 
-    public override void Update()
-    {
+    public override void Update() { 
+   
+
+
+
+        
+     
         //Per gestire i modificatori
         //handleWeaponModifier();
         if (isFiring)
         {
+
+            makeNoise();
+
             UpdateFiring(Time.deltaTime);
         }
 
@@ -141,5 +153,22 @@ public class WeaponPlayerController : WeaponController
     public override float GetWeight()
     {
       return (float) features["weight"].currentValue;
+    }
+
+    public void makeNoise()
+    {
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        foreach (GameObject enemy in enemies)
+        {
+            if (Vector3.Distance(transform.position, enemy.transform.position) <= 12f)
+            {
+
+                enemy.GetComponent<EnemyStateManager>().SwitchState(enemy.GetComponent<EnemyStateManager>().ChasePlayerState);
+                enemy.GetComponent<EnemyStateManager>().ChasePlayerState.fireInHearRange = true;
+
+            }
+        }
+    
     }
 }
