@@ -11,23 +11,21 @@ using TMPro;
 
 public class CoinsCanvasHandler : MonoBehaviour
 {
-    public Coins coins;
+    public MenuController mc;
 
     //Per gestire le monete correnti
-    public TextAsset coinTextJSON;
     public TMP_Text normal_coin_text;
     public TMP_Text roger_coin_text;
 
-    void Awake()
+    void Update()
     {
         LoadData();
     }
 
     public void LoadData()
     {
-        coins = JsonUtility.FromJson<Coins>(coinTextJSON.text);
-        normal_coin_text.text = coins.normal_coins.ToString() + " $";
-        roger_coin_text.text = coins.roger_coins.ToString() + " R$";
+        normal_coin_text.text = mc.coins.normal_coins.ToString() + " $";
+        roger_coin_text.text = mc.coins.roger_coins.ToString() + " R$";
     }
 
 }
