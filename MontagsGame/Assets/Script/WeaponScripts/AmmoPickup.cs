@@ -16,7 +16,7 @@ public class AmmoPickup : MonoBehaviour
     //Funzione che si attiva quando l'oggetto viene toccato
     private void OnTriggerEnter(Collider other)
     {
-        // FindObjectOfType<AudioManager>().Play("Suono del tocco di questo oggetto");
+        FindObjectOfType<AudioManager>().Play("Recharge");
 
         weapon.DropAmmo(ammoDropped);
         Destroy(gameObject);

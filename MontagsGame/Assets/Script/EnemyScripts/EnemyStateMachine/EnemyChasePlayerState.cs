@@ -27,6 +27,7 @@ public class EnemyChasePlayerState : EnemyBaseState
     NavMeshAgent enemyNavMesh;
     private Animator enemyAnimator;
     EnemyController enemyController;
+    WeaponPlayerController weaponPlayerController;
 
     float agentAcceleration = 1.7f;
 
