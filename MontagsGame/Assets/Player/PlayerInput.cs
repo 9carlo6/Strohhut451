@@ -41,6 +41,38 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""IncreaseFOV"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""fca45622-c364-4c3d-a45f-a6ae829b9905"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Skull"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""bde3253c-12ec-497b-b993-e2335f0a184d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Helm"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""530a02cd-3ba1-4871-a5fe-2ab875610128"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Telescope"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""7ac36089-9ca9-439c-9db8-e52b19281fab"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -120,6 +152,50 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""action"": ""MeleeAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""effb69db-74d2-40e0-bdfe-43bc702db2d2"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skull"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""16b830e9-7750-4d7f-bd40-7fc122c9245a"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Helm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0e56cad2-8fa4-4bd1-a713-627cc88fbf0c"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Telescope"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d96fdd9c-b78e-46f4-8003-23eff3b7104c"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""IncreaseFOV"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -131,6 +207,10 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         m_CharacterControls_Move = m_CharacterControls.FindAction("Move", throwIfNotFound: true);
         m_CharacterControls_Fire = m_CharacterControls.FindAction("Fire", throwIfNotFound: true);
         m_CharacterControls_MeleeAttack = m_CharacterControls.FindAction("MeleeAttack", throwIfNotFound: true);
+        m_CharacterControls_IncreaseFOV = m_CharacterControls.FindAction("IncreaseFOV", throwIfNotFound: true);
+        m_CharacterControls_Skull = m_CharacterControls.FindAction("Skull", throwIfNotFound: true);
+        m_CharacterControls_Helm = m_CharacterControls.FindAction("Helm", throwIfNotFound: true);
+        m_CharacterControls_Telescope = m_CharacterControls.FindAction("Telescope", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -183,6 +263,10 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     private readonly InputAction m_CharacterControls_Move;
     private readonly InputAction m_CharacterControls_Fire;
     private readonly InputAction m_CharacterControls_MeleeAttack;
+    private readonly InputAction m_CharacterControls_IncreaseFOV;
+    private readonly InputAction m_CharacterControls_Skull;
+    private readonly InputAction m_CharacterControls_Helm;
+    private readonly InputAction m_CharacterControls_Telescope;
     public struct CharacterControlsActions
     {
         private @PlayerInput m_Wrapper;
@@ -190,6 +274,10 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         public InputAction @Move => m_Wrapper.m_CharacterControls_Move;
         public InputAction @Fire => m_Wrapper.m_CharacterControls_Fire;
         public InputAction @MeleeAttack => m_Wrapper.m_CharacterControls_MeleeAttack;
+        public InputAction @IncreaseFOV => m_Wrapper.m_CharacterControls_IncreaseFOV;
+        public InputAction @Skull => m_Wrapper.m_CharacterControls_Skull;
+        public InputAction @Helm => m_Wrapper.m_CharacterControls_Helm;
+        public InputAction @Telescope => m_Wrapper.m_CharacterControls_Telescope;
         public InputActionMap Get() { return m_Wrapper.m_CharacterControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -208,6 +296,18 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 @MeleeAttack.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnMeleeAttack;
                 @MeleeAttack.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnMeleeAttack;
                 @MeleeAttack.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnMeleeAttack;
+                @IncreaseFOV.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnIncreaseFOV;
+                @IncreaseFOV.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnIncreaseFOV;
+                @IncreaseFOV.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnIncreaseFOV;
+                @Skull.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnSkull;
+                @Skull.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnSkull;
+                @Skull.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnSkull;
+                @Helm.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnHelm;
+                @Helm.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnHelm;
+                @Helm.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnHelm;
+                @Telescope.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnTelescope;
+                @Telescope.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnTelescope;
+                @Telescope.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnTelescope;
             }
             m_Wrapper.m_CharacterControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -221,6 +321,18 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 @MeleeAttack.started += instance.OnMeleeAttack;
                 @MeleeAttack.performed += instance.OnMeleeAttack;
                 @MeleeAttack.canceled += instance.OnMeleeAttack;
+                @IncreaseFOV.started += instance.OnIncreaseFOV;
+                @IncreaseFOV.performed += instance.OnIncreaseFOV;
+                @IncreaseFOV.canceled += instance.OnIncreaseFOV;
+                @Skull.started += instance.OnSkull;
+                @Skull.performed += instance.OnSkull;
+                @Skull.canceled += instance.OnSkull;
+                @Helm.started += instance.OnHelm;
+                @Helm.performed += instance.OnHelm;
+                @Helm.canceled += instance.OnHelm;
+                @Telescope.started += instance.OnTelescope;
+                @Telescope.performed += instance.OnTelescope;
+                @Telescope.canceled += instance.OnTelescope;
             }
         }
     }
@@ -230,5 +342,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnMeleeAttack(InputAction.CallbackContext context);
+        void OnIncreaseFOV(InputAction.CallbackContext context);
+        void OnSkull(InputAction.CallbackContext context);
+        void OnHelm(InputAction.CallbackContext context);
+        void OnTelescope(InputAction.CallbackContext context);
     }
 }
