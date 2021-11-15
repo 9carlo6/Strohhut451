@@ -125,7 +125,7 @@ public class PlayerController : MonoBehaviour
 		components = new Dictionary<string, Component>();
 		components.Add("weapon", weaponController);
 
-		//Per gestire i modificatori
+		//Per gestire le componenti
 		foreach (var component in components.Values)
 		{
 			features["moveSpeed"].baseValue = Convert.ToSingle(features["moveSpeed"].baseValue) - (component.GetWeight() * 0.1);

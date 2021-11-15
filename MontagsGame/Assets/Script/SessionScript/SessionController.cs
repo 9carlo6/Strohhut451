@@ -15,6 +15,9 @@ public class SessionController : MonoBehaviour
     public int lastSessionId;
     public string new_scene_name;
 
+    //Per gestire le monete
+    public TextAsset coinTextJSON;
+
     //Singleton
     public static SessionController scstatic;
    
@@ -78,6 +81,11 @@ public class SessionController : MonoBehaviour
         sessions.sessions_list.LastOrDefault().player_name = player_name;
 
         UpdateJson();
+
+
+        //Gestione aggiornamento monete
+        UpdateCoinsJson();
+
     }
 
     //Funzione per aggiungere una nuova sessione
@@ -158,6 +166,22 @@ public class SessionController : MonoBehaviour
         File.WriteAllText("Assets/Push-To-Data/Sessions.txt", json);
         //await Task.Yield();
         Debug.Log("OK: UPDATE DEI DATI DELLA SCENA CORRENTE IN QUESTA SESSIONE - S_ID:" + lastSessionId);
+    }
+
+    //Funzione necessaria per sovrascrivere il file json contenente i dati sulle monete
+    public void UpdateCoinsJson()
+    {
+        Coins coins = JsonUtility.FromJson<Coins>(coinTextJSON.text);
+
+        float normal_coins = sessions.sessions_list.LastOrDefault().scenes.LastOrDefault().coins;
+        //Per il momento non possono essere presi i roger coins durante i livelli
+        float roger_coins = 0;
+
+        coins.normal_coins = coins.normal_coins + normal_coins;
+        coins.roger_coins = coins.roger_coins + roger_coins;
+
+        string coins_json = JsonUtility.ToJson(coins);
+        File.WriteAllText("Assets/Push-To-Data/Coins.txt", coins_json);
     }
 
     //Funzione per controllare se la scena è gia presente nella sessione corrente
