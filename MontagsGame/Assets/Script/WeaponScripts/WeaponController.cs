@@ -10,15 +10,15 @@ public class WeaponController : MonoBehaviour, Component
     public bool isFiring = false;
 
     //Per poter gestire il rate dello sparo
-    public int fireRate = 1;
+    public int fireRate;
 
     //Per indicare il massimo numero di munizioni
-    [HideInInspector] public int maxAmmoCount = 10;
+    [HideInInspector] public int maxAmmoCount;
     //Per gestire il numero di munizioni a disposizione
-    public int ammoCount = 10;
+    public int ammoCount;
 
     //Per gestire il danno dell'arma
-    public float damage = 10;
+    public float damage;
 
     //Per gestire lo sparo (raffica o no)
     public bool isBurst = false;
@@ -58,6 +58,7 @@ public class WeaponController : MonoBehaviour, Component
     //Funzione necessaria per gestire l'update dello sparo
     public void UpdateFiring(float deltaTime)
     {
+        
         isFiring = true;
 
         //Minore � il fireRate maggiore � il tempo che intercorre tra uno sparo e un'altro (quando si tiene premuto il pulsante per sparare)
@@ -83,7 +84,6 @@ public class WeaponController : MonoBehaviour, Component
         //handleWeaponModifier();
         if (isFiring)
         {
-           
             UpdateFiring(Time.deltaTime);
         }
        

@@ -13,8 +13,9 @@ public class WeaponFeature : Feature
     FT_DAMAGE,
     FT_BURST,
     FT_TRACER_EFFECT,
-    FT_WEIGHT
-  }
+    FT_WEIGHT,
+    FT_NOISE_RANGE
+    }
 
   public System.Object baseValue;
   public System.Object currentValue;

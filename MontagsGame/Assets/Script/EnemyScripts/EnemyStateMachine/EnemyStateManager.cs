@@ -20,6 +20,7 @@ public class EnemyStateManager : MonoBehaviour
         return currentState.GetType().Name;
     }
 
+    
     public void Start()
     {
         //Stato di partenza

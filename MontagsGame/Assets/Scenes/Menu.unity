@@ -110,7 +110,7 @@ NavMeshSettings:
     agentRadius: 0.5
     agentHeight: 2
     agentSlope: 45
-    agentClimb: 0.4
+    agentClimb: 0.26
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
@@ -123,7 +123,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 6b322294a72a4644882109de6072fd70, type: 2}
 --- !u!1 &5804225
 GameObject:
   m_ObjectHideFlags: 0
@@ -37109,6 +37109,17 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: e95a633fdf78c494a8f5fc326c0f08c7, type: 3}
     volume: 0.1
     pitch: 1.6
+    panStereo: 0
+    spatialBlend: 0
+    reverbZoneMix: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: Recharge
+    audioClip: {fileID: 8300000, guid: f43efb884076099468f6168fbb6ff035, type: 3}
+    volume: 0.5
+    pitch: 1.2
     panStereo: 0
     spatialBlend: 0
     reverbZoneMix: 0

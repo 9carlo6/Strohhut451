@@ -38,20 +38,26 @@ public class EnemyCheckState : EnemyBaseState
     public bool playerFire;  //Viene utilizzata per l'alert
     public bool fireInHearRange;
 
+    EnemyController enemyController;
+
     public override void EnterState(EnemyStateManager enemy)
     {
         Debug.Log("Stato nemico = CHECK");
 
         checkTime = 0;
 
-        viewRadius = 10;
-        viewAngle = 110;
-
+      
         enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
         enemyGameObject = enemy.GetComponent<EnemyController>().gameObject;
         targetMask = enemy.GetComponent<EnemyController>().targetMask;
         obstructionMask = enemy.GetComponent<EnemyController>().obstructionMask;
         wayPoints = enemy.GetComponent<EnemyController>().wayPoints;
+        enemyController = enemy.GetComponent<EnemyController>();
+
+        viewRadius = (float)enemyController.features["viewRadius"].currentValue;
+
+        viewAngle = (float)enemyController.features["viewAnglePatrolling"].currentValue;
+
 
 
         if (GameObject.FindGameObjectWithTag("Player") != null)
@@ -64,22 +70,7 @@ public class EnemyCheckState : EnemyBaseState
     public override void UpdateState(EnemyStateManager enemy)
     {
 
-        if (playerGameObject != null)
-        {
-            playerFire = playerGameObject.GetComponent<PlayerController>().getBoolToAlert();
-
-            if (playerFire)
-            {
-                if (Vector3.Distance(enemyGameObject.transform.position, playerGameObject.transform.position) <= 12f)
-
-                    fireInHearRange = true;
-                else
-                {
-                    fireInHearRange = false;
-                }
-            }
-
-        }
+       
         if (enemyHealthManager.currentHealth <= 0)
         {
             enemy.SwitchState(enemy.DeathState);
@@ -87,7 +78,7 @@ public class EnemyCheckState : EnemyBaseState
 
         FieldOfViewCheck();
 
-        if (playerInSightRange || fireInHearRange)
+        if (playerInSightRange)
         {
             enemy.SwitchState(enemy.ChasePlayerState);
         }

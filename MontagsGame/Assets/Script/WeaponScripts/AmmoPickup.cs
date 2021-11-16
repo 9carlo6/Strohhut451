@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AmmoPickup : MonoBehaviour
 {
-    //Non è proprio corretto richiamare questa classe
+    //Non ï¿½ proprio corretto richiamare questa classe
     [HideInInspector] public WeaponPlayerController weapon;
     public int ammoDropped = 5;
 
@@ -16,7 +16,7 @@ public class AmmoPickup : MonoBehaviour
     //Funzione che si attiva quando l'oggetto viene toccato
     private void OnTriggerEnter(Collider other)
     {
-        FindObjectOfType<AudioManager>().Play("Pickup"); ;
+        FindObjectOfType<AudioManager>().Play("Recharge");
 
         weapon.DropAmmo(ammoDropped);
         Destroy(gameObject);

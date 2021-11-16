@@ -79,10 +79,15 @@ public class EnemyController : MonoBehaviour
     		enemyMapper = JsonUtility.FromJson<EnemyFeaturesJsonMap>(fileString);
 
     		features = new Dictionary<string, EnemyFeature>();
-    		features.Add("velocity", new EnemyFeature(enemyMapper.FT_VELOCITY , EnemyFeature.FeatureType.FT_VELOCITY));
+            
+            features.Add("viewRadius", new EnemyFeature(enemyMapper.FT_VIEW_RADIUS, EnemyFeature.FeatureType.FT_VIEW_RADIUS));
+            features.Add("viewAnglePatrolling", new EnemyFeature(enemyMapper.FT_VIEW_ANGLE_PATROLLING, EnemyFeature.FeatureType.FT_VIEW_ANGLE_PATROLLING));
+            features.Add("viewAngleChasing", new EnemyFeature(enemyMapper.FT_VIEW_ANGLE_CHASING, EnemyFeature.FeatureType.FT_VIEW_ANGLE_CHASING));
+
+            features.Add("velocity", new EnemyFeature(enemyMapper.FT_VELOCITY , EnemyFeature.FeatureType.FT_VELOCITY));
     		features.Add("acceleration", new EnemyFeature(enemyMapper.FT_ACCELERATION , EnemyFeature.FeatureType.FT_ACCELERATION));
     		features.Add("deceleration", new EnemyFeature(enemyMapper.FT_DECELERATION , EnemyFeature.FeatureType.FT_DECELERATION));
-    		features.Add("healt", new EnemyFeature(enemyMapper.FT_HEALTH , EnemyFeature.FeatureType.FT_HEALTH));
+    		features.Add("health", new EnemyFeature(enemyMapper.FT_HEALTH , EnemyFeature.FeatureType.FT_HEALTH));
     		features.Add("meleeRange", new EnemyFeature(enemyMapper.FT_MELEE_RANGE , EnemyFeature.FeatureType.FT_MELEE_RANGE));
     		features.Add("meleeDamage", new EnemyFeature(enemyMapper.FT_MELEE_DAMAGE , EnemyFeature.FeatureType.FT_MELEE_DAMAGE));
     		features.Add("isWeaponed", new EnemyFeature(enemyMapper.FT_IS_WEAPONED , EnemyFeature.FeatureType.FT_IS_WEAPONED));

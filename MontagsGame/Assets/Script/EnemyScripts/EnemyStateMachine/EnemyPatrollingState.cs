@@ -46,8 +46,7 @@ public class EnemyPatrollingState : EnemyBaseState
         {
         Debug.Log("Stato Nemico = Patrolling");
 
-        viewRadius = 10;
-        viewAngle = 110;
+
 
         enemyNavMeshAgent = enemy.GetComponent<NavMeshAgent>();
 
@@ -60,6 +59,11 @@ public class EnemyPatrollingState : EnemyBaseState
         enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
         enemyAnimator = enemy.GetComponent<Animator>();
         enemyController = enemy.GetComponent<EnemyController>();
+
+
+        viewRadius = (float)enemyController.features["viewRadius"].currentValue;
+
+        viewAngle = (float)enemyController.features["viewAnglePatrolling"].currentValue;
 
 
         enemyNavMeshAgent.destination = wayPoints[wayPointIndex].position;
@@ -76,29 +80,12 @@ public class EnemyPatrollingState : EnemyBaseState
     public override void UpdateState(EnemyStateManager enemy)
         {
 
-        if (playerGameObject != null)
-        {
-            playerFire = playerGameObject.GetComponent<PlayerController>().getBoolToAlert();
-
-            if (playerFire)
-            {
-                if (Vector3.Distance(enemyGameObject.transform.position, playerGameObject.transform.position) <= 12f)
-                {
-                    fireInHearRange = true;
-                }
-                else
-                {
-                    fireInHearRange = false;
-                }
-            }
-
-        }
 
         //Il fov dovrà essere sempre attivo, ritorna il valore di playerInSightRange
         FieldOfViewCheck();   
 
 
-        if (!playerInSightRange && !fireInHearRange)
+        if (!playerInSightRange)
         {
             //Se il player NON è nel campo visivo del nemico e nel raggio di ascolto dello sparo, esso continuerà il patroling
             Patrolling(enemy);

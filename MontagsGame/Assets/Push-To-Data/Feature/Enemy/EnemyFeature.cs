@@ -14,7 +14,10 @@ public class EnemyFeature : Feature
     FT_MELEE_RANGE,
     FT_MELEE_DAMAGE,
     FT_IS_WEAPONED,
-    FT_FIRE_DISTANCE
+    FT_FIRE_DISTANCE,
+    FT_VIEW_ANGLE_CHASING,
+    FT_VIEW_ANGLE_PATROLLING,
+    FT_VIEW_RADIUS
     }
 
   public System.Object baseValue;

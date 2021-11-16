@@ -65,13 +65,11 @@ public class PlayerController : MonoBehaviour
 	public GameObject spineTarget;
 	public float rotationSpeed = 2f;
 
-  //Per l'alert
-	//GameObject[] enemyGameObjects;
-	//private EnemyStateManager enemyStateManager;
+	//Per gestire l'alert del nemico allo sparo del player
 	public bool playerIsFiring = false;
-	private float timerToReset = 1;
+	public float timerToReset = 1;
 
-  //Per gestire l'arma corpo a corpo
+	//Per gestire l'arma corpo a corpo
 	public GameObject rodWeapon;
 
 	//Per gestire la possibilità di poter aumentare il campo visivo premendo shift
@@ -265,22 +263,22 @@ public class PlayerController : MonoBehaviour
 	void handleFiring()
     {
 
-		if (weaponController.isFiring)
+		if (weaponController.isFiring && weaponController.ammoCount > 0)
 		{
-			//weaponController.UpdateFiring(Time.deltaTime);
-
+			
 			playerIsFiring = true;
-    }
+			//weaponController.UpdateFiring(Time.deltaTime);
+		}
 
-    if (playerIsFiring && timerToReset > 0)
-    {
+		if (playerIsFiring && timerToReset > 0)
+		{
 			timerToReset -= Time.deltaTime;
-    }
-    else
-    {
+		}
+		else
+		{
 			playerIsFiring = false;
 			timerToReset = 1;
-    }
+		}
 	}
 
 	//Per gestire le animazioni

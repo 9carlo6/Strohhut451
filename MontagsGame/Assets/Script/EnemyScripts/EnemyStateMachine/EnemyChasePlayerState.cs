@@ -27,8 +27,11 @@ public class EnemyChasePlayerState : EnemyBaseState
     NavMeshAgent enemyNavMesh;
     private Animator enemyAnimator;
     EnemyController enemyController;
+    WeaponPlayerController weaponPlayerController;
 
     float agentAcceleration = 1.7f;
+
+    public float hearTime = 0;
 
 
     EnemyWeaponController weaponController;
@@ -41,7 +44,6 @@ public class EnemyChasePlayerState : EnemyBaseState
 
     public bool playerInSightRange;  //quando vedo il bersaglio = true
 
-    public bool ingaged = false;
 
 
     
@@ -50,13 +52,19 @@ public class EnemyChasePlayerState : EnemyBaseState
     {
         Debug.Log("Stato Nemico = Chasing");
 
-        viewRadius = 10;
-        viewAngle = 270;
+        
+
         playerInSightRange = true;
+
+        fireInHearRange = false;
 
         meleeDistance = enemy.GetComponent<EnemyController>().meleeDistance;
         fireDistance = enemy.GetComponent<EnemyController>().fireDistance;
         enemyController = enemy.GetComponent<EnemyController>();
+
+        viewRadius = (float)enemyController.features["viewRadius"].currentValue;
+
+        viewAngle = (float)enemyController.features["viewAngleChasing"].currentValue;
 
 
         if (GameObject.FindGameObjectWithTag("Player") != null)
@@ -87,27 +95,7 @@ public class EnemyChasePlayerState : EnemyBaseState
     public override void UpdateState(EnemyStateManager enemy)
     {
 
-        if (playerGameObject != null)
-        {
-            playerFire = playerGameObject.GetComponent<PlayerController>().getBoolToAlert();
-
-
-           
-
-            if (playerFire)
-            {
-                if (Vector3.Distance(enemyGameObject.transform.position, playerGameObject.transform.position) <= 12f)
-
-                    fireInHearRange = true;
-                else
-                {
-                    fireInHearRange = false;
-                }
-            }
-
-        }
-
-        //aumenta la velocità del nemico progressivamente
+         //aumenta la velocità del nemico progressivamente
         if (enemyNavMesh.speed <= 6.5f)
         {
 
@@ -125,7 +113,19 @@ public class EnemyChasePlayerState : EnemyBaseState
 
             FieldOfViewCheck();
 
-            if (!playerInSightRange && !ingaged && !fireInHearRange)
+            if(fireInHearRange && hearTime < 3f)
+            {
+                hearTime += Time.deltaTime;
+
+            }
+            else
+            {
+                hearTime = 0;
+                fireInHearRange = false;
+            }
+
+
+            if (!playerInSightRange && !fireInHearRange)
             {
                 enemy.SwitchState(enemy.PatrollingState);
             }
