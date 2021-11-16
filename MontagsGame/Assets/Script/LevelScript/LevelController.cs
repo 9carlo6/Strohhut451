@@ -63,6 +63,8 @@ public class LevelController : MonoBehaviour
     public Image secondBreakdownImage;
     public Image thirdBreakdownImage;
 
+    //Per gestire il testo della radio
+    public RadioController radioController;
 
     //Singleton
     public static LevelController lcstatic;
@@ -105,6 +107,9 @@ public class LevelController : MonoBehaviour
 
             //Aggiorna il numero di nemici sulla UI
             enemiesNumberText.GetComponent<TMP_Text>().text = new string('*', currentNumberOfEnemies);
+
+            //Per gestire il testo della radio
+            radioController = GameObject.FindWithTag("RadioController").GetComponent<RadioController>();
         }
         else
         {
@@ -210,25 +215,27 @@ public class LevelController : MonoBehaviour
 
     public void handleBreakdown(PlayerController pc, bool isLevelCompleted)
     {
-      //Applico la prima avaria
-      //Se:
-      //1) sono passati 30 secondi
-      //2) non è completato il Livello
-      //3) non contiene già un modicatore con questa chiave
-      if((levelTimeCounter + valid_levelTimeCounter) >= 20 && !isLevelCompleted)
-      {
-        if(!pc.modifiers.ContainsKey("SpeedModifier")){
-          breakdownCanvas.SetActive(true);
-          firstBreakdownImage.enabled = true;
-          pc.modifiers.Add("SpeedModifier", new Modifier((Feature.FeatureType) HumanFeature.FeatureType.FT_SPEED, "moveSpeed", 0.5f));
+        //Applico la prima avaria
+        //Se:
+        //1) sono passati 30 secondi
+        //2) non è completato il Livello
+        //3) non contiene già un modicatore con questa chiave
+        if ((levelTimeCounter + valid_levelTimeCounter) >= 20 && !isLevelCompleted)
+        {
+            if (!pc.modifiers.ContainsKey("SpeedModifier"))
+            {
+                breakdownCanvas.SetActive(true);
+                firstBreakdownImage.enabled = true;
+                pc.modifiers.Add("SpeedModifier", new Modifier((Feature.FeatureType)HumanFeature.FeatureType.FT_SPEED, "moveSpeed", 0.5f));
+                radioController.SetRadioText("It seems that the suit has a fault. Your speed is reduced by 50%.");
+            }
         }
-      }
-      else
-      {
-        //Altrimenti fa il reset del BreakdownCanvas
-        breakdownCanvas.SetActive(false);
-        firstBreakdownImage.enabled = false;
-      }
+        else
+        {
+            //Altrimenti fa il reset del BreakdownCanvas
+            breakdownCanvas.SetActive(false);
+            firstBreakdownImage.enabled = false;
+        }
 
     }
 }

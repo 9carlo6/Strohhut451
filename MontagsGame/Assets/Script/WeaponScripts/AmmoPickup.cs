@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AmmoPickup : MonoBehaviour
 {
-    //Non è proprio corretto richiamare questa classe
+    //Non ï¿½ proprio corretto richiamare questa classe
     [HideInInspector] public WeaponPlayerController weapon;
     public int ammoDropped = 5;
 

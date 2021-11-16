@@ -9912,10 +9912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79e40da4ae3c84749b54389dd95c0114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coins:
-    normal_coins: 0
-    roger_coins: 0
-  coinTextJSON: {fileID: 4900000, guid: 576636b1f35700945b2b658c888e8cf7, type: 3}
+  mc: {fileID: 1458402657}
   normal_coin_text: {fileID: 1148998683}
   roger_coin_text: {fileID: 1191646742}
 --- !u!1001 &473741675
@@ -31544,6 +31541,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1458402655}
   - component: {fileID: 1458402656}
+  - component: {fileID: 1458402657}
   m_Layer: 0
   m_Name: MenuController
   m_TagString: Untagged
@@ -31577,6 +31575,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcbd5cc265be0824d95a6a1a2fe35bf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1458402657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458402654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65a327f1ac799784da6182b5f010ccce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coins:
+    normal_coins: 0
+    roger_coins: 0
+  gameItems:
+    gameItems_list: []
+  gameItemsTextJSON: {fileID: 4900000, guid: 1f143ea4db64cb04fbc6a945b9f8376b, type: 3}
+  coinTextJSON: {fileID: 4900000, guid: 576636b1f35700945b2b658c888e8cf7, type: 3}
 --- !u!1 &1460302281
 GameObject:
   m_ObjectHideFlags: 0
@@ -37880,6 +37897,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1185101796}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1690902247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40631,9 +40660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01a358c008fbff44c8d0bf533879b8ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameItems:
-    gameItems_list: []
-  gameItemsTextJSON: {fileID: 4900000, guid: 1f143ea4db64cb04fbc6a945b9f8376b, type: 3}
+  mc: {fileID: 1458402657}
   skulls_amount_text: {fileID: 1524787521}
   helms_amount_text: {fileID: 1096720153}
   telescopes_amount_text: {fileID: 1479614239}
@@ -45262,8 +45289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7101294fcca47f246b8d1c4f527ab713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameItems:
-    gameItems_list: []
+  mc: {fileID: 1458402657}
   gameItemsTextJSON: {fileID: 4900000, guid: 1f143ea4db64cb04fbc6a945b9f8376b, type: 3}
   coinTextJSON: {fileID: 4900000, guid: 576636b1f35700945b2b658c888e8cf7, type: 3}
   skulls_amount_text: {fileID: 1003737555}
@@ -45275,9 +45301,6 @@ MonoBehaviour:
   gameItem_current_amount_text: {fileID: 1538089339}
   normal_coins_price_text: {fileID: 1834131260}
   roger_coins_price_text: {fileID: 383523711}
-  coins:
-    normal_coins: 0
-    roger_coins: 0
   YesAndNoForm: {fileID: 1685288252}
   NoMoneyForm: {fileID: 411522461}
   SingleGameItemShopForm: {fileID: 106346369}
