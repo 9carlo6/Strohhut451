@@ -18,6 +18,11 @@ public class SessionController : MonoBehaviour
     //Per gestire le monete
     public TextAsset coinTextJSON;
 
+    //Per gestire gli item
+    //Teschio - Skull - Muore un nemico random
+    //Telescopio - Telescope - Amplia campo visivo
+    //PirateHelm - Stunna nemici
+
     //Singleton
     public static SessionController scstatic;
    
