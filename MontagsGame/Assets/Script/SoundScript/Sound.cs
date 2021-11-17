@@ -10,6 +10,8 @@ public class Sound
     //Clip che vogliamo riprodurre
     public AudioClip audioClip;
 
+    public AudioMixerGroup audioMixerGroup;
+
     //Volume
     [Range(0f, 1f)]
     public float volume;
