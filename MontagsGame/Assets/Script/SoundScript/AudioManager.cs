@@ -36,6 +36,8 @@ public class AudioManager : MonoBehaviour
 
             s.audioSource.clip = s.audioClip;
 
+            s.audioSource.outputAudioMixerGroup = s.audioMixerGroup;
+
             s.audioSource.volume = s.volume;
 
             s.audioSource.pitch = s.pitch;

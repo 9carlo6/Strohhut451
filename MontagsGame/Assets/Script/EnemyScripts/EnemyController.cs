@@ -235,27 +235,30 @@ public class EnemyController : MonoBehaviour
         void EnemyDeath()
         {      
 
-        animator.SetBool("isDeathEnemy", true);
+            animator.SetBool("isDeathEnemy", true);
             enemyNavMeshAgent.isStopped = true;
 
             //I materiali del personaggio vengono settati al materiale con lo shader per la dissolvenza
             renderEnemyBody.sharedMaterials = material;
 
-            if (string.Equals(GetCurrentClipName(), "MorteNemico") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
+
+
+        if (string.Equals(GetCurrentClipName(), "MorteNemico") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
             {
-                GameObject.Destroy(this.gameObject);
+            GameObject.Destroy(this.gameObject); 
             }
 
-            //Per gestire la dissolvenza durante la morte del MorteNemico
-            if (string.Equals(GetCurrentClipName(), "MorteNemico"))
+        //Per gestire la dissolvenza durante la morte del MorteNemico
+        if (string.Equals(GetCurrentClipName(), "MorteNemico"))
             {
                 //Man mano che l'animazione va avanti l'intensita dello shader della dissolvenza aumenta di valore
                 this.material[0].SetFloat("Vector_Intensity_Dissolve2", this.material[0].GetFloat("Vector_Intensity_Dissolve2") + 0.01f);
-            }
-        }
 
-        //Funzione necessaria per risalire al nome dell'animazione corrente
-        public string GetCurrentClipName()
+        }
+    }
+
+    //Funzione necessaria per risalire al nome dell'animazione corrente
+    public string GetCurrentClipName()
         {
             clipInfo = animator.GetCurrentAnimatorClipInfo(0);
             return clipInfo[0].clip.name;
