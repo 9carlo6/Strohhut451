@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.UI;
 using System;
 using System.IO;
@@ -11,7 +10,6 @@ using TMPro;
 
 public class MenuController : MonoBehaviour
 {
-    public AudioMixer audioMixer;
     public Coins coins;
     public GameItems gameItems;
 
@@ -34,8 +32,5 @@ public class MenuController : MonoBehaviour
         
     }
 
-    public void SetVolume(float volume)
-    {
-        audioMixer.SetFloat("volume", volume);
-    }
+    
 }
