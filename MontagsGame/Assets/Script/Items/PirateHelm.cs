@@ -18,7 +18,9 @@ public class PirateHelm : MonoBehaviour
         {
             enemymanager = enemy.GetComponent<EnemyStateManager>();
             enemymanager.SwitchState(enemymanager.StunnedState);
+          
         }
+      
     }
 
     //Funzione che si attiva quando l'oggetto viene toccato

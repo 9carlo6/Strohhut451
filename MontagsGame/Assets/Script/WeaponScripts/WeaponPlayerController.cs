@@ -122,7 +122,7 @@ public class WeaponPlayerController : WeaponController
      
         //Per gestire i modificatori
         //handleWeaponModifier();
-        if (isFiring)
+        if (isFiring && ammoCount >0)
         {
 
             makeNoise();
@@ -161,7 +161,7 @@ public class WeaponPlayerController : WeaponController
 
         foreach (GameObject enemy in enemies)
         {
-            if (Vector3.Distance(transform.position, enemy.transform.position) <= 12f)
+            if (Vector3.Distance(transform.position, enemy.transform.position) <= 12f && !enemy.GetComponent<EnemyController>().animator.GetBool("isStunned"))
             {
 
                 enemy.GetComponent<EnemyStateManager>().SwitchState(enemy.GetComponent<EnemyStateManager>().ChasePlayerState);
