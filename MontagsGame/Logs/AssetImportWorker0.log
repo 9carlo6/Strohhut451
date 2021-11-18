@@ -1,6 +1,6 @@
 Using pre-set license
 Built from '2020.2/staging' branch; Version is '2020.2.7f1 (c53830e277f1) revision 12924976'; Using compiler version '192528614'; Build Type 'Release'
-OS: 'Windows 10 Pro; OS build 22000.318; Version 2009; 64bit' Language: 'it' Physical Memory: 16167 MB
+OS: 'Windows 10 Pro; OS build 22000.318; Version 2009; 64bit' Language: 'it' Physical Memory: 16155 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
  COMMAND LINE ARGUMENTS:
@@ -11,7 +11,7 @@ C:\Program Files\Unity\Hub\Editor\2020.2.7f1\Editor\Unity.exe
 -name
 AssetImportWorker0
 -projectPath
-C:/Users/molin/Desktop/MontagsGame/MontagsGame/MontagsGame
+C:/Users/Hp Gamingstation/Documents/GitHub/MontagsGame/MontagsGame
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
@@ -23,14 +23,14 @@ Refreshing native plugins compatible for Editor in 79.72 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.2.7f1 (c53830e277f1)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/molin/Desktop/MontagsGame/MontagsGame/MontagsGame/Assets
+[Subsystems] Discovering subsystems at path C:/Users/Hp Gamingstation/Documents/GitHub/MontagsGame/MontagsGame/Assets
 GfxDevice: creating device client; threaded=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: Intel(R) Iris(R) Xe Graphics (ID=0x9a49)
+    Renderer: NVIDIA GeForce GTX 1650 Ti (ID=0x1f95)
     Vendor:   
-    VRAM:     8083 MB
-    Driver:   27.20.100.9664
+    VRAM:     3962 MB
+    Driver:   27.21.14.6280
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/Managed'
@@ -81,6 +81,34 @@ Received Import Request.
   artifactKey: Guid(aac01e4b6a6e1e249b0a5920cf565e8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/MainMixer.mixer using Guid(aac01e4b6a6e1e249b0a5920cf565e8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d2206d0f52fb6686fa656bad4d2aa73') in 0.044030 seconds
   Import took 0.055639 seconds .
+
+========================================================================
+Received Prepare
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 3.53 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 8 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 97.5 MB.
+System memory in use after: 97.7 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 4456.
+Total: 5.245700 ms (FindLiveObjects: 0.827900 ms CreateObjectMapping: 0.373800 ms MarkObjects: 3.912300 ms  DeleteObjects: 0.129900 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 70.702578 seconds.
+  path: Assets/Script/WeaponScripts/WeaponController.cs
+  artifactKey: Guid(a8bbb373fbf1cc844b489a42f65d1ec9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Script/WeaponScripts/WeaponController.cs using Guid(a8bbb373fbf1cc844b489a42f65d1ec9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5513bb9d1798d4ff8490b989328ad74') in 0.012256 seconds
+  Import took 0.021126 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.042075 seconds.
+  path: Assets/Script/WeaponScripts/WeaponController.cs
+  artifactKey: Guid(a8bbb373fbf1cc844b489a42f65d1ec9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Script/WeaponScripts/WeaponController.cs using Guid(a8bbb373fbf1cc844b489a42f65d1ec9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5513bb9d1798d4ff8490b989328ad74') in 0.004457 seconds
+  Import took 0.015102 seconds .
 
 ========================================================================
 Received Prepare
@@ -155,6 +183,22 @@ Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 4457.
 Total: 2.871800 ms (FindLiveObjects: 0.359900 ms CreateObjectMapping: 0.120500 ms MarkObjects: 2.268500 ms  DeleteObjects: 0.120900 ms)
 
 ========================================================================
+Received Import Request.
+  Time since last request: 301.706718 seconds.
+  path: Assets/Script/EnemyScripts/EnemyStateMachine/EnemyStunnedState.cs
+  artifactKey: Guid(85a015ce4bf162649a6c99028af1c2e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Script/EnemyScripts/EnemyStateMachine/EnemyStunnedState.cs using Guid(85a015ce4bf162649a6c99028af1c2e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8db69493c010509fd10e1b2b2399f8bd') in 0.021633 seconds
+  Import took 0.030456 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001747 seconds.
+  path: Assets/Script/EnemyScripts/EnemyStateMachine/EnemyStunnedState.cs
+  artifactKey: Guid(85a015ce4bf162649a6c99028af1c2e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Script/EnemyScripts/EnemyStateMachine/EnemyStunnedState.cs using Guid(85a015ce4bf162649a6c99028af1c2e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8db69493c010509fd10e1b2b2399f8bd') in 0.005134 seconds
+  Import took 0.014351 seconds .
+
+========================================================================
 Received Prepare
 Registering precompiled user dll's ...
 Registered in 0.004184 seconds.
@@ -201,6 +245,22 @@ Received Import Request.
   artifactKey: Guid(318fa27194bc06c42933d659f20c07a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Script/Items/PirateHelm.cs using Guid(318fa27194bc06c42933d659f20c07a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a37ab719c9b7f410addf74c81afcc45') in 0.009389 seconds
   Import took 0.016888 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 70.547357 seconds.
+  path: Assets/Script/EnemyScripts/EnemyController.cs
+  artifactKey: Guid(888dca202e4841c48952113befa48c48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Script/EnemyScripts/EnemyController.cs using Guid(888dca202e4841c48952113befa48c48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b0d35e15287933e5972747f33adc1f9c') in 0.009213 seconds
+  Import took 0.018372 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.033791 seconds.
+  path: Assets/Script/EnemyScripts/EnemyController.cs
+  artifactKey: Guid(888dca202e4841c48952113befa48c48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Script/EnemyScripts/EnemyController.cs using Guid(888dca202e4841c48952113befa48c48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b0d35e15287933e5972747f33adc1f9c') in 0.004435 seconds
+  Import took 0.013681 seconds .
 
 ========================================================================
 Received Prepare
