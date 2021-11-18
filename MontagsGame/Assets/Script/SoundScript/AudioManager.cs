@@ -7,8 +7,6 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
 
-    public AudioMixer audioMixer;
-
 
     //Definiamo un array di suoni a partire dalla classe Sound
     public Sound[] sounds;
@@ -68,11 +66,7 @@ public class AudioManager : MonoBehaviour
         Play("SoundTrack");
     }
 
-    public void SetVolume(float volume)
-    {
-        audioMixer.SetFloat("volume", volume);
-    }
-
+   
     public void Play(string name)
     {
         //Scorriamo tutti i suoni presenti nell'array, parametri -> Nome array, restituirci il suono tale che il nome del suono è uguale al nome passato come parametro del metodo
