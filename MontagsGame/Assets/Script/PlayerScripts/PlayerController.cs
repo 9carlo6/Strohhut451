@@ -196,7 +196,10 @@ public class PlayerController : MonoBehaviour
 					case "moveSpeed":
 						features[modifier.m_feature_id].currentValue = Convert.ToSingle(features[modifier.m_feature_id].baseValue) * Convert.ToSingle(modifier.m_fFactor);
 						break;
-					case "increasedVisualField":
+				case "ammoCount":
+					features[modifier.m_feature_id].currentValue = Convert.ToSingle(features[modifier.m_feature_id].baseValue) * Convert.ToSingle(modifier.m_fFactor);
+					break;
+				case "increasedVisualField":
 						features[modifier.m_feature_id].currentValue = (bool) modifier.m_fFactor;
 						break;
 					default:
