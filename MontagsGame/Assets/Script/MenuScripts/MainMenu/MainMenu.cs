@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class MainMenu : MonoBehaviour
 {
     public float moveSpeed = 10f;
     public float turnSpeed = 2f;
+
+
+    public AudioMixer audioMixer;
+
 
     [HideInInspector] public float timeCounterMovement;
     [HideInInspector] public float timeCounterRotation;
@@ -42,6 +47,12 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Uscita dal Gioco");
         Application.Quit();
     }
+
+    public void SetVolume(float volume)
+    {
+        audioMixer.SetFloat("volume", volume);
+    }
+
 
     //Funzione per avviare una nuova sessione
     //Questa viene richiamata quando viene premuto il pulsante "start game" o il pulsante dedicato al capitolo
