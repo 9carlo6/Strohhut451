@@ -85,8 +85,14 @@ public class PlayerController : MonoBehaviour
 	//Per gestire i modificatori
 	public Dictionary<string, Modifier> modifiers;
 
+	
+
+	GameObject[] traps;
+
+
 	void Awake()
 	{
+		traps = GameObject.FindGameObjectsWithTag("Trap");
 		playerInput = new PlayerInput();
 		characterController = GetComponent<CharacterController>();
 		animator = GetComponent<Animator>();
@@ -148,6 +154,8 @@ public class PlayerController : MonoBehaviour
 		//Callbacks per l'attacco corpo a corpo
 		playerInput.CharacterControls.MeleeAttack.performed += _ => isAttackButtonPressed = true;
 		playerInput.CharacterControls.MeleeAttack.canceled += _ => isAttackButtonPressed = false;
+
+		
 	}
 
 	//Funzione per gestire la Callback del movimento
@@ -179,6 +187,17 @@ public class PlayerController : MonoBehaviour
 		//Solo per Debug -> per controllare il valore corrente della velocita tramite l'Inspector
 		moveSpeed = (float) features["moveSpeed"].currentValue;
 		Debug.Log("SPEED BASE VALUE: " + features["moveSpeed"].baseValue);
+
+		if (Input.GetKeyDown(KeyCode.T))
+        {
+			for(int i=0; i<traps.Length; i++)
+            {
+				
+				traps[i].GetComponent<Animation>().Play();
+				
+            }
+			
+        }
 
 		if (!isAttacking && !isDeath && !isStopped){
 			characterController.Move(currentMovement * Time.deltaTime * Convert.ToSingle(features["moveSpeed"].currentValue));
