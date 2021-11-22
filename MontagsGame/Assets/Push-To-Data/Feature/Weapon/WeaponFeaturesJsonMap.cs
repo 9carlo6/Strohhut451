@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using WeaponFeatures;
 
 [Serializable]
 public class WeaponFeaturesJsonMap
@@ -13,6 +14,22 @@ public class WeaponFeaturesJsonMap
   public bool FT_BURST;
   public string FT_TRACER_EFFECT;
   public float FT_WEIGHT;
-   public float FT_NOISE_RANGE;
+  public float FT_NOISE_RANGE;
+
+    public Dictionary<WeaponFeature.FeatureType, WeaponFeature> todict()
+    {
+        Dictionary<WeaponFeature.FeatureType, WeaponFeature> newDict = new Dictionary<WeaponFeature.FeatureType, WeaponFeature>();
+
+        newDict.Add(WeaponFeature.FeatureType.FT_FIRE_RATE, new FireRateWeaponFeature(FT_FIRE_RATE, WeaponFeature.FeatureType.FT_FIRE_RATE));
+        newDict.Add(WeaponFeature.FeatureType.FT_MAX_AMMO_COUNT, new MaxAmmoCountWeaponFeature(FT_MAX_AMMO_COUNT, WeaponFeature.FeatureType.FT_MAX_AMMO_COUNT));
+        newDict.Add(WeaponFeature.FeatureType.FT_AMMO_COUNT, new AmmoCountWeaponFeature(FT_AMMO_COUNT, WeaponFeature.FeatureType.FT_AMMO_COUNT));
+        newDict.Add(WeaponFeature.FeatureType.FT_DAMAGE, new DamageWeaponFeature(FT_DAMAGE, WeaponFeature.FeatureType.FT_DAMAGE));
+        newDict.Add(WeaponFeature.FeatureType.FT_BURST, new BurstWeaponFeature(FT_BURST, WeaponFeature.FeatureType.FT_BURST));
+        newDict.Add(WeaponFeature.FeatureType.FT_TRACER_EFFECT, new TracerEffectWeaponFeature(FT_TRACER_EFFECT, WeaponFeature.FeatureType.FT_TRACER_EFFECT));
+        newDict.Add(WeaponFeature.FeatureType.FT_WEIGHT, new WeightWeaponFeature(FT_WEIGHT, WeaponFeature.FeatureType.FT_WEIGHT));
+        newDict.Add(WeaponFeature.FeatureType.FT_NOISE_RANGE, new NoiseRangeWeaponFeature(FT_NOISE_RANGE, WeaponFeature.FeatureType.FT_NOISE_RANGE));
+
+        return newDict;
+    }
 
 }

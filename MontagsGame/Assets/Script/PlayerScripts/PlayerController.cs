@@ -5,8 +5,10 @@ using UnityEngine.InputSystem;
 using UnityEngine.Animations.Rigging;
 using System.IO;
 using System;
+using HumanFeatures;
 
-public class PlayerController : MonoBehaviour
+
+public class PlayerController : Character
 {
 	//Per controllare il valore della velocità
 	public float moveSpeed;
@@ -76,14 +78,20 @@ public class PlayerController : MonoBehaviour
 	public bool increasedVisualField;
 
 	//Per gestire i Componenti
-	public Dictionary<string, Component> components;
+	//public Dictionary<string, Component> components;
 
 	//Per gestire le feature
-	public Dictionary<string, HumanFeature> features;
+	//public Dictionary<string, HumanFeature> features;
 	public HumanFeaturesJsonMap humanMapper;
 
 	//Per gestire i modificatori
-	public Dictionary<string, Modifier> modifiers;
+	//public Dictionary<string, Modifier> modifiers;
+
+	//nuovo push to data
+	//public List<Feature> features;
+
+
+
 
 	void Awake()
 	{
@@ -104,31 +112,21 @@ public class PlayerController : MonoBehaviour
 		string fileString = new StreamReader("Assets/Push-To-Data/Feature/Human/player_features.json").ReadToEnd();
 		humanMapper = JsonUtility.FromJson<HumanFeaturesJsonMap>(fileString);
 
-		features = new Dictionary<string, HumanFeature>();
-		features.Add("moveSpeed", new HumanFeature(humanMapper.FT_SPEED, HumanFeature.FeatureType.FT_SPEED));
-		features.Add("healt", new HumanFeature(humanMapper.FT_HEALTH, HumanFeature.FeatureType.FT_HEALTH));
-		features.Add("attackRange", new HumanFeature(humanMapper.FT_ATTACK_RANGE, HumanFeature.FeatureType.FT_ATTACK_RANGE));
-		features.Add("meleeDamage", new HumanFeature(humanMapper.FT_MELEE_DAMAGE, HumanFeature.FeatureType.FT_MELEE_DAMAGE));
-		features.Add("increasedVisualField", new HumanFeature(humanMapper.FT_INCREASED_FOV, HumanFeature.FeatureType.FT_INCREASED_FOV));
-		//Fine - Inizializzazione delle feature
+		//features = new List<Feature>();
+		base.Awake();
 
-		//Inizio prova modificatori da cancellare
-		modifiers = new Dictionary<string, Modifier>();
-		//modifiers.Add("SpeedModifier", new Modifier((Feature.FeatureType) HumanFeature.FeatureType.FT_SPEED, "moveSpeed", 0.5f));
-		//modifiers.Add("FOVModifier", new Modifier((Feature.FeatureType) HumanFeature.FeatureType.FT_SPEED, "increasedVisualField", true));
-		//Fine prova modificatori da cancellare
+		components.Add(weaponController);
 
-
-		//Inizio parte components
-		components = new Dictionary<string, Component>();
-		components.Add("weapon", weaponController);
-
-		//Per gestire le componenti
-		foreach (var component in components.Values)
+		foreach (Component c in components)
 		{
-			features["moveSpeed"].baseValue = Convert.ToSingle(features["moveSpeed"].baseValue) - (component.GetWeight() * 0.1);
+			modifiers.AddRange(c.modifiers);
 		}
-		//Fine parte components
+
+
+		this.features = new Dictionary<HumanFeature.FeatureType, HumanFeature>();
+		this.features = humanMapper.todict();
+
+		
 
 		//Callbacks per il movimento
 		//ascolta quando il giocatore inizia a utilizzare l'azione Move
@@ -148,6 +146,7 @@ public class PlayerController : MonoBehaviour
 		//Callbacks per l'attacco corpo a corpo
 		playerInput.CharacterControls.MeleeAttack.performed += _ => isAttackButtonPressed = true;
 		playerInput.CharacterControls.MeleeAttack.canceled += _ => isAttackButtonPressed = false;
+
 	}
 
 	//Funzione per gestire la Callback del movimento
@@ -177,33 +176,75 @@ public class PlayerController : MonoBehaviour
 		isDeath = animator.GetBool("isDeath");
 
 		//Solo per Debug -> per controllare il valore corrente della velocita tramite l'Inspector
+		/*
 		moveSpeed = (float) features["moveSpeed"].currentValue;
 		Debug.Log("SPEED BASE VALUE: " + features["moveSpeed"].baseValue);
-
+		*/
 		if (!isAttacking && !isDeath && !isStopped){
-			characterController.Move(currentMovement * Time.deltaTime * Convert.ToSingle(features["moveSpeed"].currentValue));
+
+			characterController.Move(currentMovement * Time.deltaTime * (float)(((Dictionary<HumanFeature.FeatureType, HumanFeature>)features)[HumanFeature.FeatureType.FT_SPEED]).currentValue);
+			
 			handlePlayerRotation();
 			handleFiring();
 		}
 
 		handleAnimation();
 
-		//Per gestire i modificatori
-		foreach (var modifier in modifiers.Values)
+		applyModifiers();
+		
+	}
+
+	public override void applyModifiers()
+    {
+
+		List<Modifier> scaduti = new List<Modifier>();
+
+
+		foreach (Modifier modifier in modifiers)
 		{
-				switch (modifier.m_feature_id)
+			modifier.duration = modifier.duration - Time.deltaTime;
+
+
+			foreach (HumanFeature f in ((Dictionary <HumanFeature.FeatureType, HumanFeature >) features).Values)
+			{
+				//Debug.Log("VEDIAMO ora che succede : " + f.GetType());
+
+				if (modifier.m_type.Equals(f.featureName))
 				{
-					case "moveSpeed":
-						features[modifier.m_feature_id].currentValue = Convert.ToSingle(features[modifier.m_feature_id].baseValue) * Convert.ToSingle(modifier.m_fFactor);
-						break;
-					case "increasedVisualField":
-						features[modifier.m_feature_id].currentValue = (bool) modifier.m_fFactor;
-						break;
-					default:
-						Debug.Log("Add Modifer Error - Type: " + modifier.m_type.ToString());
-						break;
+
+					Debug.Log("MODIFICATORE SULLA FEATURE " + modifier.m_type);
+
+					if (modifier.duration < 0)
+					{
+						Debug.Log("RIMUOVO " + modifier.m_type);
+						//modifiers.Remove(modifier);
+						scaduti.Add(modifier);
+						f.removeModifier(modifier);
+					}
+					else
+					{
+						//da rinominare active che non si capisce  sarebbe " da attivare "
+						if (modifier.active)
+						{
+							Debug.Log("ATTIVO MODIFICATORE SULLA FEATURE :" + modifier.m_type);
+							Debug.Log("VALORE ATTUALE " + f.currentValue);
+							f.performeModifier(modifier);
+							Debug.Log("VALORE AGGIORNATO " + f.currentValue);
+
+						}
+
+					}
+
 				}
+
+			}
 		}
+
+		foreach(Modifier m in scaduti)
+        {
+			modifiers.Remove(m);
+		}
+
 	}
 
 	//Per gestire la rotazione del player con il movimento del mouse

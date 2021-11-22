@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
+using EnemyFeatures;
 
 
 public class EnemyChasePlayerState : EnemyBaseState
@@ -62,9 +62,9 @@ public class EnemyChasePlayerState : EnemyBaseState
         fireDistance = enemy.GetComponent<EnemyController>().fireDistance;
         enemyController = enemy.GetComponent<EnemyController>();
 
-        viewRadius = (float)enemyController.features["viewRadius"].currentValue;
+        viewRadius = (float)(((Dictionary<EnemyFeature.FeatureType, EnemyFeature>)enemyController.features)[EnemyFeature.FeatureType.FT_VIEW_RADIUS]).currentValue;
 
-        viewAngle = (float)enemyController.features["viewAngleChasing"].currentValue;
+        viewAngle = (float)(((Dictionary<EnemyFeature.FeatureType, EnemyFeature>)enemyController.features)[EnemyFeature.FeatureType.FT_VIEW_ANGLE_CHASING]).currentValue;
 
 
         if (GameObject.FindGameObjectWithTag("Player") != null)

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
-
+using System.Collections.Generic;
+using EnemyFeatures;
 
 
 public class EnemyPatrollingState : EnemyBaseState
@@ -60,10 +61,9 @@ public class EnemyPatrollingState : EnemyBaseState
         enemyAnimator = enemy.GetComponent<Animator>();
         enemyController = enemy.GetComponent<EnemyController>();
 
+        viewRadius = (float)(((Dictionary<EnemyFeature.FeatureType, EnemyFeature>)enemyController.features)[EnemyFeature.FeatureType.FT_VIEW_RADIUS]).currentValue;
 
-        viewRadius = (float)enemyController.features["viewRadius"].currentValue;
-
-        viewAngle = (float)enemyController.features["viewAnglePatrolling"].currentValue;
+        viewAngle = (float)(((Dictionary<EnemyFeature.FeatureType, EnemyFeature>)enemyController.features)[EnemyFeature.FeatureType.FT_VIEW_ANGLE_PATROLLING]).currentValue;
 
 
         enemyNavMeshAgent.destination = wayPoints[wayPointIndex].position;

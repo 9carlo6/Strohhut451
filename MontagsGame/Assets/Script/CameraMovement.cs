@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using HumanFeatures;
 
 //questa classe serve per gestire il movimento della telecamera
 public class CameraMovement : MonoBehaviour
@@ -44,7 +45,7 @@ public class CameraMovement : MonoBehaviour
         //Per spostare la telecamera quando si preme il tasto shift
         //Per poterla spostare il giocatore deve avere il booleano a true
         //Questo puo è essere ottenuto prendendo la TreasureChest (per ora)
-        if (Input.GetKey(KeyCode.LeftShift) && (bool)playerController.features["increasedVisualField"].currentValue)
+        if (Input.GetKey(KeyCode.LeftShift) && (bool)(((Dictionary<HumanFeature.FeatureType, HumanFeature>)playerController.features)[HumanFeature.FeatureType.FT_INCREASED_FOV]).currentValue)
         {
             handleCameraMovementOnShifPressed();
         }

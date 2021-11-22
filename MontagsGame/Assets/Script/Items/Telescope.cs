@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using HumanFeatures;
+
 
 public class Telescope : MonoBehaviour
 {
@@ -16,8 +18,11 @@ public class Telescope : MonoBehaviour
 
     public void EnableEffect()
     {
+        // qua ci va un modificatore non una modifica alla feature ;
         playerController.increasedVisualField = true;
-        playerController.features["increasedVisualField"].currentValue = true;
+
+        (((Dictionary<HumanFeature.FeatureType, HumanFeature>)playerController.features)[HumanFeature.FeatureType.FT_INCREASED_FOV]).currentValue = true;
+    
     }
 
     //Funzione che si attiva quando l'oggetto viene toccato
