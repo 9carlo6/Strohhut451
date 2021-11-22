@@ -6,8 +6,14 @@ public class Skull : MonoBehaviour
 {
     public GameObject[] enemies;
 
-    //Per gestire il testo
-    public RadioController radioController;
+    [HideInInspector] public GameObject levelController;
+    [HideInInspector] public LevelController lc;
+
+    public void Awake()
+    {
+        levelController = GameObject.FindWithTag("LevelController");
+        lc = levelController.GetComponent<LevelController>();
+    }
 
     public void EnableEffect()
     {
@@ -18,19 +24,5 @@ public class Skull : MonoBehaviour
 
         //Porta nello stato morto il nemico selezionato
         enemies[i].GetComponent<EnemyHealthManager>().currentHealth = 0;
-    }
-
-    //Funzione che si attiva quando l'oggetto viene toccato
-    private void OnTriggerEnter(Collider other)
-    {
-        //Per gestire il testo
-        radioController = GameObject.FindWithTag("RadioController").GetComponent<RadioController>();
-        radioController.SetRadioText("The Skull is used to kill one of the enemies in the level.");
-
-        //Suono
-        FindObjectOfType<AudioManager>().Play("Pickup");
-
-        EnableEffect();
-        Destroy(gameObject);
     }
 }
