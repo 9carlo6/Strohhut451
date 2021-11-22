@@ -21,7 +21,7 @@ public class Telescope : MonoBehaviour
         // qua ci va un modificatore non una modifica alla feature ;
         playerController.increasedVisualField = true;
 
-        (((Dictionary<HumanFeature.FeatureType, HumanFeature>)playerController.features)[HumanFeature.FeatureType.FT_INCREASED_FOV]).currentValue = true;
+        ((playerController.features)[HumanFeature.FeatureType.FT_INCREASED_FOV]).currentValue = true;
     
     }
 

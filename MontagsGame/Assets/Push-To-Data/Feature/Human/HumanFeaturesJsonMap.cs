@@ -5,7 +5,7 @@ using System;
 using HumanFeatures;
 
 [Serializable]
-public class HumanFeaturesJsonMap
+public class HumanFeaturesJsonMap : Dictionable
 {
     public float FT_SPEED;
     public float FT_HEALTH;
@@ -13,9 +13,9 @@ public class HumanFeaturesJsonMap
     public float FT_MELEE_DAMAGE;
     public bool FT_INCREASED_FOV;
 
-    public Dictionary<HumanFeatures.HumanFeature.FeatureType, HumanFeature> todict()
+    public Dictionary<System.Object, Feature> todict()
     {
-        Dictionary<HumanFeatures.HumanFeature.FeatureType, HumanFeature> newDict =  new Dictionary<HumanFeatures.HumanFeature.FeatureType, HumanFeature>();
+        Dictionary<System.Object, Feature> newDict =  new Dictionary<System.Object, Feature>();
 
         newDict.Add(HumanFeature.FeatureType.FT_SPEED ,new SpeedHumanFeature(FT_SPEED, HumanFeature.FeatureType.FT_SPEED));
         newDict.Add(HumanFeature.FeatureType.FT_HEALTH, new HealthHumanFeature(FT_HEALTH, HumanFeature.FeatureType.FT_HEALTH));

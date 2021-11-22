@@ -5,7 +5,7 @@ using System;
 using EnemyFeatures;
 
 [Serializable]
-public class EnemyFeaturesJsonMap
+public class EnemyFeaturesJsonMap: Dictionable
 {
   public float FT_VELOCITY;
   public float FT_ACCELERATION;
@@ -19,10 +19,9 @@ public class EnemyFeaturesJsonMap
   public float FT_VIEW_ANGLE_PATROLLING;
   public float FT_VIEW_ANGLE_CHASING;
 
-
-    public Dictionary<EnemyFeature.FeatureType, EnemyFeature> todict()
+    public Dictionary<System.Object, Feature> todict()
     {
-        Dictionary<EnemyFeature.FeatureType, EnemyFeature> newDict = new Dictionary<EnemyFeature.FeatureType, EnemyFeature>();
+        Dictionary<System.Object, Feature> newDict = new Dictionary<System.Object, Feature>();
 
         newDict.Add(EnemyFeature.FeatureType.FT_VELOCITY, new SpeedEnemyFeature(FT_VELOCITY, EnemyFeature.FeatureType.FT_VELOCITY));
         newDict.Add(EnemyFeature.FeatureType.FT_ACCELERATION, new AccelerationEnemyFeature(FT_ACCELERATION, EnemyFeature.FeatureType.FT_ACCELERATION));

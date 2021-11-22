@@ -16,10 +16,9 @@ public class EnemyWeaponController : WeaponController
         base.Awake();
         //Inizio - Inizializzazione delle feature
        	string fileString = new StreamReader("Assets/Push-To-Data/Feature/Weapon/enemy_weapon_features.txt").ReadToEnd();
-       	weaponMapper = JsonUtility.FromJson<WeaponFeaturesJsonMap>(fileString);
+        mapper = JsonUtility.FromJson<WeaponFeaturesJsonMap>(fileString);
 
-        this.features = new Dictionary<HumanFeature.FeatureType, HumanFeature>();
-        this.features = weaponMapper.todict();
+        this.features = mapper.todict();
 
 
         audioSource = GetComponent<AudioSource>();
