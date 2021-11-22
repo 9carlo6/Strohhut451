@@ -54,9 +54,9 @@ public class EnemyCheckState : EnemyBaseState
         wayPoints = enemy.GetComponent<EnemyController>().wayPoints;
         enemyController = enemy.GetComponent<EnemyController>();
 
-        viewRadius = (float)(((Dictionary<EnemyFeature.FeatureType, EnemyFeature>)enemyController.features)[EnemyFeature.FeatureType.FT_VIEW_RADIUS]).currentValue;
+        viewRadius = (float)((enemyController.features)[EnemyFeature.FeatureType.FT_VIEW_RADIUS]).currentValue;
 
-        viewAngle = (float)(((Dictionary<EnemyFeature.FeatureType, EnemyFeature>)enemyController.features)[EnemyFeature.FeatureType.FT_VIEW_ANGLE_PATROLLING]).currentValue;
+        viewAngle = (float)((enemyController.features)[EnemyFeature.FeatureType.FT_VIEW_ANGLE_PATROLLING]).currentValue;
 
 
 

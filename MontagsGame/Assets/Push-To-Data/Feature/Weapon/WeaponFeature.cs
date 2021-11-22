@@ -15,7 +15,7 @@ namespace WeaponFeatures
             FT_AMMO_COUNT,
             FT_DAMAGE,
             FT_BURST,
-            FT_TRACER_EFFECT,
+            //FT_TRACER_EFFECT,
             FT_WEIGHT,
             FT_NOISE_RANGE
         }
@@ -35,7 +35,7 @@ namespace WeaponFeatures
         public override void performeModifier(Modifier m)
         {
             this.currentValue = (float)currentValue * (float)m.m_fFactor;
-            m.active = false;
+            m.toactive = false;
 
         }
 
@@ -55,7 +55,7 @@ namespace WeaponFeatures
         public override void performeModifier(Modifier m)
         {
             this.currentValue = (float)currentValue + (float)m.m_fFactor;
-            m.active = false;
+            m.toactive = false;
 
         }
 
@@ -75,7 +75,7 @@ namespace WeaponFeatures
         public override void performeModifier(Modifier m)
         {
             this.currentValue = (float)currentValue + (float)m.m_fFactor;
-            m.active = false;
+            m.toactive = false;
 
         }
 
@@ -95,7 +95,7 @@ namespace WeaponFeatures
         public override void performeModifier(Modifier m)
         {
             this.currentValue = (float)currentValue + (float)m.m_fFactor;
-            m.active = false;
+            m.toactive = false;
 
         }
 
@@ -115,7 +115,7 @@ namespace WeaponFeatures
         public override void performeModifier(Modifier m)
         {
             this.currentValue = (bool)m.m_fFactor;
-            m.active = false;
+            m.toactive = false;
 
         }
 
@@ -126,6 +126,7 @@ namespace WeaponFeatures
         }
 
     }
+    /*
     public class TracerEffectWeaponFeature : WeaponFeature
     {
         public TracerEffectWeaponFeature(System.Object baseValue, FeatureType featureName) : base(baseValue, featureName)
@@ -144,6 +145,7 @@ namespace WeaponFeatures
         }
 
     }
+    */
     public class WeightWeaponFeature : WeaponFeature
     {
         public WeightWeaponFeature(System.Object baseValue, FeatureType featureName) : base(baseValue, featureName)
@@ -153,7 +155,7 @@ namespace WeaponFeatures
         public override void performeModifier(Modifier m)
         {
             this.currentValue = (float)currentValue + (float)m.m_fFactor;
-            m.active = false;
+            m.toactive = false;
 
         }
 
@@ -173,7 +175,7 @@ namespace WeaponFeatures
         public override void performeModifier(Modifier m)
         {
             this.currentValue = (float)currentValue + (float)m.m_fFactor;
-            m.active = false;
+            m.toactive = false;
 
         }
 

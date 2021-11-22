@@ -34,7 +34,7 @@ public class EnemyHealthManager : MonoBehaviour
         skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         enemyController = GetComponent<EnemyController>();
 
-        maxhealth = (float)(((Dictionary<EnemyFeature.FeatureType, EnemyFeature>)enemyController.features)[EnemyFeature.FeatureType.FT_HEALTH]).currentValue;
+        maxhealth = (float)((enemyController.features)[EnemyFeature.FeatureType.FT_HEALTH]).currentValue;
         currentHealth = maxhealth;
 
     }
@@ -42,12 +42,12 @@ public class EnemyHealthManager : MonoBehaviour
     //Questa funzione serve per diminuire la vita del nemico ogni volta che esso viene colpito.
     public void TakeDamage(float amount)
     {
-        currentHealth = (float)(((Dictionary<EnemyFeature.FeatureType, EnemyFeature>)enemyController.features)[EnemyFeature.FeatureType.FT_HEALTH]).currentValue;
+        currentHealth = (float)((enemyController.features)[EnemyFeature.FeatureType.FT_HEALTH]).currentValue;
         currentHealth -= amount;
 
-        (((Dictionary<EnemyFeature.FeatureType, EnemyFeature>)enemyController.features)[EnemyFeature.FeatureType.FT_HEALTH]).currentValue = currentHealth;
+        ((enemyController.features)[EnemyFeature.FeatureType.FT_HEALTH]).currentValue = currentHealth;
 
-            if (((float)(((Dictionary<EnemyFeature.FeatureType, EnemyFeature>)enemyController.features)[EnemyFeature.FeatureType.FT_HEALTH]).currentValue)<=0 || stateManager.getCurrentState() == "EnemyStunnedState")
+            if (((float)((enemyController.features)[EnemyFeature.FeatureType.FT_HEALTH]).currentValue)<=0 || stateManager.getCurrentState() == "EnemyStunnedState")
             {
                 Die();
             }
@@ -65,7 +65,7 @@ public class EnemyHealthManager : MonoBehaviour
     private void Die()
     {
         //stateManager.SwitchState(stateManager.DeathState);
-        (((Dictionary<EnemyFeature.FeatureType, EnemyFeature>)enemyController.features)[EnemyFeature.FeatureType.FT_HEALTH]).currentValue = 0.0f;
+        ((enemyController.features)[EnemyFeature.FeatureType.FT_HEALTH]).currentValue = 0.0f;
     }
 
     private void Update()
@@ -77,7 +77,7 @@ public class EnemyHealthManager : MonoBehaviour
         //Debug.Log((((Dictionary<EnemyFeature.FeatureType, EnemyFeature>)enemyController.features)[EnemyFeature.FeatureType.FT_HEALTH]).currentValue);
 
 
-        currentHealth = (float)(((Dictionary<EnemyFeature.FeatureType, EnemyFeature>)enemyController.features)[EnemyFeature.FeatureType.FT_HEALTH]).currentValue;
+        currentHealth = (float)((enemyController.features)[EnemyFeature.FeatureType.FT_HEALTH]).currentValue;
 
         blinkTimer -= Time.deltaTime;
         float lerp = Mathf.Clamp01(blinkTimer / blinkDuration);

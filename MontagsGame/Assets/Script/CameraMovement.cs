@@ -45,7 +45,7 @@ public class CameraMovement : MonoBehaviour
         //Per spostare la telecamera quando si preme il tasto shift
         //Per poterla spostare il giocatore deve avere il booleano a true
         //Questo puo è essere ottenuto prendendo la TreasureChest (per ora)
-        if (Input.GetKey(KeyCode.LeftShift) && (bool)(((Dictionary<HumanFeature.FeatureType, HumanFeature>)playerController.features)[HumanFeature.FeatureType.FT_INCREASED_FOV]).currentValue)
+        if (Input.GetKey(KeyCode.LeftShift) && (bool)((playerController.features)[HumanFeature.FeatureType.FT_INCREASED_FOV]).currentValue)
         {
             handleCameraMovementOnShifPressed();
         }

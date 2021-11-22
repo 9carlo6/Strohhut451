@@ -62,9 +62,9 @@ public class EnemyChasePlayerState : EnemyBaseState
         fireDistance = enemy.GetComponent<EnemyController>().fireDistance;
         enemyController = enemy.GetComponent<EnemyController>();
 
-        viewRadius = (float)(((Dictionary<EnemyFeature.FeatureType, EnemyFeature>)enemyController.features)[EnemyFeature.FeatureType.FT_VIEW_RADIUS]).currentValue;
+        viewRadius = (float)((enemyController.features)[EnemyFeature.FeatureType.FT_VIEW_RADIUS]).currentValue;
 
-        viewAngle = (float)(((Dictionary<EnemyFeature.FeatureType, EnemyFeature>)enemyController.features)[EnemyFeature.FeatureType.FT_VIEW_ANGLE_CHASING]).currentValue;
+        viewAngle = (float)((enemyController.features)[EnemyFeature.FeatureType.FT_VIEW_ANGLE_CHASING]).currentValue;
 
 
         if (GameObject.FindGameObjectWithTag("Player") != null)
