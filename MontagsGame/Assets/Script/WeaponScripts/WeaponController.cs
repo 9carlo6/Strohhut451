@@ -43,8 +43,6 @@ public  class WeaponController :  Component
     public RaycastHit hitInfo;
    
 
-    public WeaponFeaturesJsonMap weaponMapper;
-
     //Per la gestione dei moficatori
     //public WeaponModifier weaponModifier;
     //public Text jsonWeaponModifier;
@@ -52,54 +50,12 @@ public  class WeaponController :  Component
     
     public AudioManager audioManager;
 
-    public override void applyModifiers()
-    {
-        List<Modifier> scaduti = new List<Modifier>();
-
-
-        foreach (Modifier modifier in modifiers)
-        {
-            modifier.duration = modifier.duration - Time.deltaTime;
- 
-
-			foreach (WeaponFeature f in ((Dictionary<WeaponFeature.FeatureType, WeaponFeature>)features).Values)
-			{
-				Debug.Log("VEDIAMO ora che succede : " + f.GetType());
-
-				if (modifier.m_type.Equals(f.featureName))
-				{
-					if (modifier.duration < 0)
-					{
-						//modifiers.Remove(modifier);
-						f.removeModifier(modifier);
-					}
-					else
-					{
-						//da rinominare active che non si capisce  sarebbe " da attivare "
-						if (modifier.active)
-						{
-							f.performeModifier(modifier);
-
-						}
-
-					}
-
-				}
-
-			}
-		}
-        foreach (Modifier m in scaduti)
-        {
-            modifiers.Remove(m);
-        }
-
-    }
 
     public override void Awake()
     {
         audioManager = GetComponent<AudioManager>();
       
-        features = new Dictionary<WeaponFeature.FeatureType, WeaponFeature>();
+        
         base.Awake();
 
     }
@@ -159,7 +115,7 @@ public  class WeaponController :  Component
         foreach (GameObject enemy in enemies)
         {
 
-            if(Vector3.Distance(transform.position, enemy.transform.position) <= (float)(((Dictionary<WeaponFeature.FeatureType, WeaponFeature>)features)[WeaponFeature.FeatureType.FT_NOISE_RANGE]).currentValue && !enemy.GetComponent<EnemyController>().animator.GetBool("isStunned"))
+            if(Vector3.Distance(transform.position, enemy.transform.position) <= (float)((features)[WeaponFeature.FeatureType.FT_NOISE_RANGE]).currentValue && !enemy.GetComponent<EnemyController>().animator.GetBool("isStunned"))
             {
 
                 enemy.GetComponent<EnemyStateManager>().SwitchState(enemy.GetComponent<EnemyStateManager>().ChasePlayerState);
