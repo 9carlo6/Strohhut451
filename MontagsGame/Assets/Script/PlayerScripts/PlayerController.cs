@@ -179,36 +179,43 @@ public class PlayerController : Character
 		//per poter far muovere il personaggio
 		//per potersi muovere il personaggio non deve star attaccando e non deve essere morto
 		isAttacking = animator.GetBool("isAttacking");
-		isDeath = animator.GetBool("isDeath");
-
-		//Solo per Debug -> per controllare il valore corrente della velocita tramite l'Inspector
+		isDeath = animator.GetBool("isDeath");
+
+
+
+		//Solo per Debug -> per controllare il valore corrente della velocita tramite l'Inspector
+
 		/*
 		moveSpeed = (float) features["moveSpeed"].currentValue;
 		Debug.Log("SPEED BASE VALUE: " + features["moveSpeed"].baseValue);
-		*/
-		if (!isAttacking && !isDeath && !isStopped){
+		*/
 
-		if (Input.GetKeyDown(KeyCode.T))
-        {
-			for(int i=0; i<traps.Length; i++)
-            {
-				
-				traps[i].GetComponent<Animation>().Play();
-				
-            }
-			
-        }
+		if (!isAttacking && !isDeath && !isStopped)
+		{
 
-		if (!isAttacking && !isDeath && !isStopped){
-			characterController.Move(currentMovement * Time.deltaTime * Convert.ToSingle(features["moveSpeed"].currentValue));
-			handlePlayerRotation();
-			handleFiring();
+			if (Input.GetKeyDown(KeyCode.T))
+			{
+				for (int i = 0; i < traps.Length; i++)
+				{
+
+					traps[i].GetComponent<Animation>().Play();
+
+				}
+
+			}
+
+			if (!isAttacking && !isDeath && !isStopped)
+			{
+				characterController.Move(currentMovement * Time.deltaTime * (float)(((Dictionary<HumanFeature.FeatureType, HumanFeature>)features)[HumanFeature.FeatureType.FT_SPEED]).currentValue);
+				handlePlayerRotation();
+				handleFiring();
+			}
+
+			handleAnimation();
+
+			applyModifiers();
+
 		}
-
-		handleAnimation();
-
-		applyModifiers();
-		
 	}
 
 	public override void applyModifiers()
