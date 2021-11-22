@@ -15,11 +15,11 @@ C:/Users/Hp Gamingstation/Documents/GitHub/MontagsGame/MontagsGame
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-64140
+49913
 Successfully changed project path to: C:/Users/Hp Gamingstation/Documents/GitHub/MontagsGame/MontagsGame
 C:/Users/Hp Gamingstation/Documents/GitHub/MontagsGame/MontagsGame
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 76.51 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 98.78 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.2.7f1 (c53830e277f1)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/Resources/UnitySubsystems
@@ -36,507 +36,146 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56980
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56032
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001093 seconds.
+Registered in 0.001122 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 78.30 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 105.65 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.885 seconds
+- Completed reload, in  1.084 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.001696 seconds.
+Registered in 0.002112 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 83.37 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 101.70 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.587 seconds
+- Completed reload, in  1.898 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
-Refreshing native plugins compatible for Editor in 0.87 ms, found 1 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 0.97 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4176 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 268.1 MB.
-System memory in use after: 202.6 MB.
+Unloading 4182 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 268.7 MB.
+System memory in use after: 268.9 MB.
 
-Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 4636.
-Total: 5.950200 ms (FindLiveObjects: 0.711700 ms CreateObjectMapping: 0.355500 ms MarkObjects: 4.716500 ms  DeleteObjects: 0.164800 ms)
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 4642.
+Total: 4.044600 ms (FindLiveObjects: 1.211700 ms CreateObjectMapping: 0.484800 ms MarkObjects: 2.217800 ms  DeleteObjects: 0.127800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  graphicsApiMask: 131076 -> 4
+========================================================================
+Received Import Request.
+  path: Assets/Weapons/Sci Fi Gun Light/_materials/GunTwo/GunTwoYellow.mat
+  artifactKey: Guid(cbf658ed14edc5a4987f28f0eb9160ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/Sci Fi Gun Light/_materials/GunTwo/GunTwoYellow.mat using Guid(cbf658ed14edc5a4987f28f0eb9160ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df9c43a5b66ac66443c17e61ceb7cf39') in 0.305191 seconds
+  Import took 0.312091 seconds .
 
 ========================================================================
 Received Import Request.
-  path: Assets/PE2D/Particle Effects/Editor
-  artifactKey: Guid(d9cf54bdeb7b94747a224c451fb51228) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PE2D/Particle Effects/Editor using Guid(d9cf54bdeb7b94747a224c451fb51228) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f2a2d6bcdc835369ec8bba94a6238a84') in 0.010084 seconds
-  Import took 0.016562 seconds .
+  Time since last request: 0.000241 seconds.
+  path: Assets/Weapons/Sci Fi Gun Light/_textures/GunTwo/Yellow
+  artifactKey: Guid(a35fff97f1fe9434186fdb2db8405317) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/Sci Fi Gun Light/_textures/GunTwo/Yellow using Guid(a35fff97f1fe9434186fdb2db8405317) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c13ecef7bee51625b81392d69d4f0d7') in 0.006498 seconds
+  Import took 0.015626 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 85.808429 seconds.
-  path: Assets/Scenes/Level_2_2.unity
-  artifactKey: Guid(f758c118d41101e4088a030bc8897cc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Level_2_2.unity using Guid(f758c118d41101e4088a030bc8897cc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da6e72d7702a54706654a78b17e4b8cd') in 0.013283 seconds
-  Import took 0.020921 seconds .
+  Time since last request: 0.000201 seconds.
+  path: Assets/Weapons/Sci Fi Gun Light/_prefabs/GunLight/SciFiGunLightYellow.prefab
+  artifactKey: Guid(841f0ca7a430c324d92c5583a9df3793) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Weapons/Sci Fi Gun Light/_prefabs/GunLight/SciFiGunLightYellow.prefab using Guid(841f0ca7a430c324d92c5583a9df3793) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd527b0e868bb65436478b1fea4af57a5') in 0.058445 seconds
+  Import took 0.077168 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.003210 seconds.
+Registered in 0.001927 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.38 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.97 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.160 seconds
+- Completed reload, in  1.307 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.64 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 1.76 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3925 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 251.4 MB.
-System memory in use after: 251.6 MB.
+Unloading 3930 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 257.3 MB.
+System memory in use after: 257.5 MB.
 
-Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 4639.
-Total: 3.530700 ms (FindLiveObjects: 0.553300 ms CreateObjectMapping: 0.385600 ms MarkObjects: 2.489500 ms  DeleteObjects: 0.100800 ms)
+Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 4723.
+Total: 6.165900 ms (FindLiveObjects: 0.619500 ms CreateObjectMapping: 0.327100 ms MarkObjects: 5.069500 ms  DeleteObjects: 0.148200 ms)
 
+AssetImportParameters requested are different than current active one (requested -> active):
+  graphicsApiMask: 131076 -> 4
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.001790 seconds.
+Registered in 0.006813 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.88 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.90 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.038 seconds
+- Completed reload, in  1.237 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.86 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3925 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 251.5 MB.
-System memory in use after: 251.7 MB.
-
-Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 4642.
-Total: 2.998200 ms (FindLiveObjects: 0.412700 ms CreateObjectMapping: 0.195500 ms MarkObjects: 2.251400 ms  DeleteObjects: 0.137300 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001846 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.16 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.104 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.89 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3931 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 251.7 MB.
-System memory in use after: 251.9 MB.
-
-Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 4650.
-Total: 5.012700 ms (FindLiveObjects: 0.854100 ms CreateObjectMapping: 0.433500 ms MarkObjects: 3.596000 ms  DeleteObjects: 0.128000 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 492.024265 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 000 basic.prefab
-  artifactKey: Guid(f954d80d3b33b6940ba36a67405b1aa6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 000 basic.prefab using Guid(f954d80d3b33b6940ba36a67405b1aa6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2d9c7123c097906cd575ff310b4adc7') in 0.177295 seconds
-  Import took 0.186478 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000238 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Materials/particle trail additive intensify.mat
-  artifactKey: Guid(5295231def6a41a49b341aee6a8fc803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Materials/particle trail additive intensify.mat using Guid(5295231def6a41a49b341aee6a8fc803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a953677f35b9be935d62be6c1b279944') in 0.034730 seconds
-  Import took 0.044450 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000222 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Materials/particle trail additive.mat
-  artifactKey: Guid(8e6e6541db82e4642963f499eefd07d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Materials/particle trail additive.mat using Guid(8e6e6541db82e4642963f499eefd07d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7dc57060224a61f9a15d1060ff0bce08') in 0.019330 seconds
-  Import took 0.027252 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000248 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 001 local revolving spherical only work at world origin.prefab
-  artifactKey: Guid(f927701c2a3a60e4eb9df90fb730c263) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 001 local revolving spherical only work at world origin.prefab using Guid(f927701c2a3a60e4eb9df90fb730c263) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20773def75f1f9f09959620a254e56b1') in 0.021357 seconds
-  Import took 0.028895 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000206 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle revolver 002 Eternal charge.prefab
-  artifactKey: Guid(1eb29fd5f7a8920409dcd8cec44ecb6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle revolver 002 Eternal charge.prefab using Guid(1eb29fd5f7a8920409dcd8cec44ecb6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a1878640fc2de702b8d44c96e62207e') in 0.008656 seconds
-  Import took 0.016963 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000154 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle selfish 000 basic.prefab
-  artifactKey: Guid(c4f1c315778545a4fb69d4b79317843d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle selfish 000 basic.prefab using Guid(c4f1c315778545a4fb69d4b79317843d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd925e9e1d8957740896a11549aa9a33f') in 0.010038 seconds
-  Import took 0.017091 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000158 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 002 local revolving move.prefab
-  artifactKey: Guid(7c7ccad82463d47498110d7bff811cf3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 002 local revolving move.prefab using Guid(7c7ccad82463d47498110d7bff811cf3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '443e199e6216fd96ff16795d81c57782') in 0.019769 seconds
-  Import took 0.028269 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000176 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 005 only work at world origin.prefab
-  artifactKey: Guid(9c76f28f373f3ea4cac9128c11718c31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 005 only work at world origin.prefab using Guid(9c76f28f373f3ea4cac9128c11718c31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fdbd6b7806715fdaf0eb9929266cd6f5') in 0.022049 seconds
-  Import took 0.031768 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000173 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 003 lightning.prefab
-  artifactKey: Guid(6e81ad7b6d010274ca07c5c894fe9e6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 003 lightning.prefab using Guid(6e81ad7b6d010274ca07c5c894fe9e6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '877be6b3e0af10ed236793e19759257c') in 0.024082 seconds
-  Import took 0.033461 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000168 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 004 soft noise.prefab
-  artifactKey: Guid(bac8a02a8034dd041a67dd89de9fb2fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 004 soft noise.prefab using Guid(bac8a02a8034dd041a67dd89de9fb2fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6518919b60499426e0c8820ff6a1938b') in 0.023491 seconds
-  Import took 0.032590 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000184 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle repeller 000.prefab
-  artifactKey: Guid(ca65ba611236dfd4f9259c464abe4992) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle repeller 000.prefab using Guid(ca65ba611236dfd4f9259c464abe4992) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8f5c03d3d655fba3acd2153e496fd72') in 0.018738 seconds
-  Import took 0.027958 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000175 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle revolver 001 Megido.prefab
-  artifactKey: Guid(506a06125115f2f49b5ee51567bae10c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle revolver 001 Megido.prefab using Guid(506a06125115f2f49b5ee51567bae10c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd183c1ffb4fc43df3130b146b1a3e6fa') in 0.035573 seconds
-  Import took 0.046475 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000236 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle revolver 000 yz.prefab
-  artifactKey: Guid(e6befcf183056214bbc7cb055f062e04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle revolver 000 yz.prefab using Guid(e6befcf183056214bbc7cb055f062e04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44df3ea4868c50115a9b294b490a805e') in 0.010606 seconds
-  Import took 0.019010 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.949467 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore
-  artifactKey: Guid(da3b7daf7e145fb438850622724fed63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore using Guid(da3b7daf7e145fb438850622724fed63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4e906add5c1e0765662b54b1bf7facc9') in 0.006622 seconds
-  Import took 0.015073 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.645861 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Prefabs
-  artifactKey: Guid(4467e27ff886520438182a7135a9eb00) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Prefabs using Guid(4467e27ff886520438182a7135a9eb00) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f4cace3ce9cd4af04ee7b4f96fa65e6c') in 0.007063 seconds
-  Import took 0.013698 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 171.989757 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Materials
-  artifactKey: Guid(17db8d8dfdcff744280b4d0ae27a94be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Materials using Guid(17db8d8dfdcff744280b4d0ae27a94be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96a4ced6428664ed38a2a2db95822a02') in 0.003261 seconds
-  Import took 0.011887 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.064783 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Materials/glow_dot_add.mat
-  artifactKey: Guid(25bd086592405bc4b85fb8280fe53759) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Materials/glow_dot_add.mat using Guid(25bd086592405bc4b85fb8280fe53759) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e96e3a408309e3f057d3a0a4d96ae8b') in 0.015647 seconds
-  Import took 0.023979 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.565001 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Shaders
-  artifactKey: Guid(4927f0449d4c04045ab633a093ae842c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Shaders using Guid(4927f0449d4c04045ab633a093ae842c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '11245b07c9f15d7a875242bda36a2c11') in 0.006955 seconds
-  Import took 0.013349 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.686561 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Textures
-  artifactKey: Guid(02cc4ea3d8f16fb469a074132f36c4bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Textures using Guid(02cc4ea3d8f16fb469a074132f36c4bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c4dea3125eb660d587a5aea84a11472') in 0.003568 seconds
-  Import took 0.010867 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.062567 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Textures/glow_small_dot.psd
-  artifactKey: Guid(8f5ee04947e003441921dffbf787fbb1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Textures/glow_small_dot.psd using Guid(8f5ee04947e003441921dffbf787fbb1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f12c871a42446a672fd769565849b486') in 0.017368 seconds
-  Import took 0.023965 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.416574 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Scenes
-  artifactKey: Guid(edeec33773eced346990bcaa116b6001) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Scenes using Guid(edeec33773eced346990bcaa116b6001) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7286db2defc7e92e933c675f435f5caf') in 0.002816 seconds
-  Import took 0.012114 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.228350 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Scenes/demo_scene.unity
-  artifactKey: Guid(5197c489d340abc4ca567b2ac96b15bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Scenes/demo_scene.unity using Guid(5197c489d340abc4ca567b2ac96b15bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '64c3936af9120d8a8c018ca080546ac2') in 0.008774 seconds
-  Import took 0.018106 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 28.936293 seconds.
-  path: Assets/Scenes/Level_2_2.unity
-  artifactKey: Guid(f758c118d41101e4088a030bc8897cc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Level_2_2.unity using Guid(f758c118d41101e4088a030bc8897cc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a2f75548d831bf849f483dd819b6901e') in 0.002874 seconds
-  Import took 0.009629 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000388 seconds.
-  path: Assets/Scenes/Level_2_2.unity
-  artifactKey: Guid(f758c118d41101e4088a030bc8897cc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Level_2_2.unity using Guid(f758c118d41101e4088a030bc8897cc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a2f75548d831bf849f483dd819b6901e') in 0.002565 seconds
-  Import took 0.009550 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001989 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.98 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.138 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.96 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3931 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 257.2 MB.
-System memory in use after: 257.4 MB.
-
-Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 4735.
-Total: 3.999100 ms (FindLiveObjects: 0.609100 ms CreateObjectMapping: 0.347300 ms MarkObjects: 2.940400 ms  DeleteObjects: 0.100900 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 126.655177 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 003 lightning.prefab
-  artifactKey: Guid(6e81ad7b6d010274ca07c5c894fe9e6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 003 lightning.prefab using Guid(6e81ad7b6d010274ca07c5c894fe9e6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85890ff247ab8611350889ea627c484d') in 0.191073 seconds
-  Import took 0.198746 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 12.695346 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 003 lightning.prefab
-  artifactKey: Guid(6e81ad7b6d010274ca07c5c894fe9e6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 003 lightning.prefab using Guid(6e81ad7b6d010274ca07c5c894fe9e6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a56b71a86990b337a6fcc46f248612b4') in 0.010104 seconds
-  Import took 0.020275 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 14.588081 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 003 lightning.prefab
-  artifactKey: Guid(6e81ad7b6d010274ca07c5c894fe9e6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 003 lightning.prefab using Guid(6e81ad7b6d010274ca07c5c894fe9e6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4fede1e78bb2ac7bb497eb2d61e652a') in 0.011253 seconds
-  Import took 0.020133 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.036654 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 003 lightning.prefab
-  artifactKey: Guid(6e81ad7b6d010274ca07c5c894fe9e6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 003 lightning.prefab using Guid(6e81ad7b6d010274ca07c5c894fe9e6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a422772f64c0df07a2fe31ddc86523cf') in 0.009792 seconds
-  Import took 0.020170 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.440665 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 003 lightning.prefab
-  artifactKey: Guid(6e81ad7b6d010274ca07c5c894fe9e6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 003 lightning.prefab using Guid(6e81ad7b6d010274ca07c5c894fe9e6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20c2258c0eeee2514ee47c397015f7d4') in 0.010246 seconds
-  Import took 0.021239 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.002133 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 003 lightning.prefab
-  artifactKey: Guid(6e81ad7b6d010274ca07c5c894fe9e6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 003 lightning.prefab using Guid(6e81ad7b6d010274ca07c5c894fe9e6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf9635134fc1adb34efd8177793f0d40') in 0.009824 seconds
-  Import took 0.017963 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.198897 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 003 lightning.prefab
-  artifactKey: Guid(6e81ad7b6d010274ca07c5c894fe9e6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 003 lightning.prefab using Guid(6e81ad7b6d010274ca07c5c894fe9e6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c1b5f54090d403e5909bc978927de4b6') in 0.010714 seconds
-  Import took 0.021681 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.797411 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 003 lightning.prefab
-  artifactKey: Guid(6e81ad7b6d010274ca07c5c894fe9e6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 003 lightning.prefab using Guid(6e81ad7b6d010274ca07c5c894fe9e6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '636b955b07753afbcc0b85e9b61dce58') in 0.010078 seconds
-  Import took 0.018063 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.232971 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 003 lightning.prefab
-  artifactKey: Guid(6e81ad7b6d010274ca07c5c894fe9e6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 003 lightning.prefab using Guid(6e81ad7b6d010274ca07c5c894fe9e6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4dedb39884a2420805c1391e9205d38') in 0.009973 seconds
-  Import took 0.018856 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.992583 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 003 lightning.prefab
-  artifactKey: Guid(6e81ad7b6d010274ca07c5c894fe9e6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 003 lightning.prefab using Guid(6e81ad7b6d010274ca07c5c894fe9e6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bd18828dcb6b316d7468a9a1b96eb912') in 0.009370 seconds
-  Import took 0.016280 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 106.749208 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 002 local revolving move.prefab
-  artifactKey: Guid(7c7ccad82463d47498110d7bff811cf3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 002 local revolving move.prefab using Guid(7c7ccad82463d47498110d7bff811cf3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef7efa92b06199c26869a096aeaaed23') in 0.011236 seconds
-  Import took 0.020435 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.367182 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 002 local revolving move.prefab
-  artifactKey: Guid(7c7ccad82463d47498110d7bff811cf3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 002 local revolving move.prefab using Guid(7c7ccad82463d47498110d7bff811cf3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bcfe973e6af844cdcab644e5b88a4a87') in 0.009246 seconds
-  Import took 0.017002 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 31.554188 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 003 lightning.prefab
-  artifactKey: Guid(6e81ad7b6d010274ca07c5c894fe9e6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Prefabs/Particle attractor 003 lightning.prefab using Guid(6e81ad7b6d010274ca07c5c894fe9e6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '75bc330dbafdfe38c693b18d30672cee') in 0.009005 seconds
-  Import took 0.018586 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 201.066689 seconds.
-  path: Assets/Materials/DissolveMaterial2.mat
-  artifactKey: Guid(0053cfe5f112d06419c412b243969718) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/DissolveMaterial2.mat using Guid(0053cfe5f112d06419c412b243969718) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '90bdf5e6d9821814f93d054c37060f24') in 0.043439 seconds
-  Import took 0.052177 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 76.164603 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Scenes/demo_sceneSettings.lighting
-  artifactKey: Guid(75878266353ef8a41acddebfd45b2b03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Scenes/demo_sceneSettings.lighting using Guid(75878266353ef8a41acddebfd45b2b03) Importer(815301076,1909f56bfc062723c751e8b465ee728b) LightingSettings: switching bake backend from 1 to 0.
- -> (artifact id: '0c8b7716aaeecd5ae06feb6b844ebf55') in 0.007905 seconds
-  Import took 0.016273 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 63.983670 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Materials/glow_dot_add.mat
-  artifactKey: Guid(25bd086592405bc4b85fb8280fe53759) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Materials/glow_dot_add.mat using Guid(25bd086592405bc4b85fb8280fe53759) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b9835ba3e1e40ba6de356748b85518a') in 0.027072 seconds
-  Import took 0.035091 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 22.085122 seconds.
-  path: Assets/Particle Attractor by Moonflower Carnivore/Particle Attractor documentation.txt
-  artifactKey: Guid(d62c063f05f2ccd4487300a37d1b0b4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Particle Attractor by Moonflower Carnivore/Particle Attractor documentation.txt using Guid(d62c063f05f2ccd4487300a37d1b0b4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe96ed27b2cf272cf239d4a5e4c4c86e') in 0.015931 seconds
-  Import took 0.026294 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001917 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.91 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.995 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.88 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 2.40 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3930 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 257.4 MB.
 System memory in use after: 257.6 MB.
 
-Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 4774.
-Total: 3.521500 ms (FindLiveObjects: 0.459800 ms CreateObjectMapping: 0.199900 ms MarkObjects: 2.720200 ms  DeleteObjects: 0.139200 ms)
+Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 4726.
+Total: 4.688700 ms (FindLiveObjects: 1.377200 ms CreateObjectMapping: 0.471500 ms MarkObjects: 2.728700 ms  DeleteObjects: 0.109300 ms)
 
+AssetImportParameters requested are different than current active one (requested -> active):
+  graphicsApiMask: 131076 -> 4
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002251 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.92 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.261 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 3.75 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3930 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 257.4 MB.
+System memory in use after: 257.6 MB.
+
+Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 4729.
+Total: 3.861100 ms (FindLiveObjects: 0.689200 ms CreateObjectMapping: 0.376100 ms MarkObjects: 2.677200 ms  DeleteObjects: 0.117100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  graphicsApiMask: 131076 -> 4
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
