@@ -3,25 +3,108 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class HumanFeature : Feature
+namespace HumanFeatures
 {
-  public enum FeatureType
-  {
-    FT_SPEED,
-    FT_HEALTH,
-    FT_ATTACK_RANGE,
-    FT_MELEE_DAMAGE,
-    FT_INCREASED_FOV
+
+    public  class HumanFeature : Feature
+    {
+        public enum FeatureType
+        {
+            FT_SPEED,
+            FT_HEALTH,
+            FT_ATTACK_RANGE,
+            FT_MELEE_DAMAGE,
+            FT_INCREASED_FOV
+        }
+
+        public HumanFeature(System.Object baseValue, FeatureType featureName) : base(baseValue, featureName)
+        {
+        }
+
+    }
+    public class SpeedHumanFeature : HumanFeature
+    {
+        public SpeedHumanFeature(System.Object baseValue, FeatureType featureName) : base(baseValue, featureName)
+        {
+        }
+
+        public override void performeModifier(Modifier m)
+        {
+            this.currentValue = (float)currentValue * (float)m.m_fFactor;
+            m.active = false;
+
+        }
+
+        public override void removeModifier(Modifier m)
+        {
+            this.currentValue = (float)currentValue / (float)m.m_fFactor;
+
+        }
+    }
+    public class HealthHumanFeature : HumanFeature
+    {
+        public HealthHumanFeature(System.Object baseValue, FeatureType featureName) : base(baseValue, featureName)
+        {
+        }
+        public override void performeModifier(Modifier m)
+        {
+            this.currentValue = (float)currentValue + (float)m.m_fFactor;
+            m.active = false;
+        }
+        public override void removeModifier(Modifier m)
+        {
+            this.currentValue = (float)currentValue - (float)m.m_fFactor;
+
+        }
+    }
+    public class AttackRangeHumanFeature : HumanFeature
+    {
+        public AttackRangeHumanFeature(System.Object baseValue, FeatureType featureName) : base(baseValue, featureName)
+        {
+        }
+        public override void performeModifier(Modifier m)
+        {
+            this.currentValue = (float)currentValue + (float)m.m_fFactor;
+            m.active = false;
+        }
+        public override void removeModifier(Modifier m)
+        {
+            this.currentValue = (float)currentValue - (float)m.m_fFactor;
+
+        }
+    }
+    public class MeleeDamageHumanFeature : HumanFeature
+    {
+        public MeleeDamageHumanFeature(System.Object baseValue, FeatureType featureName) : base(baseValue, featureName)
+        {
+        }
+        public override void performeModifier(Modifier m)
+        {
+            this.currentValue = (float)currentValue + (float)m.m_fFactor;
+            m.active = false;
+        }
+        public override void removeModifier(Modifier m)
+        {
+            this.currentValue = (float)currentValue - (float)m.m_fFactor;
+
+        }
+    }
+    public class IncreasedFovHumanFeature : HumanFeature
+    {
+        public IncreasedFovHumanFeature(System.Object baseValue, FeatureType featureName) : base(baseValue, featureName)
+        {
+        }
+        public override void performeModifier(Modifier m)
+        {
+            this.currentValue = (bool)m.m_fFactor;
+            m.active = false;
+        }
+        public override void removeModifier(Modifier m)
+        {
+            this.currentValue = !(bool)this.currentValue;
+
+        }
     }
 
-  public System.Object baseValue;
-  public System.Object currentValue;
-  public FeatureType featureName;
-
-  public HumanFeature(System.Object baseValue, FeatureType featureName){
-    this.baseValue = baseValue;
-    this.currentValue = baseValue;
-    this. featureName = featureName;
-  }
 
 }

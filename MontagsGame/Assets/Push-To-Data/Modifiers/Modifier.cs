@@ -5,14 +5,19 @@ using System;
 
 public class Modifier
 {
-    public Feature.FeatureType m_type;
-    public string m_feature_id; //che corrisponde alla stringa con la quale la feature viene salvata nel dizionario
+    public System.Object m_type;
+    //public string m_feature_id; //che corrisponde alla stringa con la quale la feature viene salvata nel dizionario
     public System.Object m_fFactor; //valore da applicare alla feautre
+    public float duration;
+    public bool active;
 
-    public Modifier(Feature.FeatureType m_type, string m_feature_id, System.Object m_fFactor)
+
+
+    public Modifier(System.Object m_type, System.Object m_fFactor,float duration)
     {
         this.m_type = m_type;
-        this.m_feature_id = m_feature_id;
         this.m_fFactor = m_fFactor;
+        this.duration = duration;
+        this.active = true;
     }
 }

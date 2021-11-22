@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using WeaponFeatures;
+using System;
 
-public class WeaponController : MonoBehaviour, Component
+
+public  class WeaponController :  Component
 {
+    public GameObject[] enemies;
     //Per capire se si sta sparando o no
     public bool isFiring = false;
 
@@ -37,23 +41,69 @@ public class WeaponController : MonoBehaviour, Component
     public Transform raycastOrigin;
     public Ray ray;
     public RaycastHit hitInfo;
+   
 
-    //Per gestire le feature;
-  	public Dictionary<string, WeaponFeature> features;
     public WeaponFeaturesJsonMap weaponMapper;
 
     //Per la gestione dei moficatori
     //public WeaponModifier weaponModifier;
     //public Text jsonWeaponModifier;
-
+     
     
     public AudioManager audioManager;
 
-
-    public virtual void Awake()
+    public override void applyModifiers()
     {
-      audioManager = GetComponent<AudioManager>();
+        List<Modifier> scaduti = new List<Modifier>();
+
+
+        foreach (Modifier modifier in modifiers)
+        {
+            modifier.duration = modifier.duration - Time.deltaTime;
+ 
+
+			foreach (WeaponFeature f in ((Dictionary<WeaponFeature.FeatureType, WeaponFeature>)features).Values)
+			{
+				Debug.Log("VEDIAMO ora che succede : " + f.GetType());
+
+				if (modifier.m_type.Equals(f.featureName))
+				{
+					if (modifier.duration < 0)
+					{
+						//modifiers.Remove(modifier);
+						f.removeModifier(modifier);
+					}
+					else
+					{
+						//da rinominare active che non si capisce  sarebbe " da attivare "
+						if (modifier.active)
+						{
+							f.performeModifier(modifier);
+
+						}
+
+					}
+
+				}
+
+			}
+		}
+        foreach (Modifier m in scaduti)
+        {
+            modifiers.Remove(m);
+        }
+
     }
+
+    public override void Awake()
+    {
+        audioManager = GetComponent<AudioManager>();
+      
+        features = new Dictionary<WeaponFeature.FeatureType, WeaponFeature>();
+        base.Awake();
+
+    }
+
 
     //Funzione necessaria per gestire l'update dello sparo
     public void UpdateFiring(float deltaTime)
@@ -82,11 +132,18 @@ public class WeaponController : MonoBehaviour, Component
     {
         //Per gestire i modificatori
         //handleWeaponModifier();
-        if (isFiring)
+
+        applyModifiers();
+
+        if (isFiring && ammoCount > 0)
         {
+
+            makeNoise();
+
             UpdateFiring(Time.deltaTime);
         }
-       
+
+
     }
 
     //Funzione chiamata quando termina l'input per lo sparo
@@ -95,9 +152,22 @@ public class WeaponController : MonoBehaviour, Component
         isFiring = false;
     }
 
-    public virtual float GetWeight()
+    public void makeNoise()
     {
-      return -1;
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        foreach (GameObject enemy in enemies)
+        {
+
+            if(Vector3.Distance(transform.position, enemy.transform.position) <= (float)(((Dictionary<WeaponFeature.FeatureType, WeaponFeature>)features)[WeaponFeature.FeatureType.FT_NOISE_RANGE]).currentValue && !enemy.GetComponent<EnemyController>().animator.GetBool("isStunned"))
+            {
+
+                enemy.GetComponent<EnemyStateManager>().SwitchState(enemy.GetComponent<EnemyStateManager>().ChasePlayerState);
+                enemy.GetComponent<EnemyStateManager>().ChasePlayerState.fireInHearRange = true;
+
+            }
+        }
+
     }
 
 }
