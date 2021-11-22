@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using EnemyFeatures;
 
 //Questa classe serve per gestire la vita del nemico
 public class EnemyHealthManager : MonoBehaviour
 {
-    public float maxhealth;
     //[HideInInspector]
+    public float maxhealth; 
     public float currentHealth;
 
     //Forza da applicare quando il nemico muore per fargli fare un salto
@@ -34,23 +34,26 @@ public class EnemyHealthManager : MonoBehaviour
         skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         enemyController = GetComponent<EnemyController>();
 
-        maxhealth = (float) enemyController.features["health"].currentValue;
+        maxhealth = (float)(((Dictionary<EnemyFeature.FeatureType, EnemyFeature>)enemyController.features)[EnemyFeature.FeatureType.FT_HEALTH]).currentValue;
         currentHealth = maxhealth;
-
-
 
     }
 
     //Questa funzione serve per diminuire la vita del nemico ogni volta che esso viene colpito.
     public void TakeDamage(float amount)
-    { 
-            currentHealth -= amount;
-            if (currentHealth <= 0.0f || stateManager.getCurrentState() == "EnemyStunnedState")
+    {
+        currentHealth = (float)(((Dictionary<EnemyFeature.FeatureType, EnemyFeature>)enemyController.features)[EnemyFeature.FeatureType.FT_HEALTH]).currentValue;
+        currentHealth -= amount;
+
+        (((Dictionary<EnemyFeature.FeatureType, EnemyFeature>)enemyController.features)[EnemyFeature.FeatureType.FT_HEALTH]).currentValue = currentHealth;
+
+            if (((float)(((Dictionary<EnemyFeature.FeatureType, EnemyFeature>)enemyController.features)[EnemyFeature.FeatureType.FT_HEALTH]).currentValue)<=0 || stateManager.getCurrentState() == "EnemyStunnedState")
             {
                 Die();
             }
 
             blinkTimer = blinkDuration;
+
     }
 
     //Questa funzione serve per gestire l'illuminazione del nemico quando viene stordito
@@ -62,12 +65,19 @@ public class EnemyHealthManager : MonoBehaviour
     private void Die()
     {
         //stateManager.SwitchState(stateManager.DeathState);
-        currentHealth = 0;
+        (((Dictionary<EnemyFeature.FeatureType, EnemyFeature>)enemyController.features)[EnemyFeature.FeatureType.FT_HEALTH]).currentValue = 0.0f;
     }
 
     private void Update()
     {
+
         //Questa parte serve per far illuminare il nemico quando viene colpito
+
+        //Debug.log("CAPIAMO IL PROBLEMA " + typeof((((Dictionary<EnemyFeature.FeatureType, EnemyFeature>) enemyController.features)[EnemyFeature.FeatureType.FT_HEALTH]).currentValue).ToString()) ;
+        //Debug.Log((((Dictionary<EnemyFeature.FeatureType, EnemyFeature>)enemyController.features)[EnemyFeature.FeatureType.FT_HEALTH]).currentValue);
+
+
+        currentHealth = (float)(((Dictionary<EnemyFeature.FeatureType, EnemyFeature>)enemyController.features)[EnemyFeature.FeatureType.FT_HEALTH]).currentValue;
 
         blinkTimer -= Time.deltaTime;
         float lerp = Mathf.Clamp01(blinkTimer / blinkDuration);

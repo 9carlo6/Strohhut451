@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using EnemyFeatures;
 public class EnemyCheckState : EnemyBaseState
 {
 
@@ -54,9 +54,9 @@ public class EnemyCheckState : EnemyBaseState
         wayPoints = enemy.GetComponent<EnemyController>().wayPoints;
         enemyController = enemy.GetComponent<EnemyController>();
 
-        viewRadius = (float)enemyController.features["viewRadius"].currentValue;
+        viewRadius = (float)(((Dictionary<EnemyFeature.FeatureType, EnemyFeature>)enemyController.features)[EnemyFeature.FeatureType.FT_VIEW_RADIUS]).currentValue;
 
-        viewAngle = (float)enemyController.features["viewAnglePatrolling"].currentValue;
+        viewAngle = (float)(((Dictionary<EnemyFeature.FeatureType, EnemyFeature>)enemyController.features)[EnemyFeature.FeatureType.FT_VIEW_ANGLE_PATROLLING]).currentValue;
 
 
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using HumanFeatures;
 
 public class WeaponPlayerController : WeaponController
 {
@@ -13,39 +14,22 @@ public class WeaponPlayerController : WeaponController
     public GameObject weaponSight;
     Ray rayWeaponSight;
     RaycastHit hitInfoWeaponSight;
-    public GameObject[] enemies;
+
+    
 
     public float noiseRange;
     public override void Awake()
     {
-
+        base.Awake();
         weaponSight = GameObject.FindWithTag("WeaponSight");
 
         //Inizio - Inizializzazione delle feature
        	string fileString = new StreamReader("Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt").ReadToEnd();
        	weaponMapper = JsonUtility.FromJson<WeaponFeaturesJsonMap>(fileString);
 
-       	features = new Dictionary<string, WeaponFeature>();
-       	features.Add("fireRate", new WeaponFeature(weaponMapper.FT_FIRE_RATE, WeaponFeature.FeatureType.FT_FIRE_RATE));
-       	features.Add("maxAmmoCount", new WeaponFeature(weaponMapper.FT_MAX_AMMO_COUNT, WeaponFeature.FeatureType.FT_MAX_AMMO_COUNT));
-       	features.Add("ammoCount", new WeaponFeature(weaponMapper.FT_AMMO_COUNT, WeaponFeature.FeatureType.FT_AMMO_COUNT));
-       	features.Add("damage", new WeaponFeature(weaponMapper.FT_DAMAGE, WeaponFeature.FeatureType.FT_DAMAGE));
-       	features.Add("isBurst", new WeaponFeature(weaponMapper.FT_BURST, WeaponFeature.FeatureType.FT_BURST));
-       	features.Add("weight", new WeaponFeature(weaponMapper.FT_WEIGHT, WeaponFeature.FeatureType.FT_WEIGHT));
-        features.Add("noiseRange", new WeaponFeature(weaponMapper.FT_NOISE_RANGE, WeaponFeature.FeatureType.FT_NOISE_RANGE));
+        this.features = new Dictionary<HumanFeature.FeatureType, HumanFeature>();
+        this.features = weaponMapper.todict();
 
-        noiseRange = 12f;//DA CAMBIARE PER PUSH TO DATA
-
-       	//Da eliminare???
-       	fireRate = (int) features["fireRate"].currentValue;
-       	maxAmmoCount  = (int) features["maxAmmoCount"].currentValue;
-       	ammoCount  = (int) features["ammoCount"].currentValue;
-       	damage  = (float) features["damage"].currentValue;
-       	isBurst  = (bool) features["isBurst"].currentValue;
-        //Fine - Inizializzazione delle feature
-
-
-        //ammoWidget.Refresh(ammoCount);
     }
 
     //Funzione per sparare
@@ -113,22 +97,11 @@ public class WeaponPlayerController : WeaponController
         }
     }
 
-    public override void Update() { 
-   
+    public override void Update() {
 
+        base.Update();
 
-
-        
-     
-        //Per gestire i modificatori
-        //handleWeaponModifier();
-        if (isFiring && ammoCount >0)
-        {
-
-            makeNoise();
-
-            UpdateFiring(Time.deltaTime);
-        }
+       
 
         //Per gestire il puntatore
         handleWeaponSight();
@@ -150,25 +123,6 @@ public class WeaponPlayerController : WeaponController
         //ammoWidget.Refresh(ammoCount);
     }
 
-    public override float GetWeight()
-    {
-      return (float) features["weight"].currentValue;
-    }
+   
 
-    public void makeNoise()
-    {
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
-
-        foreach (GameObject enemy in enemies)
-        {
-            if (Vector3.Distance(transform.position, enemy.transform.position) <= 12f && !enemy.GetComponent<EnemyController>().animator.GetBool("isStunned"))
-            {
-
-                enemy.GetComponent<EnemyStateManager>().SwitchState(enemy.GetComponent<EnemyStateManager>().ChasePlayerState);
-                enemy.GetComponent<EnemyStateManager>().ChasePlayerState.fireInHearRange = true;
-
-            }
-        }
-    
-    }
 }

@@ -5,6 +5,8 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System;
+using HumanFeatures;
+
 
 public class LevelController : MonoBehaviour
 {
@@ -220,19 +222,26 @@ public class LevelController : MonoBehaviour
         //1) sono passati 30 secondi
         //2) non è completato il Livello
         //3) non contiene già un modicatore con questa chiave
-      
-                if ((levelTimeCounter + valid_levelTimeCounter) >= 20 && !isLevelCompleted)
-                {
-                    if (!pc.modifiers.ContainsKey("SpeedModifier"))
-                    {
-                        breakdownCanvas.SetActive(true);
-                        firstBreakdownImage.enabled = true;
-                        pc.modifiers.Add("SpeedModifier", new Modifier((Feature.FeatureType)HumanFeature.FeatureType.FT_SPEED, "moveSpeed", 0.5f));
-                        radioController.SetRadioText("It seems that the suit has a fault. Your speed is reduced by 50%.");
-                    }
-                }
-            
-        
+        if ((levelTimeCounter + valid_levelTimeCounter) >= 20 && !isLevelCompleted)
+        {
+            bool find = false;
+
+            foreach(Modifier m in pc.modifiers)
+            {
+                if (m.m_type.Equals(HumanFeature.FeatureType.FT_SPEED))
+                {
+                    find = true;
+                }
+            }
+
+            if (!find)
+            {
+                breakdownCanvas.SetActive(true);
+                firstBreakdownImage.enabled = true;
+                pc.modifiers.Add(new Modifier(HumanFeature.FeatureType.FT_SPEED, 0.5f,10));
+                radioController.SetRadioText("It seems that the suit has a fault. Your speed is reduced by 50%.");
+            }
+        }
         else
         {
             //Altrimenti fa il reset del BreakdownCanvas

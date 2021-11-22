@@ -2,42 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System;
+using HumanFeatures;
+
 
 public class PlayerHealthManager : MonoBehaviour
 {
-    public float startingHealth;
     public float currentHealth;
+ 
 
-    //Per gestire le feature;
-  	public Dictionary<string, HumanFeature> features;
-  	private HumanFeaturesJsonMap humanMapper;
-
+    PlayerController pc;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        //Inizio - Inizializzazione delle feature
-    		string fileString = new StreamReader("Assets/Push-To-Data/Feature/Human/player_features.json").ReadToEnd();
-    		humanMapper = JsonUtility.FromJson<HumanFeaturesJsonMap>(fileString);
+        pc =  GetComponent<PlayerController>();
 
-    		features = new Dictionary<string, HumanFeature>();
-    		features.Add("startingHealth", new HumanFeature(humanMapper.FT_HEALTH, HumanFeature.FeatureType.FT_HEALTH));
 
-    		//Da eliminare???
-    		startingHealth = (float) features["startingHealth"].currentValue;
-    		//Fine - Inizializzazione delle feature
 
-        currentHealth = startingHealth;
+        currentHealth = (float)(((Dictionary<HumanFeature.FeatureType, HumanFeature>)pc.features)[HumanFeature.FeatureType.FT_HEALTH]).currentValue
+;
     }
 
     // Update is called once per frame
     void Update()
     {
+        currentHealth = (float)(((Dictionary<HumanFeature.FeatureType, HumanFeature>)pc.features)[HumanFeature.FeatureType.FT_HEALTH]).currentValue
+;
+
         //abbassare barra vita grafica se ci sar�
     }
 
     public void HurtPlayer(float damageAmount)
     {
-        currentHealth -= damageAmount;
+        (((Dictionary<HumanFeature.FeatureType, HumanFeature>)pc.features)[HumanFeature.FeatureType.FT_HEALTH]).currentValue
+            = (float)(((Dictionary<HumanFeature.FeatureType, HumanFeature>)pc.features)[HumanFeature.FeatureType.FT_HEALTH]).currentValue - damageAmount;
+
+
+        currentHealth = (float)(((Dictionary<HumanFeature.FeatureType, HumanFeature>)pc.features)[HumanFeature.FeatureType.FT_HEALTH]).currentValue;
     }
 }

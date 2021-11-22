@@ -5,9 +5,10 @@ using System;
 using UnityEngine.AI;
 using UnityEngine.Animations.Rigging;
 using System.IO;
+using EnemyFeatures;
 
 //Questa classe serve per la gestione del'animazione del nemico
-public class EnemyController : MonoBehaviour
+public class EnemyController : Character
 {
     public Transform[] wayPoints;   //Array di points verso cui il nemico dovrà effettuare il patroling
     public LayerMask targetMask;    //Bersaglio, cioè il player
@@ -20,6 +21,7 @@ public class EnemyController : MonoBehaviour
 
     //Per l'attacco
     public GameObject enemyWeapon;
+    public EnemyWeaponController enemyWeaponController;
     public Transform attackPoint;
     public float attackRange;
     public float meleeDamage = 1f;
@@ -49,18 +51,61 @@ public class EnemyController : MonoBehaviour
     public float acceleration = 0.3f;
     public float deceleration = 0.3f;
     float velocity = 0.4f;
-    int velocityHash;
+    int velocityHash;  
 
     //Per Gestire lo shader corrente
     public Shader baseEnemyShader;
     public Shader stunnedEnemyShader;
 
     //Per gestire le feature
-  	public Dictionary<string, EnemyFeature> features;
   	private EnemyFeaturesJsonMap enemyMapper;
+
+    public override void applyModifiers()
+    {
+
+        List<Modifier> scaduti = new List<Modifier>();
+
+        foreach (Modifier modifier in modifiers)
+        {
+            modifier.duration = modifier.duration - Time.deltaTime;
+
+
+            foreach (EnemyFeature f in ((Dictionary<EnemyFeature.FeatureType, EnemyFeature>)features).Values)
+            {
+                //Debug.Log("VEDIAMO ora che succede : " + f.GetType());
+
+                if (modifier.m_type.Equals(f.featureName))
+                {
+                    if (modifier.duration < 0)
+                    {
+                        //modifiers.Remove(modifier);
+                        f.removeModifier(modifier);
+                    }
+                    else
+                    {
+                        //da rinominare active che non si capisce  sarebbe " da attivare "
+                        if (modifier.active)
+                        {
+                            f.performeModifier(modifier);
+
+                        }
+
+                    }
+
+                }
+
+            }
+        }
+        foreach (Modifier m in scaduti)
+        {
+            modifiers.Remove(m);
+        }
+
+    }
 
     void Awake()
     {
+        enemyWeaponController = GetComponentInChildren<EnemyWeaponController>();
 
         animator = GetComponent<Animator>();
         stateManager = GetComponent<EnemyStateManager>();
@@ -75,31 +120,30 @@ public class EnemyController : MonoBehaviour
         this.material[0].SetFloat("Vector_Intensity_Dissolve2", 0.4f);
 
         //Inizio - Inizializzazione delle feature
-    		string fileString = new StreamReader("Assets/Push-To-Data/Feature/Enemy/enemy_features.json").ReadToEnd();
-    		enemyMapper = JsonUtility.FromJson<EnemyFeaturesJsonMap>(fileString);
+    	string fileString = new StreamReader("Assets/Push-To-Data/Feature/Enemy/enemy_features.json").ReadToEnd();
+    	enemyMapper = JsonUtility.FromJson<EnemyFeaturesJsonMap>(fileString);
 
-    		features = new Dictionary<string, EnemyFeature>();
-            
-            features.Add("viewRadius", new EnemyFeature(enemyMapper.FT_VIEW_RADIUS, EnemyFeature.FeatureType.FT_VIEW_RADIUS));
-            features.Add("viewAnglePatrolling", new EnemyFeature(enemyMapper.FT_VIEW_ANGLE_PATROLLING, EnemyFeature.FeatureType.FT_VIEW_ANGLE_PATROLLING));
-            features.Add("viewAngleChasing", new EnemyFeature(enemyMapper.FT_VIEW_ANGLE_CHASING, EnemyFeature.FeatureType.FT_VIEW_ANGLE_CHASING));
+        base.Awake();
 
-            features.Add("velocity", new EnemyFeature(enemyMapper.FT_VELOCITY , EnemyFeature.FeatureType.FT_VELOCITY));
-    		features.Add("acceleration", new EnemyFeature(enemyMapper.FT_ACCELERATION , EnemyFeature.FeatureType.FT_ACCELERATION));
-    		features.Add("deceleration", new EnemyFeature(enemyMapper.FT_DECELERATION , EnemyFeature.FeatureType.FT_DECELERATION));
-    		features.Add("health", new EnemyFeature(enemyMapper.FT_HEALTH , EnemyFeature.FeatureType.FT_HEALTH));
-    		features.Add("meleeRange", new EnemyFeature(enemyMapper.FT_MELEE_RANGE , EnemyFeature.FeatureType.FT_MELEE_RANGE));
-    		features.Add("meleeDamage", new EnemyFeature(enemyMapper.FT_MELEE_DAMAGE , EnemyFeature.FeatureType.FT_MELEE_DAMAGE));
-    		features.Add("isWeaponed", new EnemyFeature(enemyMapper.FT_IS_WEAPONED , EnemyFeature.FeatureType.FT_IS_WEAPONED));
-    		features.Add("fireDistance", new EnemyFeature(enemyMapper.FT_FIRE_DISTANCE , EnemyFeature.FeatureType.FT_FIRE_DISTANCE));
-    		//Fine - Inizializzazione delle feature
+        components.Add(enemyWeaponController);
+
+
+         foreach (Component c in components)
+         {
+            if (c != null)
+                modifiers.AddRange(c.modifiers);
+         }
+
+        this.features = new Dictionary<EnemyFeature.FeatureType, EnemyFeature>();
+        this.features = enemyMapper.todict();
+ 
     }
 
     // Start is called before the first frame update
     void Start()
     {
         enemyNavMeshAgent = GetComponent<NavMeshAgent>();
-        if (enemyWeapon != null)
+        if (enemyWeaponController != null)
         {
             animator.SetFloat("isWeapon", 1);
             animator.SetFloat("isRunning", 1f);
@@ -117,6 +161,8 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        applyModifiers();
+
         handleAnimation();
     }
 
