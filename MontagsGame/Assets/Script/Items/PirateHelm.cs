@@ -17,7 +17,10 @@ public class PirateHelm : MonoBehaviour
         foreach (GameObject enemy in enemies)
         {
             enemymanager = enemy.GetComponent<EnemyStateManager>();
-            enemymanager.SwitchState(enemymanager.StunnedState);
+
+            if (enemymanager.getCurrentState() == "EnemyStunnedState"){
+                enemymanager.SwitchState(enemymanager.StunnedState);
+            }
           
         }
       
