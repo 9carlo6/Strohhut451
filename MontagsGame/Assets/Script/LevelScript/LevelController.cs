@@ -226,12 +226,12 @@ public class LevelController : MonoBehaviour
         {
             bool find = false;
 
-            foreach(Modifier m in pc.modifiers)
-            {
-                if (m.m_type.Equals(HumanFeature.FeatureType.FT_SPEED))
-                {
-                    find = true;
-                }
+            foreach(Modifier m in pc.modifiers)
+            {
+                if (m.m_type.Equals(HumanFeature.FeatureType.FT_SPEED))
+                {
+                    find = true;
+                }
             }
 
             if (!find)

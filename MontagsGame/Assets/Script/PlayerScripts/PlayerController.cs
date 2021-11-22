@@ -85,16 +85,23 @@ public class PlayerController : Character
 	public HumanFeaturesJsonMap humanMapper;
 
 	//Per gestire i modificatori
-	//public Dictionary<string, Modifier> modifiers;
+	//public Dictionary<string, Modifier> modifiers;
+
+	//nuovo push to data
+	//public List<Feature> features;
+
+
+
+
 
-	//nuovo push to data
-	//public List<Feature> features;
+	
 
-
+	GameObject[] traps;
 
 
 	void Awake()
 	{
+		traps = GameObject.FindGameObjectsWithTag("Trap");
 		playerInput = new PlayerInput();
 		characterController = GetComponent<CharacterController>();
 		animator = GetComponent<Animator>();
@@ -110,26 +117,26 @@ public class PlayerController : Character
 
 		//Inizio - Inizializzazione delle feature
 		string fileString = new StreamReader("Assets/Push-To-Data/Feature/Human/player_features.json").ReadToEnd();
-		humanMapper = JsonUtility.FromJson<HumanFeaturesJsonMap>(fileString);
-
-		//features = new List<Feature>();
-		base.Awake();
-
-		components.Add(weaponController);
-
-		foreach (Component c in components)
-		{
-			modifiers.AddRange(c.modifiers);
-		}
-
-
-		this.features = new Dictionary<HumanFeature.FeatureType, HumanFeature>();
-		this.features = humanMapper.todict();
-
-		
-
-		//Callbacks per il movimento
-		//ascolta quando il giocatore inizia a utilizzare l'azione Move
+		humanMapper = JsonUtility.FromJson<HumanFeaturesJsonMap>(fileString);
+
+		//features = new List<Feature>();
+		base.Awake();
+
+		components.Add(weaponController);
+
+		foreach (Component c in components)
+		{
+			modifiers.AddRange(c.modifiers);
+		}
+
+
+		this.features = new Dictionary<HumanFeature.FeatureType, HumanFeature>();
+		this.features = humanMapper.todict();
+
+		
+
+		//Callbacks per il movimento
+		//ascolta quando il giocatore inizia a utilizzare l'azione Move
 		playerInput.CharacterControls.Move.started += onMovementInput;
 		//ascolta quando il giocatore rilascia i tasti
 		playerInput.CharacterControls.Move.canceled += onMovementInput;
@@ -146,7 +153,6 @@ public class PlayerController : Character
 		//Callbacks per l'attacco corpo a corpo
 		playerInput.CharacterControls.MeleeAttack.performed += _ => isAttackButtonPressed = true;
 		playerInput.CharacterControls.MeleeAttack.canceled += _ => isAttackButtonPressed = false;
-
 	}
 
 	//Funzione per gestire la Callback del movimento
@@ -173,17 +179,28 @@ public class PlayerController : Character
 		//per poter far muovere il personaggio
 		//per potersi muovere il personaggio non deve star attaccando e non deve essere morto
 		isAttacking = animator.GetBool("isAttacking");
-		isDeath = animator.GetBool("isDeath");
-
-		//Solo per Debug -> per controllare il valore corrente della velocita tramite l'Inspector
+		isDeath = animator.GetBool("isDeath");
+
+		//Solo per Debug -> per controllare il valore corrente della velocita tramite l'Inspector
 		/*
 		moveSpeed = (float) features["moveSpeed"].currentValue;
 		Debug.Log("SPEED BASE VALUE: " + features["moveSpeed"].baseValue);
-		*/
+		*/
 		if (!isAttacking && !isDeath && !isStopped){
 
-			characterController.Move(currentMovement * Time.deltaTime * (float)(((Dictionary<HumanFeature.FeatureType, HumanFeature>)features)[HumanFeature.FeatureType.FT_SPEED]).currentValue);
+		if (Input.GetKeyDown(KeyCode.T))
+        {
+			for(int i=0; i<traps.Length; i++)
+            {
+				
+				traps[i].GetComponent<Animation>().Play();
+				
+            }
 			
+        }
+
+		if (!isAttacking && !isDeath && !isStopped){
+			characterController.Move(currentMovement * Time.deltaTime * Convert.ToSingle(features["moveSpeed"].currentValue));
 			handlePlayerRotation();
 			handleFiring();
 		}
@@ -194,41 +211,41 @@ public class PlayerController : Character
 		
 	}
 
-	public override void applyModifiers()
-    {
-
-		List<Modifier> scaduti = new List<Modifier>();
-
-
-		foreach (Modifier modifier in modifiers)
-		{
-			modifier.duration = modifier.duration - Time.deltaTime;
-
-
+	public override void applyModifiers()
+    {
+
+		List<Modifier> scaduti = new List<Modifier>();
+
+
+		foreach (Modifier modifier in modifiers)
+		{
+			modifier.duration = modifier.duration - Time.deltaTime;
+
+
 			foreach (HumanFeature f in ((Dictionary <HumanFeature.FeatureType, HumanFeature >) features).Values)
-			{
-				//Debug.Log("VEDIAMO ora che succede : " + f.GetType());
+			{
+				//Debug.Log("VEDIAMO ora che succede : " + f.GetType());
 
 				if (modifier.m_type.Equals(f.featureName))
-				{
-
+				{
+
 					Debug.Log("MODIFICATORE SULLA FEATURE " + modifier.m_type);
 
 					if (modifier.duration < 0)
 					{
-						Debug.Log("RIMUOVO " + modifier.m_type);
-						//modifiers.Remove(modifier);
+						Debug.Log("RIMUOVO " + modifier.m_type);
+						//modifiers.Remove(modifier);
 						scaduti.Add(modifier);
 						f.removeModifier(modifier);
 					}
 					else
-					{
-						//da rinominare active che non si capisce  sarebbe " da attivare "
+					{
+						//da rinominare active che non si capisce  sarebbe " da attivare "
 						if (modifier.active)
-						{
+						{
 							Debug.Log("ATTIVO MODIFICATORE SULLA FEATURE :" + modifier.m_type);
 							Debug.Log("VALORE ATTUALE " + f.currentValue);
-							f.performeModifier(modifier);
+							f.performeModifier(modifier);
 							Debug.Log("VALORE AGGIORNATO " + f.currentValue);
 
 						}
@@ -238,16 +255,16 @@ public class PlayerController : Character
 				}
 
 			}
-		}
-
-		foreach(Modifier m in scaduti)
-        {
-			modifiers.Remove(m);
-		}
-
+		}
+
+		foreach(Modifier m in scaduti)
+        {
+			modifiers.Remove(m);
+		}
+
 	}
-
-	//Per gestire la rotazione del player con il movimento del mouse
+
+	//Per gestire la rotazione del player con il movimento del mouse
 	void handlePlayerRotation()
     {
 		Ray cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
