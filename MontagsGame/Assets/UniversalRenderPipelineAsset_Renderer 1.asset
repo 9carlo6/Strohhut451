@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
   m_Name: EnemySkinBehind
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   settings:
     passTag: EnemySkinBehind
     Event: 300
@@ -88,13 +88,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de640fe3d0db1804a85f9fc8f5cadab6, type: 3}
-  m_Name: UniversalRenderPipelineAsset_Renderer
+  m_Name: UniversalRenderPipelineAsset_Renderer 1
   m_EditorClassIdentifier: 
   m_RendererFeatures:
-  - {fileID: -7334270424960675298}
-  - {fileID: -4280816989011833427}
   - {fileID: 2300496647291510773}
-  m_RendererFeatureMap: 1ed29039e86f379aad0d7e15a17b97c4f59fc91c8301ed1f
+  - {fileID: -4280816989011833427}
+  - {fileID: -7334270424960675298}
+  m_RendererFeatureMap: f59fc91c8301ed1fad0d7e15a17b97c41ed29039e86f379a
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
   shaders:
@@ -110,10 +110,10 @@ MonoBehaviour:
     materialErrorPS: {fileID: 4800000, guid: 5fd9a8feb75a4b5894c241777f519d4e, type: 3}
   m_OpaqueLayerMask:
     serializedVersion: 2
-    m_Bits: 1015807
+    m_Bits: 4294967295
   m_TransparentLayerMask:
     serializedVersion: 2
-    m_Bits: 1015807
+    m_Bits: 4294967295
   m_DefaultStencilState:
     overrideStencilState: 0
     stencilReference: 0
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
   m_Name: Enemy Skin Trap
   m_EditorClassIdentifier: 
-  m_Active: 0
+  m_Active: 1
   settings:
     passTag: Enemy Skin Trap
     Event: 300

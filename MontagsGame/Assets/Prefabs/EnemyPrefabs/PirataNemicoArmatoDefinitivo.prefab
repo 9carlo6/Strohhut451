@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 119637835}
   - component: {fileID: 119637837}
   - component: {fileID: 119637836}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Decal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4894,7 +4894,7 @@ GameObject:
   - component: {fileID: 335584209}
   - component: {fileID: 335584211}
   - component: {fileID: 335584210}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Dust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9921,7 +9921,7 @@ GameObject:
   - component: {fileID: 1317631516}
   - component: {fileID: 1317631518}
   - component: {fileID: 1317631517}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: HitEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14750,7 +14750,7 @@ GameObject:
   - component: {fileID: 1459934540}
   - component: {fileID: 1459934542}
   - component: {fileID: 1459934541}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19503,7 +19503,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9008456105202675795}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RaycastOrigin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19535,7 +19535,7 @@ GameObject:
   - component: {fileID: 9008456105941464216}
   - component: {fileID: 9008456105941464214}
   - component: {fileID: 9008456105941464215}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: FlashHeadonEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24405,6 +24405,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 54018161, guid: 119758d907d972347988e6973ae3ec02, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 838327389, guid: 119758d907d972347988e6973ae3ec02, type: 3}
       propertyPath: m_Name
       value: RigLayer_HandIK
@@ -24424,6 +24428,10 @@ PrefabInstance:
     - target: {fileID: 838327391, guid: 119758d907d972347988e6973ae3ec02, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.455
+      objectReference: {fileID: 0}
+    - target: {fileID: 850546528, guid: 119758d907d972347988e6973ae3ec02, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1084358485, guid: 119758d907d972347988e6973ae3ec02, type: 3}
       propertyPath: m_RigLayers.Array.size
@@ -24478,6 +24486,11 @@ PrefabInstance:
       propertyPath: muzzleFlash.Array.data[1]
       value: 
       objectReference: {fileID: 9008456105941464214}
+    - target: {fileID: 4891351279362224091, guid: 119758d907d972347988e6973ae3ec02,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4891351279362224091, guid: 119758d907d972347988e6973ae3ec02,
         type: 3}
       propertyPath: m_TagString
@@ -24680,6 +24693,12 @@ PrefabInstance:
       objectReference: {fileID: 8713424499108527932}
     - target: {fileID: 8485737672817458781, guid: 119758d907d972347988e6973ae3ec02,
         type: 3}
+      propertyPath: enemyTrapShader
+      value: 
+      objectReference: {fileID: -6465566751694194690, guid: 2f1baefd550efb34c980db1784bebcd2,
+        type: 3}
+    - target: {fileID: 8485737672817458781, guid: 119758d907d972347988e6973ae3ec02,
+        type: 3}
       propertyPath: wayPoints.Array.data[0]
       value: 
       objectReference: {fileID: 0}
@@ -24802,6 +24821,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MuzzleFlash01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6957882207395061849, guid: 07fa1df8c070d7040b098ab2855d17c2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7082237603193101517, guid: 07fa1df8c070d7040b098ab2855d17c2,
         type: 3}
