@@ -7,36 +7,39 @@ public class PirateHelm : MonoBehaviour
     public GameObject[] enemies;
     private EnemyStateManager enemymanager;
 
-    //Per gestire il testo
-    public RadioController radioController;
+    //Per la gestione del numero di skull correnti
+    [HideInInspector] public GameObject levelController;
+    [HideInInspector] public LevelController lc;
+
+    void Awake()
+    {
+        levelController = GameObject.FindWithTag("LevelController");
+        lc = levelController.GetComponent<LevelController>();
+    }
 
     public void EnableEffect()
     {
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
-
-        foreach (GameObject enemy in enemies)
+        if (lc.sc.helms_amount > 0)
         {
-            enemymanager = enemy.GetComponent<EnemyStateManager>();
+            enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
-            if (enemymanager.getCurrentState() == "EnemyStunnedState"){
-                enemymanager.SwitchState(enemymanager.StunnedState);
+            foreach (GameObject enemy in enemies)
+            {
+                enemymanager = enemy.GetComponent<EnemyStateManager>();
+
+                if (enemymanager.getCurrentState() != "EnemyStunnedState")
+                {
+                    enemymanager.SwitchState(enemymanager.StunnedState);
+                }
             }
-          
+
+            //Per gestire l'aggiornamento dell'ammontare dei timoni posseduti
+            lc.sc.helms_amount--;
+            lc.UpdateGameItemsAmountText();
         }
-      
-    }
-
-    //Funzione che si attiva quando l'oggetto viene toccato
-    private void OnTriggerEnter(Collider other)
-    {
-        //Per gestire il testo
-        radioController = GameObject.FindWithTag("RadioController").GetComponent<RadioController>();
-        radioController.SetRadioText("The Helm is used to stun all enemies in play");
-
-        //Suono
-        FindObjectOfType<AudioManager>().Play("Pickup");
-
-        EnableEffect();
-        Destroy(gameObject);
+        else
+        {
+            Debug.Log("Il giocatore non possiede Timoni");
+        }
     }
 }

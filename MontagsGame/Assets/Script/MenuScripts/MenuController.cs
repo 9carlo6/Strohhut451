@@ -13,8 +13,6 @@ public class MenuController : MonoBehaviour
     public Coins coins;
     public GameItems gameItems;
 
-   
-
     //Json
     public TextAsset gameItemsTextJSON;
     public TextAsset coinTextJSON;

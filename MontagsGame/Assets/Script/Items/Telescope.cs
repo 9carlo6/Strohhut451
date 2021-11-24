@@ -8,34 +8,34 @@ public class Telescope : MonoBehaviour
 {
     public PlayerController playerController;
 
-    //Per gestire il testo
-    public RadioController radioController;
+    //Per la gestione del numero di skull correnti
+    [HideInInspector] public GameObject levelController;
+    [HideInInspector] public LevelController lc;
 
     void Awake()
     {
-        playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+        levelController = GameObject.FindWithTag("LevelController");
+        lc = levelController.GetComponent<LevelController>();
     }
 
     public void EnableEffect()
     {
-        // qua ci va un modificatore non una modifica alla feature ;
-        playerController.increasedVisualField = true;
+        playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
 
-        ((playerController.features)[HumanFeature.FeatureType.FT_INCREASED_FOV]).currentValue = true;
-    
-    }
+        if (lc.sc.telescopes_amount > 0 && (bool)((playerController.features)[HumanFeature.FeatureType.FT_INCREASED_FOV]).currentValue==false)
+        {
+            //qua ci va un modificatore non una modifica alla feature
+            playerController.increasedVisualField = true;
 
-    //Funzione che si attiva quando l'oggetto viene toccato
-    private void OnTriggerEnter(Collider other)
-    {
-        //Per gestire il testo
-        radioController = GameObject.FindWithTag("RadioController").GetComponent<RadioController>();
-        radioController.SetRadioText("The Telescope is used to increase the field of view. Press [SHIFT] to use it.");
+            ((playerController.features)[HumanFeature.FeatureType.FT_INCREASED_FOV]).currentValue = true;
 
-        //Suono
-        FindObjectOfType<AudioManager>().Play("Pickup");
-
-        EnableEffect();
-        Destroy(gameObject);
+            //Per gestire l'aggiornamento dell'ammontare dei telescopi posseduti
+            lc.sc.telescopes_amount--;
+            lc.UpdateGameItemsAmountText();
+        }
+        else
+        {
+            Debug.Log("Il giocatore non possiede Telescopi");
+        }
     }
 }
