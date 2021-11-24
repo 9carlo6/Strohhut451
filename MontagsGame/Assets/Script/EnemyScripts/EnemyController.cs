@@ -56,6 +56,7 @@ public class EnemyController : Character
     //Per Gestire lo shader corrente
     public Shader baseEnemyShader;
     public Shader stunnedEnemyShader;
+    public Shader enemyTrapShader;
 
     //Per gestire le feature
 
@@ -186,7 +187,7 @@ public class EnemyController : Character
                     enemyNavMeshAgent.isStopped = false;
 
                     //Per gestire lo shader
-                    renderEnemyBody.material.shader = baseEnemyShader;
+                    //renderEnemyBody.material.shader = baseEnemyShader;
                     break;
 
                 case "EnemyMeleeAttackState":
