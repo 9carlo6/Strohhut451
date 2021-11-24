@@ -193,16 +193,7 @@ public class PlayerController : Character
 		if (!isAttacking && !isDeath && !isStopped)
 		{
 
-			if (Input.GetKeyDown(KeyCode.T))
-			{
-				for (int i = 0; i < traps.Length; i++)
-				{
-
-					traps[i].GetComponent<Animation>().Play();
-
-				}
-
-			}
+			
 
 			if (!isAttacking && !isDeath && !isStopped)
 			{
