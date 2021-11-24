@@ -9,6 +9,7 @@ using HumanFeatures;
 public class PlayerHealthManager : MonoBehaviour
 {
     public float currentHealth;
+   
  
 
     PlayerController pc;
