@@ -27,7 +27,7 @@ public class PirateHelm : MonoBehaviour
             {
                 enemymanager = enemy.GetComponent<EnemyStateManager>();
 
-                if (enemymanager.getCurrentState() == "EnemyStunnedState")
+                if (enemymanager.getCurrentState() != "EnemyStunnedState")
                 {
                     enemymanager.SwitchState(enemymanager.StunnedState);
                 }

@@ -14,14 +14,15 @@ public class Telescope : MonoBehaviour
 
     void Awake()
     {
-        playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         levelController = GameObject.FindWithTag("LevelController");
         lc = levelController.GetComponent<LevelController>();
     }
 
     public void EnableEffect()
     {
-        if (lc.sc.telescopes_amount > 0 && !(bool)((playerController.features)[HumanFeature.FeatureType.FT_INCREASED_FOV]).currentValue)
+        playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+
+        if (lc.sc.telescopes_amount > 0 && (bool)((playerController.features)[HumanFeature.FeatureType.FT_INCREASED_FOV]).currentValue==false)
         {
             //qua ci va un modificatore non una modifica alla feature
             playerController.increasedVisualField = true;
