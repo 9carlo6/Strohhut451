@@ -2325,8 +2325,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1793012725}
   - {fileID: 886060818}
+  - {fileID: 1793012725}
   - {fileID: 1615053598}
   m_Father: {fileID: 1434658079}
   m_RootOrder: 3
@@ -8509,6 +8509,9 @@ MonoBehaviour:
   valid_currentCoins: 0
   valid_currentNumberOfEnemies: 0
   valid_levelTimeCounter: 0
+  valid_skulls_amount: 0
+  valid_helms_amount: 0
+  valid_telescopes_amount: 0
   breakdownCanvas: {fileID: 59218613}
   firstBreakdownImage: {fileID: 1103576885}
   secondBreakdownImage: {fileID: 1063486254}
@@ -8529,6 +8532,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36904854a964c314584599c66d942533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &382756536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382756533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68f8a4e4d2fb27c4da5b2ea100404060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 0}
+  levelController: {fileID: 0}
+  lc: {fileID: 0}
+--- !u!114 &382756537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382756533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 318fa27194bc06c42933d659f20c07a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies: []
+  levelController: {fileID: 0}
+  lc: {fileID: 0}
+--- !u!114 &382756538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382756533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcb5c67433103cf41ab907669d39b81b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies: []
+  levelController: {fileID: 0}
+  lc: {fileID: 0}
 --- !u!1001 &382826155
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16882,11 +16930,11 @@ RectTransform:
   m_Children:
   - {fileID: 1797780287}
   m_Father: {fileID: 89048186}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 355, y: -0.92562}
+  m_AnchoredPosition: {x: 355.00006, y: 50.099995}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &886060819
@@ -34231,11 +34279,11 @@ RectTransform:
   m_Children:
   - {fileID: 1541028626}
   m_Father: {fileID: 89048186}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 355, y: 50.1}
+  m_AnchoredPosition: {x: 355.00006, y: 0.0000076293945}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1793012726

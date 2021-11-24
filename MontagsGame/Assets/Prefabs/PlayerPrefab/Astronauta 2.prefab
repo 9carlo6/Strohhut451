@@ -142,7 +142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc9a48fa5ad3bc46aca91fd0ae499ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 1
   currentHealth: 1
 --- !u!114 &839757687844688543
 MonoBehaviour:
@@ -156,6 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14500192f561330459b3493223e9b02c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  components: []
   moveSpeed: 4
   isMovementPressed: 0
   isAttackButtonPressed: 0
@@ -181,14 +181,12 @@ MonoBehaviour:
   spineTarget: {fileID: 0}
   rotationSpeed: 2
   playerIsFiring: 0
+  timerToReset: 1
   rodWeapon: {fileID: 0}
   increasedVisualField: 0
-  humanMapper:
-    FT_SPEED: 0
-    FT_HEALTH: 0
-    FT_ATTACK_RANGE: 0
-    FT_MELEE_DAMAGE: 0
-    FT_INCREASED_FOV: 0
+  skull: {fileID: 0}
+  helm: {fileID: 0}
+  telescope: {fileID: 0}
 --- !u!23 &839757686065028433
 MeshRenderer:
   m_ObjectHideFlags: 0

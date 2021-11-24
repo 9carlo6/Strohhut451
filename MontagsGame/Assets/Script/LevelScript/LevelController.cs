@@ -59,7 +59,11 @@ public class LevelController : MonoBehaviour
     [HideInInspector] public int valid_levelPoints;
     [HideInInspector] public int valid_currentCoins;
     [HideInInspector] public int valid_currentNumberOfEnemies;
-    [HideInInspector] public int valid_levelTimeCounter;
+    [HideInInspector] public float valid_levelTimeCounter;
+    //Parametri legati ai gameItems
+    [HideInInspector] public float valid_skulls_amount;
+    [HideInInspector] public float valid_helms_amount;
+    [HideInInspector] public float valid_telescopes_amount;
 
     //Per la gestione delle avarie
     //public float BreakdownTimeCounter;
@@ -129,6 +133,9 @@ public class LevelController : MonoBehaviour
             skulls_amount_text.text = sc.skulls_amount.ToString();
             helms_amount_text.text = sc.helms_amount.ToString();
             telescopes_amount_text.text = sc.telescopes_amount.ToString();
+            valid_skulls_amount = sc.skulls_amount;
+            valid_helms_amount = sc.helms_amount;
+            valid_telescopes_amount = sc.telescopes_amount;
         }
         else
         {
@@ -231,7 +238,26 @@ public class LevelController : MonoBehaviour
         comboMultiplier = 0;
 
         //Per il reset dei gameItems
+        sc.skulls_amount = valid_skulls_amount;
+        sc.helms_amount = valid_helms_amount;
+        sc.telescopes_amount = valid_telescopes_amount;
+        UpdateGameItemsAmountText();
+    }
 
+    //Per il reset dei parametri quando si completa il livello
+    public void LevelCompletedParametersReset()
+    {
+        comboTimeCounter = 0;
+        comboMultiplier = 0;
+        valid_levelPoints = levelPoints;
+        valid_currentCoins = currentCoins;
+        valid_levelTimeCounter = levelTimeCounter;
+
+        //Per il reset dei valori validi relativi ai gameItems
+        valid_skulls_amount = sc.skulls_amount;
+        valid_helms_amount = sc.helms_amount;
+        valid_telescopes_amount = sc.telescopes_amount;
+        UpdateGameItemsAmountText();
     }
 
     //Per gestire l'update del totale dei gameItem posseduti
@@ -254,12 +280,12 @@ public class LevelController : MonoBehaviour
         {
             bool find = false;
 
-            foreach(Modifier m in pc.modifiers)
-            {
-                if (m.m_type.Equals(HumanFeature.FeatureType.FT_SPEED))
-                {
-                    find = true;
-                }
+            foreach(Modifier m in pc.modifiers)
+            {
+                if (m.m_type.Equals(HumanFeature.FeatureType.FT_SPEED))
+                {
+                    find = true;
+                }
             }
 
             if (!find)
