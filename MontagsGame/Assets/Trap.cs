@@ -31,17 +31,20 @@ public class Trap : MonoBehaviour
             player.GetComponent<PlayerHealthManager>().currentHealth = 0;
 
         }
-        if (renderEnemyBody == null)
-        {
-            Debug.Log("elseeeeeeeeeeee");
-            enemyBody = other.transform.Find("EnemyPirateSkin").gameObject;
-            renderEnemyBody = enemyBody.GetComponent<Renderer>();
-            Debug.Log("setto lo shader");
-            renderEnemyBody.material.shader = trapShader;//facendo questo è stata commentata una linea di codice nell'enemycontroller relativa al chase
-        }
         else
         {
-            return;
+            if (renderEnemyBody == null)
+            {
+                Debug.Log("elseeeeeeeeeeee");
+                enemyBody = other.transform.Find("EnemyPirateSkin").gameObject;
+                renderEnemyBody = enemyBody.GetComponent<Renderer>();
+                Debug.Log("setto lo shader");
+                renderEnemyBody.material.shader = trapShader;//facendo questo è stata commentata una linea di codice nell'enemycontroller relativa al chase
+            }
+            else
+            {
+                return;
+            }
         }
 
 
