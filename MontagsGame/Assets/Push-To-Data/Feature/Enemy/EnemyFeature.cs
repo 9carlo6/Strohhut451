@@ -39,7 +39,7 @@ namespace EnemyFeatures
         public override void performeModifier(Modifier m)
         {
             this.currentValue = (float)currentValue * (float)m.m_fFactor;
-            m.active = false;
+            m.toactive = false;
 
         }
 
@@ -59,7 +59,7 @@ namespace EnemyFeatures
         public override void performeModifier(Modifier m)
         {
             this.currentValue = (float)currentValue * (float)m.m_fFactor;
-            m.active = false;
+            m.toactive = false;
 
         }
 
@@ -78,7 +78,7 @@ namespace EnemyFeatures
         public override void performeModifier(Modifier m)
         {
             this.currentValue = (float)currentValue * (float)m.m_fFactor;
-            m.active = false;
+            m.toactive = false;
 
         }
 
@@ -97,7 +97,7 @@ namespace EnemyFeatures
         public override void performeModifier(Modifier m)
         {
             this.currentValue = (float)currentValue + (float)m.m_fFactor;
-            m.active = false;
+            m.toactive = false;
         }
         public override void removeModifier(Modifier m)
         {
@@ -115,7 +115,7 @@ namespace EnemyFeatures
         public override void performeModifier(Modifier m)
         {
             this.currentValue = (float)currentValue + (float)m.m_fFactor;
-            m.active = false;
+            m.toactive = false;
 
         }
 
@@ -134,7 +134,7 @@ namespace EnemyFeatures
         public override void performeModifier(Modifier m)
         {
             this.currentValue = (float)currentValue + (float)m.m_fFactor;
-            m.active = false;
+            m.toactive = false;
 
         }
 
@@ -153,7 +153,7 @@ namespace EnemyFeatures
         public override void performeModifier(Modifier m)
         {
             this.currentValue = (bool)m.m_fFactor;
-            m.active = false;
+            m.toactive = false;
         }
         public override void removeModifier(Modifier m)
         {
@@ -171,7 +171,7 @@ namespace EnemyFeatures
         public override void performeModifier(Modifier m)
         {
             this.currentValue = (float)currentValue + (float)m.m_fFactor;
-            m.active = false;
+            m.toactive = false;
 
         }
 
@@ -191,7 +191,7 @@ namespace EnemyFeatures
         public override void performeModifier(Modifier m)
         {
             this.currentValue = (float)currentValue + (float)m.m_fFactor;
-            m.active = false;
+            m.toactive = false;
 
         }
 
@@ -211,7 +211,7 @@ namespace EnemyFeatures
         public override void performeModifier(Modifier m)
         {
             this.currentValue = (float)currentValue + (float)m.m_fFactor;
-            m.active = false;
+            m.toactive = false;
 
         }
 
@@ -231,7 +231,7 @@ namespace EnemyFeatures
         public override void performeModifier(Modifier m)
         {
             this.currentValue = (float)currentValue + (float)m.m_fFactor;
-            m.active = false;
+            m.toactive = false;
 
         }
 

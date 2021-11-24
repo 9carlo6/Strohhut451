@@ -25,10 +25,10 @@ public class WeaponPlayerController : WeaponController
 
         //Inizio - Inizializzazione delle feature
        	string fileString = new StreamReader("Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt").ReadToEnd();
-       	weaponMapper = JsonUtility.FromJson<WeaponFeaturesJsonMap>(fileString);
+        mapper = JsonUtility.FromJson<WeaponFeaturesJsonMap>(fileString);
 
-        this.features = new Dictionary<HumanFeature.FeatureType, HumanFeature>();
-        this.features = weaponMapper.todict();
+        //this.features = new Dictionary<HumanFeature.FeatureType, HumanFeature>();
+        this.features = mapper.todict();
 
     }
 

@@ -1,19 +1,16 @@
-using UnityEngine.Audio;
 using System;
 using UnityEngine;
+
 
 //In questa classe inseriamo tutti i suoni presenti nel gioco, gestiamo le proprietà degli stessi ed il metodo per riprodurre i suoni
 public class AudioManager : MonoBehaviour
 {
+    //Riferimento static all'istanza corrente dell'audioManager
     public static AudioManager instance;
-
 
     //Definiamo un array di suoni a partire dalla classe Sound
     public Sound[] sounds;
 
-
-
-    //Riferimento static all'istanza corrente dell'audioManager
 
     // Start is called before the first frame update
     void Awake()
@@ -60,13 +57,12 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    //Play la canzone principale
-    void Start()
+    private void Start()
     {
         Play("SoundTrack");
     }
 
-   
+
     public void Play(string name)
     {
         //Scorriamo tutti i suoni presenti nell'array, parametri -> Nome array, restituirci il suono tale che il nome del suono è uguale al nome passato come parametro del metodo

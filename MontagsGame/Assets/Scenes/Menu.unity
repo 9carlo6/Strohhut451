@@ -4358,7 +4358,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   turnSpeed: 2
-  audioMixer: {fileID: 0}
   timeCounterMovement: 0
   timeCounterRotation: 0
   defaultTimeCounterMovement: 2
@@ -4637,7 +4636,7 @@ PrefabInstance:
     - target: {fileID: 5839452961856052322, guid: 02ca5ac972dd817429684f46d6547921,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5839452961856052322, guid: 02ca5ac972dd817429684f46d6547921,
         type: 3}
@@ -6982,7 +6981,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   turnSpeed: 2
-  audioMixer: {fileID: 0}
   timeCounterMovement: 0
   timeCounterRotation: 0
   defaultTimeCounterMovement: 2
@@ -7239,7 +7237,7 @@ Transform:
   m_Children:
   - {fileID: 766557876}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &351897739
 GameObject:
@@ -13838,7 +13836,7 @@ RectTransform:
   - {fileID: 471712438}
   - {fileID: 1851491106}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -17370,7 +17368,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 48.852, y: 136.448, z: 616.979}
 --- !u!1001 &877115364
 PrefabInstance:
@@ -17543,7 +17541,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &881982036
 GameObject:
@@ -17603,7 +17601,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 20
   turnSpeed: 1
-  audioMixer: {fileID: 24100000, guid: aac01e4b6a6e1e249b0a5920cf565e8a, type: 2}
   timeCounterMovement: 0
   timeCounterRotation: 0
   defaultTimeCounterMovement: 2
@@ -19999,7 +19996,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &958867986
 PrefabInstance:
@@ -27401,7 +27398,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   turnSpeed: 2
-  audioMixer: {fileID: 0}
   timeCounterMovement: 0
   timeCounterRotation: 0
   defaultTimeCounterMovement: 2
@@ -31417,7 +31413,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1458402657
 MonoBehaviour:
@@ -37133,7 +37129,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1673676454
 GameObject:
@@ -37225,8 +37221,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 881982038}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+      - m_Target: {fileID: 1976104342}
+        m_TargetAssemblyTypeName: SoundSettings, Assembly-CSharp
         m_MethodName: SetVolume
         m_Mode: 0
         m_Arguments:
@@ -43732,6 +43728,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1975278210}
   m_Mesh: {fileID: 4300000, guid: dddd5c0cb04c04afa9fccd6526cab02c, type: 3}
+--- !u!1 &1976104341
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1976104343}
+  - component: {fileID: 1976104342}
+  m_Layer: 0
+  m_Name: AudioSetting
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1976104342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976104341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f65e40568f93ec44a98f59005464ad7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: aac01e4b6a6e1e249b0a5920cf565e8a, type: 2}
+  slider: {fileID: 1673676456}
+--- !u!4 &1976104343
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976104341}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1976754856
 GameObject:
   m_ObjectHideFlags: 0
@@ -43932,7 +43973,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   turnSpeed: 2
-  audioMixer: {fileID: 0}
   timeCounterMovement: 0
   timeCounterRotation: 0
   defaultTimeCounterMovement: 2
@@ -45410,7 +45450,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   turnSpeed: 2
-  audioMixer: {fileID: 0}
   timeCounterMovement: 0
   timeCounterRotation: 0
   defaultTimeCounterMovement: 2

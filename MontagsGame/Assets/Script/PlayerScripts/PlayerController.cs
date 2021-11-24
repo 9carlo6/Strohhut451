@@ -82,7 +82,6 @@ public class PlayerController : Character
 
 	//Per gestire le feature
 	//public Dictionary<string, HumanFeature> features;
-	public HumanFeaturesJsonMap humanMapper;
 
 	//Per gestire i modificatori
 	//public Dictionary<string, Modifier> modifiers;
@@ -117,27 +116,19 @@ public class PlayerController : Character
 
 		//Inizio - Inizializzazione delle feature
 		string fileString = new StreamReader("Assets/Push-To-Data/Feature/Human/player_features.json").ReadToEnd();
-		humanMapper = JsonUtility.FromJson<HumanFeaturesJsonMap>(fileString);
-
-		//features = new List<Feature>();
+		mapper = JsonUtility.FromJson<HumanFeaturesJsonMap>(fileString);
 		base.Awake();
-
 		components.Add(weaponController);
-
 		foreach (Component c in components)
 		{
 			modifiers.AddRange(c.modifiers);
 		}
-
-
-		this.features = new Dictionary<HumanFeature.FeatureType, HumanFeature>();
-		this.features = humanMapper.todict();
-
-		
-
-		//Callbacks per il movimento
-		//ascolta quando il giocatore inizia a utilizzare l'azione Move
-		playerInput.CharacterControls.Move.started += onMovementInput;
+		this.features = mapper.todict();
+		 //Callbacks per il movimento
+
+		 //ascolta quando il giocatore inizia a utilizzare l'azione Move
+
+		 playerInput.CharacterControls.Move.started += onMovementInput;
 		//ascolta quando il giocatore rilascia i tasti
 		playerInput.CharacterControls.Move.canceled += onMovementInput;
 		//questa serve nel momento in cui si controlla il personaggio con il joystick
@@ -197,7 +188,7 @@ public class PlayerController : Character
 
 			if (!isAttacking && !isDeath && !isStopped)
 			{
-				characterController.Move(currentMovement * Time.deltaTime * (float)(((Dictionary<HumanFeature.FeatureType, HumanFeature>)features)[HumanFeature.FeatureType.FT_SPEED]).currentValue);
+				characterController.Move(currentMovement * Time.deltaTime * (float)((features)[HumanFeature.FeatureType.FT_SPEED]).currentValue);
 				handlePlayerRotation();
 				handleFiring();
 			}
@@ -208,59 +199,8 @@ public class PlayerController : Character
 
 		}
 	}
+
 
-	public override void applyModifiers()
-    {
-
-		List<Modifier> scaduti = new List<Modifier>();
-
-
-		foreach (Modifier modifier in modifiers)
-		{
-			modifier.duration = modifier.duration - Time.deltaTime;
-
-
-			foreach (HumanFeature f in ((Dictionary <HumanFeature.FeatureType, HumanFeature >) features).Values)
-			{
-				//Debug.Log("VEDIAMO ora che succede : " + f.GetType());
-
-				if (modifier.m_type.Equals(f.featureName))
-				{
-
-					Debug.Log("MODIFICATORE SULLA FEATURE " + modifier.m_type);
-
-					if (modifier.duration < 0)
-					{
-						Debug.Log("RIMUOVO " + modifier.m_type);
-						//modifiers.Remove(modifier);
-						scaduti.Add(modifier);
-						f.removeModifier(modifier);
-					}
-					else
-					{
-						//da rinominare active che non si capisce  sarebbe " da attivare "
-						if (modifier.active)
-						{
-							Debug.Log("ATTIVO MODIFICATORE SULLA FEATURE :" + modifier.m_type);
-							Debug.Log("VALORE ATTUALE " + f.currentValue);
-							f.performeModifier(modifier);
-							Debug.Log("VALORE AGGIORNATO " + f.currentValue);
-
-						}
-
-					}
-
-				}
-
-			}
-		}
-
-		foreach(Modifier m in scaduti)
-        {
-			modifiers.Remove(m);
-		}
-
-	}
 
 	//Per gestire la rotazione del player con il movimento del mouse
 	void handlePlayerRotation()

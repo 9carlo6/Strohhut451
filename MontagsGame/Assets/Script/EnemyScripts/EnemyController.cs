@@ -59,50 +59,8 @@ public class EnemyController : Character
     public Shader enemyTrapShader;
 
     //Per gestire le feature
-  	private EnemyFeaturesJsonMap enemyMapper;
-
-    public override void applyModifiers()
-    {
-
-        List<Modifier> scaduti = new List<Modifier>();
-
-        foreach (Modifier modifier in modifiers)
-        {
-            modifier.duration = modifier.duration - Time.deltaTime;
 
 
-            foreach (EnemyFeature f in ((Dictionary<EnemyFeature.FeatureType, EnemyFeature>)features).Values)
-            {
-                //Debug.Log("VEDIAMO ora che succede : " + f.GetType());
-
-                if (modifier.m_type.Equals(f.featureName))
-                {
-                    if (modifier.duration < 0)
-                    {
-                        //modifiers.Remove(modifier);
-                        f.removeModifier(modifier);
-                    }
-                    else
-                    {
-                        //da rinominare active che non si capisce  sarebbe " da attivare "
-                        if (modifier.active)
-                        {
-                            f.performeModifier(modifier);
-
-                        }
-
-                    }
-
-                }
-
-            }
-        }
-        foreach (Modifier m in scaduti)
-        {
-            modifiers.Remove(m);
-        }
-
-    }
 
     void Awake()
     {
@@ -122,7 +80,7 @@ public class EnemyController : Character
 
         //Inizio - Inizializzazione delle feature
     	string fileString = new StreamReader("Assets/Push-To-Data/Feature/Enemy/enemy_features.json").ReadToEnd();
-    	enemyMapper = JsonUtility.FromJson<EnemyFeaturesJsonMap>(fileString);
+    	mapper = JsonUtility.FromJson<EnemyFeaturesJsonMap>(fileString);
 
         base.Awake();
 
@@ -135,8 +93,7 @@ public class EnemyController : Character
                 modifiers.AddRange(c.modifiers);
          }
 
-        this.features = new Dictionary<EnemyFeature.FeatureType, EnemyFeature>();
-        this.features = enemyMapper.todict();
+        this.features = mapper.todict();
  
     }
 

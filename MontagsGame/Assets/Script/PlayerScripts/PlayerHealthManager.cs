@@ -21,14 +21,14 @@ public class PlayerHealthManager : MonoBehaviour
 
 
 
-        currentHealth = (float)(((Dictionary<HumanFeature.FeatureType, HumanFeature>)pc.features)[HumanFeature.FeatureType.FT_HEALTH]).currentValue
+        currentHealth = (float)((pc.features)[HumanFeature.FeatureType.FT_HEALTH]).currentValue
 ;
     }
 
     // Update is called once per frame
     void Update()
     {
-        currentHealth = (float)(((Dictionary<HumanFeature.FeatureType, HumanFeature>)pc.features)[HumanFeature.FeatureType.FT_HEALTH]).currentValue
+        currentHealth = (float)((pc.features)[HumanFeature.FeatureType.FT_HEALTH]).currentValue
 ;
 
         //abbassare barra vita grafica se ci sar�
@@ -36,10 +36,9 @@ public class PlayerHealthManager : MonoBehaviour
 
     public void HurtPlayer(float damageAmount)
     {
-        (((Dictionary<HumanFeature.FeatureType, HumanFeature>)pc.features)[HumanFeature.FeatureType.FT_HEALTH]).currentValue
-            = (float)(((Dictionary<HumanFeature.FeatureType, HumanFeature>)pc.features)[HumanFeature.FeatureType.FT_HEALTH]).currentValue - damageAmount;
+        ((pc.features)[HumanFeature.FeatureType.FT_HEALTH]).currentValue= (float)((pc.features)[HumanFeature.FeatureType.FT_HEALTH]).currentValue - damageAmount;
 
 
-        currentHealth = (float)(((Dictionary<HumanFeature.FeatureType, HumanFeature>)pc.features)[HumanFeature.FeatureType.FT_HEALTH]).currentValue;
+        currentHealth = (float)((pc.features)[HumanFeature.FeatureType.FT_HEALTH]).currentValue;
     }
 }

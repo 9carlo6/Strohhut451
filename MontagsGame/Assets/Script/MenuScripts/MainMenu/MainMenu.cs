@@ -10,7 +10,6 @@ public class MainMenu : MonoBehaviour
     public float turnSpeed = 2f;
 
 
-    public AudioMixer audioMixer;
 
 
     [HideInInspector] public float timeCounterMovement;
@@ -48,10 +47,7 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    public void SetVolume(float volume)
-    {
-        audioMixer.SetFloat("volume", volume);
-    }
+   
 
 
     //Funzione per avviare una nuova sessione

@@ -8,6 +8,7 @@ namespace HumanFeatures
 
     public  class HumanFeature : Feature
     {
+        
         public enum FeatureType
         {
             FT_SPEED,
@@ -16,12 +17,16 @@ namespace HumanFeatures
             FT_MELEE_DAMAGE,
             FT_INCREASED_FOV
         }
+        
 
         public HumanFeature(System.Object baseValue, FeatureType featureName) : base(baseValue, featureName)
         {
         }
 
     }
+
+
+
     public class SpeedHumanFeature : HumanFeature
     {
         public SpeedHumanFeature(System.Object baseValue, FeatureType featureName) : base(baseValue, featureName)
@@ -31,7 +36,7 @@ namespace HumanFeatures
         public override void performeModifier(Modifier m)
         {
             this.currentValue = (float)currentValue * (float)m.m_fFactor;
-            m.active = false;
+            m.toactive = false;
 
         }
 
@@ -49,7 +54,7 @@ namespace HumanFeatures
         public override void performeModifier(Modifier m)
         {
             this.currentValue = (float)currentValue + (float)m.m_fFactor;
-            m.active = false;
+            m.toactive = false;
         }
         public override void removeModifier(Modifier m)
         {
@@ -65,7 +70,7 @@ namespace HumanFeatures
         public override void performeModifier(Modifier m)
         {
             this.currentValue = (float)currentValue + (float)m.m_fFactor;
-            m.active = false;
+            m.toactive = false;
         }
         public override void removeModifier(Modifier m)
         {
@@ -81,7 +86,7 @@ namespace HumanFeatures
         public override void performeModifier(Modifier m)
         {
             this.currentValue = (float)currentValue + (float)m.m_fFactor;
-            m.active = false;
+            m.toactive = false;
         }
         public override void removeModifier(Modifier m)
         {
@@ -97,7 +102,7 @@ namespace HumanFeatures
         public override void performeModifier(Modifier m)
         {
             this.currentValue = (bool)m.m_fFactor;
-            m.active = false;
+            m.toactive = false;
         }
         public override void removeModifier(Modifier m)
         {
