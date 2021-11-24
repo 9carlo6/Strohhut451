@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public abstract class Component : MonoBehaviour
 {
@@ -8,12 +9,23 @@ public abstract class Component : MonoBehaviour
 	public List<Modifier> modifiers;
 	public List<Component> components;
 	public Dictionable mapper;
+	public String ID;
 
 	public virtual void Awake()
 	{
+		ID = Guid.NewGuid().ToString("N");
 		features = new Dictionary<System.Object, Feature>();
 		modifiers = new List<Modifier>();
 		components = new List<Component>();
+	}
+	public void addModifier(Modifier m)
+	{
+		this.modifiers.Add(m);
+
+		foreach (Component c in components)
+		{
+			c.addModifier(m);
+		}
 	}
 
 
@@ -30,12 +42,12 @@ public abstract class Component : MonoBehaviour
 				//Debug.Log("VEDIAMO ora che succede : " + f.GetType());
 
 
-				if (modifier.m_type.Equals(f.featureName))
+				if (f.corrispondance(modifier))
 				{
 
 					Debug.Log("MODIFICATORE SULLA FEATURE " + modifier.m_type);
 
-					if (modifier.duration < 0)
+					if (modifier.duration < 0 && !modifier.infinite)
 					{
 						Debug.Log("RIMUOVO " + modifier.m_type);
 

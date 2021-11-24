@@ -27,6 +27,8 @@ public class LevelStateManager : MonoBehaviour
     [HideInInspector] public GameObject player;
 
 
+    public int currentFailure;
+
     //Per individuare lo stato corrente del Livello
     public string getCurrentState()
     {
@@ -37,6 +39,8 @@ public class LevelStateManager : MonoBehaviour
     {
         transitionTime = 1f;
         transition = GameObject.FindWithTag("CrossfadeAnimation").GetComponent<Animator>();
+
+        currentFailure = 0;
 
         sessionController = GameObject.FindWithTag("SessionController");
         levelController = GameObject.FindWithTag("LevelController");
@@ -66,7 +70,7 @@ public class LevelStateManager : MonoBehaviour
 
         //Per gestire le avarie
         if(player!=null){
-          lc.handleBreakdown(player.GetComponent<PlayerController>(), isLevelCompleted);
+          lc.handleBreakdown(player.GetComponent<PlayerController>(), isLevelCompleted,ref currentFailure);
         }
     }
 
