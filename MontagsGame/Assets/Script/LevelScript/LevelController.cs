@@ -253,7 +253,6 @@ public class LevelController : MonoBehaviour
         valid_currentCoins = currentCoins;
         valid_levelTimeCounter = levelTimeCounter;
 
-    public void handleBreakdown(PlayerController pc, bool isLevelCompleted,ref int currentFailure)
         //Per il reset dei valori validi relativi ai gameItems
         valid_skulls_amount = sc.skulls_amount;
         valid_helms_amount = sc.helms_amount;
@@ -269,6 +268,8 @@ public class LevelController : MonoBehaviour
         telescopes_amount_text.text = sc.telescopes_amount.ToString();
     }
 
+
+    public void handleBreakdown(PlayerController pc, bool isLevelCompleted, ref int currentFailure)
 
     {
         //Applico la prima avaria
