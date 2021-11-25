@@ -19,9 +19,14 @@ public class SessionController : MonoBehaviour
     public TextAsset coinTextJSON;
 
     //Per gestire gli item
+    public TextAsset gameItemsTextJSON;
     //Teschio - Skull - Muore un nemico random
     //Telescopio - Telescope - Amplia campo visivo
-    //PirateHelm - Stunna nemici
+    //Pirate - Helm - Stunna nemici
+    public GameItems gameItems;
+    public float skulls_amount;
+    public float helms_amount;
+    public float telescopes_amount;
 
     //Singleton
     public static SessionController scstatic;
@@ -43,6 +48,9 @@ public class SessionController : MonoBehaviour
 
             //Ricaviamo il nome della scena corrente
             new_scene_name = SceneManager.GetActiveScene().name.ToString();
+
+            //Per ricavare il numero di oggetti posseduti
+            gameItems = JsonUtility.FromJson<GameItems>(gameItemsTextJSON.text);
         }
         else
         {
@@ -87,10 +95,11 @@ public class SessionController : MonoBehaviour
 
         UpdateJson();
 
-
         //Gestione aggiornamento monete
         UpdateCoinsJson();
 
+        //Per la gestione degli oggetti
+        UpdateGameItemsJson();
     }
 
     //Funzione per aggiungere una nuova sessione
@@ -109,6 +118,20 @@ public class SessionController : MonoBehaviour
         //Aggiungiamo la sessione alla lista delle sessioni e aggiornamo il json
         sessions.sessions_list.Add(new_session);
         UpdateJson();
+
+        //Per la gestione degli oggetti
+        if (gameItems.gameItems_list.FirstOrDefault(gi => gi.name == "skull").amount > 0)
+        {
+            skulls_amount = 1;
+        }
+        if (gameItems.gameItems_list.FirstOrDefault(gi => gi.name == "helm").amount > 0)
+        {
+            helms_amount = 1;
+        }
+        if (gameItems.gameItems_list.FirstOrDefault(gi => gi.name == "telescope").amount > 0)
+        {
+            telescopes_amount = 1;
+        }
     }
 
     //Funzione per aggiungere una nuova scena
@@ -187,6 +210,22 @@ public class SessionController : MonoBehaviour
 
         string coins_json = JsonUtility.ToJson(coins);
         File.WriteAllText("Assets/Push-To-Data/Coins.txt", coins_json);
+    }
+
+    //Funzione necessaria per sovrascrivere il file json contenente i dati sugli oggetti
+    public void UpdateGameItemsJson()
+    {
+        //In questa maniera recupera gli oggetti non sprecati
+        //Meno uno in quanto prima era stato preso e non sottratto
+        foreach(GameItem gi in gameItems.gameItems_list)
+        {
+            if (gi.name == "skull") gi.amount += skulls_amount - 1;
+            if (gi.name == "helm") gi.amount += helms_amount - 1;
+            if (gi.name == "telescope") gi.amount += telescopes_amount - 1;
+        }
+
+        string gameItems_json = JsonUtility.ToJson(gameItems);
+        File.WriteAllText("Assets/Push-To-Data/GameItems.txt", gameItems_json);
     }
 
     //Funzione per controllare se la scena è gia presente nella sessione corrente

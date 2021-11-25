@@ -84,16 +84,11 @@ public class PlayerController : Character
 	//public Dictionary<string, HumanFeature> features;
 
 	//Per gestire i modificatori
-	//public Dictionary<string, Modifier> modifiers;
-
-	//nuovo push to data
-	//public List<Feature> features;
-
-
-
-
+	//public Dictionary<string, Modifier> modifiers;
 
-	
+	//nuovo push to data
+
+	//public List<Feature> features;
 
 	GameObject[] traps;
 
@@ -116,19 +111,17 @@ public class PlayerController : Character
 
 		//Inizio - Inizializzazione delle feature
 		string fileString = new StreamReader("Assets/Push-To-Data/Feature/Human/player_features.json").ReadToEnd();
-		mapper = JsonUtility.FromJson<HumanFeaturesJsonMap>(fileString);
+		mapper = JsonUtility.FromJson<HumanFeaturesJsonMap>(fileString);
 		base.Awake();
 		components.Add(weaponController);
 		foreach (Component c in components)
-		{
-			modifiers.AddRange(c.modifiers);
+		{
+			modifiers.AddRange(c.modifiers);
 		}
 		this.features = mapper.todict();
-		 //Callbacks per il movimento
-
-		 //ascolta quando il giocatore inizia a utilizzare l'azione Move
-
-		 playerInput.CharacterControls.Move.started += onMovementInput;
+		//Callbacks per il movimento
+		//ascolta quando il giocatore inizia a utilizzare l'azione Move
+		playerInput.CharacterControls.Move.started += onMovementInput;
 		//ascolta quando il giocatore rilascia i tasti
 		playerInput.CharacterControls.Move.canceled += onMovementInput;
 		//questa serve nel momento in cui si controlla il personaggio con il joystick
@@ -144,6 +137,11 @@ public class PlayerController : Character
 		//Callbacks per l'attacco corpo a corpo
 		playerInput.CharacterControls.MeleeAttack.performed += _ => isAttackButtonPressed = true;
 		playerInput.CharacterControls.MeleeAttack.canceled += _ => isAttackButtonPressed = false;
+
+		//Callbacks per utilizzare i gameItems
+		playerInput.CharacterControls.Skull.performed += _ => GameObject.FindWithTag("LevelController").GetComponent<Skull>().EnableEffect();
+		playerInput.CharacterControls.Helm.performed += _ => GameObject.FindWithTag("LevelController").GetComponent<PirateHelm>().EnableEffect();
+		playerInput.CharacterControls.Telescope.performed += _ => GameObject.FindWithTag("LevelController").GetComponent<Telescope>().EnableEffect();
 	}
 
 	//Funzione per gestire la Callback del movimento
@@ -172,8 +170,6 @@ public class PlayerController : Character
 		isAttacking = animator.GetBool("isAttacking");
 		isDeath = animator.GetBool("isDeath");
 
-
-
 		//Solo per Debug -> per controllare il valore corrente della velocita tramite l'Inspector
 
 		/*
@@ -194,15 +190,11 @@ public class PlayerController : Character
 			}
 
 			handleAnimation();
-
 			applyModifiers();
-
 		}
 	}
 
-
-
-	//Per gestire la rotazione del player con il movimento del mouse
+	//Per gestire la rotazione del player con il movimento del mouse
 	void handlePlayerRotation()
     {
 		Ray cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
@@ -251,17 +243,17 @@ public class PlayerController : Character
 	//Funzione necessaria per risalire al nome dell'animazione corrente
 	public string GetCurrentClipName()
 	{
-			AnimatorClipInfo[] clipInfo = animator.GetCurrentAnimatorClipInfo(0);
-			return clipInfo[0].clip.name;
+		AnimatorClipInfo[] clipInfo = animator.GetCurrentAnimatorClipInfo(0);
+		return clipInfo[0].clip.name;
 	}
 
 	//Per gestire lo sparo dell'arma
 	void handleFiring()
-    {
+	{
 
 		if (weaponController.isFiring && weaponController.ammoCount > 0)
 		{
-			
+
 			playerIsFiring = true;
 			//weaponController.UpdateFiring(Time.deltaTime);
 		}
@@ -313,53 +305,54 @@ public class PlayerController : Character
 	//Rilevamento della collisione con il pavimento che permette di andare al livello successivo
 	void OnCollisionEnter(Collision hit)
 	{
-	   if (hit.collider.tag == "NextLevelPlane")
-	   {
-			 Debug.Log("Prossimo Piano:sta collidendo");
-			 nextLevelPlaneCollision = true;
-	   }
+		if (hit.collider.tag == "NextLevelPlane")
+		{
+			Debug.Log("Prossimo Piano:sta collidendo");
+			nextLevelPlaneCollision = true;
+		}
 
-		 Debug.Log("il player sta collidendo con qualcosa");
+		Debug.Log("il player sta collidendo con qualcosa");
 	}
 
 	//Se non collide più con il pavimento che permette di andare al livello successivo
 
 	void OnCollisionExit(Collision hit)
-  {
-      if (hit.collider.tag == "NextLevelPlane")
-      {
-				Debug.Log("Prossimo Piano: non sta piu collidendo");
-				nextLevelPlaneCollision = false;
-      }
-  }
+	{
+		if (hit.collider.tag == "NextLevelPlane")
+		{
+			Debug.Log("Prossimo Piano: non sta piu collidendo");
+			nextLevelPlaneCollision = false;
+		}
+	}
 
 	void OnEnable()
 	{
-	  //serve per abilitare la character controls action map
-	  playerInput.CharacterControls.Enable();
+		//serve per abilitare la character controls action map
+		playerInput.CharacterControls.Enable();
 	}
 
 	void OnDisable()
 	{
-	  //serve per disabilitare la character controls action map
-	  playerInput.CharacterControls.Disable();
+		//serve per disabilitare la character controls action map
+		playerInput.CharacterControls.Disable();
 	}
 
 
-	void FixedUpdate(){
-	  myRigidbody.velocity = moveVelocity;
+	void FixedUpdate()
+	{
+		myRigidbody.velocity = moveVelocity;
 	}
 
 	//Funzione per il debug dell'attacco corpo a corpo
 	void OnDrawGizmosSelected()
-    {
+	{
 		if (!animator.GetBool("isAttacking"))
 			return;
 		Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-    }
+	}
 
 	public bool getBoolToAlert()
-    {
+	{
 		return playerIsFiring;
     }
 

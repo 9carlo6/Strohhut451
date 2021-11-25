@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 1887574710344848470}
   - component: {fileID: 1887574710344848471}
   - component: {fileID: 1887574710344848554}
-  - component: {fileID: 1887574710344848555}
+  - component: {fileID: 5329655094127185280}
   m_Layer: 18
   m_Name: PirateHelm
   m_TagString: PirateHelm
@@ -194,7 +194,7 @@ MonoBehaviour:
   bounceSpeed: 8
   bounceAmplitude: 0.05
   rotationSpeed: 90
---- !u!114 &1887574710344848555
+--- !u!114 &5329655094127185280
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -203,10 +203,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1887574710344848468}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 318fa27194bc06c42933d659f20c07a5, type: 3}
+  m_Script: {fileID: 11500000, guid: 854c1039d0627b1459c7afa1f6eb8920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies: []
+  radioController: {fileID: 0}
 --- !u!1 &1887574710635331089
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,9 @@ using HumanFeatures;
 
 public class LevelController : MonoBehaviour
 {
+    [HideInInspector] public GameObject sessionController;
+    [HideInInspector] public SessionController sc;
+
     public GameObject levelInfoCanvas;
 
     //Per controllare il tempo impiegato per superare il livello
@@ -56,7 +59,11 @@ public class LevelController : MonoBehaviour
     [HideInInspector] public int valid_levelPoints;
     [HideInInspector] public int valid_currentCoins;
     [HideInInspector] public int valid_currentNumberOfEnemies;
-    [HideInInspector] public int valid_levelTimeCounter;
+    [HideInInspector] public float valid_levelTimeCounter;
+    //Parametri legati ai gameItems
+    [HideInInspector] public float valid_skulls_amount;
+    [HideInInspector] public float valid_helms_amount;
+    [HideInInspector] public float valid_telescopes_amount;
 
     //Per la gestione delle avarie
     //public float BreakdownTimeCounter;
@@ -67,6 +74,12 @@ public class LevelController : MonoBehaviour
 
     //Per gestire il testo della radio
     public RadioController radioController;
+
+    //Per gestire i gameItems
+    public TMP_Text skulls_amount_text;
+    public TMP_Text helms_amount_text;
+    public TMP_Text telescopes_amount_text;
+
 
     //Singleton
     public static LevelController lcstatic;
@@ -82,6 +95,9 @@ public class LevelController : MonoBehaviour
         {
             lcstatic = this;
             DontDestroyOnLoad(gameObject);
+
+            sessionController = GameObject.FindWithTag("SessionController");
+            sc = sessionController.GetComponent<SessionController>();
 
             levelTimeCounter = 0;
             levelPoints = 0;
@@ -112,6 +128,14 @@ public class LevelController : MonoBehaviour
 
             //Per gestire il testo della radio
             radioController = GameObject.FindWithTag("RadioController").GetComponent<RadioController>();
+
+            //Per gestire i gameItems
+            skulls_amount_text.text = sc.skulls_amount.ToString();
+            helms_amount_text.text = sc.helms_amount.ToString();
+            telescopes_amount_text.text = sc.telescopes_amount.ToString();
+            valid_skulls_amount = sc.skulls_amount;
+            valid_helms_amount = sc.helms_amount;
+            valid_telescopes_amount = sc.telescopes_amount;
         }
         else
         {
@@ -212,10 +236,40 @@ public class LevelController : MonoBehaviour
         levelTimeCounter = valid_levelTimeCounter;
         comboTimeCounter = 0;
         comboMultiplier = 0;
+
+        //Per il reset dei gameItems
+        sc.skulls_amount = valid_skulls_amount;
+        sc.helms_amount = valid_helms_amount;
+        sc.telescopes_amount = valid_telescopes_amount;
+        UpdateGameItemsAmountText();
+    }
+
+    //Per il reset dei parametri quando si completa il livello
+    public void LevelCompletedParametersReset()
+    {
+        comboTimeCounter = 0;
+        comboMultiplier = 0;
+        valid_levelPoints = levelPoints;
+        valid_currentCoins = currentCoins;
+        valid_levelTimeCounter = levelTimeCounter;
+
+    public void handleBreakdown(PlayerController pc, bool isLevelCompleted,ref int currentFailure)
+        //Per il reset dei valori validi relativi ai gameItems
+        valid_skulls_amount = sc.skulls_amount;
+        valid_helms_amount = sc.helms_amount;
+        valid_telescopes_amount = sc.telescopes_amount;
+        UpdateGameItemsAmountText();
+    }
+
+    //Per gestire l'update del totale dei gameItem posseduti
+    public void UpdateGameItemsAmountText()
+    {
+        skulls_amount_text.text = sc.skulls_amount.ToString();
+        helms_amount_text.text = sc.helms_amount.ToString();
+        telescopes_amount_text.text = sc.telescopes_amount.ToString();
     }
 
 
-    public void handleBreakdown(PlayerController pc, bool isLevelCompleted,ref int currentFailure)
     {
         //Applico la prima avaria
         //Se:
