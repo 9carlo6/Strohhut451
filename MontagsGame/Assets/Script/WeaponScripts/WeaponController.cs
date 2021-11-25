@@ -7,7 +7,7 @@ using WeaponFeatures;
 using System;
 
 
-public  class WeaponController :  Component
+public  abstract class WeaponController :  Component
 {
     public GameObject[] enemies;
     //Per capire se si sta sparando o no

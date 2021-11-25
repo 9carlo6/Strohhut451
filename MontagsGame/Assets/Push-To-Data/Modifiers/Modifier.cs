@@ -13,8 +13,27 @@ public class Modifier
     public float duration;
     public bool toactive;
 
+    public bool infinite;
 
+  
 
+    public Modifier(String ID, System.Object m_type, System.Object m_fFactor, float duration)
+    {
+        this.ID = ID;
+        this.m_type = m_type;
+        this.m_fFactor = m_fFactor;
+        this.duration = duration;
+        this.toactive = true;
+
+        if (duration == -1)
+        {
+            this.infinite = true;
+        }
+        else
+        {
+            this.infinite = false;
+        }
+    }
     public Modifier(System.Object m_type, System.Object m_fFactor,float duration)
     {
         this.ID = Guid.NewGuid().ToString("N");
@@ -22,5 +41,14 @@ public class Modifier
         this.m_fFactor = m_fFactor;
         this.duration = duration;
         this.toactive = true;
+
+        if (duration == -1)
+        {
+            this.infinite = true;
+        }
+        else
+        {
+            this.infinite = false;
+        }
     }
 }

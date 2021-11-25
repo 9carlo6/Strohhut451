@@ -354,5 +354,19 @@ public class PlayerController : Character
 	public bool getBoolToAlert()
 	{
 		return playerIsFiring;
-	}
+    }
+
+	public Modifier getModifierbyID(String id)
+    {
+
+		foreach ( Modifier m in modifiers)
+        {
+            if (m.ID.Equals(id.ToString()))
+            {
+				return m;
+            }
+        }
+		return null;
+    }
+
 }

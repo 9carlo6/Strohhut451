@@ -2,16 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Feature
+public abstract class Feature
 {
-    public virtual void performeModifier(Modifier m)
-    {
-        Debug.Log("NON SO CHE FARE");
-    }
-    public virtual void removeModifier(Modifier m)
-    {
-        Debug.Log("NON SO CHE CANCELLARE");
-    }
+    public abstract void performeModifier(Modifier m);
+
+    public abstract void removeModifier(Modifier m);
+   
 
     //public System.Object FeatureType;
 
@@ -26,6 +22,10 @@ public class Feature
         this.featureName = featureName;
     }
 
+    public bool corrispondance(Modifier m)
+    {
+        return this.featureName.ToString().Equals(m.m_type.ToString());
+    }
 
     //public FeatureType featureName;
 }

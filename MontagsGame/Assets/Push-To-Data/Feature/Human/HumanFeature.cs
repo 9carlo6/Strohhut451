@@ -6,7 +6,7 @@ using System;
 namespace HumanFeatures
 {
 
-    public  class HumanFeature : Feature
+    public abstract class HumanFeature : Feature
     {
         
         public enum FeatureType

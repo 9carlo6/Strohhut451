@@ -6,7 +6,7 @@ using System;
 namespace WeaponFeatures
 {
 
-    public class WeaponFeature : Feature
+    public abstract class WeaponFeature : Feature
     {
         public enum FeatureType
         {

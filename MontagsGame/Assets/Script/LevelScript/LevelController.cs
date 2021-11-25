@@ -253,6 +253,7 @@ public class LevelController : MonoBehaviour
         valid_currentCoins = currentCoins;
         valid_levelTimeCounter = levelTimeCounter;
 
+    public void handleBreakdown(PlayerController pc, bool isLevelCompleted,ref int currentFailure)
         //Per il reset dei valori validi relativi ai gameItems
         valid_skulls_amount = sc.skulls_amount;
         valid_helms_amount = sc.helms_amount;
@@ -269,39 +270,76 @@ public class LevelController : MonoBehaviour
     }
 
 
-    public void handleBreakdown(PlayerController pc, bool isLevelCompleted)
     {
         //Applico la prima avaria
         //Se:
         //1) sono passati 30 secondi
         //2) non è completato il Livello
         //3) non contiene già un modicatore con questa chiave
-        if ((levelTimeCounter + valid_levelTimeCounter) >= 20 && !isLevelCompleted)
-        {
-            bool find = false;
 
-            foreach(Modifier m in pc.modifiers)
-            {
-                if (m.m_type.Equals(HumanFeature.FeatureType.FT_SPEED))
-                {
-                    find = true;
+        Debug.Log("CURRENT AVARY NUMBER : " + currentFailure.ToString());
+
+        //sara push to data
+        if (currentFailure == 0 && ((levelTimeCounter + valid_levelTimeCounter) >= 20) && !isLevelCompleted)
+        {
+
+            
+               if(pc.getModifierbyID("primafailure") == null)
+               {
+                    Debug.Log("APPLICO LA PRIMA FAILURE");
+
+                    currentFailure = 1;
+                    breakdownCanvas.SetActive(true);
+                    firstBreakdownImage.enabled = true;
+                    pc.modifiers.Add(new Modifier("primafailure",HumanFeature.FeatureType.FT_SPEED, 0.5f, -1));
+                    radioController.SetRadioText("It seems that the suit has a fault. Your speed is reduced by 50%.");
                 }
+                else
+                {
+                
+                Debug.Log("LA PRIMA FAILURE è GIA IN CORSO ASPETTIAMO LA SECONDA ");
+
+                }
+
+
+        }
+      
+        else if (currentFailure == 1 && ((levelTimeCounter + valid_levelTimeCounter) >= 35) && !isLevelCompleted)
+        {
+            // seconda 
+            if (pc.getModifierbyID("secondafailure") == null)
+            {
+                currentFailure = 2;
+                //firstBreakdownImage.enabled = false;
+                secondBreakdownImage.enabled = true;
+
+                pc.modifiers.Add(new Modifier("secondafailure", HumanFeature.FeatureType.FT_SPEED, 0.5f, -1));
+                radioController.SetRadioText("ANCORA VIVI? VEDIAMO MO ");
             }
 
-            if (!find)
+        }
+
+         else if (currentFailure == 2 && ((levelTimeCounter + valid_levelTimeCounter) >= 60) && !isLevelCompleted)
+         {
+            if (pc.getModifierbyID("terzafailure") == null)
             {
-                breakdownCanvas.SetActive(true);
-                firstBreakdownImage.enabled = true;
-                pc.modifiers.Add(new Modifier(HumanFeature.FeatureType.FT_SPEED, 0.5f,10));
-                radioController.SetRadioText("It seems that the suit has a fault. Your speed is reduced by 50%.");
+                currentFailure = 3;
+
+                //firstBreakdownImage.enabled = false;
+                //secondBreakdownImage.enabled = false;
+                thirdBreakdownImage.enabled = true;
+
+                pc.modifiers.Add(new Modifier("terzafailure", HumanFeature.FeatureType.FT_SPEED, 0.5f, -1));
+                radioController.SetRadioText("MO SO CAZZI TUOI");
             }
         }
-        else
-        {
-            //Altrimenti fa il reset del BreakdownCanvas
-            breakdownCanvas.SetActive(false);
-            firstBreakdownImage.enabled = false;
-        }
+         
+
+
+
+
+
+
 
     }
 }
