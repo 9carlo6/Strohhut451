@@ -165,6 +165,8 @@ public class PlayerController : Character
 	// Update is called once per frame
 	void Update()
 	{
+
+		Debug.Log("NUMERO MODIFICATORI ATTUALI " + this.modifiers.Count);
 		//per poter far muovere il personaggio
 		//per potersi muovere il personaggio non deve star attaccando e non deve essere morto
 		isAttacking = animator.GetBool("isAttacking");
@@ -251,7 +253,7 @@ public class PlayerController : Character
 	void handleFiring()
 	{
 
-		if (weaponController.isFiring && weaponController.ammoCount > 0)
+		if (weaponController.isFiring && (int)weaponController.features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue > 0)
 		{
 
 			playerIsFiring = true;

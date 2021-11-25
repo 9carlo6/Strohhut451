@@ -30,7 +30,7 @@ public class PlayerSounds : MonoBehaviour
 
     void FireSound()
     {
-        if (weaponController.isFiring && weaponController.ammoCount > 0 && !weaponController.isBurst)
+        if (weaponController.isFiring && (float)weaponController.features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue > 0 && !weaponController.isBurst)
         {
   
                 FindObjectOfType<AudioManager>().Play("NormalFire");

@@ -17,7 +17,6 @@ public class WeaponPlayerController : WeaponController
 
     
 
-    public float noiseRange;
     public override void Awake()
     {
         base.Awake();
@@ -36,13 +35,13 @@ public class WeaponPlayerController : WeaponController
     public override void FireBullet()
     {
         //Controllo sul numero delle munizioni disponibili
-        if (ammoCount <= 0)
+        if ((int)features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue <= 0)
         {
             return;
         }
 
         //Per diminuire il numero di munizioni quando si spara
-        ammoCount--;
+        features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue= (int)features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue - 1  ;
         if (!isBurst)
             FindObjectOfType<AudioManager>().Play("NormalFire");
 
@@ -71,7 +70,7 @@ public class WeaponPlayerController : WeaponController
             var hitEnemyCollider = hitInfo.collider.GetComponent<EnemyHealthManager>();
             if (hitEnemyCollider)
             {
-                hitEnemyCollider.TakeDamage(damage);
+                hitEnemyCollider.TakeDamage((float)features[WeaponFeatures.WeaponFeature.FeatureType.FT_DAMAGE].currentValue);
             }
         }
 
@@ -110,13 +109,13 @@ public class WeaponPlayerController : WeaponController
     //Funzione per gestire il drop delle munizioni
     public void DropAmmo(int ammoDropCount)
     {
-        if ((ammoCount + ammoDropCount) > maxAmmoCount)
+        if (((int)features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue + ammoDropCount) >(int) features[WeaponFeatures.WeaponFeature.FeatureType.FT_MAX_AMMO_COUNT].currentValue)
         {
-            ammoCount = maxAmmoCount;
+            features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue = features[WeaponFeatures.WeaponFeature.FeatureType.FT_MAX_AMMO_COUNT].currentValue;
         }
         else
         {
-            ammoCount += ammoDropCount;
+            features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue =(int ) features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue + ammoDropCount;
         }
 
         //Questo serve per aggiornare le munizioni visibili nel widget

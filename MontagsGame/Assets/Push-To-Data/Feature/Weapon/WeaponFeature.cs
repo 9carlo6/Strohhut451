@@ -17,13 +17,55 @@ namespace WeaponFeatures
             FT_BURST,
             //FT_TRACER_EFFECT,
             FT_WEIGHT,
-            FT_NOISE_RANGE
+            FT_NOISE_RANGE,
+            FT_CHANCE_OF_SHOOTING,
+            FT_IS_AMMO_INFINITE
         }
 
         public WeaponFeature(System.Object baseValue, FeatureType featureName) : base(baseValue, featureName)
         {
         }
 
+    }
+
+    public class FT_IS_AMMO_INFINITE : WeaponFeature
+    {
+        public FT_IS_AMMO_INFINITE(System.Object baseValue, FeatureType featureName) : base(baseValue, featureName)
+        {
+        }
+
+        public override void performeModifier(Modifier m)
+        {
+            this.currentValue = !(bool)currentValue ;
+            m.toactive = false;
+
+        }
+
+        public override void removeModifier(Modifier m)
+        {
+            this.currentValue = !(bool)currentValue ;
+
+        }
+    }
+
+    public class Chanche_Of_Shooting : WeaponFeature
+    {
+        public Chanche_Of_Shooting(System.Object baseValue, FeatureType featureName) : base(baseValue, featureName)
+        {
+        }
+
+        public override void performeModifier(Modifier m)
+        {
+            this.currentValue = (float)currentValue * (float)m.m_fFactor;
+            m.toactive = false;
+
+        }
+
+        public override void removeModifier(Modifier m)
+        {
+            this.currentValue = (float)currentValue / (float)m.m_fFactor;
+
+        }
     }
 
     public class FireRateWeaponFeature : WeaponFeature
@@ -74,14 +116,14 @@ namespace WeaponFeatures
 
         public override void performeModifier(Modifier m)
         {
-            this.currentValue = (float)currentValue + (float)m.m_fFactor;
+            this.currentValue = (float)currentValue * (float)m.m_fFactor;
             m.toactive = false;
 
         }
 
         public override void removeModifier(Modifier m)
         {
-            this.currentValue = (float)currentValue - (float)m.m_fFactor;
+           // this.currentValue = (float)currentValue - (float)m.m_fFactor;
 
         }
 

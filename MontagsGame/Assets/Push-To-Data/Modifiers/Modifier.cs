@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+[Serializable]
 public class Modifier
 {
     //ID
@@ -11,8 +12,12 @@ public class Modifier
     //public string m_feature_id; //che corrisponde alla stringa con la quale la feature viene salvata nel dizionario
     public System.Object m_fFactor; //valore da applicare alla feautre
     public float duration;
-    public bool toactive;
 
+
+
+    [NonSerialized]
+    public bool toactive;
+    [NonSerialized]
     public bool infinite;
 
   

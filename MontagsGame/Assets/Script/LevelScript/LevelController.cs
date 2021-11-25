@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.IO;
 using System;
 using HumanFeatures;
 
@@ -80,14 +81,30 @@ public class LevelController : MonoBehaviour
     public TMP_Text helms_amount_text;
     public TMP_Text telescopes_amount_text;
 
+    public int currentFailure;
 
     //Singleton
     public static LevelController lcstatic;
+
+
+    ModifierJsonMap modifiersjson;
+    EventJsonMap events;
 
     // Start is called before the first frame update
     void Awake()
     {
         int currentSceneId = SceneManager.GetActiveScene().buildIndex;
+
+
+
+        string fileStringevents = new StreamReader("Assets/Push-To-Data/Modifiers/Events.txt").ReadToEnd();
+        events = JsonUtility.FromJson<EventJsonMap>(fileStringevents);
+
+
+        string fileStringmodifiers = new StreamReader("Assets/Push-To-Data/Modifiers/Modifiers.txt").ReadToEnd();
+        modifiersjson = JsonUtility.FromJson<ModifierJsonMap>(fileStringmodifiers);
+
+        currentFailure = 0;
 
         //Singleton
         //Diversa da 0 perch� la scena 0 � il menu
@@ -108,6 +125,7 @@ public class LevelController : MonoBehaviour
             valid_levelPoints = 0;
             valid_currentCoins = 0;
             valid_levelTimeCounter = 0;
+            
 
             pointsText = GameObject.FindWithTag("PointsText");
             comboText = GameObject.FindWithTag("ComboText");
@@ -217,11 +235,14 @@ public class LevelController : MonoBehaviour
         //Per modificare il valore del testo relativo alle monete raccolte
         coinsText.GetComponent<TMP_Text>().text = currentCoins.ToString() + " " + "$";
 
-        if(GameObject.FindWithTag("PlayerWeapon") != null)
+        
+
+        if (GameObject.FindWithTag("PlayerWeapon") != null)
         {
             weapon = GameObject.FindWithTag("PlayerWeapon").GetComponent<WeaponPlayerController>();
             //Per modificare il valore delle munizioni
-            ammoText.GetComponent<TMP_Text>().text = weapon.ammoCount.ToString() + "/" + weapon.maxAmmoCount.ToString();
+            ammoText.GetComponent<TMP_Text>().text = weapon.features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue.ToString() + "/"
+                + weapon.features[WeaponFeatures.WeaponFeature.FeatureType.FT_MAX_AMMO_COUNT].currentValue.ToString();
         }
     }
 
@@ -236,6 +257,8 @@ public class LevelController : MonoBehaviour
         levelTimeCounter = valid_levelTimeCounter;
         comboTimeCounter = 0;
         comboMultiplier = 0;
+        currentFailure = 0;
+
 
         //Per il reset dei gameItems
         sc.skulls_amount = valid_skulls_amount;
@@ -269,7 +292,7 @@ public class LevelController : MonoBehaviour
     }
 
 
-    public void handleBreakdown(PlayerController pc, bool isLevelCompleted, ref int currentFailure)
+    public void handleBreakdown(PlayerController pc, bool isLevelCompleted)
 
     {
         //Applico la prima avaria
@@ -280,20 +303,26 @@ public class LevelController : MonoBehaviour
 
         Debug.Log("CURRENT AVARY NUMBER : " + currentFailure.ToString());
 
-        //sara push to data
-        if (currentFailure == 0 && ((levelTimeCounter + valid_levelTimeCounter) >= 20) && !isLevelCompleted)
+        if (currentFailure == 0 && ((levelTimeCounter + valid_levelTimeCounter) < 5) && !isLevelCompleted)
+        {
+            breakdownCanvas.SetActive(false);
+        }
+
+
+            //sara push to data
+            if (currentFailure == 0 && ((levelTimeCounter + valid_levelTimeCounter) >= 5) && !isLevelCompleted)
         {
 
             
-               if(pc.getModifierbyID("primafailure") == null)
+               if(pc.getModifierbyID("001") == null)
                {
                     Debug.Log("APPLICO LA PRIMA FAILURE");
 
                     currentFailure = 1;
                     breakdownCanvas.SetActive(true);
                     firstBreakdownImage.enabled = true;
-                    pc.modifiers.Add(new Modifier("primafailure",HumanFeature.FeatureType.FT_SPEED, 0.5f, -1));
-                    radioController.SetRadioText("It seems that the suit has a fault. Your speed is reduced by 50%.");
+                    pc.modifiers.Add(modifiersjson.getModifierbyID("001"));
+                    radioController.SetRadioText(events.getEventbyName("primaAvaria").message);
                 }
                 else
                 {
@@ -314,8 +343,8 @@ public class LevelController : MonoBehaviour
                 //firstBreakdownImage.enabled = false;
                 secondBreakdownImage.enabled = true;
 
-                pc.modifiers.Add(new Modifier("secondafailure", HumanFeature.FeatureType.FT_SPEED, 0.5f, -1));
-                radioController.SetRadioText("ANCORA VIVI? VEDIAMO MO ");
+                pc.modifiers.Add(modifiersjson.getModifierbyID("002"));
+                radioController.SetRadioText(events.getEventbyName("secondaAvaria").message);
             }
 
         }
@@ -330,8 +359,8 @@ public class LevelController : MonoBehaviour
                 //secondBreakdownImage.enabled = false;
                 thirdBreakdownImage.enabled = true;
 
-                pc.modifiers.Add(new Modifier("terzafailure", HumanFeature.FeatureType.FT_SPEED, 0.5f, -1));
-                radioController.SetRadioText("MO SO CAZZI TUOI");
+                pc.modifiers.Add(modifiersjson.getModifierbyID("003"));
+                radioController.SetRadioText(events.getEventbyName("terzaAvaria").message);
             }
         }
          
