@@ -33,14 +33,17 @@ public abstract  class Character : MonoBehaviour
 	{
 		List<Modifier> expired = new List<Modifier>();
 		foreach (Modifier modifier in modifiers)
-		{			bool corrispondenza = false;
-			modifier.duration = modifier.duration - Time.deltaTime;
+		{
+			modifier.duration = modifier.duration - Time.deltaTime;			if (modifier.duration < 0 && !modifier.infinite)
+            {
+				expired.Add(modifier);
+			}
 
 			foreach (Feature f in features.Values)
 			{
 
 				if (f.corrispondance(modifier))
-				{					corrispondenza = true;
+				{
 					Debug.Log("MODIFICATORE SULLA FEATURE " + modifier.m_type);
 
 					if (modifier.duration < 0 && !modifier.infinite)
@@ -48,8 +51,6 @@ public abstract  class Character : MonoBehaviour
 						Debug.Log("RIMUOVO " + modifier.m_type +"ID: "+modifier.ID);
 
 						//modifiers.Remove(modifier);
-
-						expired.Add(modifier);
 
 						Debug.Log("VALORE ATTUALE " + f.currentValue);
 
@@ -77,11 +78,6 @@ public abstract  class Character : MonoBehaviour
 
 			}
 
-            if (!corrispondenza)
-            {
-				// se c'è un modificatore che non agisce su nessuna delle mie featuer lo elimino 
-				expired.Add(modifier);
-            }
 
 		}
 

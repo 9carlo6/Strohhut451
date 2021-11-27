@@ -36,7 +36,7 @@ namespace WeaponFeatures
 
         public override void performeModifier(Modifier m)
         {
-            this.currentValue = !(bool)currentValue ;
+            this.currentValue = bool.Parse(m.m_fFactor);
             m.toactive = false;
 
         }
@@ -56,14 +56,14 @@ namespace WeaponFeatures
 
         public override void performeModifier(Modifier m)
         {
-            this.currentValue = (float)currentValue * (float)m.m_fFactor;
+            this.currentValue = (float)currentValue * float.Parse(m.m_fFactor);
             m.toactive = false;
 
         }
 
         public override void removeModifier(Modifier m)
         {
-            this.currentValue = (float)currentValue / (float)m.m_fFactor;
+            this.currentValue = (float)currentValue / float.Parse(m.m_fFactor);
 
         }
     }
@@ -76,14 +76,14 @@ namespace WeaponFeatures
 
         public override void performeModifier(Modifier m)
         {
-            this.currentValue = (float)currentValue * (float)m.m_fFactor;
+            this.currentValue = (float)currentValue * float.Parse(m.m_fFactor);
             m.toactive = false;
 
         }
 
         public override void removeModifier(Modifier m)
         {
-            this.currentValue = (float)currentValue / (float)m.m_fFactor;
+            this.currentValue = (float)currentValue / float.Parse(m.m_fFactor);
 
         }
 
@@ -96,14 +96,14 @@ namespace WeaponFeatures
 
         public override void performeModifier(Modifier m)
         {
-            this.currentValue = (float)currentValue + (float)m.m_fFactor;
+            this.currentValue = (float)currentValue + float.Parse(m.m_fFactor);
             m.toactive = false;
 
         }
 
         public override void removeModifier(Modifier m)
         {
-            this.currentValue = (float)currentValue - (float)m.m_fFactor;
+            this.currentValue = (float)currentValue - float.Parse(m.m_fFactor);
 
         }
 
@@ -116,8 +116,10 @@ namespace WeaponFeatures
 
         public override void performeModifier(Modifier m)
         {
-            this.currentValue = (float)currentValue * (float)m.m_fFactor;
+            Debug.Log("VECCHIE AMMO " + (float)currentValue + "BOOM " + float.Parse(m.m_fFactor));
+            this.currentValue = (float)currentValue * float.Parse(m.m_fFactor);
             m.toactive = false;
+            Debug.Log("NUOVE AMMO " + this.currentValue);
 
         }
 
@@ -136,14 +138,14 @@ namespace WeaponFeatures
 
         public override void performeModifier(Modifier m)
         {
-            this.currentValue = (float)currentValue + (float)m.m_fFactor;
+            this.currentValue = (float)currentValue + float.Parse(m.m_fFactor);
             m.toactive = false;
 
         }
 
         public override void removeModifier(Modifier m)
         {
-            this.currentValue = (float)currentValue - (float)m.m_fFactor;
+            this.currentValue = (float)currentValue - float.Parse(m.m_fFactor);
 
         }
 
@@ -156,7 +158,7 @@ namespace WeaponFeatures
 
         public override void performeModifier(Modifier m)
         {
-            this.currentValue = (bool)m.m_fFactor;
+            this.currentValue = bool.Parse(m.m_fFactor);
             m.toactive = false;
 
         }
@@ -196,14 +198,14 @@ namespace WeaponFeatures
 
         public override void performeModifier(Modifier m)
         {
-            this.currentValue = (float)currentValue + (float)m.m_fFactor;
+            this.currentValue = (float)currentValue + float.Parse(m.m_fFactor);
             m.toactive = false;
 
         }
 
         public override void removeModifier(Modifier m)
         {
-            this.currentValue = (float)currentValue - (float)m.m_fFactor;
+            this.currentValue = (float)currentValue - float.Parse(m.m_fFactor);
 
         }
 
@@ -216,14 +218,14 @@ namespace WeaponFeatures
 
         public override void performeModifier(Modifier m)
         {
-            this.currentValue = (float)currentValue + (float)m.m_fFactor;
+            this.currentValue = (float)currentValue + float.Parse(m.m_fFactor);
             m.toactive = false;
 
         }
 
         public override void removeModifier(Modifier m)
         {
-            this.currentValue = (float)currentValue - (float)m.m_fFactor;
+            this.currentValue = (float)currentValue - float.Parse(m.m_fFactor);
 
         }
 

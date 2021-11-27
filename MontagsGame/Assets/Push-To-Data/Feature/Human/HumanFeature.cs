@@ -35,14 +35,17 @@ namespace HumanFeatures
 
         public override void performeModifier(Modifier m)
         {
-            this.currentValue = (float)currentValue * (float)m.m_fFactor;
+
+            this.currentValue = (float)currentValue * float.Parse(m.m_fFactor);
+
+
             m.toactive = false;
 
         }
 
         public override void removeModifier(Modifier m)
         {
-            this.currentValue = (float)currentValue / (float)m.m_fFactor;
+            this.currentValue = (float)currentValue / float.Parse(m.m_fFactor);
 
         }
     }
@@ -53,12 +56,12 @@ namespace HumanFeatures
         }
         public override void performeModifier(Modifier m)
         {
-            this.currentValue = (float)currentValue + (float)m.m_fFactor;
+            this.currentValue = (float)currentValue + float.Parse(m.m_fFactor);
             m.toactive = false;
         }
         public override void removeModifier(Modifier m)
         {
-            this.currentValue = (float)currentValue - (float)m.m_fFactor;
+            this.currentValue = (float)currentValue - float.Parse(m.m_fFactor);
 
         }
     }
@@ -69,12 +72,12 @@ namespace HumanFeatures
         }
         public override void performeModifier(Modifier m)
         {
-            this.currentValue = (float)currentValue + (float)m.m_fFactor;
+            this.currentValue = (float)currentValue + float.Parse(m.m_fFactor);
             m.toactive = false;
         }
         public override void removeModifier(Modifier m)
         {
-            this.currentValue = (float)currentValue - (float)m.m_fFactor;
+            this.currentValue = (float)currentValue - float.Parse(m.m_fFactor);
 
         }
     }
@@ -85,12 +88,12 @@ namespace HumanFeatures
         }
         public override void performeModifier(Modifier m)
         {
-            this.currentValue = (float)currentValue + (float)m.m_fFactor;
+            this.currentValue = (float)currentValue + float.Parse(m.m_fFactor);
             m.toactive = false;
         }
         public override void removeModifier(Modifier m)
         {
-            this.currentValue = (float)currentValue - (float)m.m_fFactor;
+            this.currentValue = (float)currentValue - float.Parse(m.m_fFactor);
 
         }
     }
@@ -101,7 +104,7 @@ namespace HumanFeatures
         }
         public override void performeModifier(Modifier m)
         {
-            this.currentValue = (bool)m.m_fFactor;
+            this.currentValue = bool.Parse(m.m_fFactor);
             m.toactive = false;
         }
         public override void removeModifier(Modifier m)

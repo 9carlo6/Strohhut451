@@ -8,22 +8,38 @@ using HumanFeatures;
 [Serializable]
 public class ModifierJsonMap  
 {
-    List<Modifier> modifiers;    
+    public List<ModifierItem> modifiers;    
 
-    public Modifier getModifierbyID(String ID)
+
+    public Modifier getModifierbyCID(String CID)
     {
-        Debug.Log("CEgggggRCO gg gggg :" + ID);
 
-        foreach (Modifier modifier in modifiers)
+        foreach (ModifierItem modifieritem in modifiers)
         {
 
-            Debug.Log("CERCO CERCO CERCO :" + modifier.ID);
 
-            if (modifier.ID.ToString().Equals(ID))
+            if (modifieritem.CID.ToString().Equals(CID))
             {
-                return modifier;
+                Debug.Log("trovato MODIFIER :" + modifieritem.ToString());
+
+
+                return new Modifier(modifieritem.CID, modifieritem.m_type, modifieritem.m_fFactor,modifieritem.duration);
             }
         }
         return null;
+    }
+
+    [Serializable]
+    public class ModifierItem
+    {
+        public String CID;
+        public String m_type;
+        public String m_fFactor;
+        public float duration;
+
+        public override string ToString()
+        {
+            return "CID "+CID+" TIPO "+m_type + "FATTORE "+m_fFactor+" DURATA "+duration;
+        }
     }
 }

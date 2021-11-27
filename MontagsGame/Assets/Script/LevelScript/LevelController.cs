@@ -321,8 +321,10 @@ public class LevelController : MonoBehaviour
                     currentFailure = 1;
                     breakdownCanvas.SetActive(true);
                     firstBreakdownImage.enabled = true;
-                    pc.modifiers.Add(modifiersjson.getModifierbyID("001"));
-                    radioController.SetRadioText(events.getEventbyName("primaAvaria").message);
+                    pc.modifiers.Add(modifiersjson.getModifierbyCID("001"));
+                    pc.modifiers.Add(modifiersjson.getModifierbyCID("001"));
+
+                radioController.SetRadioText(events.getEventbyName("primaAvaria").message);
                 }
                 else
                 {
@@ -334,7 +336,7 @@ public class LevelController : MonoBehaviour
 
         }
       
-        else if (currentFailure == 1 && ((levelTimeCounter + valid_levelTimeCounter) >= 35) && !isLevelCompleted)
+        else if (currentFailure == 1 && ((levelTimeCounter + valid_levelTimeCounter) >= 10) && !isLevelCompleted)
         {
             // seconda 
             if (pc.getModifierbyID("secondafailure") == null)
@@ -343,13 +345,13 @@ public class LevelController : MonoBehaviour
                 //firstBreakdownImage.enabled = false;
                 secondBreakdownImage.enabled = true;
 
-                pc.modifiers.Add(modifiersjson.getModifierbyID("002"));
+                pc.modifiers.Add(modifiersjson.getModifierbyCID("002"));
                 radioController.SetRadioText(events.getEventbyName("secondaAvaria").message);
             }
 
         }
 
-         else if (currentFailure == 2 && ((levelTimeCounter + valid_levelTimeCounter) >= 60) && !isLevelCompleted)
+         else if (currentFailure == 2 && ((levelTimeCounter + valid_levelTimeCounter) >= 15) && !isLevelCompleted)
          {
             if (pc.getModifierbyID("terzafailure") == null)
             {
@@ -359,7 +361,7 @@ public class LevelController : MonoBehaviour
                 //secondBreakdownImage.enabled = false;
                 thirdBreakdownImage.enabled = true;
 
-                pc.modifiers.Add(modifiersjson.getModifierbyID("003"));
+                pc.modifiers.Add(modifiersjson.getModifierbyCID("003"));
                 radioController.SetRadioText(events.getEventbyName("terzaAvaria").message);
             }
         }
