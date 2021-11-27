@@ -114,10 +114,11 @@ public class PlayerController : Character
 		mapper = JsonUtility.FromJson<HumanFeaturesJsonMap>(fileString);
 		base.Awake();
 		components.Add(weaponController);
+		/*
 		foreach (Component c in components)
 		{
 			modifiers.AddRange(c.modifiers);
-		}
+		}		*/
 		this.features = mapper.todict();
 		//Callbacks per il movimento
 		//ascolta quando il giocatore inizia a utilizzare l'azione Move

@@ -18,15 +18,19 @@ public abstract  class Character : MonoBehaviour
 		components = new List<Component>();
 	}
 
+	
 	public void addModifier(Modifier m)
     {
 		this.modifiers.Add(m);
 
+		/*
 		foreach(Component c in components)
         {
 			c.addModifier(m);
         }
+		*/
     }
+	
 
 
 	public void applyModifiers()
@@ -38,6 +42,11 @@ public abstract  class Character : MonoBehaviour
             {
 				expired.Add(modifier);
 			}
+
+			foreach( Component c in this.components)
+            {
+				c.applyModifiers(this.modifiers);
+            }
 
 			foreach (Feature f in features.Values)
 			{

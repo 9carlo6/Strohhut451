@@ -86,13 +86,13 @@ public class EnemyController : Character
 
         components.Add(enemyWeaponController);
 
-
+        /*
          foreach (Component c in components)
          {
             if (c != null)
                 modifiers.AddRange(c.modifiers);
          }
-
+        */
         this.features = mapper.todict();
  
     }

@@ -81,7 +81,7 @@ public  abstract class WeaponController :  Component
         //Per gestire i modificatori
         //handleWeaponModifier();
 
-        applyModifiers();
+        //applyModifiers();
 
         if (isFiring && (int)features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue > 0)
         {

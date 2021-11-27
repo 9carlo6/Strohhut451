@@ -116,10 +116,8 @@ namespace WeaponFeatures
 
         public override void performeModifier(Modifier m)
         {
-            Debug.Log("VECCHIE AMMO " + (float)currentValue + "BOOM " + float.Parse(m.m_fFactor));
-            this.currentValue = (float)currentValue * float.Parse(m.m_fFactor);
+            this.currentValue = (int)((int)currentValue * float.Parse(m.m_fFactor));
             m.toactive = false;
-            Debug.Log("NUOVE AMMO " + this.currentValue);
 
         }
 
