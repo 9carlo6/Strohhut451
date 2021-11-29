@@ -44,12 +44,12 @@ public  abstract class WeaponController :  Component
     public override void Awake()
     {
         audioManager = GetComponent<AudioManager>();
-      
-        
+
+        this.category = "Weapon";
         base.Awake();
 
     }
-
+    
 
     //Funzione necessaria per gestire l'update dello sparo
     public void UpdateFiring(float deltaTime)
@@ -75,6 +75,29 @@ public  abstract class WeaponController :  Component
     {
 
     }
+    public override void setFeatures()
+    {
+
+        //l'idea è settare i valori delle feature "composte" tipo la velocità è funzione del peso:
+
+        //this.features[HumanFeature.FT_SPEED].currentValue = 0.0417 * this.features[HumanFeature.FT_WEIGHT].currentValue;
+
+        //NON CI SONO FEATURE COMPOSTE PER ORA, NON FA NULLA
+    }
+    public override void initializeFeatures()
+    {
+        features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue = features[WeaponFeatures.WeaponFeature.FeatureType.FT_MAX_AMMO_COUNT].currentValue;
+
+    }
+
+    public override void Start()
+    {
+        base.Start();
+
+
+        //	enemyGameObjects = GameObject.FindGameObjectsWithTag("Enemy");
+    }
+
 
     public virtual void Update()
     {
@@ -90,7 +113,9 @@ public  abstract class WeaponController :  Component
 
             UpdateFiring(Time.deltaTime);
         }
-
+        UpdateFeatures();
+        setFeatures();
+        applyModifiers();
 
     }
 

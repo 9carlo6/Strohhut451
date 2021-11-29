@@ -29,7 +29,10 @@ public class WeaponPlayerController : WeaponController
         //this.features = new Dictionary<HumanFeature.FeatureType, HumanFeature>();
         this.features = mapper.todict();
 
+
     }
+
+   
 
     //Funzione per sparare
     public override void FireBullet()

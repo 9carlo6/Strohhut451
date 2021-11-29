@@ -14,8 +14,8 @@ public class WeaponFeaturesJsonMap:Dictionable
   public bool FT_BURST;
   public float FT_WEIGHT;
   public float FT_NOISE_RANGE;
-    public float FT_CHANCE_OF_SHOOTING;
-    public bool FT_IS_AMMO_INFINITE;
+  public float FT_CHANCE_OF_SHOOTING;
+  public bool FT_IS_AMMO_INFINITE;
 
     public Dictionary<System.Object, Feature> todict()
     {
@@ -28,8 +28,8 @@ public class WeaponFeaturesJsonMap:Dictionable
         newDict.Add(WeaponFeature.FeatureType.FT_BURST, new BurstWeaponFeature(FT_BURST, WeaponFeature.FeatureType.FT_BURST));
         newDict.Add(WeaponFeature.FeatureType.FT_WEIGHT, new WeightWeaponFeature(FT_WEIGHT, WeaponFeature.FeatureType.FT_WEIGHT));
         newDict.Add(WeaponFeature.FeatureType.FT_NOISE_RANGE, new NoiseRangeWeaponFeature(FT_NOISE_RANGE, WeaponFeature.FeatureType.FT_NOISE_RANGE));
-        newDict.Add(WeaponFeature.FeatureType.FT_CHANCE_OF_SHOOTING, new Chanche_Of_Shooting(FT_CHANCE_OF_SHOOTING, WeaponFeature.FeatureType.FT_CHANCE_OF_SHOOTING));
-        newDict.Add(WeaponFeature.FeatureType.FT_IS_AMMO_INFINITE, new Chanche_Of_Shooting(FT_IS_AMMO_INFINITE, WeaponFeature.FeatureType.FT_IS_AMMO_INFINITE));
+        newDict.Add(WeaponFeature.FeatureType.FT_CHANCE_OF_SHOOTING, new ChancheOfShootingWeaponFeature(FT_CHANCE_OF_SHOOTING, WeaponFeature.FeatureType.FT_CHANCE_OF_SHOOTING));
+        newDict.Add(WeaponFeature.FeatureType.FT_IS_AMMO_INFINITE, new AmmoInfiniteWeaponFeature(FT_IS_AMMO_INFINITE, WeaponFeature.FeatureType.FT_IS_AMMO_INFINITE));
 
         
 

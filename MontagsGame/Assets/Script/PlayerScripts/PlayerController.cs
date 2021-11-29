@@ -120,6 +120,11 @@ public class PlayerController : Character
 			modifiers.AddRange(c.modifiers);
 		}		*/
 		this.features = mapper.todict();
+		foreach(System.Object o in this.features.Keys)
+        {
+			Debug.Log("ho trovato questa chiave " + o.ToString());
+        }
+
 		//Callbacks per il movimento
 		//ascolta quando il giocatore inizia a utilizzare l'azione Move
 		playerInput.CharacterControls.Move.started += onMovementInput;
@@ -155,12 +160,17 @@ public class PlayerController : Character
 	}
 
 	//Start is called before the first frame update
-	void Start()
+	public override void Start()
 	{
 		myRigidbody = GetComponent<Rigidbody>();
 		mainCamera = FindObjectOfType<Camera>();
+		Debug.Log("IL MIO PESO INIZIALE  è " + (this.features[HumanFeature.FeatureType.FT_WEIGHT].currentValue));
 
-	//	enemyGameObjects = GameObject.FindGameObjectsWithTag("Enemy");
+		base.Start();
+
+
+
+		//	enemyGameObjects = GameObject.FindGameObjectsWithTag("Enemy");
 	}
 
 	// Update is called once per frame
@@ -183,20 +193,38 @@ public class PlayerController : Character
 		if (!isAttacking && !isDeath && !isStopped)
 		{
 
-			
 
-			if (!isAttacking && !isDeath && !isStopped)
-			{
-				characterController.Move(currentMovement * Time.deltaTime * (float)((features)[HumanFeature.FeatureType.FT_SPEED]).currentValue);
+
+			characterController.Move(currentMovement * Time.deltaTime * (float)(this.features[HumanFeature.FeatureType.FT_SPEED].currentValue));
 				handlePlayerRotation();
 				handleFiring();
-			}
+			
 
-			handleAnimation();
-			applyModifiers();
+			
 		}
+		Debug.Log("IL MIO PESO è " + (this.features[HumanFeature.FeatureType.FT_WEIGHT].currentValue));
+		handleAnimation();
+		UpdateFeatures();
+		setFeatures();
+		applyModifiers();
 	}
-
+	public override void setFeatures()
+    {
+
+		//l'idea è settare i valori delle feature "composte" tipo la velocità è funzione del peso:
+
+		this.features[HumanFeature.FeatureType.FT_SPEED].currentValue = 0.0417f * (float)(this.features[HumanFeature.FeatureType.FT_WEIGHT].currentValue);
+
+	}
+
+
+	public override void initializeFeatures()
+	{
+		features[HumanFeature.FeatureType.FT_HEALTH].currentValue = features[HumanFeature.FeatureType.FT_MAX_HEALTH].currentValue;
+
+
+	}
+
 	//Per gestire la rotazione del player con il movimento del mouse
 	void handlePlayerRotation()
     {

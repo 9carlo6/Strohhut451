@@ -23,7 +23,7 @@ public class ModifierJsonMap
                 Debug.Log("trovato MODIFIER :" + modifieritem.ToString());
 
 
-                return new Modifier(modifieritem.CID, modifieritem.m_type, modifieritem.m_fFactor,modifieritem.duration);
+                return new Modifier(modifieritem.CID, modifieritem.m_type, modifieritem.m_fFactor,modifieritem.duration,modifieritem.infinite,modifieritem.oneshot);
             }
         }
         return null;
@@ -32,10 +32,14 @@ public class ModifierJsonMap
     [Serializable]
     public class ModifierItem
     {
+
         public String CID;
         public String m_type;
         public String m_fFactor;
         public float duration;
+        public bool infinite;
+        public bool oneshot;
+
 
         public override string ToString()
         {

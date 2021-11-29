@@ -344,7 +344,7 @@ public class LevelController : MonoBehaviour
                 //firstBreakdownImage.enabled = false;
                 secondBreakdownImage.enabled = true;
 
-                pc.addModifier(modifiersjson.getModifierbyCID("002"));
+                pc.getComponentbyCategory("Weapon").addModifier(modifiersjson.getModifierbyCID("002"));
                 radioController.SetRadioText(events.getEventbyName("secondaAvaria").message);
             }
 
@@ -360,7 +360,7 @@ public class LevelController : MonoBehaviour
                 //secondBreakdownImage.enabled = false;
                 thirdBreakdownImage.enabled = true;
 
-                pc.addModifier(modifiersjson.getModifierbyCID("003"));
+                pc.getComponentbyCategory("Weapon").addModifier(modifiersjson.getModifierbyCID("003"));
                 radioController.SetRadioText(events.getEventbyName("terzaAvaria").message);
             }
         }

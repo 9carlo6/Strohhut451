@@ -22,8 +22,20 @@ public class EnemyWeaponController : WeaponController
 
 
         audioSource = GetComponent<AudioSource>();
+
+        
+
     }
     
+    public override void Update()
+    {
+
+
+        
+        base.Update();
+
+    }
+
     //Funzione per sparare
     public override void FireBullet()
     {

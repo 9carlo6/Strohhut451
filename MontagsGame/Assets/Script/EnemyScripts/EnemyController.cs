@@ -64,7 +64,6 @@ public class EnemyController : Character
 
     void Awake()
     {
-        enemyWeaponController = GetComponentInChildren<EnemyWeaponController>();
 
         animator = GetComponent<Animator>();
         stateManager = GetComponent<EnemyStateManager>();
@@ -84,7 +83,6 @@ public class EnemyController : Character
 
         base.Awake();
 
-        components.Add(enemyWeaponController);
 
         /*
          foreach (Component c in components)
@@ -94,11 +92,45 @@ public class EnemyController : Character
          }
         */
         this.features = mapper.todict();
- 
+
+
+        enemyWeaponController = GetComponentInChildren<EnemyWeaponController>();
+
+        if(enemyWeaponController != null)
+        {
+            components.Add(enemyWeaponController);
+
+        }
+
+
+
+
+    }
+    public override void setFeatures()
+    {
+
+        //l'idea è settare i valori delle feature "composte" tipo la velocità è funzione del peso:
+
+        this.features[EnemyFeature.FeatureType.FT_VELOCITY].currentValue = 0.0417f * (float)this.features[EnemyFeature.FeatureType.FT_WEIGHT].currentValue;
+
+    }
+
+
+    public override void initializeFeatures()
+    {
+        features[EnemyFeature.FeatureType.FT_HEALTH].currentValue = features[EnemyFeature.FeatureType.FT_MAX_HEALTH].currentValue;
+
+        if(enemyWeaponController == null)
+        {
+            features[EnemyFeature.FeatureType.FT_IS_WEAPONED].currentValue = false;
+        }
+
+
+
     }
 
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
         enemyNavMeshAgent = GetComponent<NavMeshAgent>();
         if (enemyWeaponController != null)
@@ -114,14 +146,18 @@ public class EnemyController : Character
             velocityHash = Animator.StringToHash("isRunningWithoutWeapon");
 
         }
+        base.Start();
     }
 
     // Update is called once per frame
     void Update()
     {
-        applyModifiers();
 
         handleAnimation();
+
+        UpdateFeatures();
+        setFeatures();
+        applyModifiers();
     }
 
     //Per gestire le animazioni
@@ -236,8 +272,8 @@ public class EnemyController : Character
         }
     }
 
-        void EnemyDeath()
-        {      
+    public     void EnemyDeath()
+    {      
 
             animator.SetBool("isDeathEnemy", true);
             enemyNavMeshAgent.isStopped = true;
