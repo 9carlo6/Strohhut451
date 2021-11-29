@@ -11,6 +11,7 @@ public class EnemyFeaturesJsonMap: Dictionable
   public float FT_ACCELERATION;
   public float FT_DECELERATION;
   public float FT_HEALTH;
+  public float FT_MAX_HEALTH;
   public float FT_MELEE_RANGE;
   public float FT_MELEE_DAMAGE;
   public bool  FT_IS_WEAPONED;
@@ -18,6 +19,8 @@ public class EnemyFeaturesJsonMap: Dictionable
   public float FT_VIEW_RADIUS;
   public float FT_VIEW_ANGLE_PATROLLING;
   public float FT_VIEW_ANGLE_CHASING;
+  public float FT_WEIGHT;
+
 
     public Dictionary<System.Object, Feature> todict()
     {
@@ -27,6 +30,8 @@ public class EnemyFeaturesJsonMap: Dictionable
         newDict.Add(EnemyFeature.FeatureType.FT_ACCELERATION, new AccelerationEnemyFeature(FT_ACCELERATION, EnemyFeature.FeatureType.FT_ACCELERATION));
         newDict.Add(EnemyFeature.FeatureType.FT_DECELERATION, new DecelerationEnemyFeature(FT_DECELERATION, EnemyFeature.FeatureType.FT_DECELERATION));
         newDict.Add(EnemyFeature.FeatureType.FT_HEALTH, new HealthEnemyFeature(FT_HEALTH, EnemyFeature.FeatureType.FT_HEALTH));
+        newDict.Add(EnemyFeature.FeatureType.FT_WEIGHT, new WeightEnemyFeature(FT_WEIGHT, EnemyFeature.FeatureType.FT_WEIGHT));
+        newDict.Add(EnemyFeature.FeatureType.FT_MAX_HEALTH, new MaxHealthEnemyFeature(FT_MAX_HEALTH, EnemyFeature.FeatureType.FT_MAX_HEALTH));
         newDict.Add(EnemyFeature.FeatureType.FT_MELEE_RANGE, new MeleeRangeEnemyFeature(FT_MELEE_RANGE, EnemyFeature.FeatureType.FT_MELEE_RANGE));
         newDict.Add(EnemyFeature.FeatureType.FT_MELEE_DAMAGE, new MeleeDamageEnemyFeature(FT_MELEE_DAMAGE, EnemyFeature.FeatureType.FT_MELEE_DAMAGE));
         newDict.Add(EnemyFeature.FeatureType.FT_IS_WEAPONED, new IsWeaponedEnemyFeature(FT_IS_WEAPONED, EnemyFeature.FeatureType.FT_IS_WEAPONED));

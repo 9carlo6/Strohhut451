@@ -7,48 +7,40 @@ public class Modifier
 {
     //ID
     public String ID;
-    public System.Object m_type;
-    //public string m_feature_id; //che corrisponde alla stringa con la quale la feature viene salvata nel dizionario
-    public System.Object m_fFactor; //valore da applicare alla feautre
+    public String CID;
+    public String  m_type;
+    public String m_fFactor; 
     public float duration;
-    public bool toactive;
-
     public bool infinite;
+    public bool oneshot;
 
-  
 
-    public Modifier(String ID, System.Object m_type, System.Object m_fFactor, float duration)
+
+    //public bool toactive;
+
+
+    public override string ToString()
     {
-        this.ID = ID;
-        this.m_type = m_type;
-        this.m_fFactor = m_fFactor;
-        this.duration = duration;
-        this.toactive = true;
-
-        if (duration == -1)
-        {
-            this.infinite = true;
-        }
-        else
-        {
-            this.infinite = false;
-        }
+        return "ID: "+ID+" - "+m_type+" - "+m_fFactor.ToString()+" - "+duration+" - "+" _ "+ infinite+"_"+oneshot;
     }
-    public Modifier(System.Object m_type, System.Object m_fFactor,float duration)
+
+    public bool isValid()
+    {
+        if (this.infinite || oneshot) return true;
+        else
+            return duration > 0;
+    }
+
+    public Modifier(String CID, String m_type,String m_fFactor, float duration,bool infinite,bool oneshot)
     {
         this.ID = Guid.NewGuid().ToString("N");
+
+        this.CID = CID;
         this.m_type = m_type;
         this.m_fFactor = m_fFactor;
         this.duration = duration;
-        this.toactive = true;
-
-        if (duration == -1)
-        {
-            this.infinite = true;
-        }
-        else
-        {
-            this.infinite = false;
-        }
+        this.infinite = infinite;
+        this.oneshot = oneshot;
+     
     }
 }

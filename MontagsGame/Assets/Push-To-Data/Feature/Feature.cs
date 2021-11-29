@@ -7,9 +7,14 @@ public abstract class Feature
     public abstract void performeModifier(Modifier m);
 
     public abstract void removeModifier(Modifier m);
-   
 
-    //public System.Object FeatureType;
+    public abstract void applyFactor(System.Object factor);
+
+    public abstract System.Object updateFactor(System.Object factor);
+
+    public abstract System.Object initializeFactor();
+
+
 
     public System.Object baseValue;
     public System.Object currentValue;

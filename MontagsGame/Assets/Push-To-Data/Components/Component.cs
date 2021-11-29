@@ -10,6 +10,19 @@ public abstract class Component : MonoBehaviour
 	public List<Component> components;
 	public Dictionable mapper;
 	public String ID;
+	public String category;
+
+	public Component getComponentbyCategory(String category)
+	{
+		foreach (Component c in this.components)
+		{
+			if (c.category == category)
+			{
+				return c;
+			}
+		}
+		return null;
+	}
 
 	public virtual void Awake()
 	{
@@ -17,18 +30,118 @@ public abstract class Component : MonoBehaviour
 		features = new Dictionary<System.Object, Feature>();
 		modifiers = new List<Modifier>();
 		components = new List<Component>();
+
 	}
+	public virtual void Start()
+	{
+		UpdateFeatures();
+		setFeatures();
+		applyModifiers();
+		initializeFeatures();
+	}
+
 	public void addModifier(Modifier m)
 	{
 		this.modifiers.Add(m);
 
-		foreach (Component c in components)
-		{
+		/*
+		foreach(Component c in components)
+        {
 			c.addModifier(m);
-		}
+        }
+		*/
 	}
 
+	public abstract void setFeatures();
+	public abstract void initializeFeatures();
+	public void UpdateFeatures()
+	{
 
+		foreach (Feature feature in this.features.Values)
+		{
+
+			System.Object factor = feature.initializeFactor();
+
+			foreach (Component c in this.components)
+			{
+				foreach (Feature f in c.features.Values)
+				{
+					if (feature.featureName.ToString().Equals(f.featureName.ToString()))
+					{
+						Debug.Log("FEATURE CON CORRISPONDENZA :" + feature.featureName.ToString());
+						factor = f.updateFactor(factor);
+
+					}
+
+
+				}
+
+
+			}
+
+			feature.applyFactor(factor);
+
+		}
+
+
+	}
+	/*public void applyModifiers(List<Modifier> modifiers)
+	{
+		foreach (Component c in this.components)
+		{
+			c.applyModifiers(modifiers);
+		}
+
+		foreach (Modifier modifier in modifiers)
+		{
+
+
+			foreach (Feature f in features.Values)
+			{
+
+				//Debug.Log("VEDIAMO ora che succede : " + f.GetType());
+
+
+				if (f.corrispondance(modifier))
+				{
+
+					Debug.Log("MODIFICATORE SULLA FEATURE " + modifier.m_type);
+
+					if (modifier.duration < 0 && !modifier.infinite)
+					{
+						Debug.Log("RIMUOVO " + modifier.m_type);
+
+						Debug.Log("VALORE ATTUALE " + f.currentValue);
+
+						f.removeModifier(modifier);
+
+						Debug.Log("VALORE AGGIORNATO " + f.currentValue);
+
+					}
+					else
+					{
+
+
+						if (modifier.toactive)
+						{
+							Debug.Log("ATTIVO MODIFICATORE SULLA FEATURE :" + modifier.m_type);
+							Debug.Log("VALORE ATTUALE " + f.currentValue);
+							f.performeModifier(modifier);
+							Debug.Log("VALORE AGGIORNATO " + f.currentValue);
+
+						}
+
+					}
+
+				}
+
+			}
+		}
+
+		
+	}*/
+
+	/*
 	public void applyModifiers()
 	{
 		List<Modifier> expired = new List<Modifier>();
@@ -88,6 +201,63 @@ public abstract class Component : MonoBehaviour
 			modifiers.Remove(m);
 		}
 	}
+	*/
 
-	
+	public void applyModifiers()
+	{
+		List<Modifier> expired = new List<Modifier>();
+
+		foreach (Modifier modifier in modifiers)
+		{
+			modifier.duration = modifier.duration - Time.deltaTime;
+			foreach (Feature f in features.Values)
+			{
+
+				if (f.corrispondance(modifier))
+				{
+					Debug.Log("MODIFICATORE SULLA FEATURE " + modifier.m_type);
+
+					if (!modifier.isValid())
+					{
+						Debug.Log("RIMUOVO " + modifier.m_type + "ID: " + modifier.ID);
+
+						//modifiers.Remove(modifier);
+
+						//Debug.Log("VALORE ATTUALE " + f.currentValue);
+
+						expired.Add(modifier);
+
+						//f.removeModifier(modifier);
+
+						//Debug.Log("VALORE AGGIORNATO " + f.currentValue);
+					}
+					else
+					{
+						Debug.Log("ATTIVO MODIFICATORE SULLA FEATURE :" + modifier.m_type + "ID: " + modifier.ID);
+						Debug.Log("VALORE ATTUALE " + f.currentValue);
+						f.performeModifier(modifier);
+
+						Debug.Log("VALORE AGGIORNATO " + f.currentValue);
+
+						if (modifier.oneshot)
+						{
+							expired.Add(modifier);
+						}
+
+					}
+
+				}
+
+
+			}
+
+
+		}
+
+		foreach (Modifier m in expired)
+
+		{
+			modifiers.Remove(m);
+		}
+	}
 }

@@ -7,7 +7,7 @@ using HumanFeatures;
 
 public class EnemyWeaponController : WeaponController
 {
-    public bool isAmmoInfinite = true;
+    
 
     public AudioSource audioSource;
     
@@ -22,21 +22,33 @@ public class EnemyWeaponController : WeaponController
 
 
         audioSource = GetComponent<AudioSource>();
+
+        
+
     }
     
+    public override void Update()
+    {
+
+
+        
+        base.Update();
+
+    }
+
     //Funzione per sparare
     public override void FireBullet()
     {
         //Controllo sul numero delle munizioni disponibili
-        if (ammoCount <= 0)
+        if ((int)features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue <= 0)
         {
             return;
         }
 
-        if (!isAmmoInfinite)
+        if (!(bool)features[WeaponFeatures.WeaponFeature.FeatureType.FT_IS_AMMO_INFINITE].currentValue)
         {
             //Per diminuire il numero di munizioni quando si spara
-            ammoCount--;
+            features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue = (int)features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue  - 1;
         }
 
         //Questo ciclo permette di azionare tutti gli oggetti particellari in muzzleFlash
@@ -63,7 +75,7 @@ public class EnemyWeaponController : WeaponController
             var hitPlayerCollider = hitInfo.collider.GetComponent<PlayerHealthManager>();
             if (hitPlayerCollider)
             {
-                hitPlayerCollider.HurtPlayer(damage);
+                hitPlayerCollider.HurtPlayer((float)features[WeaponFeatures.WeaponFeature.FeatureType.FT_DAMAGE].currentValue);
             }
         }
 
