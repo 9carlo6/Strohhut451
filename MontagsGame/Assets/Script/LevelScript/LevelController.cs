@@ -265,6 +265,13 @@ public class LevelController : MonoBehaviour
         sc.helms_amount = valid_helms_amount;
         sc.telescopes_amount = valid_telescopes_amount;
         UpdateGameItemsAmountText();
+
+        firstBreakdownImage.enabled=false;
+        secondBreakdownImage.enabled=false;
+        thirdBreakdownImage.enabled= false;
+
+        breakdownCanvas.SetActive(false);
+
     }
 
     //Per il reset dei parametri quando si completa il livello
@@ -321,7 +328,7 @@ public class LevelController : MonoBehaviour
                     currentFailure = 1;
                     breakdownCanvas.SetActive(true);
                     firstBreakdownImage.enabled = true;
-                    pc.addModifier(modifiersjson.getModifierbyCID("001"));
+                    pc.addModifier(modifiersjson.getModifierbyCID("004"));
 
                 radioController.SetRadioText(events.getEventbyName("primaAvaria").message);
                 }
