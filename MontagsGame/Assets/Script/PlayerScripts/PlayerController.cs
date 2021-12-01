@@ -174,7 +174,7 @@ public class PlayerController : Character
 	}
 
 	// Update is called once per frame
-	void Update()
+	public override void Update()
 	{
 
 		Debug.Log("NUMERO MODIFICATORI ATTUALI " + this.modifiers.Count);
@@ -206,9 +206,7 @@ public class PlayerController : Character
 		Debug.Log("LA MIA VELOCITà è " + (this.features[HumanFeature.FeatureType.FT_SPEED].currentValue));
 
 		handleAnimation();
-		UpdateFeatures();
-		applyModifiers();
-		setFeatures();
+		base.Update();
 
 	}
 	public override void setFeatures()
@@ -223,7 +221,8 @@ public class PlayerController : Character
 
 	public override void initializeFeatures()
 	{
-		features[HumanFeature.FeatureType.FT_HEALTH].currentValue = features[HumanFeature.FeatureType.FT_MAX_HEALTH].currentValue;
+		
+		//features[HumanFeature.FeatureType.FT_HEALTH].currentValue = features[HumanFeature.FeatureType.FT_MAX_HEALTH].currentValue;
 
 
 	}

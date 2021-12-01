@@ -86,7 +86,7 @@ public  abstract class WeaponController :  Component
     }
     public override void initializeFeatures()
     {
-        features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue = features[WeaponFeatures.WeaponFeature.FeatureType.FT_MAX_AMMO_COUNT].currentValue;
+       // features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue = features[WeaponFeatures.WeaponFeature.FeatureType.FT_MAX_AMMO_COUNT].currentValue;
 
     }
 
@@ -99,12 +99,13 @@ public  abstract class WeaponController :  Component
     }
 
 
-    public virtual void Update()
+    public override void Update()
     {
         //Per gestire i modificatori
         //handleWeaponModifier();
 
         //applyModifiers();
+        base.Update();
 
         if (isFiring && (int)features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue > 0)
         {
@@ -113,9 +114,6 @@ public  abstract class WeaponController :  Component
 
             UpdateFiring(Time.deltaTime);
         }
-        UpdateFeatures();
-        setFeatures();
-        applyModifiers();
 
     }
 

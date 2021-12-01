@@ -34,11 +34,17 @@ public abstract  class Character : MonoBehaviour
 	public virtual void Start()
     {
 		UpdateFeatures();
-		setFeatures();
 		applyModifiers();
+		setFeatures();
 		initializeFeatures();
 	}
 
+	public virtual void Update()
+    {
+		UpdateFeatures();
+		applyModifiers();
+		setFeatures();
+	}
 	
 	public void addModifier(Modifier m)
     {
