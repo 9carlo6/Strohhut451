@@ -174,7 +174,7 @@ public class PlayerController : Character
 	}
 
 	// Update is called once per frame
-	void Update()
+	public override void Update()
 	{
 
 		Debug.Log("NUMERO MODIFICATORI ATTUALI " + this.modifiers.Count);
@@ -203,24 +203,26 @@ public class PlayerController : Character
 			
 		}
 		Debug.Log("IL MIO PESO è " + (this.features[HumanFeature.FeatureType.FT_WEIGHT].currentValue));
+		Debug.Log("LA MIA VELOCITà è " + (this.features[HumanFeature.FeatureType.FT_SPEED].currentValue));
+
 		handleAnimation();
-		UpdateFeatures();
-		setFeatures();
-		applyModifiers();
+		base.Update();
+
 	}
 	public override void setFeatures()
     {
 
 		//l'idea è settare i valori delle feature "composte" tipo la velocità è funzione del peso:
 
-		this.features[HumanFeature.FeatureType.FT_SPEED].currentValue = 0.0417f * (float)(this.features[HumanFeature.FeatureType.FT_WEIGHT].currentValue);
+		this.features[HumanFeature.FeatureType.FT_SPEED].currentValue = (2.5f*((float)(this.features[HumanFeature.FeatureType.FT_WEIGHT].baseValue))) / (float)(this.features[HumanFeature.FeatureType.FT_WEIGHT].currentValue);
 
 	}
 
 
 	public override void initializeFeatures()
 	{
-		features[HumanFeature.FeatureType.FT_HEALTH].currentValue = features[HumanFeature.FeatureType.FT_MAX_HEALTH].currentValue;
+		
+		//features[HumanFeature.FeatureType.FT_HEALTH].currentValue = features[HumanFeature.FeatureType.FT_MAX_HEALTH].currentValue;
 
 
 	}

@@ -39,6 +39,12 @@ public abstract class Component : MonoBehaviour
 		applyModifiers();
 		initializeFeatures();
 	}
+	public virtual void Update()
+	{
+		UpdateFeatures();
+		applyModifiers();
+		setFeatures();
+	}
 
 	public void addModifier(Modifier m)
 	{
