@@ -18,6 +18,13 @@ public class HumanFeaturesJsonMap : Dictionable
 
     public Dictionary<System.Object, Feature> todict()
     {
+        if (FT_SPEED < 0) throw new DataException("LA VELOCITA NON PUO ESSERE NEGATIVA");
+        if (FT_HEALTH < 0 || FT_HEALTH > FT_MAX_HEALTH) throw new DataException("LA SALUTE NON PUO' ESSERE NEGATIVA O MAGGIORE DELLA SALUTE MASSIMA");
+        if (FT_MAX_HEALTH < 0 ||  FT_MAX_HEALTH < FT_HEALTH) throw new DataException("LA SALUTE MASSIMA NON PUO' ESSERE NEGATIVA O MINORE DELLA SALUTE MASSIMA");
+        if (FT_ATTACK_RANGE < 0) throw new DataException("IL RAGGIO D'ATTACCO NON PUO ESSERE NEGATIVO");
+        if (FT_MELEE_DAMAGE < 0) throw new DataException("IL DANNO MELEE NON PUO ESSERE NEGATIVO");
+        if (FT_WEIGHT < 0) throw new DataException("IL PESO  NON PUO ESSERE NEGATIVO");
+
         Dictionary<System.Object, Feature> newDict =  new Dictionary<System.Object, Feature>();
 
         newDict.Add(HumanFeature.FeatureType.FT_SPEED ,new SpeedHumanFeature(FT_SPEED, HumanFeature.FeatureType.FT_SPEED));
