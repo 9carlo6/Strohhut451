@@ -58,7 +58,14 @@ public abstract  class Character : MonoBehaviour
 		*/
     }
 
-	
+	public void addMoreModifiers(List<Modifier> list)
+	{
+
+		foreach (Modifier m in list)
+			this.modifiers.Add(m);
+
+
+	}
 
 	public abstract void setFeatures(); 
 	public abstract void initializeFeatures();

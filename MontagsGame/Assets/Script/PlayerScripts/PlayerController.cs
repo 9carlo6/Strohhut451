@@ -75,7 +75,7 @@ public class PlayerController : Character
 	public GameObject rodWeapon;
 
 	//Per gestire la possibilità di poter aumentare il campo visivo premendo shift
-	public bool increasedVisualField;
+	//public bool increasedVisualField;
 
 	//Per gestire i Componenti
 	//public Dictionary<string, Component> components;

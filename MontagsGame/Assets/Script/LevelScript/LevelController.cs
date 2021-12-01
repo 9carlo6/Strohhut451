@@ -87,8 +87,8 @@ public class LevelController : MonoBehaviour
     public static LevelController lcstatic;
 
 
-    ModifierJsonMap modifiersjson;
-    EventJsonMap events;
+    public ModifierJsonMap modifiersjson;
+    public EventJsonMap events;
 
     // Start is called before the first frame update
     void Awake()
@@ -328,9 +328,9 @@ public class LevelController : MonoBehaviour
                     currentFailure = 1;
                     breakdownCanvas.SetActive(true);
                     firstBreakdownImage.enabled = true;
-                    pc.addModifier(modifiersjson.getModifierbyCID("004"));
+                    pc.addMoreModifiers(modifiersjson.getMoreModifiersbyCIDs(events.getEventbyName("primaAvaria").modificatoriCIDS));
 
-                radioController.SetRadioText(events.getEventbyName("primaAvaria").message);
+                    radioController.SetRadioText(events.getEventbyName("primaAvaria").message);
                 }
                 else
                 {
@@ -351,7 +351,7 @@ public class LevelController : MonoBehaviour
                 //firstBreakdownImage.enabled = false;
                 secondBreakdownImage.enabled = true;
 
-                pc.getComponentbyCategory("Weapon").addModifier(modifiersjson.getModifierbyCID("002"));
+                pc.addMoreModifiers(modifiersjson.getMoreModifiersbyCIDs(events.getEventbyName("secondaAvaria").modificatoriCIDS));
                 radioController.SetRadioText(events.getEventbyName("secondaAvaria").message);
             }
 
@@ -367,7 +367,7 @@ public class LevelController : MonoBehaviour
                 //secondBreakdownImage.enabled = false;
                 thirdBreakdownImage.enabled = true;
 
-                pc.getComponentbyCategory("Weapon").addModifier(modifiersjson.getModifierbyCID("003"));
+                pc.addMoreModifiers(modifiersjson.getMoreModifiersbyCIDs(events.getEventbyName("terzaAvaria").modificatoriCIDS));
                 radioController.SetRadioText(events.getEventbyName("terzaAvaria").message);
             }
         }

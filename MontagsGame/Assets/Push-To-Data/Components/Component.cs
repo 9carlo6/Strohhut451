@@ -46,6 +46,15 @@ public abstract class Component : MonoBehaviour
 		setFeatures();
 	}
 
+	public void addMoreModifiers(List<Modifier> list)
+	{
+
+		foreach(Modifier m in list)
+			this.modifiers.Add(m);
+
+		
+	}
+
 	public void addModifier(Modifier m)
 	{
 		this.modifiers.Add(m);
