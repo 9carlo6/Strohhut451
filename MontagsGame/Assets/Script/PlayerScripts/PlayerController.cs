@@ -218,12 +218,12 @@ public class PlayerController : Character
 
 	}
 
-
+	
 	public override void initializeFeatures()
 	{
-		
-		//features[HumanFeature.FeatureType.FT_HEALTH].currentValue = features[HumanFeature.FeatureType.FT_MAX_HEALTH].currentValue;
 
+		//features[HumanFeature.FeatureType.FT_HEALTH].currentValue = features[HumanFeature.FeatureType.FT_MAX_HEALTH].currentValue;
+		
 
 	}
 

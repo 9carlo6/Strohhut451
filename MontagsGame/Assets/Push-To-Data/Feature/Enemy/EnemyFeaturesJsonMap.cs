@@ -24,6 +24,26 @@ public class EnemyFeaturesJsonMap: Dictionable
 
     public Dictionary<System.Object, Feature> todict()
     {
+
+        if (FT_VELOCITY < 0) throw new DataException("FT_VELOCITY NON PUO ESSERE NEGATIVO");
+        if (FT_ACCELERATION < 0) throw new DataException("FT_ACCELERATION NON PUO ESSERE NEGATIVO");
+        if (FT_DECELERATION < 0) throw new DataException("FT_DECELERATION NON PUO ESSERE NEGATIVO");
+
+        if (FT_HEALTH < 0 || FT_HEALTH > FT_MAX_HEALTH) throw new DataException("LA SALUTE NON PUO' ESSERE NEGATIVA O MAGGIORE DELLA SALUTE MASSIMA");
+        if (FT_MAX_HEALTH < 0 || FT_MAX_HEALTH < FT_HEALTH) throw new DataException("LA SALUTE MASSIMA NON PUO' ESSERE NEGATIVA O MINORE DELLA SALUTE MASSIMA");
+
+        if (FT_MELEE_RANGE < 0) throw new DataException("FT_MELEE_RANGE NON PUO ESSERE NEGATIVO");
+        if (FT_MELEE_DAMAGE < 0) throw new DataException("FT_MELEE_DAMAGE NON PUO ESSERE NEGATIVO");
+        if (FT_FIRE_DISTANCE < 0) throw new DataException("FT_FIRE_DISTANCE NON PUO ESSERE NEGATIVO");
+        if (FT_VIEW_RADIUS < 0) throw new DataException("FT_VIEW_RADIUS NON PUO ESSERE NEGATIVO");
+        if (FT_VIEW_ANGLE_PATROLLING < 0 || FT_VIEW_ANGLE_PATROLLING>360) throw new DataException("FT_VIEW_ANGLE_PATROLLING NON PUO ESSERE NEGATIVO");
+        if (FT_VIEW_ANGLE_CHASING < 0 || FT_VIEW_ANGLE_CHASING > 360) throw new DataException("FT_VIEW_ANGLE_CHASING NON PUO ESSERE NEGATIVO");
+        if (FT_WEIGHT < 0) throw new DataException("FT_WEIGHT NON PUO ESSERE NEGATIVO");
+
+
+
+
+
         Dictionary<System.Object, Feature> newDict = new Dictionary<System.Object, Feature>();
 
         newDict.Add(EnemyFeature.FeatureType.FT_VELOCITY, new SpeedEnemyFeature(FT_VELOCITY, EnemyFeature.FeatureType.FT_VELOCITY));
