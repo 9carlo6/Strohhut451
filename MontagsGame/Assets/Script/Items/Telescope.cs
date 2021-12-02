@@ -25,7 +25,9 @@ public class Telescope : MonoBehaviour
         if (lc.sc.telescopes_amount > 0 && (bool)((playerController.features)[HumanFeature.FeatureType.FT_INCREASED_FOV]).currentValue==false)
         {
             //qua ci va un modificatore non una modifica alla feature
-            playerController.increasedVisualField = true;
+
+            playerController.addModifier(lc.modifiersjson.getModifierbyCID("telescope"));
+
 
             ((playerController.features)[HumanFeature.FeatureType.FT_INCREASED_FOV]).currentValue = true;
 
@@ -35,7 +37,7 @@ public class Telescope : MonoBehaviour
         }
         else
         {
-            Debug.Log("Il giocatore non possiede Telescopi");
+            Debug.Log("Il giocatore non possiede Telescopi o ne sta gia usando uno ");
         }
     }
 }

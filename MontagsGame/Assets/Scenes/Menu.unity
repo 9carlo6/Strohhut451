@@ -9917,9 +9917,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79e40da4ae3c84749b54389dd95c0114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mc: {fileID: 1458402657}
   normal_coin_text: {fileID: 1148998683}
   roger_coin_text: {fileID: 1191646742}
+  sessionController: {fileID: 0}
+  sc: {fileID: 0}
 --- !u!1001 &473741675
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31439,6 +31440,8 @@ MonoBehaviour:
     gameItems_list: []
   gameItemsTextJSON: {fileID: 4900000, guid: 1f143ea4db64cb04fbc6a945b9f8376b, type: 3}
   coinTextJSON: {fileID: 4900000, guid: 576636b1f35700945b2b658c888e8cf7, type: 3}
+  sessionController: {fileID: 0}
+  sc: {fileID: 0}
 --- !u!1 &1460302281
 GameObject:
   m_ObjectHideFlags: 0
@@ -36853,6 +36856,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1663589037}
   - component: {fileID: 1663589036}
+  - component: {fileID: 1663589038}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -36995,6 +36999,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &1663589038
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663589035}
+  m_Enabled: 1
 --- !u!1 &1669633316
 GameObject:
   m_ObjectHideFlags: 0
@@ -40691,10 +40703,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01a358c008fbff44c8d0bf533879b8ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mc: {fileID: 1458402657}
   skulls_amount_text: {fileID: 1524787521}
   helms_amount_text: {fileID: 1096720153}
   telescopes_amount_text: {fileID: 1479614239}
+  sessionController: {fileID: 0}
+  sc: {fileID: 0}
 --- !u!1 &1855855540
 GameObject:
   m_ObjectHideFlags: 0
@@ -45477,7 +45490,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7101294fcca47f246b8d1c4f527ab713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mc: {fileID: 1458402657}
+  sessionController: {fileID: 0}
+  sc: {fileID: 0}
   gameItemsTextJSON: {fileID: 4900000, guid: 1f143ea4db64cb04fbc6a945b9f8376b, type: 3}
   coinTextJSON: {fileID: 4900000, guid: 576636b1f35700945b2b658c888e8cf7, type: 3}
   skulls_amount_text: {fileID: 1003737555}

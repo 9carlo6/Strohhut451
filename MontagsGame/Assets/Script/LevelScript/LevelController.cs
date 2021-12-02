@@ -81,30 +81,18 @@ public class LevelController : MonoBehaviour
     public TMP_Text helms_amount_text;
     public TMP_Text telescopes_amount_text;
 
-    public int currentFailure;
-
     //Singleton
     public static LevelController lcstatic;
 
-
-    ModifierJsonMap modifiersjson;
-    EventJsonMap events;
+    //Per gestire i modificatori e gli eventi
+    [HideInInspector] public ModifierJsonMap modifiersjson;
+    [HideInInspector] public EventJsonMap events;
+    [HideInInspector] public int currentFailure;
 
     // Start is called before the first frame update
     void Awake()
     {
         int currentSceneId = SceneManager.GetActiveScene().buildIndex;
-
-
-
-        string fileStringevents = new StreamReader("Assets/Push-To-Data/Modifiers/Events.txt").ReadToEnd();
-        events = JsonUtility.FromJson<EventJsonMap>(fileStringevents);
-
-
-        string fileStringmodifiers = new StreamReader("Assets/Push-To-Data/Modifiers/Modifiers.txt").ReadToEnd();
-        modifiersjson = JsonUtility.FromJson<ModifierJsonMap>(fileStringmodifiers);
-
-        currentFailure = 0;
 
         //Singleton
         //Diversa da 0 perch� la scena 0 � il menu
@@ -126,7 +114,6 @@ public class LevelController : MonoBehaviour
             valid_currentCoins = 0;
             valid_levelTimeCounter = 0;
             
-
             pointsText = GameObject.FindWithTag("PointsText");
             comboText = GameObject.FindWithTag("ComboText");
             enemiesNumberText = GameObject.FindWithTag("EnemiesNumberText");
@@ -154,6 +141,13 @@ public class LevelController : MonoBehaviour
             valid_skulls_amount = sc.skulls_amount;
             valid_helms_amount = sc.helms_amount;
             valid_telescopes_amount = sc.telescopes_amount;
+
+            //Per gestire i modificatori e gli eventi
+            string fileStringevents = new StreamReader("Assets/Push-To-Data/Modifiers/Events.txt").ReadToEnd();
+            events = JsonUtility.FromJson<EventJsonMap>(fileStringevents);
+            string fileStringmodifiers = new StreamReader("Assets/Push-To-Data/Modifiers/Modifiers.txt").ReadToEnd();
+            modifiersjson = JsonUtility.FromJson<ModifierJsonMap>(fileStringmodifiers);
+            currentFailure = 0;
         }
         else
         {
@@ -172,18 +166,18 @@ public class LevelController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         //Continua costantemente la tipologia della scena corrente
         //Se non è un livello distrugge l'oggetto LevelController
         CheckSceneType();
 
-        //Per modificare incrementare il valore del cronometro del tempo impiegato per superare il livello
+        //Per incrementare il valore del cronometro del tempo impiegato per superare il livello
         if (currentNumberOfEnemies > 0)
         {
             levelTimeCounter += Time.deltaTime;
         }
+
         NumberOfEnemiesCheck = GameObject.FindGameObjectsWithTag("Enemy").Length;
 
         //Per gestire i punti da assegnare ogni volta che si uccide un nemico
@@ -204,7 +198,9 @@ public class LevelController : MonoBehaviour
             //Quando si uccide un nemico il contatore viene riportato a 5 secondi
             comboTimeCounter = 5;
         }
-        else if(currentNumberOfEnemies < NumberOfEnemiesCheck){
+        //Per gestire il caricamento
+        else if(currentNumberOfEnemies < NumberOfEnemiesCheck)
+        {
           currentNumberOfEnemies=NumberOfEnemiesCheck;
           levelPoints=valid_levelPoints;
           currentCoins=valid_currentCoins;
@@ -234,13 +230,11 @@ public class LevelController : MonoBehaviour
 
         //Per modificare il valore del testo relativo alle monete raccolte
         coinsText.GetComponent<TMP_Text>().text = currentCoins.ToString() + " " + "$";
-
-        
-
+ 
+        //Per modificare il valore delle munizioni
         if (GameObject.FindWithTag("PlayerWeapon") != null)
         {
             weapon = GameObject.FindWithTag("PlayerWeapon").GetComponent<WeaponPlayerController>();
-            //Per modificare il valore delle munizioni
             ammoText.GetComponent<TMP_Text>().text = weapon.features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue.ToString() + "/"
                 + weapon.features[WeaponFeatures.WeaponFeature.FeatureType.FT_MAX_AMMO_COUNT].currentValue.ToString();
         }
@@ -254,11 +248,10 @@ public class LevelController : MonoBehaviour
         enemiesNumberText.GetComponent<TMP_Text>().text = new string('*', valid_currentNumberOfEnemies);
         levelPoints = valid_levelPoints;
         currentCoins = valid_currentCoins;
-        levelTimeCounter = valid_levelTimeCounter;
+        levelTimeCounter = 0;
         comboTimeCounter = 0;
         comboMultiplier = 0;
         currentFailure = 0;
-
 
         //Per il reset dei gameItems
         sc.skulls_amount = valid_skulls_amount;
@@ -266,12 +259,11 @@ public class LevelController : MonoBehaviour
         sc.telescopes_amount = valid_telescopes_amount;
         UpdateGameItemsAmountText();
 
+        //Per il reset dei canvas delle avarie
         firstBreakdownImage.enabled=false;
         secondBreakdownImage.enabled=false;
         thirdBreakdownImage.enabled= false;
-
         breakdownCanvas.SetActive(false);
-
     }
 
     //Per il reset dei parametri quando si completa il livello
@@ -281,7 +273,14 @@ public class LevelController : MonoBehaviour
         comboMultiplier = 0;
         valid_levelPoints = levelPoints;
         valid_currentCoins = currentCoins;
-        valid_levelTimeCounter = levelTimeCounter;
+        valid_levelTimeCounter += levelTimeCounter;
+        levelTimeCounter = 0;
+
+        //Per il reset dei canvas delle avarie
+        firstBreakdownImage.enabled = false;
+        secondBreakdownImage.enabled = false;
+        thirdBreakdownImage.enabled = false;
+        breakdownCanvas.SetActive(false);
 
         //Per il reset dei valori validi relativi ai gameItems
         valid_skulls_amount = sc.skulls_amount;
@@ -298,9 +297,8 @@ public class LevelController : MonoBehaviour
         telescopes_amount_text.text = sc.telescopes_amount.ToString();
     }
 
-
+    //Per la gestione delle avarie
     public void handleBreakdown(PlayerController pc, bool isLevelCompleted)
-
     {
         //Applico la prima avaria
         //Se:
@@ -310,51 +308,47 @@ public class LevelController : MonoBehaviour
 
         Debug.Log("CURRENT AVARY NUMBER : " + currentFailure.ToString());
 
-        if (currentFailure == 0 && ((levelTimeCounter + valid_levelTimeCounter) < 5) && !isLevelCompleted)
+        if (currentFailure == 0 && ((levelTimeCounter) < 5) && !isLevelCompleted)
         {
             breakdownCanvas.SetActive(false);
         }
 
-
-            //sara push to data
-            if (currentFailure == 0 && ((levelTimeCounter + valid_levelTimeCounter) >= 5) && !isLevelCompleted)
+        if (currentFailure == 0 && ((levelTimeCounter) >= 5) && !isLevelCompleted)
         {
+            if (pc.getModifierbyID("001") == null)
+            {
+                Debug.Log("APPLICO LA PRIMA FAILURE");
 
-            
-               if(pc.getModifierbyID("001") == null)
-               {
-                    Debug.Log("APPLICO LA PRIMA FAILURE");
+                currentFailure = 1;
+                breakdownCanvas.SetActive(true);
+                firstBreakdownImage.enabled = true;
+                pc.addModifier(modifiersjson.getModifierbyCID("004"));
 
                     currentFailure = 1;
                     breakdownCanvas.SetActive(true);
                     firstBreakdownImage.enabled = true;
-                    pc.addModifier(modifiersjson.getModifierbyCID("004"));
+                    pc.addMoreModifiers(modifiersjson.getMoreModifiersbyCIDs(events.getEventbyName("primaAvaria").modificatoriCIDS));
 
-                radioController.SetRadioText(events.getEventbyName("primaAvaria").message);
+                    radioController.SetRadioText(events.getEventbyName("primaAvaria").message);
                 }
                 else
                 {
                 
                 Debug.Log("LA PRIMA FAILURE è GIA IN CORSO ASPETTIAMO LA SECONDA ");
-
-                }
-
-
+            }
         }
       
-        else if (currentFailure == 1 && ((levelTimeCounter + valid_levelTimeCounter) >= 10) && !isLevelCompleted)
+        else if (currentFailure == 1 && ((levelTimeCounter) >= 10) && !isLevelCompleted)
         {
             // seconda 
             if (pc.getModifierbyID("secondafailure") == null)
             {
                 currentFailure = 2;
-                //firstBreakdownImage.enabled = false;
                 secondBreakdownImage.enabled = true;
 
-                pc.getComponentbyCategory("Weapon").addModifier(modifiersjson.getModifierbyCID("002"));
+                pc.weaponController.addMoreModifiers(modifiersjson.getMoreModifiersbyCIDs(events.getEventbyName("secondaAvaria").modificatoriCIDS));
                 radioController.SetRadioText(events.getEventbyName("secondaAvaria").message);
             }
-
         }
 
          else if (currentFailure == 2 && ((levelTimeCounter + valid_levelTimeCounter) >= 15) && !isLevelCompleted)
@@ -362,22 +356,11 @@ public class LevelController : MonoBehaviour
             if (pc.getModifierbyID("terzafailure") == null)
             {
                 currentFailure = 3;
-
-                //firstBreakdownImage.enabled = false;
-                //secondBreakdownImage.enabled = false;
                 thirdBreakdownImage.enabled = true;
 
-                pc.getComponentbyCategory("Weapon").addModifier(modifiersjson.getModifierbyCID("003"));
+                pc.weaponController.addMoreModifiers(modifiersjson.getMoreModifiersbyCIDs(events.getEventbyName("terzaAvaria").modificatoriCIDS));
                 radioController.SetRadioText(events.getEventbyName("terzaAvaria").message);
             }
         }
-         
-
-
-
-
-
-
-
     }
 }

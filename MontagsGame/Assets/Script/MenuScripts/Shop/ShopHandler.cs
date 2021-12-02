@@ -10,7 +10,9 @@ using TMPro;
 
 public class ShopHandler : MonoBehaviour
 {
-    public MenuController mc;
+    //Per gestire il sessionController
+    public GameObject sessionController;
+    public SessionController sc;
 
     //Json
     public TextAsset gameItemsTextJSON;
@@ -43,10 +45,13 @@ public class ShopHandler : MonoBehaviour
 
     void Awake()
     {
+        sessionController = GameObject.FindWithTag("SessionController");
+        sc = sessionController.GetComponent<SessionController>();
+
         //Per gestire l'ammontare corrente dei gameItems
-        skulls_amount_text.text = "x " + mc.gameItems.gameItems_list.FirstOrDefault(gi => gi.name == "skull").amount.ToString();
-        helms_amount_text.text = "x " + mc.gameItems.gameItems_list.FirstOrDefault(gi => gi.name == "helm").amount.ToString();
-        telescopes_amount_text.text = "x " + mc.gameItems.gameItems_list.FirstOrDefault(gi => gi.name == "telescope").amount.ToString();
+        skulls_amount_text.text = "x " + sc.gameItems.gameItems_list.FirstOrDefault(gi => gi.name == "skull").amount.ToString();
+        helms_amount_text.text = "x " + sc.gameItems.gameItems_list.FirstOrDefault(gi => gi.name == "helm").amount.ToString();
+        telescopes_amount_text.text = "x " + sc.gameItems.gameItems_list.FirstOrDefault(gi => gi.name == "telescope").amount.ToString();
     }
 
     //Funzione necessaria per settare i parametri nella pagina dedicata al singolo item
@@ -64,8 +69,8 @@ public class ShopHandler : MonoBehaviour
         gameItem_current_amount_text.text = current_amount.ToString();
 
         //Gestione del valore secondo le due valute
-        normal_coins_price_text.text = mc.gameItems.gameItems_list.FirstOrDefault(gi => gi.name == selected_gameItem).normal_coins_value.ToString();
-        roger_coins_price_text.text = mc.gameItems.gameItems_list.FirstOrDefault(gi => gi.name == selected_gameItem).roger_coins_value.ToString();
+        normal_coins_price_text.text = sc.gameItems.gameItems_list.FirstOrDefault(gi => gi.name == selected_gameItem).normal_coins_value.ToString();
+        roger_coins_price_text.text = sc.gameItems.gameItems_list.FirstOrDefault(gi => gi.name == selected_gameItem).roger_coins_value.ToString();
     }
 
     //Gestione incremento numero di gameItem da comprare
@@ -77,8 +82,8 @@ public class ShopHandler : MonoBehaviour
             gameItem_current_amount_text.text = current_amount.ToString();
 
             //Aggiornamento prezzi secondo le due valute
-            normal_coins_price_text.text = (mc.gameItems.gameItems_list.FirstOrDefault(gi => gi.name == selected_gameItem).normal_coins_value * current_amount).ToString();
-            roger_coins_price_text.text = (mc.gameItems.gameItems_list.FirstOrDefault(gi => gi.name == selected_gameItem).roger_coins_value * current_amount).ToString();
+            normal_coins_price_text.text = (sc.gameItems.gameItems_list.FirstOrDefault(gi => gi.name == selected_gameItem).normal_coins_value * current_amount).ToString();
+            roger_coins_price_text.text = (sc.gameItems.gameItems_list.FirstOrDefault(gi => gi.name == selected_gameItem).roger_coins_value * current_amount).ToString();
         }
     }
 
@@ -91,8 +96,8 @@ public class ShopHandler : MonoBehaviour
             gameItem_current_amount_text.text = current_amount.ToString();
 
             //Aggiornamento prezzi secondo le due valute
-            normal_coins_price_text.text = (mc.gameItems.gameItems_list.FirstOrDefault(gi => gi.name == selected_gameItem).normal_coins_value * current_amount).ToString();
-            roger_coins_price_text.text = (mc.gameItems.gameItems_list.FirstOrDefault(gi => gi.name == selected_gameItem).roger_coins_value * current_amount).ToString();
+            normal_coins_price_text.text = (sc.gameItems.gameItems_list.FirstOrDefault(gi => gi.name == selected_gameItem).normal_coins_value * current_amount).ToString();
+            roger_coins_price_text.text = (sc.gameItems.gameItems_list.FirstOrDefault(gi => gi.name == selected_gameItem).roger_coins_value * current_amount).ToString();
         }
     }
 
@@ -101,7 +106,7 @@ public class ShopHandler : MonoBehaviour
     {
         isNormalCoinSelected = true;
 
-        if (mc.coins.normal_coins >= Convert.ToSingle(normal_coins_price_text.text))
+        if (sc.coins.normal_coins >= Convert.ToSingle(normal_coins_price_text.text))
         {
             //Mostra il form per fare il check
             SingleGameItemShopForm.SetActive(false);
@@ -120,7 +125,7 @@ public class ShopHandler : MonoBehaviour
     {
         isNormalCoinSelected = false;
 
-        if (mc.coins.roger_coins >= Convert.ToSingle(roger_coins_price_text.text))
+        if (sc.coins.roger_coins >= Convert.ToSingle(roger_coins_price_text.text))
         {
             //Mostra il form per fare il check
             SingleGameItemShopForm.SetActive(false);
@@ -140,20 +145,20 @@ public class ShopHandler : MonoBehaviour
         //Gestione Monete
         if (isNormalCoinSelected)
         {
-            mc.coins.normal_coins = mc.coins.normal_coins - Convert.ToSingle(normal_coins_price_text.text);
+            sc.coins.normal_coins = sc.coins.normal_coins - Convert.ToSingle(normal_coins_price_text.text);
         }
         else
         {
-            mc.coins.roger_coins = mc.coins.roger_coins - Convert.ToSingle(roger_coins_price_text.text);
+            sc.coins.roger_coins = sc.coins.roger_coins - Convert.ToSingle(roger_coins_price_text.text);
         }
 
-        string coins_json = JsonUtility.ToJson(mc.coins);
+        string coins_json = JsonUtility.ToJson(sc.coins);
         File.WriteAllText("Assets/Push-To-Data/Coins.txt", coins_json);
 
 
         //Gestione Oggetti
-        mc.gameItems.gameItems_list.FirstOrDefault(gi => gi.name == selected_gameItem).amount += current_amount;
-        string gameItems_json = JsonUtility.ToJson(mc.gameItems);
+        sc.gameItems.gameItems_list.FirstOrDefault(gi => gi.name == selected_gameItem).amount += current_amount;
+        string gameItems_json = JsonUtility.ToJson(sc.gameItems);
         File.WriteAllText("Assets/Push-To-Data/GameItems.txt", gameItems_json);
     }
 

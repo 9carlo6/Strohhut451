@@ -7,27 +7,30 @@ using TMPro;
 public class LevelCompletedState : LevelBaseState
 {
 	public GameObject levelCompletedCanvas;
-	public bool isCollided;
+	public bool readyToGo;
 
 	public override void EnterState(LevelStateManager level)
 	{
 		Debug.Log("Stato Livello = Livello completato");
+
 		level.player.GetComponent<Rigidbody>().isKinematic = false;
 		level.player.GetComponent<CapsuleCollider>().enabled = true;
+
 		levelCompletedCanvas = level.gameObject.transform.Find("LevelCompletedCanvas").gameObject;
 		levelCompletedCanvas.SetActive(true);
+
 		level.isLevelCompleted = true;
 
 		//Serve per aggiornare le info relative alla sessione
 		level.UpdateSessionInfo();
 
-		//La collisione tra il player e il pavimento � avventua e quindi settiamo il parametro a true
-		isCollided = true;
+		//Il livello e' completato
+		readyToGo = true;
 	}
 
 	public override void UpdateState(LevelStateManager level)
 	{
-	  if (isCollided && level.player.GetComponent<PlayerController>().nextLevelPlaneCollision)
+	  if (readyToGo && level.player.GetComponent<PlayerController>().nextLevelPlaneCollision)
 	  {
 			Debug.Log("Passaggio al livello successivo");
 
@@ -36,9 +39,10 @@ public class LevelCompletedState : LevelBaseState
 
 			//caricamento scena successiva
 			level.StartCoroutine(LoadLevel(level, SceneManager.GetActiveScene().buildIndex + 1));
-			//levelCompletedCanvas.SetActive(false);
+
 			level.player.GetComponent<Rigidbody>().isKinematic = true;
 			level.player.GetComponent<CapsuleCollider>().enabled = false;
+
 			levelCompletedCanvas.SetActive(false);
 
 			//set del parametro dei nunmero dei nemici
@@ -46,13 +50,17 @@ public class LevelCompletedState : LevelBaseState
 			level.lc.NumberOfEnemiesCheck = level.lc.valid_currentNumberOfEnemies;
 
 			//Qui viene settato a false per evitare di entrare continuamente nell'update
-			isCollided = false;
+			readyToGo = false;
+
+			level.isLevelCompleted = false;
 		}
 
 	  if (Input.GetKeyDown(KeyCode.Escape))
 	  {
 		  Debug.Log("Passaggio dallo stato iniziale del livello allo stato pause");
+
 		  levelCompletedCanvas.SetActive(false);
+
 		  level.SwitchState(level.PauseState);
 	  }
 	}

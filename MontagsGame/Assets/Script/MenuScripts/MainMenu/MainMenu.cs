@@ -58,7 +58,7 @@ public class MainMenu : MonoBehaviour
     {
         sessionController = GameObject.FindWithTag("SessionController");
         sc = sessionController.GetComponent<SessionController>();
-        sc.AddNewSession(1);
+        sc.AddNewSession(chapter);
     }
 
 

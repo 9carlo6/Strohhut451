@@ -30,7 +30,7 @@ public class EventJsonMap
 public class Event
 {
     public String nomeEvento;
-    public List<String> modificatoriIDS;
+    public List<String> modificatoriCIDS;
     public String message;
 
 

@@ -10,6 +10,7 @@ public class LevelGameOverState : LevelBaseState
     public override void EnterState(LevelStateManager level)
     {
         Debug.Log("Stato Livello = Game Over");
+
         gameOverCanvas = level.gameObject.transform.Find("GameOverCanvas").gameObject;
         gameOverCanvas.SetActive(true);
     }
@@ -29,8 +30,8 @@ public class LevelGameOverState : LevelBaseState
             //Per resettare i parametri
             level.lc.ParametersReset();
 
-            int levelIndex = SceneManager.GetActiveScene().buildIndex;
             //Per gestire il passaggio da uno stato all'altro quando si carica un livello
+            int levelIndex = SceneManager.GetActiveScene().buildIndex;
             level.StartCoroutine(level.LoadLevel(level.InitialState, levelIndex));
         }
     }

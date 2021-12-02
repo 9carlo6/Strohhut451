@@ -17,6 +17,7 @@ public class SessionController : MonoBehaviour
 
     //Per gestire le monete
     public TextAsset coinTextJSON;
+    public Coins coins;
 
     //Per gestire gli item
     public TextAsset gameItemsTextJSON;
@@ -51,6 +52,9 @@ public class SessionController : MonoBehaviour
 
             //Per ricavare il numero di oggetti posseduti
             gameItems = JsonUtility.FromJson<GameItems>(gameItemsTextJSON.text);
+
+            //Per ricavare il numero di coins
+            coins = JsonUtility.FromJson<Coins>(coinTextJSON.text);
         }
         else
         {
@@ -199,8 +203,6 @@ public class SessionController : MonoBehaviour
     //Funzione necessaria per sovrascrivere il file json contenente i dati sulle monete
     public void UpdateCoinsJson()
     {
-        Coins coins = JsonUtility.FromJson<Coins>(coinTextJSON.text);
-
         float normal_coins = sessions.sessions_list.LastOrDefault().scenes.LastOrDefault().coins;
         //Per il momento non possono essere presi i roger coins durante i livelli
         float roger_coins = 0;
