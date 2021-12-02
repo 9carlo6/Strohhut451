@@ -19,6 +19,8 @@ public class WeaponPlayerController : WeaponController
 
     public override void Awake()
     {
+        ID = "SONOLARMAPIUBELLA";
+
         base.Awake();
         weaponSight = GameObject.FindWithTag("WeaponSight");
 
@@ -40,50 +42,74 @@ public class WeaponPlayerController : WeaponController
         //Controllo sul numero delle munizioni disponibili
         if ((int)features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue <= 0)
         {
+           // FindObjectOfType<AudioManager>().Play("NoMoreAmmo");
+
             return;
+        }
+
+        // gestione arma inceppata:
+        float ran = (float)(( new System.Random().NextDouble())*100f);
+        bool fail = false;
+        if (ran >(float)features[WeaponFeatures.WeaponFeature.FeatureType.FT_CHANCE_OF_SHOOTING].currentValue)
+        {
+            Debug.Log("OPS " + ran + " / " + (float)features[WeaponFeatures.WeaponFeature.FeatureType.FT_CHANCE_OF_SHOOTING].currentValue);
+            fail = true;
         }
 
         //Per diminuire il numero di munizioni quando si spara
         features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue= (int)features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue - 1  ;
-        if (!isBurst)
-            FindObjectOfType<AudioManager>().Play("NormalFire");
 
-        //Questo ciclo permette di azionare tutti gli oggetti particellari in muzzleFlash
-        foreach (var particle in muzzleFlash)
+
+        if (fail)
         {
-            particle.Emit(1);
+            //FindObjectOfType<AudioManager>().Play("FailFire");
+
         }
-
-        ray.origin = raycastOrigin.position;
-        ray.direction = raycastOrigin.forward;
-
-        var tracer = Instantiate(tracerEffect, ray.origin, Quaternion.identity);
-        tracer.AddPosition(ray.origin);
-
-        if (Physics.Raycast(ray, out hitInfo))
+        else
         {
-            hitEffect.transform.position = hitInfo.point;
-            hitEffect.transform.forward = hitInfo.normal;
-            hitEffect.Emit(1);
+            Debug.Log("OK " + ran + " / " + (float)features[WeaponFeatures.WeaponFeature.FeatureType.FT_CHANCE_OF_SHOOTING].currentValue);
 
-            tracer.transform.position = hitInfo.point;
-            //Debug.DrawLine(ray.origin, hitInfo.point, Color.red, 1.0f);
 
-            //Per la gestione del dallo al nemico in seguito alla collisione
-            var hitEnemyCollider = hitInfo.collider.GetComponent<EnemyHealthManager>();
-            if (hitEnemyCollider)
+            if (!isBurst)
+                FindObjectOfType<AudioManager>().Play("NormalFire");
+
+            //Questo ciclo permette di azionare tutti gli oggetti particellari in muzzleFlash
+            foreach (var particle in muzzleFlash)
             {
-                hitEnemyCollider.TakeDamage((float)features[WeaponFeatures.WeaponFeature.FeatureType.FT_DAMAGE].currentValue);
+                particle.Emit(1);
             }
-        }
 
-        //Se non c'è la raffica allora spara solo un colpo e dopo finisce
-        if (!isBurst)
-        {
-            StopFiring();
+            ray.origin = raycastOrigin.position;
+            ray.direction = raycastOrigin.forward;
+
+            var tracer = Instantiate(tracerEffect, ray.origin, Quaternion.identity);
+            tracer.AddPosition(ray.origin);
+
+            if (Physics.Raycast(ray, out hitInfo))
+            {
+                hitEffect.transform.position = hitInfo.point;
+                hitEffect.transform.forward = hitInfo.normal;
+                hitEffect.Emit(1);
+
+                tracer.transform.position = hitInfo.point;
+                //Debug.DrawLine(ray.origin, hitInfo.point, Color.red, 1.0f);
+
+                //Per la gestione del dallo al nemico in seguito alla collisione
+                var hitEnemyCollider = hitInfo.collider.GetComponent<EnemyHealthManager>();
+                if (hitEnemyCollider)
+                {
+                    hitEnemyCollider.TakeDamage((float)features[WeaponFeatures.WeaponFeature.FeatureType.FT_DAMAGE].currentValue);
+                }
+            }
+
+            //Se non c'è la raffica allora spara solo un colpo e dopo finisce
+            if (!isBurst)
+            {
+                StopFiring();
+            }
+            //Questo serve per aggiornare le munizioni visibili nel widget
+            //ammoWidget.Refresh(ammoCount);
         }
-        //Questo serve per aggiornare le munizioni visibili nel widget
-        //ammoWidget.Refresh(ammoCount);
     }
 
     //Per gestire il puntatore

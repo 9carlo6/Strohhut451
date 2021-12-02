@@ -11,6 +11,7 @@ C:\Program Files\Unity\Hub\Editor\2020.2.7f1\Editor\Unity.exe
 -name
 AssetImportWorker0
 -projectPath
+<<<<<<< HEAD
 C:/Users/pcarl/Desktop/Caturano/MontagsGame/MontagsGame
 -logFile
 Logs/AssetImportWorker0.log
@@ -31,11 +32,34 @@ Direct3D:
     Vendor:   
     VRAM:     2007 MB
     Driver:   27.21.14.5730
+=======
+C:/Users/grego/Documents/Game/MontagsGame/MontagsGame
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+62919
+Successfully changed project path to: C:/Users/grego/Documents/Game/MontagsGame/MontagsGame
+C:/Users/grego/Documents/Game/MontagsGame/MontagsGame
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 83.52 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.2.7f1 (c53830e277f1)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/grego/Documents/Game/MontagsGame/MontagsGame/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1050 Ti with Max-Q Design (ID=0x1c8c)
+    Vendor:   
+    VRAM:     4021 MB
+    Driver:   30.0.14.9709
+>>>>>>> Telescop+Failweapon
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/MonoBleedingEdge/etc'
+<<<<<<< HEAD
 Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56152
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
@@ -43,11 +67,21 @@ Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.7f1/E
 Registered in 0.002336 seconds.
 Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 115.79 ms, found 1 plugins.
+=======
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56284
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001603 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 80.76 ms, found 1 plugins.
+>>>>>>> Telescop+Failweapon
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
+<<<<<<< HEAD
 - Completed reload, in  5.765 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
@@ -55,16 +89,30 @@ Registered in 0.003227 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 130.14 ms, found 1 plugins.
+=======
+- Completed reload, in  1.026 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.001981 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 88.40 ms, found 1 plugins.
+>>>>>>> Telescop+Failweapon
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
+<<<<<<< HEAD
 - Completed reload, in  2.241 seconds
+=======
+- Completed reload, in  1.579 seconds
+>>>>>>> Telescop+Failweapon
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+<<<<<<< HEAD
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
 Refreshing native plugins compatible for Editor in 1.21 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
@@ -1265,5 +1313,31 @@ System memory in use after: 194.8 MB.
 
 Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 4851.
 Total: 10.536200 ms (FindLiveObjects: 0.829800 ms CreateObjectMapping: 4.431700 ms MarkObjects: 5.112500 ms  DeleteObjects: 0.160000 ms)
+=======
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 0.84 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4193 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 198.2 MB.
+System memory in use after: 198.4 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 4647.
+Total: 3.408200 ms (FindLiveObjects: 0.385200 ms CreateObjectMapping: 0.179400 ms MarkObjects: 2.737700 ms  DeleteObjects: 0.104500 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Push-To-Data/Feature/Weapon/enemy_weapon_features.txt
+  artifactKey: Guid(ff5bf51f70abe494da2451ce7b7fe637) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Push-To-Data/Feature/Weapon/enemy_weapon_features.txt using Guid(ff5bf51f70abe494da2451ce7b7fe637) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1111a75fe2703063949c61c3a23e390c') in 0.028363 seconds
+  Import took 0.034350 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.425040 seconds.
+  path: Assets/Push-To-Data/Feature/Weapon/enemy_weapon_features.txt
+  artifactKey: Guid(ff5bf51f70abe494da2451ce7b7fe637) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Push-To-Data/Feature/Weapon/enemy_weapon_features.txt using Guid(ff5bf51f70abe494da2451ce7b7fe637) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50f87dbf97e7774657ed172d67b7019d') in 0.004644 seconds
+  Import took 0.011493 seconds .
+>>>>>>> Telescop+Failweapon
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

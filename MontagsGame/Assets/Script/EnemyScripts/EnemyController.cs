@@ -21,7 +21,6 @@ public class EnemyController : Character
 
     //Per l'attacco
     public GameObject enemyWeapon;
-    public EnemyWeaponController enemyWeaponController;
     public Transform attackPoint;
     public float attackRange;
     public float meleeDamage = 1f;
@@ -80,7 +79,6 @@ public class EnemyController : Character
         //Inizio - Inizializzazione delle feature
     	string fileString = new StreamReader("Assets/Push-To-Data/Feature/Enemy/enemy_features.json").ReadToEnd();
     	mapper = JsonUtility.FromJson<EnemyFeaturesJsonMap>(fileString);
-
         base.Awake();
 
 
@@ -94,11 +92,11 @@ public class EnemyController : Character
         this.features = mapper.todict();
 
 
-        enemyWeaponController = GetComponentInChildren<EnemyWeaponController>();
+        weaponController = GetComponentInChildren<EnemyWeaponController>();
 
-        if(enemyWeaponController != null)
+        if(weaponController != null)
         {
-            components.Add(enemyWeaponController);
+            components.Add(weaponController);
 
         }
 
@@ -120,7 +118,7 @@ public class EnemyController : Character
     {
         features[EnemyFeature.FeatureType.FT_HEALTH].currentValue = features[EnemyFeature.FeatureType.FT_MAX_HEALTH].currentValue;
 
-        if(enemyWeaponController == null)
+        if(weaponController == null)
         {
             features[EnemyFeature.FeatureType.FT_IS_WEAPONED].currentValue = false;
         }
@@ -133,7 +131,7 @@ public class EnemyController : Character
     public override void Start()
     {
         enemyNavMeshAgent = GetComponent<NavMeshAgent>();
-        if (enemyWeaponController != null)
+        if (weaponController != null)
         {
             animator.SetFloat("isWeapon", 1);
             animator.SetFloat("isRunning", 1f);

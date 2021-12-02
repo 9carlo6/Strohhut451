@@ -324,10 +324,16 @@ public class LevelController : MonoBehaviour
                 firstBreakdownImage.enabled = true;
                 pc.addModifier(modifiersjson.getModifierbyCID("004"));
 
-                radioController.SetRadioText(events.getEventbyName("primaAvaria").message);
-            }
-            else
-            {
+                    currentFailure = 1;
+                    breakdownCanvas.SetActive(true);
+                    firstBreakdownImage.enabled = true;
+                    pc.addMoreModifiers(modifiersjson.getMoreModifiersbyCIDs(events.getEventbyName("primaAvaria").modificatoriCIDS));
+
+                    radioController.SetRadioText(events.getEventbyName("primaAvaria").message);
+                }
+                else
+                {
+                
                 Debug.Log("LA PRIMA FAILURE è GIA IN CORSO ASPETTIAMO LA SECONDA ");
             }
         }
@@ -340,7 +346,7 @@ public class LevelController : MonoBehaviour
                 currentFailure = 2;
                 secondBreakdownImage.enabled = true;
 
-                pc.getComponentbyCategory("Weapon").addModifier(modifiersjson.getModifierbyCID("002"));
+                pc.weaponController.addMoreModifiers(modifiersjson.getMoreModifiersbyCIDs(events.getEventbyName("secondaAvaria").modificatoriCIDS));
                 radioController.SetRadioText(events.getEventbyName("secondaAvaria").message);
             }
         }
@@ -352,7 +358,7 @@ public class LevelController : MonoBehaviour
                 currentFailure = 3;
                 thirdBreakdownImage.enabled = true;
 
-                pc.getComponentbyCategory("Weapon").addModifier(modifiersjson.getModifierbyCID("003"));
+                pc.weaponController.addMoreModifiers(modifiersjson.getMoreModifiersbyCIDs(events.getEventbyName("terzaAvaria").modificatoriCIDS));
                 radioController.SetRadioText(events.getEventbyName("terzaAvaria").message);
             }
         }
