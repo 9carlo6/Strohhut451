@@ -322,18 +322,13 @@ public class LevelController : MonoBehaviour
                 currentFailure = 1;
                 breakdownCanvas.SetActive(true);
                 firstBreakdownImage.enabled = true;
-                pc.addModifier(modifiersjson.getModifierbyCID("004"));
+                pc.addMoreModifiers(modifiersjson.getMoreModifiersbyCIDs(events.getEventbyName("primaAvaria").modificatoriCIDS));
 
-                    currentFailure = 1;
-                    breakdownCanvas.SetActive(true);
-                    firstBreakdownImage.enabled = true;
-                    pc.addMoreModifiers(modifiersjson.getMoreModifiersbyCIDs(events.getEventbyName("primaAvaria").modificatoriCIDS));
+                radioController.SetRadioText(events.getEventbyName("primaAvaria").message);
+            }
+            else
+            {
 
-                    radioController.SetRadioText(events.getEventbyName("primaAvaria").message);
-                }
-                else
-                {
-                
                 Debug.Log("LA PRIMA FAILURE è GIA IN CORSO ASPETTIAMO LA SECONDA ");
             }
         }

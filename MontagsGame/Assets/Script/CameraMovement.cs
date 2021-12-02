@@ -12,7 +12,7 @@ public class CameraMovement : MonoBehaviour
     //public float y = 0f;
     //public float z = 0f;
 
-    //smoothSpeed serve per rendere più fluido il movimento della telecamera (NON UTILIZZATO)
+    //smoothSpeed serve per rendere più fluido il movimento della telecamera
     public float smoothSpeed = 2.5f;
     public Vector3 offset;
 
@@ -45,11 +45,10 @@ public class CameraMovement : MonoBehaviour
         //Per spostare la telecamera quando si preme il tasto shift
         //Per poterla spostare il giocatore deve avere il booleano a true
         //Questo puo è essere ottenuto prendendo la TreasureChest (per ora)
-        if (Input.GetKey(KeyCode.LeftShift) && (bool)((playerController.features)[HumanFeature.FeatureType.FT_INCREASED_FOV]).currentValue)
+        if (playerController.isFOVincreased && (bool)((playerController.features)[HumanFeature.FeatureType.FT_INCREASED_FOV]).currentValue)
         {
             handleCameraMovementOnShifPressed();
         }
-
     }
 
     //Funzione per gestire lo spostamentod della camera quando si preme il tasto shift
@@ -61,8 +60,6 @@ public class CameraMovement : MonoBehaviour
 
         if (groundPlane.Raycast(cameraRay, out rayLength))
         {
-            //if (rayLength > maxCameraDistance) rayLength = maxCameraDistance;
-
             Vector3 pointToLook = cameraRay.GetPoint(rayLength);
 
             //Bisogna evitare che la distanza dal giocatore superi un certo valore
@@ -76,8 +73,6 @@ public class CameraMovement : MonoBehaviour
             Vector3 desiredPosition = pointToLook + offset;
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
             transform.position = smoothedPosition;
-            
-            
         }
     }
 }

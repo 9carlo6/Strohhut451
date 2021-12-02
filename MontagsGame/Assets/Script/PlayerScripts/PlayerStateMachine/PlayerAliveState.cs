@@ -6,14 +6,13 @@ public class PlayerAliveState : PlayerBaseState
 {
     PlayerHealthManager playerHealthManager;
     PlayerController playerController;
-    
 
     public override void EnterState(PlayerStateManager player)
     {
         Debug.Log("Stato Player = Vivo");
+
         playerHealthManager = player.GetComponent<PlayerHealthManager>();
         playerController = player.GetComponent<PlayerController>();
-        
     }
 
     public override void UpdateState(PlayerStateManager player)
@@ -28,7 +27,6 @@ public class PlayerAliveState : PlayerBaseState
           Debug.Log("Passaggio dallo stato vivo allo stato attacco melee del giocatore");
           player.SwitchState(player.AttackState);
         }
-        
     }
 
     public override void OnCollisionEnter(PlayerStateManager player, Collision collision)

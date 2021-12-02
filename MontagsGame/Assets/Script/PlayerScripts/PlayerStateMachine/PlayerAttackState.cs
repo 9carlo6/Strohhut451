@@ -15,12 +15,14 @@ public class PlayerAttackState : PlayerBaseState
     public override void EnterState(PlayerStateManager player)
     {
         Debug.Log("Stato Player = Attacco corpo a corpo");
+
         playerController = player.GetComponent<PlayerController>();
         animator = playerController.animator;
         playerHealthManager = player.GetComponent<PlayerHealthManager>();
 
         //Per nascondere la pistola
         playerController.weapon.SetActive(false);
+
         //Per disabilitare il RigBuilder
         playerController.rigBuilder.enabled = false;
 
@@ -43,10 +45,8 @@ public class PlayerAttackState : PlayerBaseState
             //Gestione scomparsa dell'arma stealth del personaggio
             playerController.rodWeapon.SetActive(false);
 
-            //Per far illuminare il nemico quando viene colpito
-            //enemyCollider.GetComponent<EnemyHealthManager>().enemyHit();
-
             Debug.Log("Passaggio dallo stato attacco allo stato vivo del giocatore");
+
             player.SwitchState(player.AliveState);
         }
 
@@ -56,11 +56,11 @@ public class PlayerAttackState : PlayerBaseState
             enemyCollider.GetComponent<EnemyHealthManager>().TakeDamage(playerController.meleeDamage);
         }
 
-
         //Gestione passaggio allo stato morto del giocatore
         if (playerHealthManager.currentHealth <= 0)
         {
             Debug.Log("Passaggio dallo stato attacco allo stato morto del giocatore");
+
             player.SwitchState(player.DeathState);
         }
     }
@@ -68,12 +68,9 @@ public class PlayerAttackState : PlayerBaseState
     //Funzione necessaria per la gestione dei danni inflitti dall'attacco
     public void handleAttackDamage()
     {
-
-
         animator.SetBool("isAttacking", true);
 
         GameObject.FindObjectOfType<AudioManager>().Play("pugno");
-
 
         //Questo serve per rivelare i nemici nel range di attacco
         Collider[] hitEnemies = Physics.OverlapSphere(playerController.attackPoint.position, playerController.attackRange, playerController.enemyLayers);
@@ -84,7 +81,6 @@ public class PlayerAttackState : PlayerBaseState
         //Per infliggere danno ai nemici
         foreach (Collider enemy in hitEnemies)
         {
-
             enemymanager = enemy.gameObject.GetComponent<EnemyStateManager>();
 
             if (enemiesAlreadyHitted.Contains(enemy.name))
@@ -97,12 +93,13 @@ public class PlayerAttackState : PlayerBaseState
             if (string.Equals(enemyState, "EnemyStunnedState"))
             {
                 animator.SetFloat("isStealthAttack", 1);
+
                 Debug.Log("Il player sta colpendo Stealth: " + enemy.name);
+
                 enemyAnimator.SetBool("isAttackedStealth", true);
 
                 GameObject.FindObjectOfType<AudioManager>().Stop("pugno");
                 GameObject.FindObjectOfType<AudioManager>().PlayDelayed("mossafinale", 0.8f);
-
 
                 //Gestione comparsa dell'arma stealth del personaggio
                 playerController.rodWeapon.SetActive(true);
@@ -112,23 +109,19 @@ public class PlayerAttackState : PlayerBaseState
                 playerController.gameObject.transform.LookAt(enemyCollider.gameObject.transform);
                 enemyCollider.gameObject.transform.LookAt(playerController.gameObject.transform);
                 enemyCollider.gameObject.transform.position = playerController.gameObject.transform.position + playerController.gameObject.transform.forward * 0.5f;
-                //enemyCollider.gameObject.transform.position = playerController.gameObject.transform.TransformPoint(5);
-                //Vector3 targetDir = enemy.gameObject.transform.position - playerController.gameObject.transform.position;
             }
             else if (string.Equals(enemyState, "EnemyChasePlayerState") || string.Equals(enemyState, "EnemyMeleeAttackState") || string.Equals(enemyState, "EnemyPatrollingState") || string.Equals(enemyState, "EnemyCheckState"))
             {
-
-
                 animator.SetFloat("isStealthAttack", 0);
+
                 Debug.Log("Il player sta colpendo Melee: " + enemy.name);
-                //enemyAnimator.SetBool("isStunned", true);
+
                 enemymanager.SwitchState(enemymanager.StunnedState);
 
                 //Gestione rotazione del giocatore nel momento in cui attacca melee
                 enemyCollider = enemy;
                 playerController.gameObject.transform.LookAt(enemyCollider.gameObject.transform);
             }
-
 
             //Aggiunge il nemico al set
             enemiesAlreadyHitted.Add(enemy.name);

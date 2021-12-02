@@ -14,8 +14,6 @@ public abstract class Feature
 
     public abstract System.Object initializeFactor();
 
-
-
     public System.Object baseValue;
     public System.Object currentValue;
     public System.Object featureName;
@@ -31,6 +29,4 @@ public abstract class Feature
     {
         return this.featureName.ToString().Equals(m.m_type.ToString());
     }
-
-    //public FeatureType featureName;
 }

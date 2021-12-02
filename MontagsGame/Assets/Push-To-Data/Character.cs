@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 using HumanFeatures;
 
-public abstract  class Character : MonoBehaviour
+public abstract class Character : MonoBehaviour
 {
 	public Dictionary<System.Object,Feature> features;
 	public List<Modifier> modifiers;
@@ -13,14 +13,13 @@ public abstract  class Character : MonoBehaviour
 	public String ID;
 	public WeaponController weaponController;
 
-
 	public Component getComponentbyCategory(String category)
     {
-		foreach(Component c in this.components)
+		foreach(Component my_component in this.components)
         {
-			if(c.category == category)
+			if(my_component.category == category)
             {
-				return c;
+				return my_component;
             }
         }
 		return null;
@@ -28,39 +27,30 @@ public abstract  class Character : MonoBehaviour
 
 	public virtual void Awake()
     {
+		//Per generare un Id casuale
 		ID = Guid.NewGuid().ToString("N");
 
+		//Per inizializzazione delle feature, dei modificatori e delle componenti
 		features = new Dictionary<System.Object, Feature>();
 		modifiers = new List<Modifier>();
 		components = new List<Component>();
 
-		Debug.Log("AAA IO SONO questo Character game object " + this.gameObject.ToString()+" ID = "+ID+
-			"  e aggiungo questi componenti " + this.gameObject.GetComponentsInChildren<Component>().Length);
-
-
-		/*foreach (System.Object o in this.gameObject.GetComponentsInChildren<Component>()){
-			Debug.Log("CHE SUCCEDE " + o.ToString()+" "+(((WeaponController)o).ID));
-        }*/
-
+		//Per aggiungere tutti i component
 		components.AddRange(this.gameObject.GetComponentsInChildren<Component>());
 
+		//Per gestire l'arma
 		weaponController = null;
 
-		foreach (Component c in components)
+		foreach (Component my_component in components)
         {
-			Debug.Log("AAA IO SONO "+ID+ "  E AGGIUNGO QUESTO COMPONENTE " + c.ID);
-
-			if( c is WeaponController)
+			if(my_component is WeaponController)
             {
-				weaponController = (WeaponController)c;
-
+				weaponController = (WeaponController) my_component;
 			}
         }
-
-
-
-		
 	}
+
+	//Per richiamare le funzioni del Push-To-Data (all'inizio)
 	public virtual void Start()
     {
 		UpdateFeatures();
@@ -69,6 +59,7 @@ public abstract  class Character : MonoBehaviour
 		initializeFeatures();
 	}
 
+	//Per richiamare le funzioni del Push-To-Data (a ogni frame)
 	public virtual void Update()
     {
 		UpdateFeatures();
@@ -79,115 +70,70 @@ public abstract  class Character : MonoBehaviour
 	public void addModifier(Modifier m)
     {
 		this.modifiers.Add(m);
-
-		/*
-		foreach(Component c in components)
-        {
-			c.addModifier(m);
-        }
-		*/
     }
 
 	public void addMoreModifiers(List<Modifier> list)
 	{
-
 		foreach (Modifier m in list)
 			this.modifiers.Add(m);
-
-
 	}
 
 	public abstract void setFeatures(); 
 	public abstract void initializeFeatures();
 
-
 	public void UpdateFeatures()
     {
-
-		foreach(Feature feature in this.features.Values)
+		foreach(Feature my_feature in this.features.Values)
         {
+			//Il fattore puo' essere di vari tipi
+			System.Object factor = my_feature.initializeFactor();
 
-			System.Object factor = feature.initializeFactor();
-
-			foreach(Component  c in components)
+			foreach(Component my_component in components)
             {
-				foreach(Feature f in c.features.Values)
+				foreach(Feature feature_component in my_component.features.Values)
                 {
-					if (feature.featureName.ToString().Equals(f.featureName.ToString()))
+					if (my_feature.featureName.ToString().Equals(feature_component.featureName.ToString()))
 					{
-						//Debug.Log("FEATURE CON CORRISPONDENZA :" + feature.featureName.ToString());
-						factor = f.updateFactor(factor);
-
+						//Il fattore e' interpretato dalla feature
+						factor = feature_component.updateFactor(factor);
                     }
-
-
 				}
-
-
 			}
-
-			feature.applyFactor(factor);
-
+			//Il fattore e' applicato tramite la feature
+			my_feature.applyFactor(factor);
         }
-
-		
 	}
 
 	public void applyModifiers()
 	{
+		//Lista di tutti i modificatori "scaduti" (in quel frame)
 		List<Modifier> expired = new List<Modifier>();
 
-		foreach (Modifier modifier in modifiers)
-		{
-			modifier.duration = modifier.duration - Time.deltaTime;
-			foreach (Feature f in features.Values)
+		foreach (Modifier my_modifier in modifiers)		{			my_modifier.duration = my_modifier.duration - Time.deltaTime;
+			foreach (Feature my_feature in features.Values)
 			{
-
-				if (f.corrispondance(modifier))
-				{
-					Debug.Log("MODIFICATORE SULLA FEATURE " + modifier.m_type);
-
-					if (!modifier.isValid())
+				//Controlla se il modifcatore si puo' applicare a quella feature
+				if (my_feature.corrispondance(my_modifier))
+				{
+					//Si valuta la validita' del modificatore, se non valida si mette nella lita exiperd, altrimenti viene applicato
+					if (!my_modifier.isValid())
 					{
-						Debug.Log("RIMUOVO " + modifier.m_type +"ID: "+modifier.ID);
-
-						//modifiers.Remove(modifier);
-
-						//Debug.Log("VALORE ATTUALE " + f.currentValue);
-
-						expired.Add(modifier);
-
-						//f.removeModifier(modifier);
-
-						//Debug.Log("VALORE AGGIORNATO " + f.currentValue);
+						expired.Add(my_modifier);
 					}
 					else
 					{
-							Debug.Log("ATTIVO MODIFICATORE SULLA FEATURE :" + modifier.m_type + "ID: " + modifier.ID);
-							Debug.Log("VALORE ATTUALE " + f.currentValue);
-							f.performeModifier(modifier);
-							Debug.Log("VALORE AGGIORNATO " + f.currentValue);
+						my_feature.performeModifier(my_modifier);
 
-                        if (modifier.oneshot)
+						//Se e' oneshot si aggiunge alla lista expiered
+						if (my_modifier.oneshot)
                         {
-							expired.Add(modifier);
+							expired.Add(my_modifier);
                         }
-
 					}
-
                 }
-               
-
 			}
-
-
-		}
-
+		}		//Rimozione di tutti i modificatori nella lista expired
 		foreach (Modifier m in expired)
-
-		{
-			modifiers.Remove(m);
-		}
+		{			modifiers.Remove(m);		}
 	}
-	
 }

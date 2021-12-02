@@ -14,11 +14,6 @@ public class Modifier
     public bool infinite;
     public bool oneshot;
 
-
-
-    //public bool toactive;
-
-
     public override string ToString()
     {
         return "ID: "+ID+" - "+m_type+" - "+m_fFactor.ToString()+" - "+duration+" - "+" _ "+ infinite+"_"+oneshot;
@@ -41,6 +36,5 @@ public class Modifier
         this.duration = duration;
         this.infinite = infinite;
         this.oneshot = oneshot;
-     
     }
 }

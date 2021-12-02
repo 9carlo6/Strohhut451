@@ -4,7 +4,6 @@ using UnityEngine;
 using System;
 using HumanFeatures;
 
-
 [Serializable]
 public class ModifierJsonMap  
 {
@@ -13,7 +12,6 @@ public class ModifierJsonMap
 
     public Modifier getModifierbyCID(String CID)
     {
-
         foreach (ModifierItem modifieritem in modifiers)
         {
             if ((!modifieritem.infinite && !modifieritem.oneshot && (modifieritem.duration <= 0))||(modifieritem.oneshot && modifieritem.infinite))
@@ -22,7 +20,6 @@ public class ModifierJsonMap
             if (modifieritem.CID.ToString().Equals(CID))
             {
                 Debug.Log("trovato MODIFIER :" + modifieritem.ToString());
-
 
                 return new Modifier(modifieritem.CID, modifieritem.m_type, modifieritem.m_fFactor,modifieritem.duration,modifieritem.infinite,modifieritem.oneshot);
             }
@@ -57,14 +54,12 @@ public class ModifierJsonMap
     [Serializable]
     public class ModifierItem
     {
-
         public String CID;
         public String m_type;
         public String m_fFactor;
         public float duration;
         public bool infinite;
         public bool oneshot;
-
 
         public override string ToString()
         {

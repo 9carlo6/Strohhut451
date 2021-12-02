@@ -7,7 +7,6 @@ using System.IO;
 using System;
 using HumanFeatures;
 
-
 public class PlayerController : Character
 {
 	//Per controllare il valore della velocità
@@ -33,8 +32,8 @@ public class PlayerController : Character
 	//Per l'animazione
 	public Animator animator;
 	//Queste due variabili servono per modificare l'animazione in base alla direzione del personaggio
-	private float velocityX = 0.0f;
-	private float velocityZ = 0.0f;
+	[HideInInspector] private float velocityX = 0.0f;
+	[HideInInspector] private float velocityZ = 0.0f;
 
 	//Per la gestione dello sparo
 	public GameObject weapon;
@@ -66,31 +65,13 @@ public class PlayerController : Character
 	public GameObject spineTarget;
 	public float rotationSpeed = 2f;
 
-	//Per gestire l'alert del nemico allo sparo del player
-	public bool playerIsFiring = false;
-	public float timerToReset = 1;
-
 	//Per gestire l'arma corpo a corpo
 	public GameObject rodWeapon;
 
-	//Per gestire la possibilità di poter aumentare il campo visivo premendo shift
-	//public bool increasedVisualField;
+	//Per gestire il FOV
+	[HideInInspector] public bool isFOVincreased;
 
-	//Per gestire i Componenti
-	//public Dictionary<string, Component> components;
-
-	//Per gestire le feature
-	//public Dictionary<string, HumanFeature> features;
-
-	//Per gestire i modificatori
-	//public Dictionary<string, Modifier> modifiers;
-
-	//nuovo push to data
-
-	//public List<Feature> features;
-
-	GameObject[] traps;
-
+	[HideInInspector] public GameObject[] traps;
 
 	void Awake()
 	{
@@ -110,19 +91,9 @@ public class PlayerController : Character
 
 		//Inizio - Inizializzazione delle feature
 		string fileString = new StreamReader("Assets/Push-To-Data/Feature/Human/player_features.json").ReadToEnd();
-		mapper = JsonUtility.FromJson<HumanFeaturesJsonMap>(fileString);
-		base.Awake();
-		//components.Add(weaponController);
-		/*
-		foreach (Component c in components)
-		{
-			modifiers.AddRange(c.modifiers);
-		}		*/
-		this.features = mapper.todict();
-		foreach(System.Object o in this.features.Keys)
-        {
-			Debug.Log("ho trovato questa chiave " + o.ToString());
-        }
+		mapper = JsonUtility.FromJson<HumanFeaturesJsonMap>(fileString);		//Per l'inizializzazione delle collezioni (modifiers, features, components)
+		base.Awake();		this.features = mapper.todict();
+		//Fine - Inizializzazione delle feature
 
 		//Callbacks per il movimento
 		//ascolta quando il giocatore inizia a utilizzare l'azione Move
@@ -134,14 +105,16 @@ public class PlayerController : Character
 		playerInput.CharacterControls.Move.performed += onMovementInput;
 
 		//Callbacks per la gestione dello sparo
-		//playerInput.CharacterControls.Fire.performed += _ => weaponController.StartFiring();
 		playerInput.CharacterControls.Fire.performed += _ => weaponController.isFiring = true;
-		//playerInput.CharacterControls.Fire.canceled += _ => weaponController.StopFiring();
 		playerInput.CharacterControls.Fire.canceled += _ => weaponController.isFiring = false;
 
 		//Callbacks per l'attacco corpo a corpo
 		playerInput.CharacterControls.MeleeAttack.performed += _ => isAttackButtonPressed = true;
 		playerInput.CharacterControls.MeleeAttack.canceled += _ => isAttackButtonPressed = false;
+
+		//Callbacks per il FOV
+		playerInput.CharacterControls.IncreaseFOV.performed += _ => isFOVincreased = true;
+		playerInput.CharacterControls.IncreaseFOV.canceled += _ => isFOVincreased = false;
 
 		//Callbacks per utilizzare i gameItems
 		playerInput.CharacterControls.Skull.performed += _ => GameObject.FindWithTag("LevelController").GetComponent<Skull>().EnableEffect();
@@ -163,67 +136,39 @@ public class PlayerController : Character
 	{
 		myRigidbody = GetComponent<Rigidbody>();
 		mainCamera = FindObjectOfType<Camera>();
-		Debug.Log("IL MIO PESO INIZIALE  è " + (this.features[HumanFeature.FeatureType.FT_WEIGHT].currentValue));
 
+		//Per la composizione delle feature
 		base.Start();
-
-
-
-		//	enemyGameObjects = GameObject.FindGameObjectsWithTag("Enemy");
 	}
 
 	// Update is called once per frame
 	public override void Update()
 	{
-
-		Debug.Log("NUMERO MODIFICATORI ATTUALI " + this.modifiers.Count);
 		//per poter far muovere il personaggio
-		//per potersi muovere il personaggio non deve star attaccando e non deve essere morto
+		//per potersi muovere il personaggio non deve attaccare e non deve essere morto
 		isAttacking = animator.GetBool("isAttacking");
 		isDeath = animator.GetBool("isDeath");
 
-		//Solo per Debug -> per controllare il valore corrente della velocita tramite l'Inspector
-
-		/*
-		moveSpeed = (float) features["moveSpeed"].currentValue;
-		Debug.Log("SPEED BASE VALUE: " + features["moveSpeed"].baseValue);
-		*/
-
 		if (!isAttacking && !isDeath && !isStopped)
 		{
-
-
-
 			characterController.Move(currentMovement * Time.deltaTime * (float)(this.features[HumanFeature.FeatureType.FT_SPEED].currentValue));
-				handlePlayerRotation();
-				handleFiring();
-			
-
-			
+			handlePlayerRotation();
 		}
-		Debug.Log("IL MIO PESO è " + (this.features[HumanFeature.FeatureType.FT_WEIGHT].currentValue));
-		Debug.Log("LA MIA VELOCITà è " + (this.features[HumanFeature.FeatureType.FT_SPEED].currentValue));
 
 		handleAnimation();
 		base.Update();
-
 	}
-	public override void setFeatures()
+	//Per il setting dei valori delle feature dipendenti da altre (ad ogni frame)	public override void setFeatures()
     {
-
-		//l'idea è settare i valori delle feature "composte" tipo la velocità è funzione del peso:
-
+		//Per settare il valore della velocità in funzione del peso
 		this.features[HumanFeature.FeatureType.FT_SPEED].currentValue = (2.5f*((float)(this.features[HumanFeature.FeatureType.FT_WEIGHT].baseValue))) / (float)(this.features[HumanFeature.FeatureType.FT_WEIGHT].currentValue);
-
 	}
 
-	
+	//Per il setting dei valori delle feature dipendenti da altre (nella fase iniziale)
 	public override void initializeFeatures()
 	{
-
+		//Per settare il valore della vita corrente al valore massimo
 		//features[HumanFeature.FeatureType.FT_HEALTH].currentValue = features[HumanFeature.FeatureType.FT_MAX_HEALTH].currentValue;
-		
-
 	}
 
 	//Per gestire la rotazione del player con il movimento del mouse
@@ -241,18 +186,14 @@ public class PlayerController : Character
 			Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue);
 
 			//Questo pezzo serve per far ruotare il personaggio in base alla posizione del mouse
-			//transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
 			spineTarget.transform.position = new Vector3(pointToLook.x, spineTarget.transform.position.y, pointToLook.z);
-			//weapon.transform.LookAt(new Vector3(pointToLook.x, weapon.transform.position.y, pointToLook.z));
 
 			Vector3 targetDir = spineTarget.transform.position - transform.position;
-			//Debug.Log("Gradi: " + Vector3.Angle(targetDir, transform.forward));
 
 			Quaternion rotTarget = Quaternion.LookRotation(new Vector3(targetDir.x, 0, targetDir.z));
+
 			if (Vector3.Angle(targetDir, transform.forward) >= 40.0f)
 			{
-				//Debug.Log("Gradi: " + Vector3.Angle(targetDir, transform.forward));
-				//Quaternion rotTarget = Quaternion.LookRotation(new Vector3(targetDir.x, 0, targetDir.z));
 				if(!animator.GetBool("isWalking")){
 					transform.rotation = Quaternion.RotateTowards(transform.rotation, rotTarget, rotationSpeed * 100f * Time.deltaTime);
 				}
@@ -261,11 +202,9 @@ public class PlayerController : Character
 					transform.rotation = Quaternion.RotateTowards(transform.rotation, rotTarget, rotationSpeed * 300f * Time.deltaTime);
 				}
 				animator.SetBool("isRotating",true);
-                //transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
 			}
 			else
 			{
-				//weapon.transform.LookAt(new Vector3(pointToLook.x, weapon.transform.position.y, pointToLook.z));
 				weapon.transform.rotation = Quaternion.RotateTowards(weapon.transform.rotation, rotTarget, 50f * Time.deltaTime);
 				animator.SetBool("isRotating", false);
 			}
@@ -277,28 +216,6 @@ public class PlayerController : Character
 	{
 		AnimatorClipInfo[] clipInfo = animator.GetCurrentAnimatorClipInfo(0);
 		return clipInfo[0].clip.name;
-	}
-
-	//Per gestire lo sparo dell'arma
-	void handleFiring()
-	{
-
-		if (weaponController.isFiring && (int)weaponController.features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue > 0)
-		{
-
-			playerIsFiring = true;
-			//weaponController.UpdateFiring(Time.deltaTime);
-		}
-
-		if (playerIsFiring && timerToReset > 0)
-		{
-			timerToReset -= Time.deltaTime;
-		}
-		else
-		{
-			playerIsFiring = false;
-			timerToReset = 1;
-		}
 	}
 
 	//Per gestire le animazioni
@@ -339,40 +256,24 @@ public class PlayerController : Character
 	{
 		if (hit.collider.tag == "NextLevelPlane")
 		{
-			Debug.Log("Prossimo Piano:sta collidendo");
 			nextLevelPlaneCollision = true;
-		}
-
-		Debug.Log("il player sta collidendo con qualcosa");
-	}
-
-	//Se non collide più con il pavimento che permette di andare al livello successivo
-
-	void OnCollisionExit(Collision hit)
-	{
-		if (hit.collider.tag == "NextLevelPlane")
-		{
-			Debug.Log("Prossimo Piano: non sta piu collidendo");
+        }
+        else
+        {
 			nextLevelPlaneCollision = false;
 		}
 	}
 
 	void OnEnable()
 	{
-		//serve per abilitare la character controls action map
+		//Serve per abilitare la character controls action map
 		playerInput.CharacterControls.Enable();
 	}
 
 	void OnDisable()
 	{
-		//serve per disabilitare la character controls action map
+		//Serve per disabilitare la character controls action map
 		playerInput.CharacterControls.Disable();
-	}
-
-
-	void FixedUpdate()
-	{
-		myRigidbody.velocity = moveVelocity;
 	}
 
 	//Funzione per il debug dell'attacco corpo a corpo
@@ -383,14 +284,8 @@ public class PlayerController : Character
 		Gizmos.DrawWireSphere(attackPoint.position, attackRange);
 	}
 
-	public bool getBoolToAlert()
-	{
-		return playerIsFiring;
-    }
-
 	public Modifier getModifierbyID(String id)
     {
-
 		foreach ( Modifier m in modifiers)
         {
             if (m.ID.Equals(id.ToString()))
@@ -400,5 +295,4 @@ public class PlayerController : Character
         }
 		return null;
     }
-
 }
