@@ -11,7 +11,6 @@ public class LevelInitialPhaseState : LevelBaseState
     public override void EnterState(LevelStateManager level)
     {
         Debug.Log("Stato Livello = Fase Iniziale");
-        Debug.Log("Stato Livello = Fase Iniziale");
 
         initialNumberOfEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
 

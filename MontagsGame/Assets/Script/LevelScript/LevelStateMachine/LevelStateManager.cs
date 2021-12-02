@@ -26,8 +26,6 @@ public class LevelStateManager : MonoBehaviour
     //Per gestire il player
     [HideInInspector] public GameObject player;
 
-
-
     //Per individuare lo stato corrente del Livello
     public string getCurrentState()
     {
@@ -36,15 +34,14 @@ public class LevelStateManager : MonoBehaviour
 
     public void Awake()
     {
+        //Per gestire l'animazione della transizione tra un livello e un altro
         transitionTime = 1f;
         transition = GameObject.FindWithTag("CrossfadeAnimation").GetComponent<Animator>();
 
-
         sessionController = GameObject.FindWithTag("SessionController");
+        sc = sessionController.GetComponent<SessionController>();
         levelController = GameObject.FindWithTag("LevelController");
         lc = levelController.GetComponent<LevelController>();
-        sc = sessionController.GetComponent<SessionController>();
-
         player = GameObject.FindWithTag("Player");
     }
 
@@ -68,7 +65,7 @@ public class LevelStateManager : MonoBehaviour
 
         //Per gestire le avarie
         if(player!=null){
-          lc.handleBreakdown(player.GetComponent<PlayerController>(), isLevelCompleted);
+            lc.handleBreakdown(player.GetComponent<PlayerController>(), isLevelCompleted);
         }
     }
 
@@ -104,7 +101,7 @@ public class LevelStateManager : MonoBehaviour
         int scene_restart_numbers = 1;
         int scene_coins = lc.currentCoins;
         int scene_score = lc.levelPoints;
-        float scene_time = lc.levelTimeCounter;
+        float scene_time = lc.valid_levelTimeCounter;
         bool scene_is_completed = isLevelCompleted;
 
         //Questa � la funzione che permette di aggiornare le info
@@ -138,5 +135,4 @@ public class LevelStateManager : MonoBehaviour
 
         SwitchState(levelToSwitch);
     }
-
 }

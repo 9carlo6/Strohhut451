@@ -306,11 +306,11 @@ public class EnemyController : Character
 
     public void PlaySoundDeath()
     {
-        deathClip.Play();
+        //deathClip.Play();
     }
 
     public void PlaySoundPunch()
     {
-        punchClip.Play();
+        //punchClip.Play();
     }
 }

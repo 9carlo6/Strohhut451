@@ -17,11 +17,18 @@ public class MenuController : MonoBehaviour
     public TextAsset gameItemsTextJSON;
     public TextAsset coinTextJSON;
 
+    //Per gestire il sessionController
+    public GameObject sessionController;
+    public SessionController sc;
+
     // Start is called before the first frame update
     void Awake()
     {
-        coins = JsonUtility.FromJson<Coins>(coinTextJSON.text);
-        gameItems = JsonUtility.FromJson<GameItems>(gameItemsTextJSON.text);
+        sessionController = GameObject.FindWithTag("SessionController");
+        sc = sessionController.GetComponent<SessionController>();
+
+        coins = sc.coins;
+        gameItems = sc.gameItems;
     }
 
     // Update is called once per frame

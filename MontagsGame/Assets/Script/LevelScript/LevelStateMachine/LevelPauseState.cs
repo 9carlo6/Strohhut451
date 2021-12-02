@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class LevelPauseState : LevelBaseState
 {
-    private PlayerInput playerInput;
     private GameObject pauseMenuCanvas;
     private GameObject OptionsMenuCanvas;
     public bool gameIsPaused = false;
@@ -13,14 +12,16 @@ public class LevelPauseState : LevelBaseState
     public override void EnterState(LevelStateManager level)
     {
         Debug.Log("Stato Livello = Check Restart");
+
         pauseMenuCanvas = level.gameObject.transform.Find("PauseMenuCanvas").gameObject;
         pauseMenuCanvas.SetActive(true);
-
         OptionsMenuCanvas = level.gameObject.transform.Find("OptionsMenuCanvas").gameObject;
 
         gameIsPaused = true;
-        pause();
         level.player.GetComponent<PlayerController>().isStopped = true;
+
+        //Per mettere il gioco in pausa
+        pause();
     }
 
     public override void UpdateState(LevelStateManager level)
@@ -31,11 +32,14 @@ public class LevelPauseState : LevelBaseState
             level.UpdateSessionInfo();
 
             Debug.Log("Passaggio dallo stato pause allo stato iniziale del livello con reload della scena");
+
             pauseMenuCanvas.SetActive(false);
-          //  OptionsMenuCanvas.SetActive(false);
+            OptionsMenuCanvas.SetActive(false);
 
             level.player.GetComponent<PlayerController>().isStopped = false;
+
             gameIsPaused = false;
+
             resume();
 
             //Per resettare i parametri
@@ -50,10 +54,14 @@ public class LevelPauseState : LevelBaseState
         else if (Input.GetKeyDown(KeyCode.Escape))
         {
             Debug.Log("Passaggio dallo stato pause allo stato iniziale del livello senza reload della scena");
+
             pauseMenuCanvas.SetActive(false);
             OptionsMenuCanvas.SetActive(false);
+
             level.player.GetComponent<PlayerController>().isStopped = false;
+
             gameIsPaused = false;
+
             resume();
 
             if(level.isLevelCompleted){
