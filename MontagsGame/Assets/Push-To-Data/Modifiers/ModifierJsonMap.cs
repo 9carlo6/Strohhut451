@@ -27,7 +27,7 @@ public class ModifierJsonMap
                 return new Modifier(modifieritem.CID, modifieritem.m_type, modifieritem.m_fFactor,modifieritem.duration,modifieritem.infinite,modifieritem.oneshot);
             }
         }
-        return null;
+        throw new DataException("NON HO TROVATO NESSUN MODIFICATORE " + CID);
     }
     public List<Modifier> getMoreModifiersbyCIDs(List<String> cids)
     {
@@ -37,7 +37,7 @@ public class ModifierJsonMap
         {
             foreach (ModifierItem modifieritem in modifiers)
             {
-                if ((!modifieritem.infinite && !modifieritem.oneshot && (modifieritem.duration <= 0)) || (modifieritem.oneshot && modifieritem.infinite))
+                if (((!modifieritem.infinite && !modifieritem.oneshot && (modifieritem.duration <= 0))) || (modifieritem.oneshot && modifieritem.infinite))
                     throw new DataException("NON HA SENSO QUESTO MODIFICATORE CON TEMPO NEGATIVO " + modifieritem.CID);
 
                 if (modifieritem.CID.ToString().Equals(cid))
@@ -51,7 +51,7 @@ public class ModifierJsonMap
         }
         if(modifiers.Count>=0)
             return newmodifiers;
-        return null;
+        throw new DataException("NON HO TROVATO NESSUN MODIFICATORE " + cids);
     }
 
     [Serializable]

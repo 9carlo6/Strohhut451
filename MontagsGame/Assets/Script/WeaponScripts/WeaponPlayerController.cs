@@ -19,6 +19,8 @@ public class WeaponPlayerController : WeaponController
 
     public override void Awake()
     {
+        ID = "SONOLARMAPIUBELLA";
+
         base.Awake();
         weaponSight = GameObject.FindWithTag("WeaponSight");
 

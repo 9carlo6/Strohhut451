@@ -31,6 +31,32 @@ public abstract class Component : MonoBehaviour
 		modifiers = new List<Modifier>();
 		components = new List<Component>();
 
+		Debug.Log("AAA IO SONO questo COMPONENT game object " + this.gameObject.ToString() + " ID = " + ID +
+			"  e aggiungo questi SOTTOcomponenti " + this.gameObject.GetComponentsInChildren<Component>().Length);
+
+
+		/*foreach (System.Object o in this.gameObject.GetComponentsInChildren<Component>()){
+			Debug.Log("CHE SUCCEDE " + o.ToString()+" "+(((WeaponController)o).ID));
+        }*/
+
+
+
+		foreach (Component c in this.gameObject.GetComponentsInChildren<Component>())
+		{
+            if (ID != c.ID)
+            {
+				components.Add(c);
+				Debug.Log("AAA IO SONO " + ID + "  E AGGIUNGO QUESTO SOTTOCOMPONENTE DENTRO " + c.ID);
+
+			}
+
+		}
+
+
+		//Debug.Log("CIAO MONDO SONO  " + ID + this.GetType().FullName);
+
+
+
 	}
 	public virtual void Start()
 	{
@@ -234,7 +260,8 @@ public abstract class Component : MonoBehaviour
 
 					if (!modifier.isValid())
 					{
-						Debug.Log("RIMUOVO " + modifier.m_type + "ID: " + modifier.ID);
+						//Debug.Log("RIMUOVO " + modifier.m_type + "ID: " + modifier.ID);
+						Debug.Log("MODIFICATORE SULLA FEATURE " + modifier.m_type+" NON è VALIDO");
 
 						//modifiers.Remove(modifier);
 

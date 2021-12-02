@@ -15,11 +15,11 @@ C:/Users/grego/Documents/Game/MontagsGame/MontagsGame
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-58700
+62919
 Successfully changed project path to: C:/Users/grego/Documents/Game/MontagsGame/MontagsGame
 C:/Users/grego/Documents/Game/MontagsGame/MontagsGame
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 101.81 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 83.52 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.2.7f1 (c53830e277f1)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/Resources/UnitySubsystems
@@ -36,374 +36,58 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56600
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56284
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001453 seconds.
+Registered in 0.001603 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 86.35 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 80.76 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.081 seconds
+- Completed reload, in  1.026 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.002233 seconds.
+Registered in 0.001981 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 90.22 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 88.40 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.690 seconds
+- Completed reload, in  1.579 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 1.53 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.84 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 4193 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 198.1 MB.
-System memory in use after: 198.3 MB.
+System memory in use before: 198.2 MB.
+System memory in use after: 198.4 MB.
 
 Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 4647.
-Total: 3.930000 ms (FindLiveObjects: 0.503100 ms CreateObjectMapping: 0.400300 ms MarkObjects: 2.879800 ms  DeleteObjects: 0.145400 ms)
+Total: 3.408200 ms (FindLiveObjects: 0.385200 ms CreateObjectMapping: 0.179400 ms MarkObjects: 2.737700 ms  DeleteObjects: 0.104500 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.045010 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.054326 seconds .
+  path: Assets/Push-To-Data/Feature/Weapon/enemy_weapon_features.txt
+  artifactKey: Guid(ff5bf51f70abe494da2451ce7b7fe637) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Push-To-Data/Feature/Weapon/enemy_weapon_features.txt using Guid(ff5bf51f70abe494da2451ce7b7fe637) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1111a75fe2703063949c61c3a23e390c') in 0.028363 seconds
+  Import took 0.034350 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.031870 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000737 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.008454 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.021104 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000757 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.008293 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.016389 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000743 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.008011 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.025861 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000689 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.007660 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.017664 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001057 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.011977 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.015927 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001173 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.011324 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.018244 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000811 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.014847 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.029694 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.002076 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.016796 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.021986 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001179 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.011349 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.022132 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000920 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.008668 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.015105 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000938 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.008155 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.015329 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000970 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.008045 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.014115 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001295 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.009816 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.013130 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000735 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.007443 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.014872 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000840 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.007358 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.019725 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000711 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.007231 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.014227 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000672 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.006928 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.014650 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000694 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.008197 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.014889 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000997 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.007421 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.015361 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000787 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.007065 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.016988 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001065 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.009051 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.020592 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000765 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.008971 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.014837 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000713 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.007315 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.015865 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000696 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.007154 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.016519 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000923 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.007994 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.015800 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000664 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.007480 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.024757 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000683 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.007045 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.016915 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000893 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.008112 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.015984 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000886 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.009198 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.014402 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000669 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.008186 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.015893 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000965 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.009810 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.013574 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000707 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.007514 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.024786 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000677 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.006785 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.015864 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000800 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.008173 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.017352 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000716 seconds
-  ERROR: Build asset version error: assets/push-to-data/feature/weapon/player_weapon_features.txt in SourceAssetDB has modification time of '2021-12-01T21:01:10.3957393Z' while content on disk has modification time of '2021-12-01T21:45:59.9729462Z'
-  Import took 0.010154 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.082583 seconds.
-  path: Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt
-  artifactKey: Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Push-To-Data/Feature/Weapon/player_weapon_features.txt using Guid(ec4b261ea65d28d458ff9a30ff317328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9e16f6f72602fb9196edf63982178588') in 0.005227 seconds
-  Import took 0.013711 seconds .
+  Time since last request: 7.425040 seconds.
+  path: Assets/Push-To-Data/Feature/Weapon/enemy_weapon_features.txt
+  artifactKey: Guid(ff5bf51f70abe494da2451ce7b7fe637) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Push-To-Data/Feature/Weapon/enemy_weapon_features.txt using Guid(ff5bf51f70abe494da2451ce7b7fe637) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50f87dbf97e7774657ed172d67b7019d') in 0.004644 seconds
+  Import took 0.011493 seconds .
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

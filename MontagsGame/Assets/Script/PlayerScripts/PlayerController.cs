@@ -39,7 +39,6 @@ public class PlayerController : Character
 	//Per la gestione dello sparo
 	public GameObject weapon;
 	//Per collegarsi alla classe che gestisce l'arma
-	private WeaponPlayerController weaponController;
 
 	//Per accedere allo script RigBuilder
 	[HideInInspector] public RigBuilder rigBuilder;
@@ -113,7 +112,7 @@ public class PlayerController : Character
 		string fileString = new StreamReader("Assets/Push-To-Data/Feature/Human/player_features.json").ReadToEnd();
 		mapper = JsonUtility.FromJson<HumanFeaturesJsonMap>(fileString);
 		base.Awake();
-		components.Add(weaponController);
+		//components.Add(weaponController);
 		/*
 		foreach (Component c in components)
 		{

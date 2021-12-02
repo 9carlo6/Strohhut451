@@ -10,6 +10,9 @@ public abstract  class Character : MonoBehaviour
 	public List<Modifier> modifiers;
 	public List<Component> components;
 	public Dictionable mapper;
+	public String ID;
+	public WeaponController weaponController;
+
 
 	public Component getComponentbyCategory(String category)
     {
@@ -25,9 +28,36 @@ public abstract  class Character : MonoBehaviour
 
 	public virtual void Awake()
     {
+		ID = Guid.NewGuid().ToString("N");
+
 		features = new Dictionary<System.Object, Feature>();
 		modifiers = new List<Modifier>();
 		components = new List<Component>();
+
+		Debug.Log("AAA IO SONO questo Character game object " + this.gameObject.ToString()+" ID = "+ID+
+			"  e aggiungo questi componenti " + this.gameObject.GetComponentsInChildren<Component>().Length);
+
+
+		/*foreach (System.Object o in this.gameObject.GetComponentsInChildren<Component>()){
+			Debug.Log("CHE SUCCEDE " + o.ToString()+" "+(((WeaponController)o).ID));
+        }*/
+
+		components.AddRange(this.gameObject.GetComponentsInChildren<Component>());
+
+		weaponController = null;
+
+		foreach (Component c in components)
+        {
+			Debug.Log("AAA IO SONO "+ID+ "  E AGGIUNGO QUESTO COMPONENTE " + c.ID);
+
+			if( c is WeaponController)
+            {
+				weaponController = (WeaponController)c;
+
+			}
+        }
+
+
 
 		
 	}
@@ -85,7 +115,7 @@ public abstract  class Character : MonoBehaviour
                 {
 					if (feature.featureName.ToString().Equals(f.featureName.ToString()))
 					{
-						Debug.Log("FEATURE CON CORRISPONDENZA :" + feature.featureName.ToString());
+						//Debug.Log("FEATURE CON CORRISPONDENZA :" + feature.featureName.ToString());
 						factor = f.updateFactor(factor);
 
                     }

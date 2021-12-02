@@ -13,6 +13,8 @@ public class EnemyWeaponController : WeaponController
     
     public override void Awake()
     {
+        ID = "SONOCATTIVA";
+
         base.Awake();
         //Inizio - Inizializzazione delle feature
        	string fileString = new StreamReader("Assets/Push-To-Data/Feature/Weapon/enemy_weapon_features.txt").ReadToEnd();
