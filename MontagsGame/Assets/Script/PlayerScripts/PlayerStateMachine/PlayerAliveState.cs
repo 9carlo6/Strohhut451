@@ -27,6 +27,11 @@ public class PlayerAliveState : PlayerBaseState
           Debug.Log("Passaggio dallo stato vivo allo stato attacco melee del giocatore");
           player.SwitchState(player.AttackState);
         }
+
+        if (playerController.isMovementPressed)
+        {
+
+        }
     }
 
     public override void OnCollisionEnter(PlayerStateManager player, Collision collision)
