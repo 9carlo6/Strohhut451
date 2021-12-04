@@ -28120,20 +28120,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1341167160}
   m_CullTransparentMesh: 1
---- !u!1 &1343020973 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 533116884415357088, guid: 658cff369a96e824b8daa1347b5e2bda,
-    type: 3}
-  m_PrefabInstance: {fileID: 839757686218751677}
-  m_PrefabAsset: {fileID: 0}
---- !u!81 &1343020974
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1343020973}
-  m_Enabled: 1
 --- !u!1 &1346350329
 GameObject:
   m_ObjectHideFlags: 0
@@ -33644,6 +33630,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   components: []
+  ID: 
+  weaponController: {fileID: 0}
   wayPoints:
   - {fileID: 4592691309433703178}
   - {fileID: 37342806}
@@ -33656,7 +33644,6 @@ MonoBehaviour:
   deathClip: {fileID: 427195058}
   punchClip: {fileID: 427195057}
   enemyWeapon: {fileID: 0}
-  enemyWeaponController: {fileID: 0}
   attackPoint: {fileID: 938842232}
   attackRange: 0.5
   meleeDamage: 1
@@ -44661,6 +44648,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 658cff369a96e824b8daa1347b5e2bda, type: 3}
+--- !u!1 &839757686218751678 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 533116884415357088, guid: 658cff369a96e824b8daa1347b5e2bda,
+    type: 3}
+  m_PrefabInstance: {fileID: 839757686218751677}
+  m_PrefabAsset: {fileID: 0}
+--- !u!81 &839757686218751679
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839757686218751678}
+  m_Enabled: 1
 --- !u!1001 &1126719040681015255
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -73,8 +73,12 @@ public class PlayerController : Character
 
 	[HideInInspector] public GameObject[] traps;
 
+	public GameObject levelController;
+
+
 	void Awake()
 	{
+		levelController = GameObject.FindGameObjectWithTag("LevelController");
 		traps = GameObject.FindGameObjectsWithTag("Trap");
 		playerInput = new PlayerInput();
 		characterController = GetComponent<CharacterController>();
@@ -221,21 +225,29 @@ public class PlayerController : Character
 	//Per gestire le animazioni
 	void handleAnimation()
 	{
+
 		//Prende i parametri dall'animator
 		bool isWalking = animator.GetBool("isWalking");
 		//isRunning ancora non utilizzato
 		bool isRunning = animator.GetBool("isRunning");
 
-		//Gestione Camminata
-		if (isMovementPressed && !isWalking)
-		{
-			FindObjectOfType<AudioManager>().Play("Running");
-			animator.SetBool("isWalking", true);
-		}
-		else if (!isMovementPressed && isWalking)
+		if (levelController.GetComponent<LevelStateManager>().getCurrentState().Equals("LevelPauseState"))
 		{
 			FindObjectOfType<AudioManager>().Stop("Running");
-			animator.SetBool("isWalking", false);
+        }
+        else
+        {
+			//Gestione Camminata
+			if (isMovementPressed && !isWalking)
+			{
+				FindObjectOfType<AudioManager>().Play("Running");
+				animator.SetBool("isWalking", true);
+			}
+			else if (!isMovementPressed && isWalking)
+			{
+				FindObjectOfType<AudioManager>().Stop("Running");
+				animator.SetBool("isWalking", false);
+			}
 		}
 
 		//velocityX e velocityZ servono per gestire l'animazione della camminata.

@@ -9,12 +9,18 @@ public class LevelCompletedState : LevelBaseState
 	public GameObject levelCompletedCanvas;
 	public bool readyToGo;
 
+	public GameObject[] traps;
+
 	public override void EnterState(LevelStateManager level)
 	{
 		Debug.Log("Stato Livello = Livello completato");
 
 		level.player.GetComponent<Rigidbody>().isKinematic = false;
 		level.player.GetComponent<CapsuleCollider>().enabled = true;
+
+		traps = GameObject.FindGameObjectsWithTag("Trap");
+
+		hideTrap();
 
 		levelCompletedCanvas = level.gameObject.transform.Find("LevelCompletedCanvas").gameObject;
 		levelCompletedCanvas.SetActive(true);
@@ -81,6 +87,14 @@ public class LevelCompletedState : LevelBaseState
 		yield return new WaitForSeconds(level.transitionTime);
 
 		level.SwitchState(level.InitialState);
+	}
+
+	public void hideTrap()
+	{
+		foreach (GameObject trap in traps)
+		{
+			trap.SetActive(false);
+		}
 	}
 
 	public override void OnCollisionEnter(LevelStateManager level, Collision collision)
