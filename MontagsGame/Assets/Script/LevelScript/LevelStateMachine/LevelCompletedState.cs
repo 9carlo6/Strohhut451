@@ -69,6 +69,12 @@ public class LevelCompletedState : LevelBaseState
 
 		  level.SwitchState(level.PauseState);
 	  }
+
+		if (level.player.GetComponent<PlayerHealthManager>().currentHealth <= 0)
+		{
+			Debug.Log("Passaggio dallo stato iniziale del livello allo stato game over");
+			level.SwitchState(level.GameOverState);
+		}
 	}
 
 	//Per gestire l'animazione della transizione tra un livello e un altro

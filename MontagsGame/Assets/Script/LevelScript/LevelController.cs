@@ -308,12 +308,12 @@ public class LevelController : MonoBehaviour
 
         Debug.Log("CURRENT AVARY NUMBER : " + currentFailure.ToString());
 
-        if (currentFailure == 0 && ((levelTimeCounter) < 5) && !isLevelCompleted)
+        if (currentFailure == 0 && ((levelTimeCounter) < 20) && !isLevelCompleted)
         {
             breakdownCanvas.SetActive(false);
         }
 
-        if (currentFailure == 0 && ((levelTimeCounter) >= 5) && !isLevelCompleted)
+        if (currentFailure == 0 && ((levelTimeCounter) >= 20) && !isLevelCompleted)
         {
             if (pc.getModifierbyID("001") == null)
             {
@@ -333,7 +333,7 @@ public class LevelController : MonoBehaviour
             }
         }
       
-        else if (currentFailure == 1 && ((levelTimeCounter) >= 10) && !isLevelCompleted)
+        else if (currentFailure == 1 && ((levelTimeCounter) >= 40) && !isLevelCompleted)
         {
             // seconda 
             if (pc.getModifierbyID("secondafailure") == null)
@@ -346,7 +346,7 @@ public class LevelController : MonoBehaviour
             }
         }
 
-         else if (currentFailure == 2 && ((levelTimeCounter + valid_levelTimeCounter) >= 15) && !isLevelCompleted)
+         else if (currentFailure == 2 && ((levelTimeCounter + valid_levelTimeCounter) >= 60) && !isLevelCompleted)
          {
             if (pc.getModifierbyID("terzafailure") == null)
             {

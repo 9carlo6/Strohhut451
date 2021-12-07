@@ -221,9 +221,9 @@ public class SessionController : MonoBehaviour
         //Meno uno in quanto prima era stato preso e non sottratto
         foreach(GameItem gi in gameItems.gameItems_list)
         {
-            if (gi.name == "skull") gi.amount += skulls_amount - 1;
-            if (gi.name == "helm") gi.amount += helms_amount - 1;
-            if (gi.name == "telescope") gi.amount += telescopes_amount - 1;
+            if (gi.name == "skull") if(gi.amount + skulls_amount > 0) gi.amount += skulls_amount - 1;
+            if (gi.name == "helm") if (gi.amount + helms_amount > 0) gi.amount += helms_amount - 1;
+            if (gi.name == "telescope") if (gi.amount + telescopes_amount > 0) gi.amount += telescopes_amount - 1;
         }
 
         string gameItems_json = JsonUtility.ToJson(gameItems);

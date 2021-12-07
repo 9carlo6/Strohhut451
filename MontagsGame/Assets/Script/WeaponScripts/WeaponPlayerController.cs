@@ -70,10 +70,12 @@ public class WeaponPlayerController : WeaponController
         }
         else
         {
+            
             if (levelController.GetComponent<LevelStateManager>().getCurrentState().Equals("LevelPauseState"))
             {
                 return;
             }
+            
 
             else
             {
