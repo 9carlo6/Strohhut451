@@ -17,8 +17,6 @@ public class EnemyController : Character
     public AudioSource deathClip;
     public AudioSource punchClip;
 
-
-
     //Per l'attacco
     public GameObject enemyWeapon;
     public Transform attackPoint;

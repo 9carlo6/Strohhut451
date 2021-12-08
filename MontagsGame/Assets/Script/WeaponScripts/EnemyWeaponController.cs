@@ -7,14 +7,10 @@ using HumanFeatures;
 
 public class EnemyWeaponController : WeaponController
 {
-    
-
     public AudioSource audioSource;
     
     public override void Awake()
     {
-        ID = "SONOCATTIVA";
-
         base.Awake();
         //Inizio - Inizializzazione delle feature
        	string fileString = new StreamReader("Assets/Push-To-Data/Feature/Weapon/enemy_weapon_features.txt").ReadToEnd();
@@ -22,20 +18,12 @@ public class EnemyWeaponController : WeaponController
 
         this.features = mapper.todict();
 
-
         audioSource = GetComponent<AudioSource>();
-
-        
-
     }
     
     public override void Update()
     {
-
-
-        
         base.Update();
-
     }
 
     //Funzione per sparare
@@ -88,6 +76,4 @@ public class EnemyWeaponController : WeaponController
             StopFiring();
         }
     }
-
-    
 }
