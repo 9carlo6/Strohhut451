@@ -64,6 +64,8 @@ public class EnemyChasePlayerState : EnemyBaseState
         viewRadius = (float)((enemyController.features)[EnemyFeature.FeatureType.FT_VIEW_RADIUS]).currentValue;
         viewAngle = (float)((enemyController.features)[EnemyFeature.FeatureType.FT_VIEW_ANGLE_CHASING]).currentValue;
 
+        //Per il suono dell'alert
+        enemyController.PlaySoundAlert();
 
         if (GameObject.FindGameObjectWithTag("Player") != null)
         {

@@ -16,6 +16,7 @@ public class EnemyController : Character
 
     public AudioSource deathClip;
     public AudioSource punchClip;
+    public AudioSource alertClip;
 
     //Per l'attacco
     public GameObject enemyWeapon;
@@ -314,5 +315,10 @@ public class EnemyController : Character
     public void PlaySoundPunch()
     {
         punchClip.Play();
+    }
+
+    public void PlaySoundAlert()
+    {
+        alertClip.Play();
     }
 }

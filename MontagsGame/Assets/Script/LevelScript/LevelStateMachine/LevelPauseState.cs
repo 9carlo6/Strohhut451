@@ -64,13 +64,7 @@ public class LevelPauseState : LevelBaseState
 
             resume();
 
-            if(level.isLevelCompleted){
-              level.SwitchState(level.CompletedState);
-            }
-            else
-            {
-              level.SwitchState(level.InitialState);
-            }
+            level.SwitchState(level.InitialState);
         }
 
         if(level.player != null)
