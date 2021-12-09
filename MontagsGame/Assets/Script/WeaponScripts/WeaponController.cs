@@ -103,9 +103,13 @@ public  abstract class WeaponController :  Component
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
         foreach (GameObject enemy in enemies)
+
+
         {
-            if(Vector3.Distance(transform.position, enemy.transform.position) <= (float)((features)[WeaponFeature.FeatureType.FT_NOISE_RANGE]).currentValue && !enemy.GetComponent<EnemyController>().animator.GetBool("isStunned"))
+            if(Vector3.Distance(transform.position, enemy.transform.position) <= (float)((features)[WeaponFeature.FeatureType.FT_NOISE_RANGE]).currentValue && !enemy.GetComponent<EnemyController>().animator.GetBool("isStunned") && !enemy.GetComponent<EnemyStateManager>().getCurrentState().Equals("EnemyChasePlayerState"))
             {
+
+                Debug.Log("Sto entrando nell'if dell'alert");
 
                 enemy.GetComponent<EnemyStateManager>().SwitchState(enemy.GetComponent<EnemyStateManager>().ChasePlayerState);
                 enemy.GetComponent<EnemyStateManager>().ChasePlayerState.fireInHearRange = true;
