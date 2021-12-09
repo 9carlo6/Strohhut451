@@ -9,16 +9,12 @@ public class LevelCompletedState : LevelBaseState
 	public GameObject levelCompletedCanvas;
 	public bool readyToGo;
 
-	public GameObject[] traps;
-
 	public override void EnterState(LevelStateManager level)
 	{
 		Debug.Log("Stato Livello = Livello completato");
 
 		level.player.GetComponent<Rigidbody>().isKinematic = false;
 		level.player.GetComponent<CapsuleCollider>().enabled = true;
-
-		traps = GameObject.FindGameObjectsWithTag("Trap");
 
 		HideTrap();
 		HideCoins();
@@ -101,7 +97,7 @@ public class LevelCompletedState : LevelBaseState
 
 	public void HideTrap()
 	{
-		foreach (GameObject trap in traps)
+		foreach (GameObject trap in GameObject.FindGameObjectsWithTag("Trap"))
 		{
 			trap.SetActive(false);
 		}

@@ -266,6 +266,14 @@ public class SessionController : MonoBehaviour
         return -1;
     }
 
+    //Funzione che restituisce il numero di tentativi dell'ultima sessione
+    public int GetCurrentRestartNumber()
+    {
+        if (sessions.sessions_list.LastOrDefault().scenes != null)
+            return sessions.sessions_list.LastOrDefault().scenes.LastOrDefault().restart_numbers;
+        return 0;
+    }
+
 
     //Funzione per la creazione del json iniziale (DA CANCELLARE)
     public void CreateInitialSessionLog()
