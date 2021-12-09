@@ -36,7 +36,20 @@ public abstract class Character : MonoBehaviour
 		components = new List<Component>();
 
 		//Per aggiungere tutti i component
-		components.AddRange(this.gameObject.GetComponentsInChildren<Component>());
+		//components.AddRange(this.gameObject.GetComponentsInChildren<Component>());
+
+		foreach(Component new_component in this.gameObject.GetComponentsInChildren<Component>())
+        {
+			bool find = false;
+			foreach (Component currentComponent in components )
+            {
+				if(currentComponent.ID == new_component.ID)
+                {
+					find = true;
+                }
+            }
+			if (!find) components.Add(new_component);
+        }
 
 		//Per gestire l'arma
 		weaponController = null;

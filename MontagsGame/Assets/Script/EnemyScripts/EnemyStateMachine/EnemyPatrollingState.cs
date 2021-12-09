@@ -10,7 +10,6 @@ public class EnemyPatrollingState : EnemyBaseState
     public Transform[] wayPoints;   //Array di points verso cui il nemico dovrà effettuare il patroling
     private int wayPointIndex = 0;   //Indice per tenere conto dei points verso cui muoversi,  primo waypoint
 
-
     //FOV, Chase player
     public float viewRadius;  //raggio di vista
     [Range(0, 360)]           //limitiamo l'angolo di visuale a 360�
@@ -25,7 +24,6 @@ public class EnemyPatrollingState : EnemyBaseState
     GameObject enemyGameObject;
     EnemyController enemyController;
 
-
     EnemyHealthManager enemyHealthManager;
 
     //per l'animazione
@@ -35,23 +33,16 @@ public class EnemyPatrollingState : EnemyBaseState
 
     public bool playerInSightRange;  //quando vedo il bersaglio = true
 
-
     //ALERT
     public GameObject playerGameObject;
     public bool playerFire;  //Viene utilizzata per l'alert
     public bool fireInHearRange;
 
-
-
     public override void EnterState(EnemyStateManager enemy)
-        {
+    {
         Debug.Log("Stato Nemico = Patrolling");
 
-
-
         enemyNavMeshAgent = enemy.GetComponent<NavMeshAgent>();
-
-        //enemyNavMeshAgent.speed = 1f;
 
         enemyGameObject = enemy.GetComponent<EnemyController>().gameObject;
         wayPoints = enemy.GetComponent<EnemyController>().wayPoints;
@@ -65,25 +56,24 @@ public class EnemyPatrollingState : EnemyBaseState
 
         viewAngle = (float)((enemyController.features)[EnemyFeature.FeatureType.FT_VIEW_ANGLE_PATROLLING]).currentValue;
 
-
         enemyNavMeshAgent.destination = wayPoints[wayPointIndex].position;
 
         if (GameObject.FindGameObjectWithTag("Player") != null)
         {
             playerGameObject = GameObject.FindGameObjectWithTag("Player");
         }
-        
-
-
     }
 
     public override void UpdateState(EnemyStateManager enemy)
+    {
+        //diminuisce la velocità del nemico progressivamente fino a quando non arriva al basevalue
+        if (enemyNavMeshAgent.speed >= (float)((enemyController.features)[EnemyFeature.FeatureType.FT_VELOCITY]).currentValue)
         {
-
+            enemyNavMeshAgent.speed = enemyNavMeshAgent.speed - Time.deltaTime * (float)((enemyController.features)[EnemyFeature.FeatureType.FT_DECELERATION]).currentValue;
+        }
 
         //Il fov dovrà essere sempre attivo, ritorna il valore di playerInSightRange
         FieldOfViewCheck();   
-
 
         if (!playerInSightRange)
         {
@@ -100,8 +90,7 @@ public class EnemyPatrollingState : EnemyBaseState
         {
             enemy.SwitchState(enemy.DeathState);
         }
-
-}
+    }
 
     //FOV
     private void FieldOfViewCheck()
@@ -154,8 +143,6 @@ public class EnemyPatrollingState : EnemyBaseState
         {
             //check e set + 1 
             //usando un modulo ciclo sui numeri e aumento l'index
-
-
             wayPointIndex = (wayPointIndex + 1) % wayPoints.Length;
 
             enemy.SwitchState(enemy.CheckState);

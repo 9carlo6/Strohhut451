@@ -73,10 +73,13 @@ public class LevelPauseState : LevelBaseState
             }
         }
 
-        if (level.player.GetComponent<PlayerHealthManager>().currentHealth <= 0)
+        if(level.player != null)
         {
-            Debug.Log("Passaggio dallo stato iniziale del livello allo stato game over");
-            level.SwitchState(level.GameOverState);
+            if (level.player.GetComponent<PlayerHealthManager>().currentHealth <= 0)
+            {
+                Debug.Log("Passaggio dallo stato iniziale del livello allo stato game over");
+                level.SwitchState(level.GameOverState);
+            }
         }
     }
 

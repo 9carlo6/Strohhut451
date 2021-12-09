@@ -15,21 +15,16 @@ public class EnemyCheckState : EnemyBaseState
     public LayerMask targetMask;    //bersaglio, cioè il player
     public LayerMask obstructionMask; //ostacoli, ad esempio le pareti
 
-    
     GameObject enemyGameObject;
 
     public Transform[] wayPoints;   //Array di points verso cui il nemico dovrà effettuare il patroling
 
-
-
     //per l'animazione
     public Animator enemyAnimator;
-
 
     public bool playerInSightRange;  //quando vedo il bersaglio = true
 
     EnemyHealthManager enemyHealthManager;
-
 
     public float checkTime = 0;
 
@@ -45,7 +40,6 @@ public class EnemyCheckState : EnemyBaseState
         Debug.Log("Stato nemico = CHECK");
 
         checkTime = 0;
-
       
         enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
         enemyGameObject = enemy.GetComponent<EnemyController>().gameObject;
@@ -58,8 +52,6 @@ public class EnemyCheckState : EnemyBaseState
 
         viewAngle = (float)((enemyController.features)[EnemyFeature.FeatureType.FT_VIEW_ANGLE_PATROLLING]).currentValue;
 
-
-
         if (GameObject.FindGameObjectWithTag("Player") != null)
         {
             playerGameObject = GameObject.FindGameObjectWithTag("Player");
@@ -69,13 +61,6 @@ public class EnemyCheckState : EnemyBaseState
 
     public override void UpdateState(EnemyStateManager enemy)
     {
-
-       
-        if (enemyHealthManager.currentHealth <= 0)
-        {
-            enemy.SwitchState(enemy.DeathState);
-        }
-
         FieldOfViewCheck();
 
         if (playerInSightRange)
@@ -90,15 +75,20 @@ public class EnemyCheckState : EnemyBaseState
                 enemy.SwitchState(enemy.PatrollingState);
             }
         }
-        else 
+        else
         {
             checkTime += Time.deltaTime;
         }
+
+        if (enemyHealthManager.currentHealth <= 0)
+        {
+            enemy.SwitchState(enemy.DeathState);
+        }
     }
 
-    
-    //FOV
-    private void FieldOfViewCheck()
+
+        //FOV
+        private void FieldOfViewCheck()
     {
         //Inizializziamo un'array con tutti i collider che toccano o sono dentro la sfera con i parametri passati
         //Centro della sfera, raggio, layer di collider da includere nella query

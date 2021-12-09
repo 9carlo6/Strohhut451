@@ -309,7 +309,7 @@ namespace EnemyFeatures
         }
         public override void applyFactor(System.Object factor)
         {
-            this.currentValue = (bool)factor;
+            //this.currentValue = (bool)factor;
         }
 
         public override System.Object updateFactor(System.Object factor)

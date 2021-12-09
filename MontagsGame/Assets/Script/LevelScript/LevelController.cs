@@ -305,9 +305,6 @@ public class LevelController : MonoBehaviour
         //1) sono passati 30 secondi
         //2) non è completato il Livello
         //3) non contiene già un modicatore con questa chiave
-
-        Debug.Log("CURRENT AVARY NUMBER : " + currentFailure.ToString());
-
         if (currentFailure == 0 && ((levelTimeCounter) < 20) && !isLevelCompleted)
         {
             breakdownCanvas.SetActive(false);
@@ -317,19 +314,12 @@ public class LevelController : MonoBehaviour
         {
             if (pc.getModifierbyID("001") == null)
             {
-                Debug.Log("APPLICO LA PRIMA FAILURE");
-
                 currentFailure = 1;
                 breakdownCanvas.SetActive(true);
                 firstBreakdownImage.enabled = true;
                 pc.addMoreModifiers(modifiersjson.getMoreModifiersbyCIDs(events.getEventbyName("primaAvaria").modificatoriCIDS));
 
                 radioController.SetRadioText(events.getEventbyName("primaAvaria").message);
-            }
-            else
-            {
-
-                Debug.Log("LA PRIMA FAILURE è GIA IN CORSO ASPETTIAMO LA SECONDA ");
             }
         }
       
