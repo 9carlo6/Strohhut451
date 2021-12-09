@@ -9,8 +9,20 @@ public class PlayerDeathState : PlayerBaseState
     private Animator animator;
     private AnimatorClipInfo[] clipInfo;
 
+    public GameObject cameraGameObject;
+    public AudioListener audioListener;
+
     public override void EnterState(PlayerStateManager player)
     {
+
+        cameraGameObject = GameObject.FindGameObjectWithTag("MainCamera");
+
+        audioListener = cameraGameObject.GetComponent<AudioListener>();
+
+        audioListener.enabled = true;
+
+
+
         Debug.Log("Stato Player = Morto");
 
         playerController = player.GetComponent<PlayerController>();

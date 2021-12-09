@@ -75,9 +75,14 @@ public class PlayerController : Character
 
 	public GameObject levelController;
 
+	AudioListener audioListener;
 
 	void Awake()
 	{
+		audioListener = GetComponent<AudioListener>();
+
+		audioListener.enabled = true;
+
 		levelController = GameObject.FindGameObjectWithTag("LevelController");
 		traps = GameObject.FindGameObjectsWithTag("Trap");
 		playerInput = new PlayerInput();

@@ -23397,6 +23397,11 @@ PrefabInstance:
       propertyPath: enemySounds.Array.data[0].spatialBlend
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4051695957659293032, guid: 30dcb0e311f123342b42061ab6806e85,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4243409784758544197, guid: 30dcb0e311f123342b42061ab6806e85,
         type: 3}
       propertyPath: m_Name
@@ -43851,6 +43856,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 658cff369a96e824b8daa1347b5e2bda, type: 3}
+--- !u!1 &839757686218751678 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 533116884415357088, guid: 658cff369a96e824b8daa1347b5e2bda,
+    type: 3}
+  m_PrefabInstance: {fileID: 839757686218751677}
+  m_PrefabAsset: {fileID: 0}
+--- !u!81 &839757686218751679
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839757686218751678}
+  m_Enabled: 0
 --- !u!1001 &1126719040681015255
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44143,7 +44162,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1566586077478986611}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!1001 &1887574710819175721
 PrefabInstance:
   m_ObjectHideFlags: 0

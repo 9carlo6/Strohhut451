@@ -11,7 +11,6 @@ public class AudioManager : MonoBehaviour
     //Definiamo un array di suoni a partire dalla classe Sound
     public Sound[] sounds;
 
-
     // Start is called before the first frame update
     void Awake()
     {
