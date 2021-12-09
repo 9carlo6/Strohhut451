@@ -16,6 +16,7 @@ public class WeaponPlayerController : WeaponController
 
     public override void Awake()
     {
+
         levelController = GameObject.FindGameObjectWithTag("LevelController");
 
         base.Awake();
@@ -69,7 +70,6 @@ public class WeaponPlayerController : WeaponController
                 {
                     FindObjectOfType<AudioManager>().Play("NormalFire");
                 }
-
                 //Questo ciclo permette di azionare tutti gli oggetti particellari in muzzleFlash
                 foreach (var particle in muzzleFlash)
                 {

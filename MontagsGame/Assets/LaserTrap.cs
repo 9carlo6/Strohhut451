@@ -6,9 +6,9 @@ public class LaserTrap : MonoBehaviour
 {
 
     public LineRenderer lineRenderer;
-    float durataAnimazione = 2.0f;
+    float durataAnimazione = 1.0f;
     float valoreMinimo = -0.01f;
-    float valoreMassimo = 2.6f;
+    float valoreMassimo = 3f;
     public BoxCollider boxCollider;
     EnemyController enemyController;
     Renderer renderEnemyBody;

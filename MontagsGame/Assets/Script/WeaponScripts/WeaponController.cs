@@ -51,6 +51,8 @@ public  abstract class WeaponController :  Component
           FireBullet();
           accumulatedTime -= fireInterval;
         }
+
+        
     }
 
     //Funzione per sparare
