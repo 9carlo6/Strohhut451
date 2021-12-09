@@ -8,6 +8,7 @@ public class PlayerSounds : MonoBehaviour
     PlayerController playerController;
     WeaponController weaponController;
     Coin coin;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +16,6 @@ public class PlayerSounds : MonoBehaviour
         weaponController = GetComponentInChildren<WeaponController>();
         audioManager = GetComponent<AudioManager>();
         coin = GetComponent<Coin>();
-
     }
 
     // Update is called once per frame
@@ -24,19 +24,14 @@ public class PlayerSounds : MonoBehaviour
         FireSound();
         RunningSound();
         CoinSound();
-        
-
     }
 
     void FireSound()
     {
-        if (weaponController.isFiring && (float)weaponController.features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue > 0 && !weaponController.isBurst)
+        if (weaponController.isFiring && (float) weaponController.features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue > 0 && !(bool) weaponController.features[WeaponFeatures.WeaponFeature.FeatureType.FT_BURST].currentValue)
         {
-  
                 FindObjectOfType<AudioManager>().Play("NormalFire");
-
         }
-
    }
 
     //da gestire un po meglio
@@ -46,7 +41,6 @@ public class PlayerSounds : MonoBehaviour
         {
             FindObjectOfType<AudioManager>().Play("running");
         }
-        
     }
 
     void CoinSound()

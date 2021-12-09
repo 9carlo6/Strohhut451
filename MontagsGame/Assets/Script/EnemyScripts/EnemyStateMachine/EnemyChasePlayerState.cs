@@ -45,25 +45,23 @@ public class EnemyChasePlayerState : EnemyBaseState
     public bool playerInSightRange;  //quando vedo il bersaglio = true
 
 
-
-    
-
     public override void EnterState(EnemyStateManager enemy)
     {
         Debug.Log("Stato Nemico = Chasing");
 
-        
-
-        playerInSightRange = true;
-
-        fireInHearRange = false;
-
-        meleeDistance = enemy.GetComponent<EnemyController>().meleeDistance;
-        fireDistance = enemy.GetComponent<EnemyController>().fireDistance;
+        enemyGameObject = enemy.GetComponent<EnemyController>().gameObject;
+        targetMask = enemy.GetComponent<EnemyController>().targetMask;
+        obstructionMask = enemy.GetComponent<EnemyController>().obstructionMask;
+        enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
+        enemyAnimator = enemy.GetComponent<Animator>();
+        weaponController = enemy.GetComponentInChildren<EnemyWeaponController>();
         enemyController = enemy.GetComponent<EnemyController>();
 
+        playerInSightRange = true;
+        fireInHearRange = false;
+        meleeDistance = (float)((enemyController.features)[EnemyFeature.FeatureType.FT_MELEE_RANGE]).currentValue;
+        fireDistance = (float)((enemyController.features)[EnemyFeature.FeatureType.FT_FIRE_DISTANCE]).currentValue;
         viewRadius = (float)((enemyController.features)[EnemyFeature.FeatureType.FT_VIEW_RADIUS]).currentValue;
-
         viewAngle = (float)((enemyController.features)[EnemyFeature.FeatureType.FT_VIEW_ANGLE_CHASING]).currentValue;
 
 
@@ -74,38 +72,27 @@ public class EnemyChasePlayerState : EnemyBaseState
 
         enemyNavMesh = enemy.GetComponent<NavMeshAgent>();
 
-        enemyNavMesh.speed = 2f;
+        enemyNavMesh.speed = (float) ((enemyController.features)[EnemyFeature.FeatureType.FT_VELOCITY]).currentValue;
 
         if (enemyController.enemyWeapon != null)
         {
             enemyController.enemyWeapon.SetActive(true);
         }
-
-
-        enemyGameObject = enemy.GetComponent<EnemyController>().gameObject;
-        targetMask = enemy.GetComponent<EnemyController>().targetMask;
-        obstructionMask = enemy.GetComponent<EnemyController>().obstructionMask;
-        enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
-        enemyAnimator = enemy.GetComponent<Animator>();
-        weaponController = enemy.GetComponentInChildren<EnemyWeaponController>();
-
        
     }
 
     public override void UpdateState(EnemyStateManager enemy)
     {
-
-         //aumenta la velocità del nemico progressivamente
-        if (enemyNavMesh.speed <= 6.5f)
+        //aumenta la velocità del nemico progressivamente fino a quando non raddoppia
+        if (enemyNavMesh.speed <= (float)((enemyController.features)[EnemyFeature.FeatureType.FT_VELOCITY]).currentValue * 2)
         {
-
-            enemyNavMesh.speed = enemyNavMesh.speed + Time.deltaTime * agentAcceleration;
+            enemyNavMesh.speed = enemyNavMesh.speed + Time.deltaTime * (float)((enemyController.features)[EnemyFeature.FeatureType.FT_ACCELERATION]).currentValue;
         }
        
         if (playerGameObject.transform.GetComponent<PlayerHealthManager>().currentHealth <= 0)
         {
+            enemyNavMesh.speed = (float)((enemyController.features)[EnemyFeature.FeatureType.FT_VELOCITY]).currentValue;
             enemy.SwitchState(enemy.AliveState);
-
         }
         else
         {
@@ -116,7 +103,6 @@ public class EnemyChasePlayerState : EnemyBaseState
             if(fireInHearRange && hearTime < 3f)
             {
                 hearTime += Time.deltaTime;
-
             }
             else
             {
@@ -133,9 +119,8 @@ public class EnemyChasePlayerState : EnemyBaseState
             {
                 if (distanceToTarget <= meleeDistance)
                 {
-                    
+                    enemyNavMesh.speed = (float)((enemyController.features)[EnemyFeature.FeatureType.FT_VELOCITY]).currentValue;
                     enemy.SwitchState(enemy.AttackMeleeState);
-
                 }
                 else
                 {
@@ -146,11 +131,13 @@ public class EnemyChasePlayerState : EnemyBaseState
             //Gestione passaggio allo stato Stunned del nemico
             if (enemyAnimator.GetBool("isStunned"))
             {
+                enemyNavMesh.speed = (float)((enemyController.features)[EnemyFeature.FeatureType.FT_VELOCITY]).currentValue;
                 enemy.SwitchState(enemy.StunnedState);
             }
 
             if (enemyHealthManager.currentHealth <= 0)
             {
+                enemyNavMesh.speed = (float)((enemyController.features)[EnemyFeature.FeatureType.FT_VELOCITY]).currentValue;
                 enemy.SwitchState(enemy.DeathState);
             }
         }
@@ -217,18 +204,19 @@ public class EnemyChasePlayerState : EnemyBaseState
         enemyGameObject.transform.LookAt(playerGameObject.transform);
 
         // funzione di sparo con precisione in funzione della distanza
-
-        if(distance <= fireDistance && enemyGameObject.name.Contains("Armato"))
+        if (distance <= fireDistance && (bool) (enemyController.features[EnemyFeature.FeatureType.FT_IS_WEAPONED].currentValue))
         {
             Fire();
         }
-
     }
 
 
     public void Fire()
     {
-        weaponController.UpdateFiring(Time.deltaTime);
+        if (weaponController != null)
+        {
+            weaponController.UpdateFiring(Time.deltaTime);
+        }
         // qui funzione di sparo con calcolo precisione e spawn del proiettile,
         // ovviamente questa viene invocata ogni frame , quindi va gestito il fatto che si spara ogni secondo o mezzo secondo non 30 volte al secondo
     }

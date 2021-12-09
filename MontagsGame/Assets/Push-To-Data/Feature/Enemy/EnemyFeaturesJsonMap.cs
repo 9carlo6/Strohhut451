@@ -41,9 +41,6 @@ public class EnemyFeaturesJsonMap: Dictionable
         if (FT_WEIGHT < 0) throw new DataException("FT_WEIGHT NON PUO ESSERE NEGATIVO");
 
 
-
-
-
         Dictionary<System.Object, Feature> newDict = new Dictionary<System.Object, Feature>();
 
         newDict.Add(EnemyFeature.FeatureType.FT_VELOCITY, new SpeedEnemyFeature(FT_VELOCITY, EnemyFeature.FeatureType.FT_VELOCITY));
@@ -54,7 +51,7 @@ public class EnemyFeaturesJsonMap: Dictionable
         newDict.Add(EnemyFeature.FeatureType.FT_MAX_HEALTH, new MaxHealthEnemyFeature(FT_MAX_HEALTH, EnemyFeature.FeatureType.FT_MAX_HEALTH));
         newDict.Add(EnemyFeature.FeatureType.FT_MELEE_RANGE, new MeleeRangeEnemyFeature(FT_MELEE_RANGE, EnemyFeature.FeatureType.FT_MELEE_RANGE));
         newDict.Add(EnemyFeature.FeatureType.FT_MELEE_DAMAGE, new MeleeDamageEnemyFeature(FT_MELEE_DAMAGE, EnemyFeature.FeatureType.FT_MELEE_DAMAGE));
-        newDict.Add(EnemyFeature.FeatureType.FT_IS_WEAPONED, new IsWeaponedEnemyFeature(FT_IS_WEAPONED, EnemyFeature.FeatureType.FT_IS_WEAPONED));
+        newDict.Add(EnemyFeature.FeatureType.FT_IS_WEAPONED, new IsWeaponedEnemyFeature(false, EnemyFeature.FeatureType.FT_IS_WEAPONED));
         newDict.Add(EnemyFeature.FeatureType.FT_FIRE_DISTANCE, new FireDistanceEnemyFeature(FT_FIRE_DISTANCE, EnemyFeature.FeatureType.FT_FIRE_DISTANCE));
         newDict.Add(EnemyFeature.FeatureType.FT_VIEW_RADIUS, new ViewRadiusEnemyFeature(FT_VIEW_RADIUS, EnemyFeature.FeatureType.FT_VIEW_RADIUS));
         newDict.Add(EnemyFeature.FeatureType.FT_VIEW_ANGLE_PATROLLING, new ViewAnglePatrollingEnemyFeature(FT_VIEW_ANGLE_PATROLLING, EnemyFeature.FeatureType.FT_VIEW_ANGLE_PATROLLING));

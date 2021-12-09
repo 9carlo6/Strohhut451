@@ -305,20 +305,15 @@ public class LevelController : MonoBehaviour
         //1) sono passati 30 secondi
         //2) non è completato il Livello
         //3) non contiene già un modicatore con questa chiave
-
-        Debug.Log("CURRENT AVARY NUMBER : " + currentFailure.ToString());
-
-        if (currentFailure == 0 && ((levelTimeCounter) < 5) && !isLevelCompleted)
+        if (currentFailure == 0 && ((levelTimeCounter) < 20) && !isLevelCompleted)
         {
             breakdownCanvas.SetActive(false);
         }
 
-        if (currentFailure == 0 && ((levelTimeCounter) >= 5) && !isLevelCompleted)
+        if (currentFailure == 0 && ((levelTimeCounter) >= 20) && !isLevelCompleted)
         {
             if (pc.getModifierbyID("001") == null)
             {
-                Debug.Log("APPLICO LA PRIMA FAILURE");
-
                 currentFailure = 1;
                 breakdownCanvas.SetActive(true);
                 firstBreakdownImage.enabled = true;
@@ -326,14 +321,9 @@ public class LevelController : MonoBehaviour
 
                 radioController.SetRadioText(events.getEventbyName("primaAvaria").message);
             }
-            else
-            {
-
-                Debug.Log("LA PRIMA FAILURE è GIA IN CORSO ASPETTIAMO LA SECONDA ");
-            }
         }
       
-        else if (currentFailure == 1 && ((levelTimeCounter) >= 10) && !isLevelCompleted)
+        else if (currentFailure == 1 && ((levelTimeCounter) >= 40) && !isLevelCompleted)
         {
             // seconda 
             if (pc.getModifierbyID("secondafailure") == null)
@@ -346,7 +336,7 @@ public class LevelController : MonoBehaviour
             }
         }
 
-         else if (currentFailure == 2 && ((levelTimeCounter + valid_levelTimeCounter) >= 15) && !isLevelCompleted)
+         else if (currentFailure == 2 && ((levelTimeCounter + valid_levelTimeCounter) >= 60) && !isLevelCompleted)
          {
             if (pc.getModifierbyID("terzafailure") == null)
             {

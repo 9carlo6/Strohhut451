@@ -20,7 +20,8 @@ public class LevelCompletedState : LevelBaseState
 
 		traps = GameObject.FindGameObjectsWithTag("Trap");
 
-		hideTrap();
+		HideTrap();
+		HideCoins();
 
 		levelCompletedCanvas = level.gameObject.transform.Find("LevelCompletedCanvas").gameObject;
 		levelCompletedCanvas.SetActive(true);
@@ -69,6 +70,15 @@ public class LevelCompletedState : LevelBaseState
 
 		  level.SwitchState(level.PauseState);
 	  }
+
+		if (level.player.GetComponent<PlayerHealthManager>() != null)
+		{
+			if(level.player.GetComponent<PlayerHealthManager>().currentHealth <= 0)
+            {
+				Debug.Log("Passaggio dallo stato iniziale del livello allo stato game over");
+				level.SwitchState(level.GameOverState);
+			}
+		}
 	}
 
 	//Per gestire l'animazione della transizione tra un livello e un altro
@@ -89,11 +99,19 @@ public class LevelCompletedState : LevelBaseState
 		level.SwitchState(level.InitialState);
 	}
 
-	public void hideTrap()
+	public void HideTrap()
 	{
 		foreach (GameObject trap in traps)
 		{
 			trap.SetActive(false);
+		}
+	}
+
+	public void HideCoins()
+	{
+		foreach (GameObject coin in GameObject.FindGameObjectsWithTag("Coin"))
+		{
+			coin.SetActive(false);
 		}
 	}
 

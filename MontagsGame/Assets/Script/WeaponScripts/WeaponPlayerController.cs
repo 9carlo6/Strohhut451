@@ -7,9 +7,6 @@ using HumanFeatures;
 
 public class WeaponPlayerController : WeaponController
 {
-    //Per gestire il widget relativo alle munizioni
-    //[HideInInspector] public AmmoWidget ammoWidget;
-
     //Per gestire il puntatore dell'arma
     public GameObject weaponSight;
     Ray rayWeaponSight;
@@ -17,12 +14,9 @@ public class WeaponPlayerController : WeaponController
 
     public GameObject levelController;
 
-
     public override void Awake()
     {
         levelController = GameObject.FindGameObjectWithTag("LevelController");
-
-        ID = "SONOLARMAPIUBELLA";
 
         base.Awake();
         weaponSight = GameObject.FindWithTag("WeaponSight");
@@ -33,11 +27,7 @@ public class WeaponPlayerController : WeaponController
 
         //this.features = new Dictionary<HumanFeature.FeatureType, HumanFeature>();
         this.features = mapper.todict();
-
-
     }
-
-   
 
     //Funzione per sparare
     public override void FireBullet()
@@ -46,7 +36,6 @@ public class WeaponPlayerController : WeaponController
         if ((int)features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue <= 0)
         {
            // FindObjectOfType<AudioManager>().Play("NoMoreAmmo");
-
             return;
         }
 
@@ -55,7 +44,6 @@ public class WeaponPlayerController : WeaponController
         bool fail = false;
         if (ran >(float)features[WeaponFeatures.WeaponFeature.FeatureType.FT_CHANCE_OF_SHOOTING].currentValue)
         {
-            Debug.Log("OPS " + ran + " / " + (float)features[WeaponFeatures.WeaponFeature.FeatureType.FT_CHANCE_OF_SHOOTING].currentValue);
             fail = true;
         }
 
@@ -66,23 +54,21 @@ public class WeaponPlayerController : WeaponController
         if (fail)
         {
             //FindObjectOfType<AudioManager>().Play("FailFire");
-
         }
         else
         {
+            
             if (levelController.GetComponent<LevelStateManager>().getCurrentState().Equals("LevelPauseState"))
             {
                 return;
             }
-
+            
             else
             {
-
-                Debug.Log("OK " + ran + " / " + (float)features[WeaponFeatures.WeaponFeature.FeatureType.FT_CHANCE_OF_SHOOTING].currentValue);
-
-
-                if (!isBurst)
+                if (!(bool)features[WeaponFeatures.WeaponFeature.FeatureType.FT_BURST].currentValue)
+                {
                     FindObjectOfType<AudioManager>().Play("NormalFire");
+                }
 
                 //Questo ciclo permette di azionare tutti gli oggetti particellari in muzzleFlash
                 foreach (var particle in muzzleFlash)
@@ -114,12 +100,10 @@ public class WeaponPlayerController : WeaponController
                 }
 
                 //Se non c'è la raffica allora spara solo un colpo e dopo finisce
-                if (!isBurst)
+                if (!(bool) features[WeaponFeatures.WeaponFeature.FeatureType.FT_BURST].currentValue)
                 {
                     StopFiring();
                 }
-                //Questo serve per aggiornare le munizioni visibili nel widget
-                //ammoWidget.Refresh(ammoCount);
             }
         }
     }
@@ -137,11 +121,9 @@ public class WeaponPlayerController : WeaponController
         }
     }
 
-    public override void Update() {
-
+    public override void Update() 
+    {
         base.Update();
-
-       
 
         //Per gestire il puntatore
         handleWeaponSight();
@@ -158,11 +140,5 @@ public class WeaponPlayerController : WeaponController
         {
             features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue =(int ) features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue + ammoDropCount;
         }
-
-        //Questo serve per aggiornare le munizioni visibili nel widget
-        //ammoWidget.Refresh(ammoCount);
     }
-
-   
-
 }

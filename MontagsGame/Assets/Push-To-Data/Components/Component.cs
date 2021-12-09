@@ -35,6 +35,22 @@ public abstract class Component : MonoBehaviour
 		components = new List<Component>();
 
 		//Da cambiare!
+		/*
+		foreach (Component new_component in this.gameObject.GetComponentsInChildren<Component>())
+		{
+			Debug.Log("we bwllo ooooooo io sono arma " + ID + " e questa è " + new_component.ID + "////" + this.gameObject.GetComponentsInChildren<Component>().Length);
+			bool find = false;
+			foreach (Component currentComponent in components)
+			{
+				if (currentComponent.ID == new_component.ID || new_component.ID == ID)
+				{
+					find = true;
+				}
+			}
+			if (!find) components.Add(new_component);
+		}
+		*/
+
 		foreach (Component com in this.gameObject.GetComponentsInChildren<Component>())
 		{
             if (ID != com.ID)
@@ -42,6 +58,7 @@ public abstract class Component : MonoBehaviour
 				components.Add(com);
 			}
 		}
+		
 
 	}
 

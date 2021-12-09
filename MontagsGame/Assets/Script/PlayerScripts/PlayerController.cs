@@ -84,7 +84,7 @@ public class PlayerController : Character
 		characterController = GetComponent<CharacterController>();
 		animator = GetComponent<Animator>();
 		rigBuilder = GetComponent<RigBuilder>();
-		weaponController = GetComponentInChildren<WeaponPlayerController>();
+		//weaponController = GetComponentInChildren<WeaponPlayerController>();
 
 		//Inizio - Componenti dei Figli
 		astroBody = transform.Find("CorpoAstronauta").gameObject;
@@ -165,7 +165,7 @@ public class PlayerController : Character
 	//Per il setting dei valori delle feature dipendenti da altre (ad ogni frame)	public override void setFeatures()
     {
 		//Per settare il valore della velocità in funzione del peso
-		this.features[HumanFeature.FeatureType.FT_SPEED].currentValue = (2.5f*((float)(this.features[HumanFeature.FeatureType.FT_WEIGHT].baseValue))) / (float)(this.features[HumanFeature.FeatureType.FT_WEIGHT].currentValue);
+		this.features[HumanFeature.FeatureType.FT_SPEED].currentValue = (((float)(this.features[HumanFeature.FeatureType.FT_SPEED].baseValue)) * ((float)(this.features[HumanFeature.FeatureType.FT_WEIGHT].baseValue))) / (float)(this.features[HumanFeature.FeatureType.FT_WEIGHT].currentValue);
 	}
 
 	//Per il setting dei valori delle feature dipendenti da altre (nella fase iniziale)

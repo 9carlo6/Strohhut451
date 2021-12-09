@@ -17,25 +17,20 @@ public class EnemyController : Character
     public AudioSource deathClip;
     public AudioSource punchClip;
 
-
-
     //Per l'attacco
     public GameObject enemyWeapon;
     public Transform attackPoint;
-    public float attackRange;
-    public float meleeDamage = 1f;
-    public float meleeDistance = 1.2f;
-    public float fireDistance = 6f;
 
     //Per l'animazione
     public Animator animator;
+    [HideInInspector] int velocityHash;
+    private AnimatorClipInfo[] clipInfo;
+
     [HideInInspector] public EnemyStateManager stateManager;
 
     NavMeshAgent enemyNavMeshAgent;  //NavMesh del nemico
 
     [HideInInspector] public bool ready = false;
-
-    private AnimatorClipInfo[] clipInfo;
 
     //Per modificare i materiali dei figli runtime
   	public Material[] material;
@@ -43,27 +38,19 @@ public class EnemyController : Character
   	public Renderer renderEnemyBody;
 
     //Per l'animazione dell'arma
+    public Rig enemy_weapon_rig;
     public Rig aimLayer;
-
     float aimDuration = 0.3f;
-
-    public float acceleration = 0.3f;
-    public float deceleration = 0.3f;
-    float velocity = 0.4f;
-    int velocityHash;  
 
     //Per Gestire lo shader corrente
     public Shader baseEnemyShader;
     public Shader stunnedEnemyShader;
     public Shader enemyTrapShader;
 
-    //Per gestire le feature
-
-
+    public float animation_velocity;
 
     void Awake()
     {
-
         animator = GetComponent<Animator>();
         stateManager = GetComponent<EnemyStateManager>();
 
@@ -77,60 +64,36 @@ public class EnemyController : Character
         this.material[0].SetFloat("Vector_Intensity_Dissolve2", 0.4f);
 
         //Inizio - Inizializzazione delle feature
-    	string fileString = new StreamReader("Assets/Push-To-Data/Feature/Enemy/enemy_features.json").ReadToEnd();
+        string fileString = new StreamReader("Assets/Push-To-Data/Feature/Enemy/enemy_features.json").ReadToEnd();
     	mapper = JsonUtility.FromJson<EnemyFeaturesJsonMap>(fileString);
+
         base.Awake();
 
-
-        /*
-         foreach (Component c in components)
-         {
-            if (c != null)
-                modifiers.AddRange(c.modifiers);
-         }
-        */
         this.features = mapper.todict();
-
-
-        weaponController = GetComponentInChildren<EnemyWeaponController>();
-
-        if(weaponController != null)
-        {
-            components.Add(weaponController);
-
-        }
-
-
-
-
     }
+
     public override void setFeatures()
     {
-
         //l'idea è settare i valori delle feature "composte" tipo la velocità è funzione del peso:
-
-        this.features[EnemyFeature.FeatureType.FT_VELOCITY].currentValue = 0.0417f * (float)this.features[EnemyFeature.FeatureType.FT_WEIGHT].currentValue;
-
+        this.features[EnemyFeature.FeatureType.FT_VELOCITY].currentValue = (((float)this.features[EnemyFeature.FeatureType.FT_VELOCITY].baseValue) * ((float)this.features[EnemyFeature.FeatureType.FT_WEIGHT].baseValue)) / (float)(this.features[EnemyFeature.FeatureType.FT_WEIGHT].currentValue);
     }
-
 
     public override void initializeFeatures()
     {
         features[EnemyFeature.FeatureType.FT_HEALTH].currentValue = features[EnemyFeature.FeatureType.FT_MAX_HEALTH].currentValue;
 
-        if(weaponController == null)
+        if(weaponController != null)
         {
-            features[EnemyFeature.FeatureType.FT_IS_WEAPONED].currentValue = false;
+            features[EnemyFeature.FeatureType.FT_IS_WEAPONED].currentValue = true;
         }
-
-
-
     }
 
     // Start is called before the first frame update
     public override void Start()
     {
+        animation_velocity = (float)this.features[EnemyFeature.FeatureType.FT_VELOCITY].currentValue;
         enemyNavMeshAgent = GetComponent<NavMeshAgent>();
+
         if (weaponController != null)
         {
             animator.SetFloat("isWeapon", 1);
@@ -142,7 +105,6 @@ public class EnemyController : Character
             animator.SetFloat("isWeapon", 0f);
             animator.SetFloat("isRunning", 0f);
             velocityHash = Animator.StringToHash("isRunningWithoutWeapon");
-
         }
         base.Start();
     }
@@ -150,12 +112,8 @@ public class EnemyController : Character
     // Update is called once per frame
     void Update()
     {
-
+        base.Update();
         handleAnimation();
-
-        UpdateFeatures();
-        setFeatures();
-        applyModifiers();
     }
 
     //Per gestire le animazioni
@@ -166,20 +124,25 @@ public class EnemyController : Character
         {
             switch (stateManager.getCurrentState())
             {
-
                 case "EnemyPatrollingState":
 
                     if (aimLayer != null)
                     {
                         aimLayer.weight -= Time.deltaTime / aimDuration;
                     }
-                    if (velocity >= 0.2f)
+
+                    //Per gestire il movimento delle mani rispetto all'arma
+                    if (enemy_weapon_rig != null)
                     {
-
-                        velocity -= Time.deltaTime * deceleration;
-
+                        enemy_weapon_rig.weight = 1;
                     }
-                    animator.SetFloat(velocityHash, velocity);
+
+                    if (animation_velocity >= 0.2f)
+                    {
+                        animation_velocity -= Time.deltaTime * ((float)this.features[EnemyFeature.FeatureType.FT_DECELERATION].currentValue);
+                    }
+
+                    animator.SetFloat(velocityHash, animation_velocity);
                     animator.SetBool("isWalkingEnemy", true);
                     animator.SetBool("Attack", false);
                     animator.SetBool("isStunned", false);
@@ -191,6 +154,13 @@ public class EnemyController : Character
                     break;
 
                 case "EnemyCheckState":
+
+                    //Per gestire il movimento delle mani rispetto all'arma
+                    if (enemy_weapon_rig != null)
+                    {
+                        enemy_weapon_rig.weight = 1;
+                    }
+
                     animator.SetBool("isWalkingEnemy", false);
                     animator.SetBool("Attack", false);
                     animator.SetBool("isStunned", false);
@@ -207,12 +177,19 @@ public class EnemyController : Character
                     {
                         aimLayer.weight += Time.deltaTime / aimDuration;
                     }
-                    if (velocity <= 0.5f)
+
+                    //Per gestire il movimento delle mani rispetto all'arma
+                    if (enemy_weapon_rig != null)
                     {
-                        velocity += Time.deltaTime * acceleration;
+                        enemy_weapon_rig.weight = 1;
                     }
 
-                    animator.SetFloat(velocityHash, velocity);
+                    if (animation_velocity <= 0.5f)
+                    {
+                        animation_velocity += Time.deltaTime * ((float)this.features[EnemyFeature.FeatureType.FT_ACCELERATION].currentValue);
+                    }
+
+                    animator.SetFloat(velocityHash, animation_velocity);
 
                     animator.SetBool("isWalkingEnemy", true);
                     animator.SetBool("isStunned", false);
@@ -225,6 +202,13 @@ public class EnemyController : Character
                     break;
 
                 case "EnemyMeleeAttackState":
+
+                    //Per gestire il movimento delle mani rispetto all'arma
+                    if (enemy_weapon_rig != null)
+                    {
+                        enemy_weapon_rig.weight = 0;
+                    }
+
                     animator.SetBool("isWalkingEnemy", true);
                     animator.SetBool("Attack", true);
                     animator.SetBool("isStunned", false);
@@ -236,6 +220,13 @@ public class EnemyController : Character
                     break;
 
                 case "EnemyStunnedState":
+
+                    //Per gestire il movimento delle mani rispetto all'arma
+                    if (enemy_weapon_rig != null)
+                    {
+                        enemy_weapon_rig.weight = 0;
+                    }
+
                     animator.SetBool("isWalkingEnemy", false);
                     animator.SetBool("Attack", false);
                     animator.SetBool("isStunned", true);
@@ -247,6 +238,13 @@ public class EnemyController : Character
                     break;
 
                 case "EnemyAliveState":
+
+                    //Per gestire il movimento delle mani rispetto all'arma
+                    if (enemy_weapon_rig != null)
+                    {
+                        enemy_weapon_rig.weight = 1;
+                    }
+
                     animator.SetBool("isWalkingEnemy", false);
                     animator.SetBool("Attack", false);
                     animator.SetBool("isStunned", false);
@@ -259,6 +257,12 @@ public class EnemyController : Character
 
 
                 case "EnemyDeathState":
+                    //Per gestire il movimento delle mani rispetto all'arma
+                    if (enemy_weapon_rig != null)
+                    {
+                        enemy_weapon_rig.weight = 0;
+                    }
+
                     EnemyDeath();
                     break;
 
@@ -270,7 +274,7 @@ public class EnemyController : Character
         }
     }
 
-    public     void EnemyDeath()
+    public void EnemyDeath()
     {      
 
             animator.SetBool("isDeathEnemy", true);

@@ -7,50 +7,39 @@ using HumanFeatures;
 
 public class EnemyWeaponController : WeaponController
 {
-    
-
     public AudioSource audioSource;
     
     public override void Awake()
     {
-        ID = "SONOCATTIVA";
-
         base.Awake();
+
         //Inizio - Inizializzazione delle feature
        	string fileString = new StreamReader("Assets/Push-To-Data/Feature/Weapon/enemy_weapon_features.txt").ReadToEnd();
         mapper = JsonUtility.FromJson<WeaponFeaturesJsonMap>(fileString);
 
         this.features = mapper.todict();
 
-
         audioSource = GetComponent<AudioSource>();
-
-        
-
     }
     
     public override void Update()
     {
-
-
-        
         base.Update();
-
     }
 
     //Funzione per sparare
     public override void FireBullet()
     {
         //Controllo sul numero delle munizioni disponibili
-        if ((int)features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue <= 0)
+        if ((int) features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue <= 0)
         {
             return;
         }
 
-        if (!(bool)features[WeaponFeatures.WeaponFeature.FeatureType.FT_IS_AMMO_INFINITE].currentValue)
+        if (!(bool) features[WeaponFeatures.WeaponFeature.FeatureType.FT_IS_AMMO_INFINITE].currentValue)
         {
             //Per diminuire il numero di munizioni quando si spara
-            features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue = (int)features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue  - 1;
+            features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue = (int)features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue - 1;
         }
 
         //Questo ciclo permette di azionare tutti gli oggetti particellari in muzzleFlash
@@ -82,12 +71,10 @@ public class EnemyWeaponController : WeaponController
         }
 
         //Se non c'� la raffica allora spara solo un colpo e dopo finisce
-        if (!isBurst)
+        if (!(bool) features[WeaponFeatures.WeaponFeature.FeatureType.FT_BURST].currentValue)
         {
             audioSource.Play();
             StopFiring();
         }
     }
-
-    
 }
