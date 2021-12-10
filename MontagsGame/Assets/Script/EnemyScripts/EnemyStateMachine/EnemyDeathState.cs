@@ -20,6 +20,8 @@ public class EnemyDeathState : EnemyBaseState
         {
             enemy.GetComponent<EnemyController>().enemyWeapon.SetActive(false);
         }
+
+        enemyController.GetComponent<CapsuleCollider>().enabled = false;
     }
 
     public override void UpdateState(EnemyStateManager enemy)

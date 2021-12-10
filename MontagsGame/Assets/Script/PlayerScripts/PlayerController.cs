@@ -11,7 +11,6 @@ public class PlayerController : Character
 {
 	//Per controllare il valore della velocità
 	public float moveSpeed;
-	private Vector3 moveVelocity;
 	private Rigidbody myRigidbody;
 
 	//Per accedere a delle informazioni della camera
@@ -167,7 +166,9 @@ public class PlayerController : Character
 		handleAnimation();
 		base.Update();
 	}
-	//Per il setting dei valori delle feature dipendenti da altre (ad ogni frame)	public override void setFeatures()
+
+	//Per il setting dei valori delle feature dipendenti da altre (ad ogni frame)
+	public override void setFeatures()
     {
 		//Per settare il valore della velocità in funzione del peso
 		this.features[HumanFeature.FeatureType.FT_SPEED].currentValue = (((float)(this.features[HumanFeature.FeatureType.FT_SPEED].baseValue)) * ((float)(this.features[HumanFeature.FeatureType.FT_WEIGHT].baseValue))) / (float)(this.features[HumanFeature.FeatureType.FT_WEIGHT].currentValue);
@@ -269,6 +270,7 @@ public class PlayerController : Character
 	}
 
 	//Rilevamento della collisione con il pavimento che permette di andare al livello successivo
+	//Rilevamento della collisione con il muro
 	void OnCollisionEnter(Collision hit)
 	{
 		if (hit.collider.tag == "NextLevelPlane")
