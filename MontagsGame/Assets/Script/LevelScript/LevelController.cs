@@ -299,13 +299,13 @@ public class LevelController : MonoBehaviour
             items_help_used = true;
         }
 
-        //Se il numero di tentativi è uguale a 10 bisogna eliminare le trappole e informare il giocatore con un messaggio
-        if (current_restart_number == 10)
+        //Se il numero di tentativi è uguale a 20 bisogna eliminare le trappole e informare il giocatore con un messaggio
+        if (current_restart_number == 20)
         {
             radioController.SetRadioText(events.getEventbyName("HelpBypassTrappole").message);
         }
-        //Se il numero di tentativi è maggiore di 10 bisogna eliminare le trappole a ogni morte
-        if (current_restart_number >= 1 & !trap_help_used)
+        //Se il numero di tentativi è maggiore di 20 bisogna eliminare le trappole a ogni morte
+        if (current_restart_number >= 20 & !trap_help_used)
         {
             foreach (GameObject trap in GameObject.FindGameObjectsWithTag("Trap"))
             {
