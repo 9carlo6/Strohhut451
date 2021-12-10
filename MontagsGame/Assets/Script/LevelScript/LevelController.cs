@@ -65,6 +65,9 @@ public class LevelController : MonoBehaviour
     [HideInInspector] public float valid_skulls_amount;
     [HideInInspector] public float valid_helms_amount;
     [HideInInspector] public float valid_telescopes_amount;
+    public Image telescopeTimerImage;
+    public TMP_Text telescope_timer_text;
+    [HideInInspector] public float telescope_timer;
 
     //Per la gestione delle avarie
     //public float BreakdownTimeCounter;
@@ -72,6 +75,9 @@ public class LevelController : MonoBehaviour
     public Image firstBreakdownImage;
     public Image secondBreakdownImage;
     public Image thirdBreakdownImage;
+    [HideInInspector] public float first_breakdown_time = 30;
+    [HideInInspector] public float second_breakdown_time = 50;
+    [HideInInspector] public float third_breakdown_time = 70;
 
     //Per gestire il testo della radio
     public RadioController radioController;
@@ -145,6 +151,9 @@ public class LevelController : MonoBehaviour
             telescopes_amount_text.text = sc.telescopes_amount.ToString();
             valid_skulls_amount = sc.skulls_amount;
             valid_helms_amount = sc.helms_amount;
+            valid_telescopes_amount = sc.telescopes_amount;
+
+            //Per gestire il timer del telescope
             valid_telescopes_amount = sc.telescopes_amount;
 
             //Per gestire i modificatori e gli eventi
@@ -257,6 +266,18 @@ public class LevelController : MonoBehaviour
             ammoText.GetComponent<TMP_Text>().text = weapon.features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue.ToString() + "/"
                 + weapon.features[WeaponFeatures.WeaponFeature.FeatureType.FT_MAX_AMMO_COUNT].currentValue.ToString();
         }
+
+        //Per gestire il timer del telescope
+        if (telescope_timer > 0)
+        {
+            telescope_timer -= Time.deltaTime;
+            telescope_timer_text.text = Math.Truncate(telescope_timer).ToString();
+        }
+        else
+        {
+            telescopeTimerImage.enabled = false;
+            telescope_timer_text.text = " ";
+        }
     }
 
     //Per gesitre gli aiuti in caso di troppe morti
@@ -352,6 +373,14 @@ public class LevelController : MonoBehaviour
         telescopes_amount_text.text = sc.telescopes_amount.ToString();
     }
 
+    //Per la gestione del timer del telecope
+    public void HandleTelescopeTimer()
+    {
+        //setting del timer
+        telescopeTimerImage.enabled = true;
+        telescope_timer = 10;
+    }
+
     //Per la gestione delle avarie
     public void handleBreakdown(PlayerController pc, bool isLevelCompleted)
     {
@@ -360,12 +389,12 @@ public class LevelController : MonoBehaviour
         //1) sono passati 30 secondi
         //2) non è completato il Livello
         //3) non contiene già un modicatore con questa chiave
-        if (currentFailure == 0 && ((levelTimeCounter) < 20) && !isLevelCompleted)
+        if (currentFailure == 0 && ((levelTimeCounter) < first_breakdown_time) && !isLevelCompleted)
         {
             breakdownCanvas.SetActive(false);
         }
 
-        if (currentFailure == 0 && ((levelTimeCounter) >= 20) && !isLevelCompleted)
+        if (currentFailure == 0 && ((levelTimeCounter) >= first_breakdown_time) && !isLevelCompleted)
         {
             if (pc.getModifierbyID("001") == null)
             {
@@ -377,8 +406,8 @@ public class LevelController : MonoBehaviour
                 radioController.SetRadioText(events.getEventbyName("primaAvaria").message);
             }
         }
-      
-        else if (currentFailure == 1 && ((levelTimeCounter) >= 40) && !isLevelCompleted)
+
+        else if (currentFailure == 1 && ((levelTimeCounter) >= second_breakdown_time) && !isLevelCompleted)
         {
             // seconda 
             if (pc.getModifierbyID("secondafailure") == null)
@@ -391,8 +420,8 @@ public class LevelController : MonoBehaviour
             }
         }
 
-         else if (currentFailure == 2 && ((levelTimeCounter + valid_levelTimeCounter) >= 60) && !isLevelCompleted)
-         {
+        else if (currentFailure == 2 && ((levelTimeCounter + valid_levelTimeCounter) >= third_breakdown_time) && !isLevelCompleted)
+        {
             if (pc.getModifierbyID("terzafailure") == null)
             {
                 currentFailure = 3;

@@ -34,6 +34,9 @@ public class Telescope : MonoBehaviour
             //Per gestire l'aggiornamento dell'ammontare dei telescopi posseduti
             lc.sc.telescopes_amount--;
             lc.UpdateGameItemsAmountText();
+
+            //Per gestire il timer del telescope
+            lc.HandleTelescopeTimer();
         }
         else
         {
