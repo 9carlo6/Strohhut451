@@ -14,7 +14,8 @@ public class LevelInitialPhaseState : LevelBaseState
 
         initialNumberOfEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
 
-        Debug.Log("Numero di nemici iniziale nel livello = " + initialNumberOfEnemies);
+        //Per gesitre gli aiuti in caso di troppe morti
+        level.lc.LevelHelper();
     }
 
     public override void UpdateState(LevelStateManager level)

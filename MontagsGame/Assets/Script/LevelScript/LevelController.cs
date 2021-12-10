@@ -91,6 +91,8 @@ public class LevelController : MonoBehaviour
 
     //Per gesitre gli aiuti
     [HideInInspector] public int current_restart_number;
+    [HideInInspector] public bool trap_help_used = false;
+    [HideInInspector] public bool items_help_used = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -177,15 +179,17 @@ public class LevelController : MonoBehaviour
         //Continua costantemente la tipologia della scena corrente
         //Se non è un livello distrugge l'oggetto LevelController
         CheckSceneType();
-
-        /*
+ 
         //Per gestire gli aiuti
         if(current_restart_number < sc.GetCurrentRestartNumber())
         {
             current_restart_number = sc.GetCurrentRestartNumber();
-            LevelHelper();
+
+            //reset dei parametri quando si aggiorna il numero dei tentativi
+            trap_help_used = false;
+            items_help_used = false;
         }
-        */
+        
 
         //Per incrementare il valore del cronometro del tempo impiegato per superare il livello
         if (currentNumberOfEnemies > 0)
@@ -258,32 +262,36 @@ public class LevelController : MonoBehaviour
     //Per gesitre gli aiuti in caso di troppe morti
     public void LevelHelper()
     {
-        //Se il numero di tentativi è uguale a 5 bisogna eliminare le trappole e informare il giocatore con un messaggio
-        if (current_restart_number == 5)
-        {
-            radioController.SetRadioText(events.getEventbyName("HelpBypassTrappole").message);
-        }
-        //Se il numero di tentativi è maggiore di 5 bisogna eliminare le trappole a ogni morte
-        if (current_restart_number >= 1)
-        {
-            foreach (GameObject trap in GameObject.FindGameObjectsWithTag("Trap"))
-            {
-                trap.SetActive(false);
-            }
-        }
-
         //Se il numero di tentativi è uguale a 7 bisogna consigliare al giocatore di utilizzare al meglio i gameItems
         if (current_restart_number == 7)
         {
             radioController.SetRadioText(events.getEventbyName("HelpUseItems").message);
         }
         //Se il numero di tentativi è maggiore di 7 tutti i gameItems vengono incrementati di uno a ogni morte
-        if (current_restart_number >= 7)
+        if (current_restart_number >= 7 & !items_help_used)
         {
             sc.skulls_amount++;
             sc.helms_amount++;
             sc.telescopes_amount++;
             UpdateGameItemsAmountText();
+
+            items_help_used = true;
+        }
+
+        //Se il numero di tentativi è uguale a 10 bisogna eliminare le trappole e informare il giocatore con un messaggio
+        if (current_restart_number == 10)
+        {
+            radioController.SetRadioText(events.getEventbyName("HelpBypassTrappole").message);
+        }
+        //Se il numero di tentativi è maggiore di 10 bisogna eliminare le trappole a ogni morte
+        if (current_restart_number >= 1 & !trap_help_used)
+        {
+            foreach (GameObject trap in GameObject.FindGameObjectsWithTag("Trap"))
+            {
+                trap.SetActive(false);
+            }
+
+            trap_help_used = true;
         }
     }
 
