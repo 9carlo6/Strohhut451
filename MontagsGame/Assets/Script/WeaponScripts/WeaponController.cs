@@ -108,11 +108,9 @@ public  abstract class WeaponController :  Component
 
 
         {
-            if(Vector3.Distance(transform.position, enemy.transform.position) <= (float)((features)[WeaponFeature.FeatureType.FT_NOISE_RANGE]).currentValue && !enemy.GetComponent<EnemyController>().animator.GetBool("isStunned") && !enemy.GetComponent<EnemyStateManager>().getCurrentState().Equals("EnemyChasePlayerState") && !enemy.GetComponent<EnemyStateManager>().getCurrentState().Equals("EnemyDeathState"))
+            if(Vector3.Distance(transform.position, enemy.transform.position) <= (float)((features)[WeaponFeature.FeatureType.FT_NOISE_RANGE]).currentValue && !enemy.GetComponent<EnemyStateManager>().getCurrentState().Equals("EnemyStunnedState") && !enemy.GetComponent<EnemyStateManager>().getCurrentState().Equals("EnemyChasePlayerState") && !enemy.GetComponent<EnemyStateManager>().getCurrentState().Equals("EnemyDeathState"))
             {
-
-                Debug.Log("Sto entrando nell'if dell'alert");
-
+                
                 enemy.GetComponent<EnemyStateManager>().SwitchState(enemy.GetComponent<EnemyStateManager>().ChasePlayerState);
                 enemy.GetComponent<EnemyStateManager>().ChasePlayerState.fireInHearRange = true;
             }
