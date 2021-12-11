@@ -76,7 +76,7 @@ public class PlayerController : Character
 
 	AudioListener audioListener;
 
-	void Awake()
+	public override void Awake()
 	{
 		audioListener = GetComponent<AudioListener>();
 

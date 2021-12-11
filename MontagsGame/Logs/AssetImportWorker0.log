@@ -15,11 +15,11 @@ C:/Users/grego/Documents/Game/MontagsGame/MontagsGame
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-54447
+54565
 Successfully changed project path to: C:/Users/grego/Documents/Game/MontagsGame/MontagsGame
 C:/Users/grego/Documents/Game/MontagsGame/MontagsGame
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 88.43 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 85.26 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.2.7f1 (c53830e277f1)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/Resources/UnitySubsystems
@@ -36,146 +36,316 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56632
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56972
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001402 seconds.
+Registered in 0.001435 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 88.82 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 82.65 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.288 seconds
+- Completed reload, in  1.153 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.002356 seconds.
+Registered in 0.002241 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 92.40 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 95.45 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.667 seconds
+- Completed reload, in  1.581 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 0.85 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.84 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 4195 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 198.4 MB.
 System memory in use after: 198.6 MB.
 
 Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 4649.
-Total: 6.378500 ms (FindLiveObjects: 0.684300 ms CreateObjectMapping: 0.474600 ms MarkObjects: 4.995300 ms  DeleteObjects: 0.221700 ms)
+Total: 3.773100 ms (FindLiveObjects: 0.369900 ms CreateObjectMapping: 0.342300 ms MarkObjects: 2.951900 ms  DeleteObjects: 0.108300 ms)
 
 ========================================================================
 Received Import Request.
+  path: Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_2_Armato_1.prefab
+  artifactKey: Guid(bad4d8d38cbd4324d89a13d792b06518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_2_Armato_1.prefab using Guid(bad4d8d38cbd4324d89a13d792b06518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc75c171bf93c6bc1a62547aa789c5c7') in 0.393573 seconds
+  Import took 0.401816 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.048123 seconds.
+  path: Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_2_Armato_1.prefab
+  artifactKey: Guid(bad4d8d38cbd4324d89a13d792b06518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_2_Armato_1.prefab using Guid(bad4d8d38cbd4324d89a13d792b06518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bfa0427861753f6c6da35819b5f457ba') in 0.166540 seconds
+  Import took 0.174773 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2316.748758 seconds.
+  path: Assets/Script/EnemyScripts/EnemyHuman.cs
+  artifactKey: Guid(feee54bfa681be145a07cdfbcc93bd08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Script/EnemyScripts/EnemyHuman.cs using Guid(feee54bfa681be145a07cdfbcc93bd08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a01d3daf4d9c2f03b6f77dcb28ba10f6') in 0.008924 seconds
+  Import took 0.017954 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002146 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.94 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.332 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.87 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3942 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 186.9 MB.
+System memory in use after: 187.1 MB.
+
+Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 4698.
+Total: 9.810800 ms (FindLiveObjects: 0.962300 ms CreateObjectMapping: 0.630900 ms MarkObjects: 7.973100 ms  DeleteObjects: 0.241400 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 26.197004 seconds.
+  path: Assets/Script/EnemyScripts/EnemyHuman.cs
+  artifactKey: Guid(feee54bfa681be145a07cdfbcc93bd08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Script/EnemyScripts/EnemyHuman.cs using Guid(feee54bfa681be145a07cdfbcc93bd08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3cc02a77530565459537dd45405533f3') in 0.005106 seconds
+  Import took 0.011352 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002306 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.83 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.053 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.84 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3942 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 187.0 MB.
+System memory in use after: 187.2 MB.
+
+Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 4701.
+Total: 4.055700 ms (FindLiveObjects: 0.504300 ms CreateObjectMapping: 0.348300 ms MarkObjects: 3.110300 ms  DeleteObjects: 0.091800 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 332.905672 seconds.
   path: Assets/Script/EnemyScripts/Enemy_type2_Controller.cs
   artifactKey: Guid(8d6505ae20aa3a944846daf16a541fb6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Script/EnemyScripts/Enemy_type2_Controller.cs using Guid(8d6505ae20aa3a944846daf16a541fb6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9117d51bdbc414e23e63235353b765cb') in 0.027443 seconds
-  Import took 0.033595 seconds .
+Start importing Assets/Script/EnemyScripts/Enemy_type2_Controller.cs using Guid(8d6505ae20aa3a944846daf16a541fb6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '455ffb55d9894e57535133f1cd1ed49a') in 0.007828 seconds
+  Import took 0.016787 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.002611 seconds.
-  path: Assets/Script/EnemyScripts/Enemy_type2_Controller.cs
-  artifactKey: Guid(8d6505ae20aa3a944846daf16a541fb6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Script/EnemyScripts/Enemy_type2_Controller.cs using Guid(8d6505ae20aa3a944846daf16a541fb6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9117d51bdbc414e23e63235353b765cb') in 0.001583 seconds
-  Import took 0.007597 seconds .
+  Time since last request: 108.766001 seconds.
+  path: Assets/Script/PlayerScripts/PlayerController.cs
+  artifactKey: Guid(14500192f561330459b3493223e9b02c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Script/PlayerScripts/PlayerController.cs using Guid(14500192f561330459b3493223e9b02c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f367e132907322509765951c19e5c2b6') in 0.002305 seconds
+  Import took 0.008895 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 12.594211 seconds.
+  Time since last request: 0.002114 seconds.
+  path: Assets/Script/PlayerScripts/PlayerController.cs
+  artifactKey: Guid(14500192f561330459b3493223e9b02c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Script/PlayerScripts/PlayerController.cs using Guid(14500192f561330459b3493223e9b02c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f367e132907322509765951c19e5c2b6') in 0.003069 seconds
+  Import took 0.010539 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 14.483306 seconds.
+  path: Assets/Push-To-Data/Character.cs
+  artifactKey: Guid(f2c1c3896ab6c4a4abf7b82e14d1ff1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Push-To-Data/Character.cs using Guid(f2c1c3896ab6c4a4abf7b82e14d1ff1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ccd7d05429e763d08ee1c7c5fb782243') in 0.002241 seconds
+  Import took 0.008758 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002166 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.05 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.072 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.88 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3942 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 187.0 MB.
+System memory in use after: 187.2 MB.
+
+Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 4704.
+Total: 3.425100 ms (FindLiveObjects: 0.418200 ms CreateObjectMapping: 0.253900 ms MarkObjects: 2.659600 ms  DeleteObjects: 0.092300 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002205 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.84 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.053 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.87 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3942 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 187.0 MB.
+System memory in use after: 187.2 MB.
+
+Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 4707.
+Total: 5.807000 ms (FindLiveObjects: 0.635100 ms CreateObjectMapping: 0.456700 ms MarkObjects: 4.574100 ms  DeleteObjects: 0.139600 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 74.593915 seconds.
+  path: Assets/Prefabs/EnemyPrefabs/PrefabNemicoInutili/PirataNemicoArmatoPrefab.prefab
+  artifactKey: Guid(653842bb116f80d48a73c87570ed106d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/EnemyPrefabs/PrefabNemicoInutili/PirataNemicoArmatoPrefab.prefab using Guid(653842bb116f80d48a73c87570ed106d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) GameObject (named 'SciFiGunLightWhite') references runtime script in scene file. Fixing!
+
+ -> (artifact id: '207167bfd2e9c827d7ec811dfbcae0a9') in 0.297119 seconds
+  Import took 0.306088 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.612618 seconds.
+  path: Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_1_Armato_1.prefab
+  artifactKey: Guid(a1d363fd3362bc34292e9558f4e4180f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_1_Armato_1.prefab using Guid(a1d363fd3362bc34292e9558f4e4180f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a6d2d682dc4c370718ba14e9f4ea72d') in 0.149509 seconds
+  Import took 0.158768 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000351 seconds.
   path: Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_2_Armato_1.prefab
   artifactKey: Guid(bad4d8d38cbd4324d89a13d792b06518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_2_Armato_1.prefab using Guid(bad4d8d38cbd4324d89a13d792b06518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '553c9d18e675a55aafb008fce1e52fe7') in 0.394141 seconds
-  Import took 0.401911 seconds .
+Start importing Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_2_Armato_1.prefab using Guid(bad4d8d38cbd4324d89a13d792b06518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bbc4c56067bd1ce10f5dc4a08bf8ad57') in 0.145347 seconds
+  Import took 0.153570 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 7.696696 seconds.
-  path: Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_2_Armato_1.prefab
-  artifactKey: Guid(bad4d8d38cbd4324d89a13d792b06518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_2_Armato_1.prefab using Guid(bad4d8d38cbd4324d89a13d792b06518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '40e5f0d9d0d7a9b77674d3a8532cecdf') in 0.155313 seconds
-  Import took 0.164873 seconds .
+  Time since last request: 0.000320 seconds.
+  path: Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_1_Non_Armato.prefab
+  artifactKey: Guid(30dcb0e311f123342b42061ab6806e85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_1_Non_Armato.prefab using Guid(30dcb0e311f123342b42061ab6806e85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '62949d92f75bb67d1a2747f15ba96343') in 0.121799 seconds
+  Import took 0.128950 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 14.374122 seconds.
-  path: Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_2_Armato_1.prefab
-  artifactKey: Guid(bad4d8d38cbd4324d89a13d792b06518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_2_Armato_1.prefab using Guid(bad4d8d38cbd4324d89a13d792b06518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53100791f1c72375bbe4dec224749974') in 0.147521 seconds
-  Import took 0.157017 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 7.957998 seconds.
-  path: Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_2_Armato_1.prefab
-  artifactKey: Guid(bad4d8d38cbd4324d89a13d792b06518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_2_Armato_1.prefab using Guid(bad4d8d38cbd4324d89a13d792b06518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '045ac8c1439e5c0ae69e7935b2ddec61') in 0.151183 seconds
-  Import took 0.160044 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.739465 seconds.
-  path: Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_2_Armato_1.prefab
-  artifactKey: Guid(bad4d8d38cbd4324d89a13d792b06518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_2_Armato_1.prefab using Guid(bad4d8d38cbd4324d89a13d792b06518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87ae0f474002b9d2b06b069610fb1059') in 0.142649 seconds
-  Import took 0.151058 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.118363 seconds.
-  path: Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_2_Armato_1.prefab
-  artifactKey: Guid(bad4d8d38cbd4324d89a13d792b06518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_2_Armato_1.prefab using Guid(bad4d8d38cbd4324d89a13d792b06518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c374cc31bdeca67b49db308924d8fc83') in 0.144278 seconds
-  Import took 0.152626 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 59.456451 seconds.
-  path: Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_2_Armato_1.prefab
-  artifactKey: Guid(bad4d8d38cbd4324d89a13d792b06518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_2_Armato_1.prefab using Guid(bad4d8d38cbd4324d89a13d792b06518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d30b109953596a03b57b76120d4ecdf') in 0.157641 seconds
-  Import took 0.167190 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 60.939794 seconds.
-  path: Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_2_Armato_2.prefab
-  artifactKey: Guid(98b9ac7f85f8d184d8cc4070b2fe8787) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_2_Armato_2.prefab using Guid(98b9ac7f85f8d184d8cc4070b2fe8787) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e0bc85ba621441c1461a55142ed5603') in 0.151435 seconds
-  Import took 0.159951 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.251486 seconds.
+  Time since last request: 0.000305 seconds.
   path: Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_2_Non_Armato.prefab
   artifactKey: Guid(84643ab09e002ae4cbaaf5051515204f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_2_Non_Armato.prefab using Guid(84643ab09e002ae4cbaaf5051515204f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a963c4c5f3adce01770efdc9d60c974') in 0.128935 seconds
-  Import took 0.136002 seconds .
+Start importing Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_2_Non_Armato.prefab using Guid(84643ab09e002ae4cbaaf5051515204f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '07314ce8e2e05a26fa644447f77d0a76') in 0.124597 seconds
+  Import took 0.131638 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 2.203338 seconds.
-  path: Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_2_Non_Armato.prefab
-  artifactKey: Guid(84643ab09e002ae4cbaaf5051515204f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_2_Non_Armato.prefab using Guid(84643ab09e002ae4cbaaf5051515204f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca249f1e31bfe3f073cd926752146f82') in 0.124598 seconds
-  Import took 0.131728 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.895613 seconds.
+  Time since last request: 0.000295 seconds.
   path: Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_2_Armato_2.prefab
   artifactKey: Guid(98b9ac7f85f8d184d8cc4070b2fe8787) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_2_Armato_2.prefab using Guid(98b9ac7f85f8d184d8cc4070b2fe8787) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55ebdd50cfbe63cb0b58f25d747d168b') in 0.157145 seconds
-  Import took 0.167284 seconds .
+Start importing Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_2_Armato_2.prefab using Guid(98b9ac7f85f8d184d8cc4070b2fe8787) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff97b5eebf48e39a43d9eafbf8cef72c') in 0.150043 seconds
+  Import took 0.158212 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000341 seconds.
+  path: Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_1_Armato_2.prefab
+  artifactKey: Guid(9905eb231a07ff04c9f4225802eeb6ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_1_Armato_2.prefab using Guid(9905eb231a07ff04c9f4225802eeb6ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '013608e41d71bf423c934001d22d2352') in 0.143028 seconds
+  Import took 0.151948 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 16.544901 seconds.
+  path: Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_2_Armato_1.prefab
+  artifactKey: Guid(bad4d8d38cbd4324d89a13d792b06518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_2_Armato_1.prefab using Guid(bad4d8d38cbd4324d89a13d792b06518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a48b74ea3ae848d81a70696205936e7') in 0.142289 seconds
+  Import took 0.152735 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.953086 seconds.
+  path: Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_2_Armato_1.prefab
+  artifactKey: Guid(bad4d8d38cbd4324d89a13d792b06518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/EnemyPrefabs/Pirata_Nemico_2_Armato_1.prefab using Guid(bad4d8d38cbd4324d89a13d792b06518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce17fc9a7990702742755b41ea2ecade') in 0.142873 seconds
+  Import took 0.153819 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 47.164779 seconds.
+  path: Assets/Prefabs/EnemyPrefabs/Materials
+  artifactKey: Guid(ad9ea21043995704dad6bba3ec6372eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/EnemyPrefabs/Materials using Guid(ad9ea21043995704dad6bba3ec6372eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '753c8604aaf39d21e6379efe0dafa0c2') in 0.001802 seconds
+  Import took 0.008832 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000734 seconds.
+  path: Assets/Prefabs/EnemyPrefabs/Materials
+  artifactKey: Guid(ad9ea21043995704dad6bba3ec6372eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/EnemyPrefabs/Materials using Guid(ad9ea21043995704dad6bba3ec6372eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '753c8604aaf39d21e6379efe0dafa0c2') in 0.001410 seconds
+  Import took 0.008818 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002310 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.84 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.079 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.03 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3942 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 188.1 MB.
+System memory in use after: 188.3 MB.
+
+Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 4746.
+Total: 4.392200 ms (FindLiveObjects: 0.594400 ms CreateObjectMapping: 0.278200 ms MarkObjects: 3.427200 ms  DeleteObjects: 0.091300 ms)
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
