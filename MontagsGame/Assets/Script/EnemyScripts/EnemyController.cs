@@ -16,7 +16,7 @@ public class EnemyController : EnemyHuman
         base.Awake();
        
         //Inizio - Inizializzazione delle feature
-        string fileString = new StreamReader("Assets/Push-To-Data/Feature/Enemy/enemyfeatures.json").ReadToEnd();
+        string fileString = new StreamReader("Assets/Push-To-Data/Feature/Enemy/enemy_features.json").ReadToEnd();
         mapper = JsonUtility.FromJson<EnemyFeaturesJsonMap>(fileString);
 
 
