@@ -1128,9 +1128,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2495608324035228332}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 1.129, z: 0.642}
-  m_LocalScale: {x: 2.7, y: 2.7, z: 2.7}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.505, z: 0.1951}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2677557041345119538}
   m_RootOrder: 2
@@ -1792,20 +1792,21 @@ MonoBehaviour:
   obstructionMask:
     serializedVersion: 2
     m_Bits: 0
-  deathClip: {fileID: 0}
-  punchClip: {fileID: 0}
-  alertClip: {fileID: 0}
-  enemyWeapon: {fileID: 0}
-  attackPoint: {fileID: 0}
-  animator: {fileID: 0}
+  deathClip: {fileID: 98018052072522818}
+  punchClip: {fileID: 98018052072522817}
+  alertClip: {fileID: 4798783751895330066}
+  enemyWeapon: {fileID: 5033239178286010199}
+  attackPoint: {fileID: 2495608324035228333}
+  animator: {fileID: 8343124081021099848}
   stateManager: {fileID: 0}
   ready: 0
   material: []
   renderEnemyBody: {fileID: 0}
-  enemy_weapon_rig: {fileID: 0}
+  enemy_weapon_rig: {fileID: 98018052562847835}
   aimLayer: {fileID: 0}
-  baseEnemyShader: {fileID: 0}
-  stunnedEnemyShader: {fileID: 0}
+  baseEnemyShader: {fileID: 4800000, guid: 8d2bb70cbf9db8d4da26e15b26e74248, type: 3}
+  stunnedEnemyShader: {fileID: -6465566751694194690, guid: cec2b24e2d723b54589e6fd1cce1229e,
+    type: 3}
   enemyTrapShader: {fileID: 0}
   animation_velocity: 0
 --- !u!1 &3474350966675264820
