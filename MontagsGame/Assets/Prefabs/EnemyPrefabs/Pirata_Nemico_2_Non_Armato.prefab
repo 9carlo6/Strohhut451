@@ -1088,6 +1088,7 @@ GameObject:
   - component: {fileID: 8638779509088845450}
   - component: {fileID: 8264385135947489712}
   - component: {fileID: 967108723348979635}
+  - component: {fileID: 2033103342099190173}
   m_Layer: 12
   m_Name: Pirata_Nemico_2_Non_Armato
   m_TagString: Enemy
@@ -1229,7 +1230,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3404578089293728866}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 888dca202e4841c48952113befa48c48, type: 3}
   m_Name: 
@@ -1589,6 +1590,44 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2033103342099190173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3404578089293728866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d6505ae20aa3a944846daf16a541fb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  components: []
+  ID: 
+  weaponController: {fileID: 0}
+  wayPoints: []
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 0
+  obstructionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  deathClip: {fileID: 0}
+  punchClip: {fileID: 0}
+  alertClip: {fileID: 0}
+  enemyWeapon: {fileID: 0}
+  attackPoint: {fileID: 0}
+  animator: {fileID: 0}
+  stateManager: {fileID: 0}
+  ready: 0
+  material: []
+  renderEnemyBody: {fileID: 0}
+  enemy_weapon_rig: {fileID: 0}
+  aimLayer: {fileID: 0}
+  baseEnemyShader: {fileID: 0}
+  stunnedEnemyShader: {fileID: 0}
+  enemyTrapShader: {fileID: 0}
+  animation_velocity: 0
 --- !u!1 &3561051178581100254
 GameObject:
   m_ObjectHideFlags: 0
