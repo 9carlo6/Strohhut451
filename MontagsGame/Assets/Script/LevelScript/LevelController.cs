@@ -351,6 +351,8 @@ public class LevelController : MonoBehaviour
         valid_currentCoins = currentCoins;
         valid_levelTimeCounter += levelTimeCounter;
         levelTimeCounter = 0;
+        currentFailure = 0;
+
 
         //Per il reset dei canvas delle avarie
         firstBreakdownImage.enabled = false;
@@ -374,11 +376,11 @@ public class LevelController : MonoBehaviour
     }
 
     //Per la gestione del timer del telecope
-    public void HandleTelescopeTimer()
+    public void HandleTelescopeTimer(PlayerController pc)
     {
         //setting del timer
         telescopeTimerImage.enabled = true;
-        telescope_timer = 10;
+        telescope_timer = (pc.getModifierbyCID("telescope")).duration ;
     }
 
     //Per la gestione delle avarie
@@ -389,6 +391,18 @@ public class LevelController : MonoBehaviour
         //1) sono passati 30 secondi
         //2) non è completato il Livello
         //3) non contiene già un modicatore con questa chiave
+
+        if (isLevelCompleted)
+        {
+            pc.cleanModifiers();
+
+            firstBreakdownImage.enabled = false;
+            secondBreakdownImage.enabled = false;
+            thirdBreakdownImage.enabled = false;
+            breakdownCanvas.SetActive(false);
+        }
+
+
         if (currentFailure == 0 && ((levelTimeCounter) < first_breakdown_time) && !isLevelCompleted)
         {
             breakdownCanvas.SetActive(false);

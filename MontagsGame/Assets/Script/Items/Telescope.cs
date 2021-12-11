@@ -29,14 +29,14 @@ public class Telescope : MonoBehaviour
             playerController.addModifier(lc.modifiersjson.getModifierbyCID("telescope"));
 
 
-            ((playerController.features)[HumanFeature.FeatureType.FT_INCREASED_FOV]).currentValue = true;
+            //((playerController.features)[HumanFeature.FeatureType.FT_INCREASED_FOV]).currentValue = true;
 
             //Per gestire l'aggiornamento dell'ammontare dei telescopi posseduti
             lc.sc.telescopes_amount--;
             lc.UpdateGameItemsAmountText();
 
             //Per gestire il timer del telescope
-            lc.HandleTelescopeTimer();
+            lc.HandleTelescopeTimer(playerController);
         }
         else
         {

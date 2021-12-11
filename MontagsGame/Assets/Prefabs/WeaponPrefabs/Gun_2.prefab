@@ -19357,6 +19357,7 @@ GameObject:
   - component: {fileID: 3872748748770140068}
   - component: {fileID: 3872748748770140071}
   - component: {fileID: 3872748748770140070}
+  - component: {fileID: 1244319187648958102}
   m_Layer: 3
   m_Name: Gun_2
   m_TagString: EnemyWeapon
@@ -19537,7 +19538,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3872748748440163447}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d8c9768a8a93f147a126de5f41e1f05, type: 3}
   m_Name: 
@@ -19569,6 +19570,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48948dfe9d76b07488dacd46a7955fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1244319187648958102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3872748748440163447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5077080bac29d7a458e78b8cd043e9c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  components: []
+  ID: 
+  category: 
+  enemies: []
+  isFiring: 0
+  accumulatedTime: 0
+  muzzleFlash: []
+  hitEffect: {fileID: 0}
+  tracerEffect: {fileID: 5660626702979467278, guid: e8cd7fd7de7b7ec49b11ac3964cbdcad,
+    type: 3}
+  raycastOrigin: {fileID: 3872748747805619888}
+  audioManager: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &3872748748872731304
 GameObject:
   m_ObjectHideFlags: 0

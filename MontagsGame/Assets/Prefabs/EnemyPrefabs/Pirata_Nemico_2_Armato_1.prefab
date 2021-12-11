@@ -1128,9 +1128,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2495608324035228332}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 1.129, z: 0.642}
-  m_LocalScale: {x: 2.7, y: 2.7, z: 2.7}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.505, z: 0.1951}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2677557041345119538}
   m_RootOrder: 2
@@ -1250,6 +1250,7 @@ GameObject:
   - component: {fileID: 98018052072522818}
   - component: {fileID: 98018052072522826}
   - component: {fileID: 4798783751895330066}
+  - component: {fileID: -2924833014242273073}
   m_Layer: 12
   m_Name: Pirata_Nemico_2_Armato_1
   m_TagString: Enemy
@@ -1393,7 +1394,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3342593816443527048}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 888dca202e4841c48952113befa48c48, type: 3}
   m_Name: 
@@ -1769,6 +1770,46 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-2924833014242273073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3342593816443527048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d6505ae20aa3a944846daf16a541fb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  components: []
+  ID: 
+  weaponController: {fileID: 0}
+  wayPoints: []
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 0
+  obstructionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  deathClip: {fileID: 98018052072522818}
+  punchClip: {fileID: 98018052072522817}
+  alertClip: {fileID: 4798783751895330066}
+  enemyWeapon: {fileID: 5033239178286010199}
+  attackPoint: {fileID: 2495608324035228333}
+  animator: {fileID: 8343124081021099848}
+  stateManager: {fileID: 0}
+  ready: 0
+  material:
+  - {fileID: 2100000, guid: 0053cfe5f112d06419c412b243969718, type: 2}
+  renderEnemyBody: {fileID: 0}
+  enemy_weapon_rig: {fileID: 98018052562847835}
+  aimLayer: {fileID: 0}
+  baseEnemyShader: {fileID: 4800000, guid: 8d2bb70cbf9db8d4da26e15b26e74248, type: 3}
+  stunnedEnemyShader: {fileID: -6465566751694194690, guid: cec2b24e2d723b54589e6fd1cce1229e,
+    type: 3}
+  enemyTrapShader: {fileID: 0}
+  animation_velocity: 0
 --- !u!1 &3474350966675264820
 GameObject:
   m_ObjectHideFlags: 0

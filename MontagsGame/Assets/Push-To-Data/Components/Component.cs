@@ -12,6 +12,28 @@ public abstract class Component : MonoBehaviour
 	public String ID;
 	public String category;
 
+	public void cleanModifiers()
+	{
+		this.modifiers.Clear();
+		foreach (Component component in this.components)
+		{
+			component.cleanModifiers();
+		}
+	}
+
+	public Modifier getModifierbyCID(String CID)
+	{
+
+		foreach (Modifier my_modifier in this.modifiers)
+		{
+			if (my_modifier.CID == CID)
+			{
+				return my_modifier;
+			}
+		}
+		return null;
+	}
+
 	public Component getComponentbyCategory(String category)
 	{
 		foreach (Component my_component in this.components)
