@@ -1082,7 +1082,6 @@ GameObject:
   - component: {fileID: 2593532881051828864}
   - component: {fileID: 2593532881051828867}
   - component: {fileID: 2593532881051828879}
-  - component: {fileID: 2593532881051828876}
   - component: {fileID: 2593532881051828877}
   - component: {fileID: 2033103342099190173}
   - component: {fileID: 2593532881051828866}
@@ -1223,48 +1222,6 @@ MonoBehaviour:
   blinkIntensity: 5
   blinkDuration: 1
   stateManager: {fileID: 0}
---- !u!114 &2593532881051828876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3404578089293728866}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 888dca202e4841c48952113befa48c48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  components: []
-  ID: 
-  weaponController: {fileID: 0}
-  wayPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 128
-  obstructionMask:
-    serializedVersion: 2
-    m_Bits: 64
-  deathClip: {fileID: 8264385135947489712}
-  punchClip: {fileID: 8638779509088845450}
-  alertClip: {fileID: 967108723348979635}
-  enemyWeapon: {fileID: 0}
-  attackPoint: {fileID: 2593532882039759175}
-  animator: {fileID: 8256366695583829154}
-  stateManager: {fileID: 0}
-  ready: 0
-  material:
-  - {fileID: 2100000, guid: 0053cfe5f112d06419c412b243969718, type: 2}
-  renderEnemyBody: {fileID: 0}
-  enemy_weapon_rig: {fileID: 0}
-  aimLayer: {fileID: 0}
-  baseEnemyShader: {fileID: 4800000, guid: 8d2bb70cbf9db8d4da26e15b26e74248, type: 3}
-  stunnedEnemyShader: {fileID: -6465566751694194690, guid: cec2b24e2d723b54589e6fd1cce1229e,
-    type: 3}
-  enemyTrapShader: {fileID: 0}
-  animation_velocity: 0
 --- !u!114 &2593532881051828877
 MonoBehaviour:
   m_ObjectHideFlags: 0

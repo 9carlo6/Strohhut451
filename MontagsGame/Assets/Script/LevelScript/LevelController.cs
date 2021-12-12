@@ -434,7 +434,7 @@ public class LevelController : MonoBehaviour
             }
         }
 
-        else if (currentFailure == 2 && ((levelTimeCounter + valid_levelTimeCounter) >= third_breakdown_time) && !isLevelCompleted)
+        else if (currentFailure == 2 && ((levelTimeCounter) >= third_breakdown_time) && !isLevelCompleted)
         {
             if (pc.getModifierbyID("terzafailure") == null)
             {

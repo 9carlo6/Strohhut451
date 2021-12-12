@@ -84,6 +84,9 @@ public class LevelStateManager : MonoBehaviour
         //Serve per aggiornare le info relative alla sessione
         UpdateSessionInfo();
 
+        //Per resettare i parametri
+        lc.ParametersReset();
+
         StartCoroutine(LoadMenu());
 
         //Per uscire dall pausa se il gioco � in pausa

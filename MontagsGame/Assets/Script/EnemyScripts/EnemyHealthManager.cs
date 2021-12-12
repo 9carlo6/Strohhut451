@@ -19,8 +19,7 @@ public class EnemyHealthManager : MonoBehaviour
     public float blinkDuration;
     float blinkTimer;
 
-
-    EnemyController enemyController;
+    EnemyHuman enemyController;
 
 
     //Per gestire la barra della vita
@@ -32,7 +31,7 @@ public class EnemyHealthManager : MonoBehaviour
 
         stateManager = GetComponent<EnemyStateManager>();
         skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
-        enemyController = GetComponent<EnemyController>();
+        enemyController = GetComponent<EnemyHuman>();
 
         maxhealth = (float)((enemyController.features)[EnemyFeature.FeatureType.FT_HEALTH]).currentValue;
         currentHealth = maxhealth;

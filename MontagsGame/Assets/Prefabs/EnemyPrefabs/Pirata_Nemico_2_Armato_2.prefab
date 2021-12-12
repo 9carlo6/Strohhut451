@@ -137,7 +137,6 @@ GameObject:
   - component: {fileID: 365346222916883943}
   - component: {fileID: 365346222916883940}
   - component: {fileID: 365346222916883944}
-  - component: {fileID: 365346222916883947}
   - component: {fileID: -1550654983945913510}
   - component: {fileID: 365346222916883946}
   - component: {fileID: 365346222916883941}
@@ -281,48 +280,6 @@ MonoBehaviour:
   blinkIntensity: 5
   blinkDuration: 1
   stateManager: {fileID: 0}
---- !u!114 &365346222916883947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 707225282891766533}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 888dca202e4841c48952113befa48c48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  components: []
-  ID: 
-  weaponController: {fileID: 0}
-  wayPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 128
-  obstructionMask:
-    serializedVersion: 2
-    m_Bits: 64
-  deathClip: {fileID: 2805720707342991567}
-  punchClip: {fileID: 2805720707342991564}
-  alertClip: {fileID: 3715341111435792242}
-  enemyWeapon: {fileID: 2805720707713242600}
-  attackPoint: {fileID: 365346223904290336}
-  animator: {fileID: 6087580120719940549}
-  stateManager: {fileID: 0}
-  ready: 0
-  material:
-  - {fileID: 2100000, guid: 0053cfe5f112d06419c412b243969718, type: 2}
-  renderEnemyBody: {fileID: 0}
-  enemy_weapon_rig: {fileID: 2805720707943451862}
-  aimLayer: {fileID: 0}
-  baseEnemyShader: {fileID: 4800000, guid: 8d2bb70cbf9db8d4da26e15b26e74248, type: 3}
-  stunnedEnemyShader: {fileID: -6465566751694194690, guid: cec2b24e2d723b54589e6fd1cce1229e,
-    type: 3}
-  enemyTrapShader: {fileID: 0}
-  animation_velocity: 0
 --- !u!114 &-1550654983945913510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2991,12 +2948,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ee83e96796feb64aa000129ea95aec4, type: 3}
---- !u!1 &2805720707713242600 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3872748748440163447, guid: 4ee83e96796feb64aa000129ea95aec4,
-    type: 3}
-  m_PrefabInstance: {fileID: 1391938193504977311}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2805720707713141192 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3872748748439996503, guid: 4ee83e96796feb64aa000129ea95aec4,

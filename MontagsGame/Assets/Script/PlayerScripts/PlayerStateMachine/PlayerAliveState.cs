@@ -17,21 +17,21 @@ public class PlayerAliveState : PlayerBaseState
 
     public override void UpdateState(PlayerStateManager player)
     {
-        if (playerHealthManager.currentHealth <= 0)
+        if (playerController != null)
         {
-            Debug.Log("Passaggio dallo stato vivo allo stato morto del giocatore");
-            player.SwitchState(player.DeathState);
-        }
+            if (playerHealthManager.currentHealth <= 0)
+            {
+                Debug.Log("Passaggio dallo stato vivo allo stato morto del giocatore");
+                player.SwitchState(player.DeathState);
+            }
 
-        if(playerController.isAttackButtonPressed){
-          Debug.Log("Passaggio dallo stato vivo allo stato attacco melee del giocatore");
-          player.SwitchState(player.AttackState);
+            if (playerController.isAttackButtonPressed)
+            {
+                Debug.Log("Passaggio dallo stato vivo allo stato attacco melee del giocatore");
+                player.SwitchState(player.AttackState);
+            }
         }
-
-        if (playerController.isMovementPressed)
-        {
-
-        }
+        
     }
 
     public override void OnCollisionEnter(PlayerStateManager player, Collision collision)
