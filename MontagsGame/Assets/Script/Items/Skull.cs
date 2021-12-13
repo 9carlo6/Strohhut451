@@ -10,6 +10,7 @@ public class Skull : MonoBehaviour
     [HideInInspector] public GameObject levelController;
     [HideInInspector] public LevelController lc;
 
+
     void Awake()
     {
         levelController = GameObject.FindWithTag("LevelController");
@@ -22,6 +23,7 @@ public class Skull : MonoBehaviour
         {
             enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
+            FindObjectOfType<AudioManager>().Play("DropItem");
             //Calcola un numero random da 0 al numero dei nemici -1
             var i = Random.Range(0, enemies.Length - 1);
 

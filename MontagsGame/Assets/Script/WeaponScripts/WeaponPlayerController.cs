@@ -54,7 +54,7 @@ public class WeaponPlayerController : WeaponController
 
         if (fail)
         {
-            //FindObjectOfType<AudioManager>().Play("FailFire");
+            FindObjectOfType<AudioManager>().Play("FailFire");
         }
         else
         {

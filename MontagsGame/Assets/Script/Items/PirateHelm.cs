@@ -22,6 +22,8 @@ public class PirateHelm : MonoBehaviour
         if (lc.sc.helms_amount > 0)
         {
             enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            FindObjectOfType<AudioManager>().Play("DropItem");
+
 
             foreach (GameObject enemy in enemies)
             {

@@ -86,7 +86,7 @@ public class PlayerAttackState : PlayerBaseState
             if (enemiesAlreadyHitted.Contains(enemy.name))
                 break;
 
-            string enemyState = enemy.gameObject.GetComponent<EnemyController>().stateManager.getCurrentState();
+            string enemyState = enemy.gameObject.GetComponent<EnemyHuman>().stateManager.getCurrentState();
 
             Animator enemyAnimator = enemy.gameObject.GetComponent<Animator>();
 

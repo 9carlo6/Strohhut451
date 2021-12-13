@@ -5,12 +5,11 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     public GameObject levelController;
-    AudioSource audioSource;
     //public bool taking;
 
     private void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
+
     }
     //Funzione che si attiva quando l'oggetto viene toccato
     private void OnTriggerEnter(Collider other)

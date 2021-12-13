@@ -22,7 +22,7 @@ public class EnemyPatrollingState : EnemyBaseState
 
     NavMeshAgent enemyNavMeshAgent;
     GameObject enemyGameObject;
-    EnemyController enemyController;
+    EnemyHuman enemyHumanController;
 
     EnemyHealthManager enemyHealthManager;
 
@@ -44,17 +44,17 @@ public class EnemyPatrollingState : EnemyBaseState
 
         enemyNavMeshAgent = enemy.GetComponent<NavMeshAgent>();
 
-        enemyGameObject = enemy.GetComponent<EnemyController>().gameObject;
-        wayPoints = enemy.GetComponent<EnemyController>().wayPoints;
-        targetMask = enemy.GetComponent<EnemyController>().targetMask;
-        obstructionMask = enemy.GetComponent<EnemyController>().obstructionMask;
+        enemyGameObject = enemy.GetComponent<EnemyHuman>().gameObject;
+        wayPoints = enemy.GetComponent<EnemyHuman>().wayPoints;
+        targetMask = enemy.GetComponent<EnemyHuman>().targetMask;
+        obstructionMask = enemy.GetComponent<EnemyHuman>().obstructionMask;
         enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
         enemyAnimator = enemy.GetComponent<Animator>();
-        enemyController = enemy.GetComponent<EnemyController>();
+        enemyHumanController = enemy.GetComponent<EnemyHuman>();
 
-        viewRadius = (float)((enemyController.features)[EnemyFeature.FeatureType.FT_VIEW_RADIUS]).currentValue;
+        viewRadius = (float)((enemyHumanController.features)[EnemyFeature.FeatureType.FT_VIEW_RADIUS]).currentValue;
 
-        viewAngle = (float)((enemyController.features)[EnemyFeature.FeatureType.FT_VIEW_ANGLE_PATROLLING]).currentValue;
+        viewAngle = (float)((enemyHumanController.features)[EnemyFeature.FeatureType.FT_VIEW_ANGLE_PATROLLING]).currentValue;
 
         enemyNavMeshAgent.destination = wayPoints[wayPointIndex].position;
 
@@ -67,9 +67,9 @@ public class EnemyPatrollingState : EnemyBaseState
     public override void UpdateState(EnemyStateManager enemy)
     {
         //diminuisce la velocità del nemico progressivamente fino a quando non arriva al basevalue
-        if (enemyNavMeshAgent.speed >= (float)((enemyController.features)[EnemyFeature.FeatureType.FT_VELOCITY]).currentValue)
+        if (enemyNavMeshAgent.speed >= (float)((enemyHumanController.features)[EnemyFeature.FeatureType.FT_VELOCITY]).currentValue)
         {
-            enemyNavMeshAgent.speed = enemyNavMeshAgent.speed - Time.deltaTime * (float)((enemyController.features)[EnemyFeature.FeatureType.FT_DECELERATION]).currentValue;
+            enemyNavMeshAgent.speed = enemyNavMeshAgent.speed - Time.deltaTime * (float)((enemyHumanController.features)[EnemyFeature.FeatureType.FT_DECELERATION]).currentValue;
         }
 
         //Il fov dovrà essere sempre attivo, ritorna il valore di playerInSightRange

@@ -303,7 +303,7 @@ public class PlayerController : Character
 		Gizmos.DrawWireSphere(attackPoint.position, attackRange);
 	}
 
-	public Modifier getModifierbyID(String id)
+	/*public Modifier getModifierbyID(String id)
     {
 		foreach ( Modifier m in modifiers)
         {
@@ -314,4 +314,5 @@ public class PlayerController : Character
         }
 		return null;
     }
+	*/
 }

@@ -27,6 +27,8 @@ public class Telescope : MonoBehaviour
             //qua ci va un modificatore non una modifica alla feature
 
             playerController.addModifier(lc.modifiersjson.getModifierbyCID("telescope"));
+            FindObjectOfType<AudioManager>().Play("DropItem");
+
 
 
             //((playerController.features)[HumanFeature.FeatureType.FT_INCREASED_FOV]).currentValue = true;

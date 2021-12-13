@@ -19,7 +19,7 @@ public class PlayerDeathState : PlayerBaseState
 
         audioListener = cameraGameObject.GetComponent<AudioListener>();
 
-        audioListener.enabled = true;
+        //audioListener.enabled = true;
 
         Debug.Log("Stato Player = Morto");
 

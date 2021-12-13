@@ -410,7 +410,7 @@ public class LevelController : MonoBehaviour
 
         if (currentFailure == 0 && ((levelTimeCounter) >= first_breakdown_time) && !isLevelCompleted)
         {
-            if (pc.getModifierbyID("001") == null)
+            if (pc.getModifierbyCID("001") == null)
             {
                 currentFailure = 1;
                 breakdownCanvas.SetActive(true);
@@ -424,11 +424,13 @@ public class LevelController : MonoBehaviour
         else if (currentFailure == 1 && ((levelTimeCounter) >= second_breakdown_time) && !isLevelCompleted)
         {
             // seconda 
-            if (pc.getModifierbyID("secondafailure") == null)
+
+
+            if (pc.getModifierbyCID("002") == null)
             {
                 currentFailure = 2;
                 secondBreakdownImage.enabled = true;
-
+                Debug.Log("sto entrando");
                 pc.weaponController.addMoreModifiers(modifiersjson.getMoreModifiersbyCIDs(events.getEventbyName("secondaAvaria").modificatoriCIDS));
                 radioController.SetRadioText(events.getEventbyName("secondaAvaria").message);
             }
@@ -436,7 +438,7 @@ public class LevelController : MonoBehaviour
 
         else if (currentFailure == 2 && ((levelTimeCounter) >= third_breakdown_time) && !isLevelCompleted)
         {
-            if (pc.getModifierbyID("terzafailure") == null)
+            if (pc.getModifierbyCID("003") == null)
             {
                 currentFailure = 3;
                 thirdBreakdownImage.enabled = true;

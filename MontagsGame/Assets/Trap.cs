@@ -18,8 +18,6 @@ public class Trap : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         boxCollider = GetComponent<BoxCollider>();
-
-
     }
 
     
@@ -35,7 +33,6 @@ public class Trap : MonoBehaviour
         {
             if (renderEnemyBody == null)
             {
-                Debug.Log("elseeeeeeeeeeee");
                 enemyBody = other.transform.Find("EnemyPirateSkin").gameObject;
                 renderEnemyBody = enemyBody.GetComponent<Renderer>();
                 Debug.Log("setto lo shader");
@@ -46,8 +43,6 @@ public class Trap : MonoBehaviour
                 return;
             }
         }
-
-
     }
 
     private void OnTriggerExit(Collider other)

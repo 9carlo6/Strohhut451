@@ -10,7 +10,7 @@ public class LaserTrap : MonoBehaviour
     float valoreMinimo = -0.01f;
     float valoreMassimo = 3f;
     public BoxCollider boxCollider;
-    EnemyController enemyController;
+    EnemyHuman enemyHuman;
     Renderer renderEnemyBody;
     private GameObject enemyBody;
 
@@ -27,10 +27,7 @@ public class LaserTrap : MonoBehaviour
         //tra i figli
         lineRenderer = GetComponentInChildren<LineRenderer>();
         boxCollider = GetComponent<BoxCollider>();
-        enemyController = GetComponent<EnemyController>();
-
-
-      
+        enemyHuman = GetComponent<EnemyHuman>();
     }
 
     private void OnEnable()//QUANDO VIENE ATTIVATO L'OGGETTO
@@ -42,28 +39,21 @@ public class LaserTrap : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Ho collisooooo");
             Trigger(other);
         }
         else
         {
             if (renderEnemyBody == null)
             {
-                Debug.Log("elseeeeeeeeeeee");
                 enemyBody = other.transform.Find("EnemyPirateSkin").gameObject;
                 renderEnemyBody = enemyBody.GetComponent<Renderer>();
-                Debug.Log("setto lo shader");
                 renderEnemyBody.material.shader = trapShader;//facendo questo è stata commentata una linea di codice nell'enemycontroller relativa al chase
             }
             else
             {
                 return;
             }
-           
-            
-            
-        }
-       
+        }    
     }
 
     private void OnTriggerExit(Collider other)

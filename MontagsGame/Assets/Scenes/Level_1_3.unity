@@ -5898,6 +5898,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 170563715}
     m_Modifications:
+    - target: {fileID: -2924833014242273073, guid: bad4d8d38cbd4324d89a13d792b06518,
+        type: 3}
+      propertyPath: targetMask.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: -2924833014242273073, guid: bad4d8d38cbd4324d89a13d792b06518,
+        type: 3}
+      propertyPath: wayPoints.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -2924833014242273073, guid: bad4d8d38cbd4324d89a13d792b06518,
+        type: 3}
+      propertyPath: obstructionMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: -2924833014242273073, guid: bad4d8d38cbd4324d89a13d792b06518,
+        type: 3}
+      propertyPath: wayPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1721391412}
+    - target: {fileID: -2924833014242273073, guid: bad4d8d38cbd4324d89a13d792b06518,
+        type: 3}
+      propertyPath: wayPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1721391411}
+    - target: {fileID: -2924833014242273073, guid: bad4d8d38cbd4324d89a13d792b06518,
+        type: 3}
+      propertyPath: wayPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 1721391410}
+    - target: {fileID: -2924833014242273073, guid: bad4d8d38cbd4324d89a13d792b06518,
+        type: 3}
+      propertyPath: wayPoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 1721391409}
     - target: {fileID: 2495608323144225126, guid: bad4d8d38cbd4324d89a13d792b06518,
         type: 3}
       propertyPath: wayPoints.Array.size
@@ -15142,6 +15177,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 170563715}
     m_Modifications:
+    - target: {fileID: 2033103342099190173, guid: 84643ab09e002ae4cbaaf5051515204f,
+        type: 3}
+      propertyPath: wayPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2033103342099190173, guid: 84643ab09e002ae4cbaaf5051515204f,
+        type: 3}
+      propertyPath: wayPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 86892385}
+    - target: {fileID: 2033103342099190173, guid: 84643ab09e002ae4cbaaf5051515204f,
+        type: 3}
+      propertyPath: wayPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 86892384}
     - target: {fileID: 2593532881051828876, guid: 84643ab09e002ae4cbaaf5051515204f,
         type: 3}
       propertyPath: wayPoints.Array.data[0]
@@ -18508,6 +18558,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 170563715}
     m_Modifications:
+    - target: {fileID: -1550654983945913510, guid: 98b9ac7f85f8d184d8cc4070b2fe8787,
+        type: 3}
+      propertyPath: wayPoints.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -1550654983945913510, guid: 98b9ac7f85f8d184d8cc4070b2fe8787,
+        type: 3}
+      propertyPath: wayPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 553097473}
+    - target: {fileID: -1550654983945913510, guid: 98b9ac7f85f8d184d8cc4070b2fe8787,
+        type: 3}
+      propertyPath: wayPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 553097472}
+    - target: {fileID: -1550654983945913510, guid: 98b9ac7f85f8d184d8cc4070b2fe8787,
+        type: 3}
+      propertyPath: wayPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 553097471}
+    - target: {fileID: -1550654983945913510, guid: 98b9ac7f85f8d184d8cc4070b2fe8787,
+        type: 3}
+      propertyPath: wayPoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 553097470}
     - target: {fileID: 187815317588672959, guid: 98b9ac7f85f8d184d8cc4070b2fe8787,
         type: 3}
       propertyPath: m_RootOrder
@@ -26042,8 +26117,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 9061777606496863425, guid: 7e35ab1addd0c71418627b1bc4a5d76a, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e35ab1addd0c71418627b1bc4a5d76a, type: 3}
 --- !u!4 &1801285286 stripped
 Transform:
@@ -29623,7 +29697,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1993573198}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!1001 &1993986178
 PrefabInstance:
   m_ObjectHideFlags: 0
