@@ -42037,11 +42037,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pirata_Nemico_2_Armato_2 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 2805720708211121720, guid: 98b9ac7f85f8d184d8cc4070b2fe8787,
+        type: 3}
+      propertyPath: hitEffect
+      value: 
+      objectReference: {fileID: 1771385008}
+    - target: {fileID: 2805720708211121720, guid: 98b9ac7f85f8d184d8cc4070b2fe8787,
+        type: 3}
+      propertyPath: muzzleFlash.Array.data[1]
+      value: 
+      objectReference: {fileID: 1771385009}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98b9ac7f85f8d184d8cc4070b2fe8787, type: 3}
 --- !u!4 &1771385007 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 187815317588672959, guid: 98b9ac7f85f8d184d8cc4070b2fe8787,
+    type: 3}
+  m_PrefabInstance: {fileID: 1771385006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1771385008 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2805720707702096426, guid: 98b9ac7f85f8d184d8cc4070b2fe8787,
+    type: 3}
+  m_PrefabInstance: {fileID: 1771385006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1771385009 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2805720706800417092, guid: 98b9ac7f85f8d184d8cc4070b2fe8787,
     type: 3}
   m_PrefabInstance: {fileID: 1771385006}
   m_PrefabAsset: {fileID: 0}
