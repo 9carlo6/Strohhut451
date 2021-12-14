@@ -99,7 +99,7 @@ public class SessionController : MonoBehaviour
         foreach (Scene s in sessions.sessions_list.LastOrDefault().scenes)
         {
             attempts += s.restart_numbers;
-            points += s.score
+            points += s.score;
         }
         data.Add("attempts", attempts);
         data.Add("points", points);
