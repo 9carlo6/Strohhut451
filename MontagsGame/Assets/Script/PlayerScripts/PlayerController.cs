@@ -249,8 +249,7 @@ public class PlayerController : Character
     {
 		//Prende i parametri dall'animator
 		bool isWalking = animator.GetBool("isWalking");
-		//isRunning ancora non utilizzato
-		bool isRunning = animator.GetBool("isRunning");
+		
 
 		if (levelController.GetComponent<LevelStateManager>().getCurrentState().Equals("LevelPauseState"))
 		{

@@ -13,9 +13,9 @@ public class PirateHelm : MonoBehaviour
     [HideInInspector] public PlayerController playerController;
 
 
-    void Awake()
+    void Start()
     {
-        levelController = GameObject.FindWithTag("LevelController");
+        levelController = GameObject.FindGameObjectWithTag("LevelController");
         lc = levelController.GetComponent<LevelController>();
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 
@@ -23,7 +23,7 @@ public class PirateHelm : MonoBehaviour
 
     public void EnableEffect()
     {
-        if (lc.sc.helms_amount > 0 && !playerController.isStopped && !playerController.isDeath)
+        if (lc.sc.helms_amount > 0 && !lc.GetComponent<LevelStateManager>().getCurrentState().Equals("LevelPauseState"))
         {
             enemies = GameObject.FindGameObjectsWithTag("Enemy");
             FindObjectOfType<AudioManager>().Play("DropItem");
