@@ -17,7 +17,6 @@ public class LevelController : MonoBehaviour
     public GameObject levelInfoCanvas;
 
     //Per controllare il tempo impiegato per superare il livello
-    [HideInInspector]
     public float levelTimeCounter;
 
     //Per gestire i punti accumulati nel livello
@@ -27,40 +26,31 @@ public class LevelController : MonoBehaviour
     public int levelPoints;
 
     //Per gestire la combo
-    [HideInInspector]
-    public GameObject comboText;
-    [HideInInspector]
-    public float comboTimeCounter;
-    [HideInInspector]
-    public int comboMultiplier;
+    [HideInInspector] public GameObject comboText;
+    [HideInInspector] public float comboTimeCounter;
+    [HideInInspector] public int comboMultiplier;
 
     //Per gestire i vari tipi di punteggio
-    [HideInInspector]
-    public int enemyKillScore;
+    [HideInInspector] public int enemyKillScore;
 
     //Per controllare il numero corrente di nemici presenti nel livello
     public int currentNumberOfEnemies,NumberOfEnemiesCheck;
-    [HideInInspector]
-    public GameObject enemiesNumberText;
+    [HideInInspector] public GameObject enemiesNumberText;
 
     //Per gestire il numero di monete raccolte
-    [HideInInspector]
-    public GameObject coinsText;
-    [HideInInspector]
-    public int currentCoins;
+    [HideInInspector] public GameObject coinsText;
+    [HideInInspector] public int currentCoins;
 
     //Per gestire il numero di munizioni
-    [HideInInspector]
-    public GameObject ammoText;
-    [HideInInspector]
-    public WeaponController weapon;
+    [HideInInspector] public GameObject ammoText;
+    [HideInInspector] public WeaponController weapon;
 
     //Questi paramentri servono per salvare i valori validi relativi allo score del livello
     //Quando il giocatore va al livello successivo devono essere aggiornati
     [HideInInspector] public int valid_levelPoints;
     [HideInInspector] public int valid_currentCoins;
     [HideInInspector] public int valid_currentNumberOfEnemies;
-    [HideInInspector] public float valid_levelTimeCounter;
+    public float valid_levelTimeCounter;
     //Parametri legati ai gameItems
     [HideInInspector] public float valid_skulls_amount;
     [HideInInspector] public float valid_helms_amount;

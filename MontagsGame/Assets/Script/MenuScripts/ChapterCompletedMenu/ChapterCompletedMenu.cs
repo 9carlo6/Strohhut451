@@ -155,6 +155,7 @@ public class ChapterCompletedMenu : MonoBehaviour
             points.text = finalScore["points"].ToString();
             coins.text = finalScore["coins"].ToString();
 
+
             total_score = ((finalScore["points"] * finalScore["coins"]) / (finalScore["time"] * finalScore["attempts"])) * 100;
             total.text = total_score.ToString();
 
