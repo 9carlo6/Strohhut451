@@ -319,6 +319,9 @@ public class LevelController : MonoBehaviour
         comboMultiplier = 0;
         currentFailure = 0;
 
+        //resetting del timer del telescopio
+        telescope_timer = 0;
+
         //Per il reset dei gameItems
         sc.skulls_amount = valid_skulls_amount;
         sc.helms_amount = valid_helms_amount;
@@ -342,6 +345,9 @@ public class LevelController : MonoBehaviour
         valid_levelTimeCounter += levelTimeCounter;
         levelTimeCounter = 0;
         currentFailure = 0;
+
+        //resetting del timer del telescopio
+        telescope_timer = 0;
 
 
         //Per il reset dei canvas delle avarie
