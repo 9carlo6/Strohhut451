@@ -9,17 +9,20 @@ public class Skull : MonoBehaviour
     //Per la gestione del numero di skull correnti
     [HideInInspector] public GameObject levelController;
     [HideInInspector] public LevelController lc;
+    [HideInInspector] public PlayerController playerController;
 
 
     void Awake()
     {
         levelController = GameObject.FindWithTag("LevelController");
         lc = levelController.GetComponent<LevelController>();
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+
     }
 
     public void EnableEffect()
     {
-        if (lc.sc.skulls_amount > 0)
+        if (lc.sc.skulls_amount > 0 && !playerController.isStopped && !playerController.isDeath)
         {
             enemies = GameObject.FindGameObjectsWithTag("Enemy");
 

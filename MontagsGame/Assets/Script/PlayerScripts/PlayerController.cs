@@ -164,6 +164,7 @@ public class PlayerController : Character
 		}
 
 		handleAnimation();
+		handleSound();
 		base.Update();
 	}
 
@@ -231,7 +232,21 @@ public class PlayerController : Character
 	//Per gestire le animazioni
 	void handleAnimation()
 	{
+		//velocityX e velocityZ servono per gestire l'animazione della camminata.
+		//il loro valore cambia in base al movimento del personaggio.
+		//Vector3.Dot serve per fare il prodotto tra due vettori, moltiplicandolo poi per il coseno dell'angolo fra i due.
+		//In particolare per velocityZ abbiamo currentMovement (ovvero la direzione del personaggio) e transform.forward (che restituisce un valore positivo
+		//se il personaggio si muove in avanti, negativo altrimenti)
+		//Per velocityX è la stessa cosa ma per il movimento laterale.
+		velocityZ = Vector3.Dot(currentMovement.normalized, transform.forward);
+		velocityX = Vector3.Dot(currentMovement.normalized, transform.right);
 
+		animator.SetFloat("VelocityZ", velocityZ, 0.1f, Time.deltaTime);
+		animator.SetFloat("VelocityX", velocityX, 0.1f, Time.deltaTime);
+	}
+
+	void handleSound()
+    {
 		//Prende i parametri dall'animator
 		bool isWalking = animator.GetBool("isWalking");
 		//isRunning ancora non utilizzato
@@ -240,9 +255,9 @@ public class PlayerController : Character
 		if (levelController.GetComponent<LevelStateManager>().getCurrentState().Equals("LevelPauseState"))
 		{
 			FindObjectOfType<AudioManager>().Stop("Running");
-        }
-        else
-        {
+		}
+		else
+		{
 			//Gestione Camminata
 			if (isMovementPressed && !isWalking)
 			{
@@ -255,18 +270,6 @@ public class PlayerController : Character
 				animator.SetBool("isWalking", false);
 			}
 		}
-
-		//velocityX e velocityZ servono per gestire l'animazione della camminata.
-		//il loro valore cambia in base al movimento del personaggio.
-		//Vector3.Dot serve per fare il prodotto tra due vettori, moltiplicandolo poi per il coseno dell'angolo fra i due.
-		//In particolare per velocityZ abbiamo currentMovement (ovvero la direzione del personaggio) e transform.forward (che restituisce un valore positivo
-		//se il personaggio si muove in avanti, negativo altrimenti)
-		//Per velocityX è la stessa cosa ma per il movimento laterale.
-		velocityZ = Vector3.Dot(currentMovement.normalized, transform.forward);
-		velocityX = Vector3.Dot(currentMovement.normalized, transform.right);
-
-		animator.SetFloat("VelocityZ", velocityZ, 0.1f, Time.deltaTime);
-		animator.SetFloat("VelocityX", velocityX, 0.1f, Time.deltaTime);
 	}
 
 	//Rilevamento della collisione con il pavimento che permette di andare al livello successivo

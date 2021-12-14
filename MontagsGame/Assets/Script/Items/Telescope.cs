@@ -6,23 +6,23 @@ using HumanFeatures;
 
 public class Telescope : MonoBehaviour
 {
-    public PlayerController playerController;
-
     //Per la gestione del numero di skull correnti
     [HideInInspector] public GameObject levelController;
     [HideInInspector] public LevelController lc;
+    [HideInInspector] public PlayerController playerController;
 
     void Awake()
     {
         levelController = GameObject.FindWithTag("LevelController");
         lc = levelController.GetComponent<LevelController>();
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     public void EnableEffect()
     {
         playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
 
-        if (lc.sc.telescopes_amount > 0 && (bool)((playerController.features)[HumanFeature.FeatureType.FT_INCREASED_FOV]).currentValue==false)
+        if (lc.sc.telescopes_amount > 0 && (bool)((playerController.features)[HumanFeature.FeatureType.FT_INCREASED_FOV]).currentValue == false && !playerController.isStopped && !playerController.isDeath)
         {
             //qua ci va un modificatore non una modifica alla feature
 
