@@ -285,6 +285,11 @@ public class PlayerController : Character
 		}
 	}
 
+	public bool Death()
+    {
+		return (float)features[HumanFeature.FeatureType.FT_HEALTH].currentValue <= 0.0f;
+    }
+
 	void OnEnable()
 	{
 		//Serve per abilitare la character controls action map

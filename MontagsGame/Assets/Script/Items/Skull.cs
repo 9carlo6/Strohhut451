@@ -22,7 +22,7 @@ public class Skull : MonoBehaviour
 
     public void EnableEffect()
     {
-        if (lc.sc.skulls_amount > 0 && !levelController.GetComponent<LevelStateManager>().getCurrentState().Equals("LevelPauseState"))
+        if (lc.sc.skulls_amount > 0 && !levelController.GetComponent<LevelStateManager>().getCurrentState().Equals("LevelPauseState") && !playerController.Death())
         {
             enemies = GameObject.FindGameObjectsWithTag("Enemy");
 

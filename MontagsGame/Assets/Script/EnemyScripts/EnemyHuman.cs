@@ -193,7 +193,7 @@ public class EnemyHuman : Character
                     enemyNavMeshAgent.isStopped = false;
 
                     //Per gestire lo shader
-                    //renderEnemyBody.material.shader = baseEnemyShader;
+                    renderEnemyBody.material.shader = baseEnemyShader;
                     break;
 
                 case "EnemyMeleeAttackState":

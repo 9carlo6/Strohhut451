@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using HumanFeatures;
 
 public class LaserTrap : MonoBehaviour
 {
@@ -67,10 +68,11 @@ public class LaserTrap : MonoBehaviour
 
     void Trigger(Collider other)
     {
-        PlayerHealthManager healthManager = other.GetComponent<PlayerHealthManager>();
-        healthManager.currentHealth = 0;
+        
+        other.GetComponent<PlayerController>().features[HumanFeature.FeatureType.FT_HEALTH].currentValue = 0.0f;
+
     }
- 
+
     //creiamo una corutine per far muovere il laser
     //la coroutine consente di suddividere un'attività in più frame
     IEnumerator AnimateLaser()

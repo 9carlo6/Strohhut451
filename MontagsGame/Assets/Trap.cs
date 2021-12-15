@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using HumanFeatures;
 
 public class Trap : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class Trap : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+
         boxCollider = GetComponent<BoxCollider>();
     }
 
@@ -26,7 +28,7 @@ public class Trap : MonoBehaviour
 
         if (other.tag.Equals("Player"))
         {
-            player.GetComponent<PlayerHealthManager>().currentHealth = 0;
+            other.GetComponent<PlayerController>().features[HumanFeature.FeatureType.FT_HEALTH].currentValue = 0.0f;
 
         }
         else

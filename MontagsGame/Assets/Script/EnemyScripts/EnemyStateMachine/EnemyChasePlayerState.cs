@@ -201,9 +201,11 @@ public class EnemyChasePlayerState : EnemyBaseState
         enemyNavMesh.SetDestination(destinationVector);
 
         // Debug.Log("vado qui : "+ destinationVector.x.ToString() + "-"+destinationVector.y.ToString() + "-"+destinationVector.z.ToString() + "-");
-
-        //Il nemico si gira verso il player
-        enemyGameObject.transform.LookAt(playerGameObject.transform);
+        if (distanceToTarget <= fireDistance +0.5f)
+        {
+            //Il nemico si gira verso il player
+            enemyGameObject.transform.LookAt(playerGameObject.transform);
+        }
 
         // funzione di sparo con precisione in funzione della distanza
         if (distance <= fireDistance && (bool) (enemyHumanController.features[EnemyFeature.FeatureType.FT_IS_WEAPONED].currentValue))

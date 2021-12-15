@@ -22,7 +22,7 @@ public class Telescope : MonoBehaviour
     {
         playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
 
-        if (lc.sc.telescopes_amount > 0 && (bool)((playerController.features)[HumanFeature.FeatureType.FT_INCREASED_FOV]).currentValue == false && !levelController.GetComponent<LevelStateManager>().getCurrentState().Equals("LevelPauseState") )
+        if (lc.sc.telescopes_amount > 0 && (bool)((playerController.features)[HumanFeature.FeatureType.FT_INCREASED_FOV]).currentValue == false && !levelController.GetComponent<LevelStateManager>().getCurrentState().Equals("LevelPauseState") && !playerController.Death())
         {
             //qua ci va un modificatore non una modifica alla feature
 
