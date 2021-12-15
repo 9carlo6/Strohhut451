@@ -305,8 +305,7 @@ MonoBehaviour:
   deathClip: {fileID: 2805720707342991567}
   punchClip: {fileID: 2805720707342991564}
   alertClip: {fileID: 3715341111435792242}
-  enemyWeapon: {fileID: 3872748748440163447, guid: 4ee83e96796feb64aa000129ea95aec4,
-    type: 3}
+  enemyWeapon: {fileID: 2805720707713242600}
   attackPoint: {fileID: 365346223904290336}
   animator: {fileID: 6087580120719940549}
   stateManager: {fileID: 0}
@@ -2966,17 +2965,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gun_2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3872748748770140071, guid: 4ee83e96796feb64aa000129ea95aec4,
+        type: 3}
+      propertyPath: hitEffect
+      value: 
+      objectReference: {fileID: 2805720707702096426}
+    - target: {fileID: 3872748748770140071, guid: 4ee83e96796feb64aa000129ea95aec4,
+        type: 3}
+      propertyPath: muzzleFlash.Array.data[1]
+      value: 
+      objectReference: {fileID: 2805720706800417092}
+    m_RemovedComponents:
+    - {fileID: 3872748748770140071, guid: 4ee83e96796feb64aa000129ea95aec4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4ee83e96796feb64aa000129ea95aec4, type: 3}
---- !u!4 &2805720707713141192 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3872748748439996503, guid: 4ee83e96796feb64aa000129ea95aec4,
+--- !u!1 &2805720707713242600 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3872748748440163447, guid: 4ee83e96796feb64aa000129ea95aec4,
     type: 3}
   m_PrefabInstance: {fileID: 1391938193504977311}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &2805720706800417092 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 3872748747496765659, guid: 4ee83e96796feb64aa000129ea95aec4,
+--- !u!4 &2805720707713141192 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3872748748439996503, guid: 4ee83e96796feb64aa000129ea95aec4,
     type: 3}
   m_PrefabInstance: {fileID: 1391938193504977311}
   m_PrefabAsset: {fileID: 0}
@@ -3001,6 +3011,12 @@ Transform:
 --- !u!4 &2805720706944950931 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3872748747536507660, guid: 4ee83e96796feb64aa000129ea95aec4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1391938193504977311}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &2805720706800417092 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3872748747496765659, guid: 4ee83e96796feb64aa000129ea95aec4,
     type: 3}
   m_PrefabInstance: {fileID: 1391938193504977311}
   m_PrefabAsset: {fileID: 0}

@@ -34,7 +34,7 @@ public class EnemyChasePlayerState : EnemyBaseState
     public float hearTime = 0;
 
 
-    EnemyWeaponController weaponController;
+    WeaponController weaponController;
 
     //ALERT
     public bool playerFire;  //Viene utilizzata per l'alert
@@ -54,8 +54,8 @@ public class EnemyChasePlayerState : EnemyBaseState
         obstructionMask = enemy.GetComponent<EnemyHuman>().obstructionMask;
         enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
         enemyAnimator = enemy.GetComponent<Animator>();
-        weaponController = enemy.GetComponentInChildren<EnemyWeaponController>();
         enemyHumanController = enemy.GetComponent<EnemyHuman>();
+        weaponController = enemyHumanController.weaponController;
 
         playerInSightRange = true;
         fireInHearRange = false;

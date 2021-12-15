@@ -219,7 +219,7 @@ public class EnemyHuman : Character
                     //Per gestire il movimento delle mani rispetto all'arma
                     if (enemy_weapon_rig != null)
                     {
-                        enemy_weapon_rig.weight = 0;
+                        enemy_weapon_rig.weight = 1;
                     }
 
                     animator.SetBool("isWalkingEnemy", false);
