@@ -33,7 +33,7 @@ public class EnemyCheckState : EnemyBaseState
     public bool playerFire;  //Viene utilizzata per l'alert
     public bool fireInHearRange;
 
-    EnemyController enemyController;
+    EnemyHuman enemyHumanController;
 
     public override void EnterState(EnemyStateManager enemy)
     {
@@ -42,15 +42,15 @@ public class EnemyCheckState : EnemyBaseState
         checkTime = 0;
       
         enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
-        enemyGameObject = enemy.GetComponent<EnemyController>().gameObject;
-        targetMask = enemy.GetComponent<EnemyController>().targetMask;
-        obstructionMask = enemy.GetComponent<EnemyController>().obstructionMask;
-        wayPoints = enemy.GetComponent<EnemyController>().wayPoints;
-        enemyController = enemy.GetComponent<EnemyController>();
+        enemyGameObject = enemy.GetComponent<EnemyHuman>().gameObject;
+        targetMask = enemy.GetComponent<EnemyHuman>().targetMask;
+        obstructionMask = enemy.GetComponent<EnemyHuman>().obstructionMask;
+        wayPoints = enemy.GetComponent<EnemyHuman>().wayPoints;
+        enemyHumanController = enemy.GetComponent<EnemyHuman>();
 
-        viewRadius = (float)((enemyController.features)[EnemyFeature.FeatureType.FT_VIEW_RADIUS]).currentValue;
+        viewRadius = (float)((enemyHumanController.features)[EnemyFeature.FeatureType.FT_VIEW_RADIUS]).currentValue;
 
-        viewAngle = (float)((enemyController.features)[EnemyFeature.FeatureType.FT_VIEW_ANGLE_PATROLLING]).currentValue;
+        viewAngle = (float)((enemyHumanController.features)[EnemyFeature.FeatureType.FT_VIEW_ANGLE_PATROLLING]).currentValue;
 
         if (GameObject.FindGameObjectWithTag("Player") != null)
         {

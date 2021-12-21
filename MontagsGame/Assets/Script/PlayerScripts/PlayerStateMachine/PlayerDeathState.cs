@@ -9,8 +9,18 @@ public class PlayerDeathState : PlayerBaseState
     private Animator animator;
     private AnimatorClipInfo[] clipInfo;
 
+    public GameObject cameraGameObject;
+    public AudioListener audioListener;
+
     public override void EnterState(PlayerStateManager player)
     {
+
+        cameraGameObject = GameObject.FindGameObjectWithTag("MainCamera");
+
+        audioListener = cameraGameObject.GetComponent<AudioListener>();
+
+        //audioListener.enabled = true;
+
         Debug.Log("Stato Player = Morto");
 
         playerController = player.GetComponent<PlayerController>();
@@ -38,7 +48,7 @@ public class PlayerDeathState : PlayerBaseState
         if (string.Equals(GetCurrentClipName(), "MortePersonaggio") && playerController.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
         {
             //Quando finisce l'animazione scompare il personaggio
-            Object.Destroy(player.gameObject);
+            //Object.Destroy(player.gameObject);
         }
 
         //Per gestire la dissolvenza durante la morte del MortePersonaggio

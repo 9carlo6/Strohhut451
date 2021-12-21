@@ -18,15 +18,13 @@ public class OpenDoor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        animator.SetBool("Open", true);
-
-        audioSource.Play();
+         animator.SetBool("Open", true);
+         audioSource.Play();        
     }
 
     private void OnTriggerExit(Collider other)
     {
         animator.SetBool("Open", false);
-
         audioSource.Play();
     }
 

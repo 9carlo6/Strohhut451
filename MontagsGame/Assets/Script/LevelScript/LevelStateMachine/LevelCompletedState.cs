@@ -9,8 +9,6 @@ public class LevelCompletedState : LevelBaseState
 	public GameObject levelCompletedCanvas;
 	public bool readyToGo;
 
-	public GameObject[] traps;
-
 	public override void EnterState(LevelStateManager level)
 	{
 		Debug.Log("Stato Livello = Livello completato");
@@ -18,9 +16,7 @@ public class LevelCompletedState : LevelBaseState
 		level.player.GetComponent<Rigidbody>().isKinematic = false;
 		level.player.GetComponent<CapsuleCollider>().enabled = true;
 
-		traps = GameObject.FindGameObjectsWithTag("Trap");
-
-		HideTrap();
+		HideTraps();
 		HideCoins();
 
 		levelCompletedCanvas = level.gameObject.transform.Find("LevelCompletedCanvas").gameObject;
@@ -52,6 +48,9 @@ public class LevelCompletedState : LevelBaseState
 
 			levelCompletedCanvas.SetActive(false);
 
+			ActiveTraps();
+			ActiveCoins();
+
 			//set del parametro dei nunmero dei nemici
 			level.lc.currentNumberOfEnemies = level.lc.valid_currentNumberOfEnemies;
 			level.lc.NumberOfEnemiesCheck = level.lc.valid_currentNumberOfEnemies;
@@ -71,7 +70,7 @@ public class LevelCompletedState : LevelBaseState
 		  level.SwitchState(level.PauseState);
 	  }
 
-		if (level.player.GetComponent<PlayerHealthManager>() != null)
+		if (level.player != null)
 		{
 			if(level.player.GetComponent<PlayerHealthManager>().currentHealth <= 0)
             {
@@ -99,11 +98,19 @@ public class LevelCompletedState : LevelBaseState
 		level.SwitchState(level.InitialState);
 	}
 
-	public void HideTrap()
+	public void HideTraps()
 	{
-		foreach (GameObject trap in traps)
+		foreach (GameObject trap in GameObject.FindGameObjectsWithTag("Trap"))
 		{
 			trap.SetActive(false);
+		}
+	}
+
+	public void ActiveTraps()
+	{
+		foreach (GameObject trap in GameObject.FindGameObjectsWithTag("Trap"))
+		{
+			trap.SetActive(true);
 		}
 	}
 
@@ -112,6 +119,14 @@ public class LevelCompletedState : LevelBaseState
 		foreach (GameObject coin in GameObject.FindGameObjectsWithTag("Coin"))
 		{
 			coin.SetActive(false);
+		}
+	}
+
+	public void ActiveCoins()
+	{
+		foreach (GameObject coin in GameObject.FindGameObjectsWithTag("Coin"))
+		{
+			coin.SetActive(true);
 		}
 	}
 

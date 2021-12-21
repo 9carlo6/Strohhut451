@@ -17,7 +17,6 @@ public class LevelController : MonoBehaviour
     public GameObject levelInfoCanvas;
 
     //Per controllare il tempo impiegato per superare il livello
-    [HideInInspector]
     public float levelTimeCounter;
 
     //Per gestire i punti accumulati nel livello
@@ -27,44 +26,38 @@ public class LevelController : MonoBehaviour
     public int levelPoints;
 
     //Per gestire la combo
-    [HideInInspector]
-    public GameObject comboText;
-    [HideInInspector]
-    public float comboTimeCounter;
-    [HideInInspector]
-    public int comboMultiplier;
+    [HideInInspector] public GameObject comboText;
+    [HideInInspector] public float comboTimeCounter;
+    [HideInInspector] public int comboMultiplier;
 
     //Per gestire i vari tipi di punteggio
-    [HideInInspector]
-    public int enemyKillScore;
+    [HideInInspector] public int enemyKillScore;
 
     //Per controllare il numero corrente di nemici presenti nel livello
     public int currentNumberOfEnemies,NumberOfEnemiesCheck;
-    [HideInInspector]
-    public GameObject enemiesNumberText;
+    [HideInInspector] public GameObject enemiesNumberText;
 
     //Per gestire il numero di monete raccolte
-    [HideInInspector]
-    public GameObject coinsText;
-    [HideInInspector]
-    public int currentCoins;
+    [HideInInspector] public GameObject coinsText;
+    [HideInInspector] public int currentCoins;
 
     //Per gestire il numero di munizioni
-    [HideInInspector]
-    public GameObject ammoText;
-    [HideInInspector]
-    public WeaponController weapon;
+    [HideInInspector] public GameObject ammoText;
+    [HideInInspector] public WeaponController weapon;
 
     //Questi paramentri servono per salvare i valori validi relativi allo score del livello
     //Quando il giocatore va al livello successivo devono essere aggiornati
     [HideInInspector] public int valid_levelPoints;
     [HideInInspector] public int valid_currentCoins;
     [HideInInspector] public int valid_currentNumberOfEnemies;
-    [HideInInspector] public float valid_levelTimeCounter;
+    public float valid_levelTimeCounter;
     //Parametri legati ai gameItems
     [HideInInspector] public float valid_skulls_amount;
     [HideInInspector] public float valid_helms_amount;
     [HideInInspector] public float valid_telescopes_amount;
+    public Image telescopeTimerImage;
+    public TMP_Text telescope_timer_text;
+    [HideInInspector] public float telescope_timer;
 
     //Per la gestione delle avarie
     //public float BreakdownTimeCounter;
@@ -72,6 +65,9 @@ public class LevelController : MonoBehaviour
     public Image firstBreakdownImage;
     public Image secondBreakdownImage;
     public Image thirdBreakdownImage;
+    [HideInInspector] public float first_breakdown_time = 30;
+    [HideInInspector] public float second_breakdown_time = 50;
+    [HideInInspector] public float third_breakdown_time = 70;
 
     //Per gestire il testo della radio
     public RadioController radioController;
@@ -88,6 +84,11 @@ public class LevelController : MonoBehaviour
     [HideInInspector] public ModifierJsonMap modifiersjson;
     [HideInInspector] public EventJsonMap events;
     [HideInInspector] public int currentFailure;
+
+    //Per gesitre gli aiuti
+    [HideInInspector] public int current_restart_number;
+    [HideInInspector] public bool trap_help_used = false;
+    [HideInInspector] public bool items_help_used = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -113,6 +114,8 @@ public class LevelController : MonoBehaviour
             valid_levelPoints = 0;
             valid_currentCoins = 0;
             valid_levelTimeCounter = 0;
+
+
             
             pointsText = GameObject.FindWithTag("PointsText");
             comboText = GameObject.FindWithTag("ComboText");
@@ -142,12 +145,18 @@ public class LevelController : MonoBehaviour
             valid_helms_amount = sc.helms_amount;
             valid_telescopes_amount = sc.telescopes_amount;
 
+            //Per gestire il timer del telescope
+            valid_telescopes_amount = sc.telescopes_amount;
+
             //Per gestire i modificatori e gli eventi
             string fileStringevents = new StreamReader("Assets/Push-To-Data/Modifiers/Events.txt").ReadToEnd();
             events = JsonUtility.FromJson<EventJsonMap>(fileStringevents);
             string fileStringmodifiers = new StreamReader("Assets/Push-To-Data/Modifiers/Modifiers.txt").ReadToEnd();
             modifiersjson = JsonUtility.FromJson<ModifierJsonMap>(fileStringmodifiers);
             currentFailure = 0;
+
+            //Per gesitre gli aiuti
+            current_restart_number = sc.GetCurrentRestartNumber();
         }
         else
         {
@@ -171,6 +180,17 @@ public class LevelController : MonoBehaviour
         //Continua costantemente la tipologia della scena corrente
         //Se non è un livello distrugge l'oggetto LevelController
         CheckSceneType();
+ 
+        //Per gestire gli aiuti
+        if(current_restart_number < sc.GetCurrentRestartNumber())
+        {
+            current_restart_number = sc.GetCurrentRestartNumber();
+
+            //reset dei parametri quando si aggiorna il numero dei tentativi
+            trap_help_used = false;
+            items_help_used = false;
+        }
+        
 
         //Per incrementare il valore del cronometro del tempo impiegato per superare il livello
         if (currentNumberOfEnemies > 0)
@@ -238,6 +258,54 @@ public class LevelController : MonoBehaviour
             ammoText.GetComponent<TMP_Text>().text = weapon.features[WeaponFeatures.WeaponFeature.FeatureType.FT_AMMO_COUNT].currentValue.ToString() + "/"
                 + weapon.features[WeaponFeatures.WeaponFeature.FeatureType.FT_MAX_AMMO_COUNT].currentValue.ToString();
         }
+
+        //Per gestire il timer del telescope
+        if (telescope_timer > 0)
+        {
+            telescope_timer -= Time.deltaTime;
+            telescope_timer_text.text = Math.Truncate(telescope_timer).ToString();
+        }
+        else
+        {
+            telescopeTimerImage.enabled = false;
+            telescope_timer_text.text = " ";
+        }
+    }
+
+    //Per gesitre gli aiuti in caso di troppe morti
+    public void LevelHelper()
+    {
+        //Se il numero di tentativi è uguale a 7 bisogna consigliare al giocatore di utilizzare al meglio i gameItems
+        if (current_restart_number == 7)
+        {
+            radioController.SetRadioText(events.getEventbyName("HelpUseItems").message);
+        }
+        //Se il numero di tentativi è maggiore di 7 tutti i gameItems vengono incrementati di uno a ogni morte
+        if (current_restart_number >= 7 & !items_help_used)
+        {
+            sc.skulls_amount++;
+            sc.helms_amount++;
+            sc.telescopes_amount++;
+            UpdateGameItemsAmountText();
+
+            items_help_used = true;
+        }
+
+        //Se il numero di tentativi è uguale a 20 bisogna eliminare le trappole e informare il giocatore con un messaggio
+        if (current_restart_number == 20)
+        {
+            radioController.SetRadioText(events.getEventbyName("HelpBypassTrappole").message);
+        }
+        //Se il numero di tentativi è maggiore di 20 bisogna eliminare le trappole a ogni morte
+        if (current_restart_number >= 20 & !trap_help_used)
+        {
+            foreach (GameObject trap in GameObject.FindGameObjectsWithTag("Trap"))
+            {
+                trap.SetActive(false);
+            }
+
+            trap_help_used = true;
+        }
     }
 
     //Per il reset dei parametri quando si riavvia il livello
@@ -252,6 +320,9 @@ public class LevelController : MonoBehaviour
         comboTimeCounter = 0;
         comboMultiplier = 0;
         currentFailure = 0;
+
+        //resetting del timer del telescopio 
+        telescope_timer = 0;
 
         //Per il reset dei gameItems
         sc.skulls_amount = valid_skulls_amount;
@@ -275,6 +346,11 @@ public class LevelController : MonoBehaviour
         valid_currentCoins = currentCoins;
         valid_levelTimeCounter += levelTimeCounter;
         levelTimeCounter = 0;
+        currentFailure = 0;
+
+        //resetting del timer del telescopio 
+        telescope_timer = 0;
+
 
         //Per il reset dei canvas delle avarie
         firstBreakdownImage.enabled = false;
@@ -297,6 +373,14 @@ public class LevelController : MonoBehaviour
         telescopes_amount_text.text = sc.telescopes_amount.ToString();
     }
 
+    //Per la gestione del timer del telecope
+    public void HandleTelescopeTimer(PlayerController pc)
+    {
+        //setting del timer
+        telescopeTimerImage.enabled = true;
+        telescope_timer = (pc.getModifierbyCID("telescope")).duration ;
+    }
+
     //Per la gestione delle avarie
     public void handleBreakdown(PlayerController pc, bool isLevelCompleted)
     {
@@ -305,14 +389,26 @@ public class LevelController : MonoBehaviour
         //1) sono passati 30 secondi
         //2) non è completato il Livello
         //3) non contiene già un modicatore con questa chiave
-        if (currentFailure == 0 && ((levelTimeCounter) < 20) && !isLevelCompleted)
+
+        if (isLevelCompleted)
+        {
+            pc.cleanModifiers();
+
+            firstBreakdownImage.enabled = false;
+            secondBreakdownImage.enabled = false;
+            thirdBreakdownImage.enabled = false;
+            breakdownCanvas.SetActive(false);
+        }
+
+
+        if (currentFailure == 0 && ((levelTimeCounter) < first_breakdown_time) && !isLevelCompleted)
         {
             breakdownCanvas.SetActive(false);
         }
 
-        if (currentFailure == 0 && ((levelTimeCounter) >= 20) && !isLevelCompleted)
+        if (currentFailure == 0 && ((levelTimeCounter) >= first_breakdown_time) && !isLevelCompleted)
         {
-            if (pc.getModifierbyID("001") == null)
+            if (pc.getModifierbyCID("001") == null)
             {
                 currentFailure = 1;
                 breakdownCanvas.SetActive(true);
@@ -322,23 +418,25 @@ public class LevelController : MonoBehaviour
                 radioController.SetRadioText(events.getEventbyName("primaAvaria").message);
             }
         }
-      
-        else if (currentFailure == 1 && ((levelTimeCounter) >= 40) && !isLevelCompleted)
+
+        else if (currentFailure == 1 && ((levelTimeCounter) >= second_breakdown_time) && !isLevelCompleted)
         {
             // seconda 
-            if (pc.getModifierbyID("secondafailure") == null)
+
+
+            if (pc.getModifierbyCID("002") == null)
             {
                 currentFailure = 2;
                 secondBreakdownImage.enabled = true;
-
+                Debug.Log("sto entrando");
                 pc.weaponController.addMoreModifiers(modifiersjson.getMoreModifiersbyCIDs(events.getEventbyName("secondaAvaria").modificatoriCIDS));
                 radioController.SetRadioText(events.getEventbyName("secondaAvaria").message);
             }
         }
 
-         else if (currentFailure == 2 && ((levelTimeCounter + valid_levelTimeCounter) >= 60) && !isLevelCompleted)
-         {
-            if (pc.getModifierbyID("terzafailure") == null)
+        else if (currentFailure == 2 && ((levelTimeCounter) >= third_breakdown_time) && !isLevelCompleted)
+        {
+            if (pc.getModifierbyCID("003") == null)
             {
                 currentFailure = 3;
                 thirdBreakdownImage.enabled = true;

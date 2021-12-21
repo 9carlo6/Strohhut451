@@ -83,9 +83,26 @@ public class SessionController : MonoBehaviour
 
         data.Add("chapter", session.chapter);
         data.Add("time", (int) scene.time);
-        data.Add("attempts", scene.restart_numbers);
-        data.Add("points", scene.score);
-        data.Add("coins", scene.coins);
+        //data.Add("attempts", scene.restart_numbers);
+        //data.Add("points", scene.score);
+        if(scene.coins > 0)
+        {
+            data.Add("coins", scene.coins);
+        }
+        else
+        {
+            data.Add("coins", 1);
+        }
+
+        int attempts = 0;
+        int points = 0;
+        foreach (Scene s in sessions.sessions_list.LastOrDefault().scenes)
+        {
+            attempts += s.restart_numbers;
+            points += s.score;
+        }
+        data.Add("attempts", attempts);
+        data.Add("points", points);
 
         return data;
     }
@@ -264,6 +281,14 @@ public class SessionController : MonoBehaviour
         }
         //se la scena non è presente nella lista restituisce -1
         return -1;
+    }
+
+    //Funzione che restituisce il numero di tentativi dell'ultima sessione
+    public int GetCurrentRestartNumber()
+    {
+        if (sessions.sessions_list.LastOrDefault().scenes != null)
+            return sessions.sessions_list.LastOrDefault().scenes.LastOrDefault().restart_numbers;
+        return 0;
     }
 
 

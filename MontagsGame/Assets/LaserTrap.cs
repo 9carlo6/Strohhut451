@@ -1,16 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using HumanFeatures;
 
 public class LaserTrap : MonoBehaviour
 {
 
     public LineRenderer lineRenderer;
-    float durataAnimazione = 2.0f;
+    float durataAnimazione = 1.0f;
     float valoreMinimo = -0.01f;
-    float valoreMassimo = 2.6f;
+    float valoreMassimo = 3f;
     public BoxCollider boxCollider;
-    EnemyController enemyController;
+    EnemyHuman enemyHuman;
     Renderer renderEnemyBody;
     private GameObject enemyBody;
 
@@ -27,10 +28,7 @@ public class LaserTrap : MonoBehaviour
         //tra i figli
         lineRenderer = GetComponentInChildren<LineRenderer>();
         boxCollider = GetComponent<BoxCollider>();
-        enemyController = GetComponent<EnemyController>();
-
-
-      
+        enemyHuman = GetComponent<EnemyHuman>();
     }
 
     private void OnEnable()//QUANDO VIENE ATTIVATO L'OGGETTO
@@ -42,28 +40,21 @@ public class LaserTrap : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Ho collisooooo");
             Trigger(other);
         }
         else
         {
             if (renderEnemyBody == null)
             {
-                Debug.Log("elseeeeeeeeeeee");
                 enemyBody = other.transform.Find("EnemyPirateSkin").gameObject;
                 renderEnemyBody = enemyBody.GetComponent<Renderer>();
-                Debug.Log("setto lo shader");
                 renderEnemyBody.material.shader = trapShader;//facendo questo è stata commentata una linea di codice nell'enemycontroller relativa al chase
             }
             else
             {
                 return;
             }
-           
-            
-            
-        }
-       
+        }    
     }
 
     private void OnTriggerExit(Collider other)
@@ -77,10 +68,11 @@ public class LaserTrap : MonoBehaviour
 
     void Trigger(Collider other)
     {
-        PlayerHealthManager healthManager = other.GetComponent<PlayerHealthManager>();
-        healthManager.currentHealth = 0;
+        
+        other.GetComponent<PlayerController>().features[HumanFeature.FeatureType.FT_HEALTH].currentValue = 0.0f;
+
     }
- 
+
     //creiamo una corutine per far muovere il laser
     //la coroutine consente di suddividere un'attività in più frame
     IEnumerator AnimateLaser()

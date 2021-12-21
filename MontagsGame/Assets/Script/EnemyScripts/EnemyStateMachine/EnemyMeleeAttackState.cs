@@ -11,7 +11,7 @@ public class EnemyMeleeAttackState : EnemyBaseState
     GameObject playerGameObject;
 
     EnemyHealthManager enemyHealthManager;
-    EnemyController enemyController;
+    EnemyHuman enemyHumanController;
 
     //per l'animazione
     public Animator enemyAnimator;
@@ -24,21 +24,21 @@ public class EnemyMeleeAttackState : EnemyBaseState
     {
         Debug.Log("Stato Nemico = Attacca");
 
-        enemyGameObject = enemy.GetComponent<EnemyController>().gameObject;
+        enemyGameObject = enemy.GetComponent<EnemyHuman>().gameObject;
         playerGameObject = GameObject.FindGameObjectWithTag("Player");
         enemyHealthManager = enemy.GetComponent<EnemyHealthManager>();
-        enemyController = enemy.GetComponent<EnemyController>();
+        enemyHumanController = enemy.GetComponent<EnemyHuman>();
         enemyAnimator = enemy.GetComponent<Animator>();
 
-        enemyController.PlaySoundPunch();
+        enemyHumanController.PlaySoundPunch();
 
         //Il timer viene settato a un valore iniziale (che dovrebbe coincidire con la lunghezza dell'animazione "AttaccoDirettoNemico")
         //Bisogna trovare un modo per ricavare la lunghezza di una specifica animazione (ora sappiamo ricavare solo quella dell'animazione corrente)
         timeRemainingToAttack = 0;
 
-        if (enemyController.enemyWeapon != null)
+        if (enemyHumanController.enemyWeapon != null)
         {
-            enemyController.enemyWeapon.SetActive(false);
+            enemyHumanController.enemyWeapon.SetActive(false);
         }
 
         EnemyAttack();
@@ -49,9 +49,9 @@ public class EnemyMeleeAttackState : EnemyBaseState
 
         if(playerGameObject.transform.GetComponent<PlayerHealthManager>().currentHealth <= 0)
         {
-            if (enemyController.enemyWeapon != null)
+            if (enemyHumanController.enemyWeapon != null)
             {
-                enemyController.enemyWeapon.SetActive(true);
+                enemyHumanController.enemyWeapon.SetActive(true);
             }
             enemy.SwitchState(enemy.AliveState);
 
@@ -68,9 +68,9 @@ public class EnemyMeleeAttackState : EnemyBaseState
             }
             else
             {
-                if (enemyController.enemyWeapon != null)
+                if (enemyHumanController.enemyWeapon != null)
                 {
-                    enemyController.enemyWeapon.SetActive(true);
+                    enemyHumanController.enemyWeapon.SetActive(true);
                 }
                 enemy.SwitchState(enemy.ChasePlayerState);
             }
@@ -78,18 +78,18 @@ public class EnemyMeleeAttackState : EnemyBaseState
             //Gestione passaggio allo stato Stunned del nemico
             if (enemyAnimator.GetBool("isStunned"))
             {
-                if (enemyController.enemyWeapon != null)
+                if (enemyHumanController.enemyWeapon != null)
                 {
-                    enemyController.enemyWeapon.SetActive(true);
+                    enemyHumanController.enemyWeapon.SetActive(true);
                 }
                 enemy.SwitchState(enemy.StunnedState);
             }
 
             if (enemyHealthManager.currentHealth <= 0)
             {
-                if (enemyController.enemyWeapon != null)
+                if (enemyHumanController.enemyWeapon != null)
                 {
-                    enemyController.enemyWeapon.SetActive(true);
+                    enemyHumanController.enemyWeapon.SetActive(true);
                 }
                 enemy.SwitchState(enemy.DeathState);
             }
@@ -112,12 +112,12 @@ public class EnemyMeleeAttackState : EnemyBaseState
         {
             if (string.Equals(GetCurrentClipName(), "AttaccoDirettoNemico") && enemyAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.10f)
             {
-                Collider[] hitPlayer = Physics.OverlapSphere(enemyController.attackPoint.position, (float) ((enemyController.features)[EnemyFeature.FeatureType.FT_MELEE_RANGE]).currentValue, enemyController.targetMask);
+                Collider[] hitPlayer = Physics.OverlapSphere(enemyHumanController.attackPoint.position, (float) ((enemyHumanController.features)[EnemyFeature.FeatureType.FT_MELEE_RANGE]).currentValue, enemyHumanController.targetMask);
 
                 if (hitPlayer != null)
                 {
                     Debug.Log("Sto colpendo il player con melee");
-                    playerGameObject.transform.GetComponent<PlayerHealthManager>().HurtPlayer((float) ((enemyController.features)[EnemyFeature.FeatureType.FT_MELEE_DAMAGE]).currentValue);
+                    playerGameObject.transform.GetComponent<PlayerHealthManager>().HurtPlayer((float) ((enemyHumanController.features)[EnemyFeature.FeatureType.FT_MELEE_DAMAGE]).currentValue);
 
                     //Una volta inflitto il danno il timer aggiornato alla metà lunghezza dell'animazione corrente, ovvero "AttaccoDirettoNemico"
                     timeRemainingToAttack = enemyAnimator.GetCurrentAnimatorStateInfo(0).length/2;
@@ -132,7 +132,7 @@ public class EnemyMeleeAttackState : EnemyBaseState
     {
         if (!enemyAnimator.GetBool("Attack")) return;
 
-        Gizmos.DrawWireSphere(enemyController.attackPoint.position, (float)((enemyController.features)[EnemyFeature.FeatureType.FT_MELEE_RANGE]).currentValue);
+        Gizmos.DrawWireSphere(enemyHumanController.attackPoint.position, (float)((enemyHumanController.features)[EnemyFeature.FeatureType.FT_MELEE_RANGE]).currentValue);
     }
 
     //Funzione necessaria per risalire al nome dell'animazione corrente

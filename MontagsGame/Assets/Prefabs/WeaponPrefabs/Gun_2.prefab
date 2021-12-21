@@ -19355,8 +19355,8 @@ GameObject:
   - component: {fileID: 3872748748441290871}
   - component: {fileID: 3872748748442421943}
   - component: {fileID: 3872748748770140068}
-  - component: {fileID: 3872748748770140071}
   - component: {fileID: 3872748748770140070}
+  - component: {fileID: 1244319187648958102}
   m_Layer: 3
   m_Name: Gun_2
   m_TagString: EnemyWeapon
@@ -19442,7 +19442,8 @@ AudioSource:
   m_GameObject: {fileID: 3872748748440163447}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: aac01e4b6a6e1e249b0a5920cf565e8a,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 947719fd38845824ba3638af9d8e4e54, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -19529,33 +19530,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &3872748748770140071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3872748748440163447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d8c9768a8a93f147a126de5f41e1f05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  components: []
-  ID: 
-  category: 
-  enemies: []
-  isFiring: 0
-  accumulatedTime: 0
-  muzzleFlash:
-  - {fileID: 7082237603193101517, guid: 07fa1df8c070d7040b098ab2855d17c2, type: 3}
-  - {fileID: 0}
-  hitEffect: {fileID: 0}
-  tracerEffect: {fileID: 5660626702979467278, guid: e8cd7fd7de7b7ec49b11ac3964cbdcad,
-    type: 3}
-  raycastOrigin: {fileID: 3872748747805619888}
-  audioManager: {fileID: 0}
-  audioSource: {fileID: 0}
 --- !u!114 &3872748748770140070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19568,6 +19542,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48948dfe9d76b07488dacd46a7955fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1244319187648958102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3872748748440163447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5077080bac29d7a458e78b8cd043e9c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  components: []
+  ID: 
+  category: 
+  enemies: []
+  isFiring: 0
+  accumulatedTime: 0
+  muzzleFlash:
+  - {fileID: 7082237603193101517, guid: 07fa1df8c070d7040b098ab2855d17c2, type: 3}
+  - {fileID: 3872748747496765659}
+  hitEffect: {fileID: 3872748748398609333}
+  tracerEffect: {fileID: 5660626702979467278, guid: e8cd7fd7de7b7ec49b11ac3964cbdcad,
+    type: 3}
+  raycastOrigin: {fileID: 3872748747805619888}
+  audioManager: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &3872748748872731304
 GameObject:
   m_ObjectHideFlags: 0

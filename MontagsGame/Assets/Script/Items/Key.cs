@@ -13,6 +13,7 @@ public class Key : MonoBehaviour
     //Funzione che si attiva quando l'oggetto viene toccato
     private void OnTriggerEnter(Collider other)
     {
+        FindObjectOfType<AudioManager>().Play("completed");
         Destroy(gameObject);
     }
 }

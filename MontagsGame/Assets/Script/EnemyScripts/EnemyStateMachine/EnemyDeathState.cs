@@ -4,22 +4,24 @@ using UnityEngine;
 
 public class EnemyDeathState : EnemyBaseState
 {
-    EnemyController enemyController;
+    EnemyHuman enemyHumanController;
 
     public override void EnterState(EnemyStateManager enemy)
     {
-        enemyController = enemy.GetComponent<EnemyController>();
+        enemyHumanController = enemy.GetComponent<EnemyHuman>();
 
-        enemyController.PlaySoundDeath();
+        enemyHumanController.PlaySoundDeath();
 
         Debug.Log("Stato = Nemico morto");
         //setting a 0 dell'intensità del material per la dissolvenza
-        enemy.GetComponent<EnemyController>().material[0].SetFloat("Vector_Intensity_Dissolve2", 0.4f);
+        enemy.GetComponent<EnemyHuman>().material[0].SetFloat("Vector_Intensity_Dissolve2", 0.4f);
 
-        if (enemy.GetComponent<EnemyController>().enemyWeapon != null)
+        if (enemy.GetComponent<EnemyHuman>().enemyWeapon != null)
         {
-            enemy.GetComponent<EnemyController>().enemyWeapon.SetActive(false);
+            enemy.GetComponent<EnemyHuman>().enemyWeapon.SetActive(false);
         }
+
+        enemyHumanController.GetComponent<CapsuleCollider>().enabled = false;
     }
 
     public override void UpdateState(EnemyStateManager enemy)

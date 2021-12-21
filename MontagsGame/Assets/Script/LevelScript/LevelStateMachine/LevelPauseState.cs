@@ -7,6 +7,7 @@ public class LevelPauseState : LevelBaseState
 {
     private GameObject pauseMenuCanvas;
     private GameObject OptionsMenuCanvas;
+    private GameObject ControlsMenuCanvas;
     public bool gameIsPaused = false;
 
     public override void EnterState(LevelStateManager level)
@@ -16,6 +17,7 @@ public class LevelPauseState : LevelBaseState
         pauseMenuCanvas = level.gameObject.transform.Find("PauseMenuCanvas").gameObject;
         pauseMenuCanvas.SetActive(true);
         OptionsMenuCanvas = level.gameObject.transform.Find("OptionsMenuCanvas").gameObject;
+        ControlsMenuCanvas = level.gameObject.transform.Find("ControlsMenuCanvas").gameObject;
 
         gameIsPaused = true;
         level.player.GetComponent<PlayerController>().isStopped = true;
@@ -35,6 +37,7 @@ public class LevelPauseState : LevelBaseState
 
             pauseMenuCanvas.SetActive(false);
             OptionsMenuCanvas.SetActive(false);
+            ControlsMenuCanvas.SetActive(false);
 
             level.player.GetComponent<PlayerController>().isStopped = false;
 
@@ -57,6 +60,7 @@ public class LevelPauseState : LevelBaseState
 
             pauseMenuCanvas.SetActive(false);
             OptionsMenuCanvas.SetActive(false);
+            ControlsMenuCanvas.SetActive(false);
 
             level.player.GetComponent<PlayerController>().isStopped = false;
 
@@ -64,13 +68,7 @@ public class LevelPauseState : LevelBaseState
 
             resume();
 
-            if(level.isLevelCompleted){
-              level.SwitchState(level.CompletedState);
-            }
-            else
-            {
-              level.SwitchState(level.InitialState);
-            }
+            level.SwitchState(level.InitialState);
         }
 
         if(level.player != null)

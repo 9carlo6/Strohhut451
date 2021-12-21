@@ -10,36 +10,46 @@ public class PirateHelm : MonoBehaviour
     //Per la gestione del numero di skull correnti
     [HideInInspector] public GameObject levelController;
     [HideInInspector] public LevelController lc;
+    [HideInInspector] public PlayerController playerController;
 
-    void Awake()
+
+    void Start()
     {
-        levelController = GameObject.FindWithTag("LevelController");
+        levelController = GameObject.FindGameObjectWithTag("LevelController");
         lc = levelController.GetComponent<LevelController>();
+
     }
 
     public void EnableEffect()
     {
-        if (lc.sc.helms_amount > 0)
-        {
-            enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 
-            foreach (GameObject enemy in enemies)
+        if (playerController != null)
+        {
+            if (lc.sc.helms_amount > 0 && !lc.GetComponent<LevelStateManager>().getCurrentState().Equals("LevelPauseState") && !playerController.Death())
             {
-                enemymanager = enemy.GetComponent<EnemyStateManager>();
+                enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                FindObjectOfType<AudioManager>().Play("DropItem");
 
-                if (enemymanager.getCurrentState() != "EnemyStunnedState")
+
+                foreach (GameObject enemy in enemies)
                 {
-                    enemymanager.SwitchState(enemymanager.StunnedState);
-                }
-            }
+                    enemymanager = enemy.GetComponent<EnemyStateManager>();
 
-            //Per gestire l'aggiornamento dell'ammontare dei timoni posseduti
-            lc.sc.helms_amount--;
-            lc.UpdateGameItemsAmountText();
-        }
-        else
-        {
-            Debug.Log("Il giocatore non possiede Timoni");
+                    if (enemymanager.getCurrentState() != "EnemyStunnedState")
+                    {
+                        enemymanager.SwitchState(enemymanager.StunnedState);
+                    }
+                }
+
+                //Per gestire l'aggiornamento dell'ammontare dei timoni posseduti
+                lc.sc.helms_amount--;
+                lc.UpdateGameItemsAmountText();
+            }
+            else
+            {
+                Debug.Log("Il giocatore non possiede Timoni");
+            }
         }
     }
 }

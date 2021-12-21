@@ -11,7 +11,6 @@ public class PlayerController : Character
 {
 	//Per controllare il valore della velocità
 	public float moveSpeed;
-	private Vector3 moveVelocity;
 	private Rigidbody myRigidbody;
 
 	//Per accedere a delle informazioni della camera
@@ -75,9 +74,14 @@ public class PlayerController : Character
 
 	public GameObject levelController;
 
+	AudioListener audioListener;
 
-	void Awake()
+	public override void Awake()
 	{
+		audioListener = GetComponent<AudioListener>();
+
+		audioListener.enabled = true;
+
 		levelController = GameObject.FindGameObjectWithTag("LevelController");
 		traps = GameObject.FindGameObjectsWithTag("Trap");
 		playerInput = new PlayerInput();
@@ -160,9 +164,12 @@ public class PlayerController : Character
 		}
 
 		handleAnimation();
+		handleSound();
 		base.Update();
 	}
-	//Per il setting dei valori delle feature dipendenti da altre (ad ogni frame)	public override void setFeatures()
+
+	//Per il setting dei valori delle feature dipendenti da altre (ad ogni frame)
+	public override void setFeatures()
     {
 		//Per settare il valore della velocità in funzione del peso
 		this.features[HumanFeature.FeatureType.FT_SPEED].currentValue = (((float)(this.features[HumanFeature.FeatureType.FT_SPEED].baseValue)) * ((float)(this.features[HumanFeature.FeatureType.FT_WEIGHT].baseValue))) / (float)(this.features[HumanFeature.FeatureType.FT_WEIGHT].currentValue);
@@ -225,31 +232,6 @@ public class PlayerController : Character
 	//Per gestire le animazioni
 	void handleAnimation()
 	{
-
-		//Prende i parametri dall'animator
-		bool isWalking = animator.GetBool("isWalking");
-		//isRunning ancora non utilizzato
-		bool isRunning = animator.GetBool("isRunning");
-
-		if (levelController.GetComponent<LevelStateManager>().getCurrentState().Equals("LevelPauseState"))
-		{
-			FindObjectOfType<AudioManager>().Stop("Running");
-        }
-        else
-        {
-			//Gestione Camminata
-			if (isMovementPressed && !isWalking)
-			{
-				FindObjectOfType<AudioManager>().Play("Running");
-				animator.SetBool("isWalking", true);
-			}
-			else if (!isMovementPressed && isWalking)
-			{
-				FindObjectOfType<AudioManager>().Stop("Running");
-				animator.SetBool("isWalking", false);
-			}
-		}
-
 		//velocityX e velocityZ servono per gestire l'animazione della camminata.
 		//il loro valore cambia in base al movimento del personaggio.
 		//Vector3.Dot serve per fare il prodotto tra due vettori, moltiplicandolo poi per il coseno dell'angolo fra i due.
@@ -263,7 +245,34 @@ public class PlayerController : Character
 		animator.SetFloat("VelocityX", velocityX, 0.1f, Time.deltaTime);
 	}
 
+	void handleSound()
+    {
+		//Prende i parametri dall'animator
+		bool isWalking = animator.GetBool("isWalking");
+		
+
+		if (levelController.GetComponent<LevelStateManager>().getCurrentState().Equals("LevelPauseState"))
+		{
+			FindObjectOfType<AudioManager>().Stop("Running");
+		}
+		else
+		{
+			//Gestione Camminata
+			if (isMovementPressed && !isWalking)
+			{
+				FindObjectOfType<AudioManager>().Play("Running");
+				animator.SetBool("isWalking", true);
+			}
+			else if (!isMovementPressed && isWalking)
+			{
+				FindObjectOfType<AudioManager>().Stop("Running");
+				animator.SetBool("isWalking", false);
+			}
+		}
+	}
+
 	//Rilevamento della collisione con il pavimento che permette di andare al livello successivo
+	//Rilevamento della collisione con il muro
 	void OnCollisionEnter(Collision hit)
 	{
 		if (hit.collider.tag == "NextLevelPlane")
@@ -275,6 +284,11 @@ public class PlayerController : Character
 			nextLevelPlaneCollision = false;
 		}
 	}
+
+	public bool Death()
+    {
+		return (float)features[HumanFeature.FeatureType.FT_HEALTH].currentValue <= 0.0f;
+    }
 
 	void OnEnable()
 	{
@@ -296,7 +310,7 @@ public class PlayerController : Character
 		Gizmos.DrawWireSphere(attackPoint.position, attackRange);
 	}
 
-	public Modifier getModifierbyID(String id)
+	/*public Modifier getModifierbyID(String id)
     {
 		foreach ( Modifier m in modifiers)
         {
@@ -307,4 +321,5 @@ public class PlayerController : Character
         }
 		return null;
     }
+	*/
 }

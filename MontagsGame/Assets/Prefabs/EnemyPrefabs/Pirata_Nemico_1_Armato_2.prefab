@@ -19398,6 +19398,103 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!82 &8486973781648809145
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4880783696617553852}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: aac01e4b6a6e1e249b0a5920cf565e8a,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: c70aa4633a434634a935a41b652c137c, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.2
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!82 &128952837789821477
 AudioSource:
   m_ObjectHideFlags: 0
@@ -24510,11 +24607,39 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gun_2
       objectReference: {fileID: 0}
+    - target: {fileID: 3872748748770140068, guid: 4ee83e96796feb64aa000129ea95aec4,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: aac01e4b6a6e1e249b0a5920cf565e8a,
+        type: 2}
+    - target: {fileID: 3872748748770140071, guid: 4ee83e96796feb64aa000129ea95aec4,
+        type: 3}
+      propertyPath: hitEffect
+      value: 
+      objectReference: {fileID: 3750673048205646633}
+    - target: {fileID: 3872748748770140071, guid: 4ee83e96796feb64aa000129ea95aec4,
+        type: 3}
+      propertyPath: muzzleFlash.Array.data[1]
+      value: 
+      objectReference: {fileID: 3750673046959857735}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ee83e96796feb64aa000129ea95aec4, type: 3}
 --- !u!1 &3750673048178773227 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3872748748440163447, guid: 4ee83e96796feb64aa000129ea95aec4,
+    type: 3}
+  m_PrefabInstance: {fileID: 122676035229489308}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3750673046959857735 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3872748747496765659, guid: 4ee83e96796feb64aa000129ea95aec4,
+    type: 3}
+  m_PrefabInstance: {fileID: 122676035229489308}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3750673048205646633 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3872748748398609333, guid: 4ee83e96796feb64aa000129ea95aec4,
     type: 3}
   m_PrefabInstance: {fileID: 122676035229489308}
   m_PrefabAsset: {fileID: 0}
@@ -25167,6 +25292,11 @@ PrefabInstance:
       objectReference: {fileID: 1223564141}
     - target: {fileID: 8485737672817458781, guid: 119758d907d972347988e6973ae3ec02,
         type: 3}
+      propertyPath: alertClip
+      value: 
+      objectReference: {fileID: 8486973781648809145}
+    - target: {fileID: 8485737672817458781, guid: 119758d907d972347988e6973ae3ec02,
+        type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -25219,7 +25349,7 @@ PrefabInstance:
     - target: {fileID: 8719545735246686144, guid: 119758d907d972347988e6973ae3ec02,
         type: 3}
       propertyPath: m_Name
-      value: Pirata_Nemico_1_Armato_1 (1)
+      value: Pirata_Nemico_1_Armato_2
       objectReference: {fileID: 0}
     - target: {fileID: 8719545735246686144, guid: 119758d907d972347988e6973ae3ec02,
         type: 3}
@@ -25258,12 +25388,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 119758d907d972347988e6973ae3ec02, type: 3}
---- !u!4 &5257906681900721414 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8235355326758976890, guid: 119758d907d972347988e6973ae3ec02,
-    type: 3}
-  m_PrefabInstance: {fileID: 4232832023293499516}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8745876534096733385 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4891351279362391221, guid: 119758d907d972347988e6973ae3ec02,
@@ -25294,6 +25418,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b342d8ce5c2fd48b8fa3147d48d1d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4880783696617553852 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8719545735246686144, guid: 119758d907d972347988e6973ae3ec02,
+    type: 3}
+  m_PrefabInstance: {fileID: 4232832023293499516}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5257906681900721414 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8235355326758976890, guid: 119758d907d972347988e6973ae3ec02,
+    type: 3}
+  m_PrefabInstance: {fileID: 4232832023293499516}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8745876534935036863
 PrefabInstance:
   m_ObjectHideFlags: 0
